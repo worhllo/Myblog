@@ -7,15 +7,11 @@
     <link href='https://note.142588.xyz/primer.css' rel='stylesheet' />
     <script src='https://note.142588.xyz/plugins/RonanTheme.js'></script>
     <link rel="icon" href="https://note.142588.xyz/avatar.webp">
-<meta name="description" content="# x86_64和AMD64和ARM64？傻傻分不清楚？
-
-## 什么是指令集
+<meta name="description" content="## 什么是指令集
 
 你要知道指令集(instruction set)是一个什么东西。">
 <meta property="og:title" content="x86_64和AMD64和ARM64？傻傻分不清楚？">
-<meta property="og:description" content="# x86_64和AMD64和ARM64？傻傻分不清楚？
-
-## 什么是指令集
+<meta property="og:description" content="## 什么是指令集
 
 你要知道指令集(instruction set)是一个什么东西。">
 <meta property="og:type" content="article">
@@ -72,13 +68,12 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h1>x86_64和AMD64和ARM64？傻傻分不清楚？</h1>
-<h2>什么是指令集</h2>
+<div class="markdown-body" id="postBody"><h2>什么是指令集</h2>
 <p>你要知道指令集(instruction set)是一个什么东西。指令集就像是计算机硬件和软件之间的桥梁,它定义了处理器可以执行的基本操作。操作系统和应用软件必须根据指令集来编写,才能在特定的处理器上运行。这意味着我们熟悉的操作系统和软件都与CPU的架构密不可分,而CPU的架构本质上就是由其对应的指令集决定的。</p>
 <h2>如何看自己电脑架构</h2>
 <p>最常见的，当我们在Github上下载软件时，就会发现琳琅满目的版本：例如：</p>
 <div align="center">
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/164665889e764c961c0da71e9a341623afa049dbc3b1f062063e13c52520e7d2/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035353139373133385f6769746875622e706e67"><img src="https://camo.githubusercontent.com/164665889e764c961c0da71e9a341623afa049dbc3b1f062063e13c52520e7d2/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035353139373133385f6769746875622e706e67" width="500" height="200" alt="xxx" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1754055197138_github.png" style="max-width: 100%; height: auto; max-height: 200px;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e1321812677950e4bdb78614ab5db4a4a1266eda83ebc38c7aa94ee0ed4b2b7f/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035353139373133385f6769746875622e706e67"><img src="https://camo.githubusercontent.com/e1321812677950e4bdb78614ab5db4a4a1266eda83ebc38c7aa94ee0ed4b2b7f/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035353139373133385f6769746875622e706e67" width="500" height="200" alt="xxx" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1754055197138_github.png" style="max-width: 100%; height: auto; max-height: 200px;"></a>
 </div>
 这时候，很多人就会摸不着头脑，不知道具体应该下载哪一个。其实，看完上文，聪明的你肯定想到了要根据自己电脑的架构进行选择。具体来说：
 <h3>对于 Windows:</h3>
@@ -86,7 +81,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 输入 “msinfo32” 并按下回车键,打开 “系统信息” 窗口。<br>
 在 “系统摘要” 部分,查看 “系统类型” 一项,它会显示你的架构信息。</p>
 <div align="center">
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2308d5ac4a7a88db9b1a38ebf33d6cfb3f41f7e355e1b7463ac584cdc638c787/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035343632333537375f53756e6e795f32303235303830315f3231323331312e706e67"><img src="https://camo.githubusercontent.com/2308d5ac4a7a88db9b1a38ebf33d6cfb3f41f7e355e1b7463ac584cdc638c787/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035343632333537375f53756e6e795f32303235303830315f3231323331312e706e67" width="500" height="250" alt="xxx" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1754054623577_Sunny_20250801_212311.png" style="max-width: 100%; height: auto; max-height: 250px;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/45f130923a962d68857c2174ccf3be6cc5dc1d500d16e05ecaa21e9cc76c78d2/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035343632333537375f53756e6e795f32303235303830315f3231323331312e706e67"><img src="https://camo.githubusercontent.com/45f130923a962d68857c2174ccf3be6cc5dc1d500d16e05ecaa21e9cc76c78d2/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035343632333537375f53756e6e795f32303235303830315f3231323331312e706e67" width="500" height="250" alt="xxx" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1754054623577_Sunny_20250801_212311.png" style="max-width: 100%; height: auto; max-height: 250px;"></a>
 </div>
 <blockquote>
 <p>这里可以看到我们的系统是x64的，</p>
@@ -96,7 +91,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 在打开的窗口中,你可以看到你的 Mac 型号和处理器信息。<br>
 如果你使用的是较新的 Mac 设备(如采用 Apple M1 芯片的设备),处理器信息将显示为 “Apple M1” 或类似的名称。</p>
 <div align="center">
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0466cce1d5b680a7e2c06ea19ae17ec15e09411ec03e53bdc3ad30167e8dcebc/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035343832333836315f6d61632e706e67"><img src="https://camo.githubusercontent.com/0466cce1d5b680a7e2c06ea19ae17ec15e09411ec03e53bdc3ad30167e8dcebc/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035343832333836315f6d61632e706e67" width="200" height="300" alt="xxx" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1754054823861_mac.png" style="max-width: 100%; height: auto; max-height: 300px;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/20cf14de6bdda3756535c22e645e20b0f227a8b1ce4b67c380dd2773256193b6/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035343832333836315f6d61632e706e67"><img src="https://camo.githubusercontent.com/20cf14de6bdda3756535c22e645e20b0f227a8b1ce4b67c380dd2773256193b6/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035343832333836315f6d61632e706e67" width="200" height="300" alt="xxx" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1754054823861_mac.png" style="max-width: 100%; height: auto; max-height: 300px;"></a>
 </div>
 <h3>对于 Linux:</h3>
 <p>打开终端(Terminal)。</p>
@@ -106,7 +101,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>lscpu 该命令将显示有关你的 CPU 的详细信息,包括架构、型号和速度等。</li>
 </ol>
 <div align="center">
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d23b4315822bca4297d3bcbfcb8d8780f3f799845d41ce55a759b64670174168/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035353030353631345f6c696e75782e706e67"><img src="https://camo.githubusercontent.com/d23b4315822bca4297d3bcbfcb8d8780f3f799845d41ce55a759b64670174168/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035353030353631345f6c696e75782e706e67" width="500" height="200" alt="xxx" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1754055005614_linux.png" style="max-width: 100%; height: auto; max-height: 200px;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ce49893dc1a1eb7a1c398498b8e0c083476d331d3760bfd656b1255048bb4959/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035353030353631345f6c696e75782e706e67"><img src="https://camo.githubusercontent.com/ce49893dc1a1eb7a1c398498b8e0c083476d331d3760bfd656b1255048bb4959/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735343035353030353631345f6c696e75782e706e67" width="500" height="200" alt="xxx" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1754055005614_linux.png" style="max-width: 100%; height: auto; max-height: 200px;"></a>
 </div>
 <blockquote>
 <p>这里可以看到我们的服务器是x86_64的，这和前面windows的x64实际上是一个东西。</p>
