@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       #header {
-        height: 300px;
+        height: 100px;
       }
 
       #header h1 {
