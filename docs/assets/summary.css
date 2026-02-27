@@ -1,17 +1,17 @@
 .summary {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 20px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
 }
 
 .summary h2 {
-  color: #333;
+    color: #333;
 }
 
 .summary p {
-  color: #555;
+    color: #666;
+    line-height: 1.6;
 }
