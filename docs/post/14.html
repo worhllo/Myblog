@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="## hugo 博客美化参考教程
+[Hugo ｜ 自定义 hugo-theme-Stack - Falasool](https://falasool.github.io/posts/custom-hugo-theme-stack/)
+
+[在Hugo中添加自定义面包屑导航 (eimoon.com)](https://blog.eimoon.com/p/hugo-breadcrumb-navigation/)
+
+[博客魔改美化（通用） | Naive Koala (xalaok.top)](https://www.xalaok.top/post/blog-modify/#已写完了哪本书)
+
+[Hugo Stack主题装修笔记 (thirdshire.com)](https://thirdshire.com/hugo-stack-renovation/)
+
+[hugo stack 主题美化 2 (yelleis.top)](https://yelleis.top/p/hugo-theme-stack-beautification-2/)
+
+[Hugo Stack主题更新小记 (xrg.fj.cn)](https://xrg.fj.cn/p/hugo-stack主题更新小记/)
+
+[【Hugo】APlayer + PJAX 引入音乐播放放器并实现音乐不中断功能 (letere-gzj.github.io)](https://letere-gzj.github.io/hugo-stack/p/hugo/custom-player/#5-引入进度条)
+
+[hugo stack 主题美化 (yelleis.top)](https://yelleis.top/p/hugo-theme-stack-beautification/#)
+
+[使用 Hugo 对博客的重建与 Stack 主题优化记录 (oxidane-uni.github.io)](https://oxidane-uni.github.io/p/使用-hugo-对博客的重建与-stack-主题优化记录/#为何再次重建博客)
+
+[Hugo+Stack主题集成Vercount统计网站访问信息 (farb.top)](https://blog.farb.top/p/hugo_stack_vercount/)
+
+[Hugo 的 LoveIt 主题修改及增强（三） - Stilig's blog](https://stilig.me/posts/enhancing-loveit-three/)
+
+[Hugo：总字数统计 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo总字数统计/)
+
+[Hugo：博客运行时间 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo博客运行时间/)
+
+[Hugo：一键回到顶部 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo一键回到顶部/)
+
+[Hugo：自定义字体 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo自定义字体/)
+
+[Hugo：访问量统计 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo访问量统计/)
+
+[Hugo：内容折叠与代码块大小限制 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo内容折叠与代码块大小限制/)
+
+[Hugo：图片点击放大 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo图片点击放大/)
+
+[Hugo：添加热力图 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo添加热力图/)
+
+[Hugo：添加随机浏览文章功能 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo添加随机浏览文章功能/)
+
+[Hugo：阅读进度条 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo阅读进度条/)
+
+[Hugo：归档改为年月日统计 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo归档改为年月统计/)
+
+[Hugo Stack 主题美化 (limuran.top)](https://limuran.top/p/hugo-stack-主题美化/)
+
+[Hugo 添加 Giscus 评论 - Stilig's blog](https://stilig.me/posts/hugo-adds-giscus/)
+
+[给 Hugo 加一点好玩的功能 (irithys.com)](https://irithys.com/hugo-mod-1/)
+
+[hugo添加utterances🔮评论系统 | Chance](https://chance.fyi/post/hugo/add-utterances/)
+
+[多语言 hugo 添加总字数统计和建站时间 - 滑翔闪'S BLOG (huaxiangshan.com)](https://blog.huaxiangshan.com/zh-cn/posts/runtime/)
+
+[hugo博客音乐组件 (lihan3238.github.io)](https://lihan3238.github.io/p/hugomusic/)
+
+[hugo模板自定义修改 (lihan3238.github.io)](https://lihan3238.github.io/p/hugo_template_customize/)
+
+[hugo模板自定义修改 (lihan3238.github.io)](https://lihan3238.github.io/p/hugo_template_customize/#新建模板)
+
+[如何在hugo生成的网页中插入嵌入式音乐 | Ian's Site (neverstop.eu.org)](https://www.neverstop.eu.org/post/2022/08/insert-embed-music-in-hugo/)
+
+[Hugo博客 | stack主题修改第一站 (munlelee.github.io)](https://munlelee.github.io/post/hugo博客-stack主题修改第一站/)
+
+[hugo stack 主题美化 (yelleis.top)](https://yelleis.top/p/hugo-theme-stack-beautification/#)
+
+[Hugo ｜ 自定义 hugo-theme-Stack - Falasool](https://falasool.github.io/posts/custom-hugo-theme-stack/)
+
+[【搬运】APLAYER FOR HUGO](https://note.chukogals.top/archives/18/)
+
+[ShortCuts 短代码](https://falasool.github.io/posts/hugo-shortcuts/)
+
+[建站技术 | 使用 Hugo + Stack 简单搭建一个博客](https://blog.reincarnatey.net/2023/build-hugo-blog-with-stack-mod/#%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8)
+[Hugo Stack 主题配置与使用](https://bore.vip/archives/3bf3725e/)
+
+## Gmeek 博客教程汇总
+
+[meekdai.github.io](https://github.com/Meekdai/meekdai.github.io)
+
+[cao-gift.github.io](https://github.com/cao-gift/cao-gift.github.io)
+
+[tiengming.github.io](https://github.com/tiengming/tiengming.github.io)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+。">
+<meta property="og:title" content="hugo＆ Gmeek博客美化参考教程">
+<meta property="og:description" content="## hugo 博客美化参考教程
+[Hugo ｜ 自定义 hugo-theme-Stack - Falasool](https://falasool.github.io/posts/custom-hugo-theme-stack/)
+
+[在Hugo中添加自定义面包屑导航 (eimoon.com)](https://blog.eimoon.com/p/hugo-breadcrumb-navigation/)
+
+[博客魔改美化（通用） | Naive Koala (xalaok.top)](https://www.xalaok.top/post/blog-modify/#已写完了哪本书)
+
+[Hugo Stack主题装修笔记 (thirdshire.com)](https://thirdshire.com/hugo-stack-renovation/)
+
+[hugo stack 主题美化 2 (yelleis.top)](https://yelleis.top/p/hugo-theme-stack-beautification-2/)
+
+[Hugo Stack主题更新小记 (xrg.fj.cn)](https://xrg.fj.cn/p/hugo-stack主题更新小记/)
+
+[【Hugo】APlayer + PJAX 引入音乐播放放器并实现音乐不中断功能 (letere-gzj.github.io)](https://letere-gzj.github.io/hugo-stack/p/hugo/custom-player/#5-引入进度条)
+
+[hugo stack 主题美化 (yelleis.top)](https://yelleis.top/p/hugo-theme-stack-beautification/#)
+
+[使用 Hugo 对博客的重建与 Stack 主题优化记录 (oxidane-uni.github.io)](https://oxidane-uni.github.io/p/使用-hugo-对博客的重建与-stack-主题优化记录/#为何再次重建博客)
+
+[Hugo+Stack主题集成Vercount统计网站访问信息 (farb.top)](https://blog.farb.top/p/hugo_stack_vercount/)
+
+[Hugo 的 LoveIt 主题修改及增强（三） - Stilig's blog](https://stilig.me/posts/enhancing-loveit-three/)
+
+[Hugo：总字数统计 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo总字数统计/)
+
+[Hugo：博客运行时间 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo博客运行时间/)
+
+[Hugo：一键回到顶部 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo一键回到顶部/)
+
+[Hugo：自定义字体 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo自定义字体/)
+
+[Hugo：访问量统计 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo访问量统计/)
+
+[Hugo：内容折叠与代码块大小限制 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo内容折叠与代码块大小限制/)
+
+[Hugo：图片点击放大 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo图片点击放大/)
+
+[Hugo：添加热力图 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo添加热力图/)
+
+[Hugo：添加随机浏览文章功能 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo添加随机浏览文章功能/)
+
+[Hugo：阅读进度条 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo阅读进度条/)
+
+[Hugo：归档改为年月日统计 | Blog (huuuuuuo.github.io)](https://huuuuuuo.github.io/post/hugo归档改为年月统计/)
+
+[Hugo Stack 主题美化 (limuran.top)](https://limuran.top/p/hugo-stack-主题美化/)
+
+[Hugo 添加 Giscus 评论 - Stilig's blog](https://stilig.me/posts/hugo-adds-giscus/)
+
+[给 Hugo 加一点好玩的功能 (irithys.com)](https://irithys.com/hugo-mod-1/)
+
+[hugo添加utterances🔮评论系统 | Chance](https://chance.fyi/post/hugo/add-utterances/)
+
+[多语言 hugo 添加总字数统计和建站时间 - 滑翔闪'S BLOG (huaxiangshan.com)](https://blog.huaxiangshan.com/zh-cn/posts/runtime/)
+
+[hugo博客音乐组件 (lihan3238.github.io)](https://lihan3238.github.io/p/hugomusic/)
+
+[hugo模板自定义修改 (lihan3238.github.io)](https://lihan3238.github.io/p/hugo_template_customize/)
+
+[hugo模板自定义修改 (lihan3238.github.io)](https://lihan3238.github.io/p/hugo_template_customize/#新建模板)
+
+[如何在hugo生成的网页中插入嵌入式音乐 | Ian's Site (neverstop.eu.org)](https://www.neverstop.eu.org/post/2022/08/insert-embed-music-in-hugo/)
+
+[Hugo博客 | stack主题修改第一站 (munlelee.github.io)](https://munlelee.github.io/post/hugo博客-stack主题修改第一站/)
+
+[hugo stack 主题美化 (yelleis.top)](https://yelleis.top/p/hugo-theme-stack-beautification/#)
+
+[Hugo ｜ 自定义 hugo-theme-Stack - Falasool](https://falasool.github.io/posts/custom-hugo-theme-stack/)
+
+[【搬运】APLAYER FOR HUGO](https://note.chukogals.top/archives/18/)
+
+[ShortCuts 短代码](https://falasool.github.io/posts/hugo-shortcuts/)
+
+[建站技术 | 使用 Hugo + Stack 简单搭建一个博客](https://blog.reincarnatey.net/2023/build-hugo-blog-with-stack-mod/#%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8)
+[Hugo Stack 主题配置与使用](https://bore.vip/archives/3bf3725e/)
+
+## Gmeek 博客教程汇总
+
+[meekdai.github.io](https://github.com/Meekdai/meekdai.github.io)
+
+[cao-gift.github.io](https://github.com/cao-gift/cao-gift.github.io)
+
+[tiengming.github.io](https://github.com/tiengming/tiengming.github.io)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/14.html">
+<meta property="og:image" content="../avatar.png">
+<title>hugo＆ Gmeek博客美化参考教程</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">hugo＆ Gmeek博客美化参考教程</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h2>hugo 博客美化参考教程</h2>
+<p><a href="https://falasool.github.io/posts/custom-hugo-theme-stack/" rel="nofollow">Hugo ｜ 自定义 hugo-theme-Stack - Falasool</a></p>
+<p><a href="https://blog.eimoon.com/p/hugo-breadcrumb-navigation/" rel="nofollow">在Hugo中添加自定义面包屑导航 (eimoon.com)</a></p>
+<p><a href="https://www.xalaok.top/post/blog-modify/#%E5%B7%B2%E5%86%99%E5%AE%8C%E4%BA%86%E5%93%AA%E6%9C%AC%E4%B9%A6" rel="nofollow">博客魔改美化（通用） | Naive Koala (xalaok.top)</a></p>
+<p><a href="https://thirdshire.com/hugo-stack-renovation/" rel="nofollow">Hugo Stack主题装修笔记 (thirdshire.com)</a></p>
+<p><a href="https://yelleis.top/p/hugo-theme-stack-beautification-2/" rel="nofollow">hugo stack 主题美化 2 (yelleis.top)</a></p>
+<p><a href="https://xrg.fj.cn/p/hugo-stack%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E5%B0%8F%E8%AE%B0/" rel="nofollow">Hugo Stack主题更新小记 (xrg.fj.cn)</a></p>
+<p><a href="https://letere-gzj.github.io/hugo-stack/p/hugo/custom-player/#5-%E5%BC%95%E5%85%A5%E8%BF%9B%E5%BA%A6%E6%9D%A1" rel="nofollow">【Hugo】APlayer + PJAX 引入音乐播放放器并实现音乐不中断功能 (letere-gzj.github.io)</a></p>
+<p><a href="https://yelleis.top/p/hugo-theme-stack-beautification/#" rel="nofollow">hugo stack 主题美化 (yelleis.top)</a></p>
+<p><a href="https://oxidane-uni.github.io/p/%E4%BD%BF%E7%94%A8-hugo-%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E5%BB%BA%E4%B8%8E-stack-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/#%E4%B8%BA%E4%BD%95%E5%86%8D%E6%AC%A1%E9%87%8D%E5%BB%BA%E5%8D%9A%E5%AE%A2" rel="nofollow">使用 Hugo 对博客的重建与 Stack 主题优化记录 (oxidane-uni.github.io)</a></p>
+<p><a href="https://blog.farb.top/p/hugo_stack_vercount/" rel="nofollow">Hugo+Stack主题集成Vercount统计网站访问信息 (farb.top)</a></p>
+<p><a href="https://stilig.me/posts/enhancing-loveit-three/" rel="nofollow">Hugo 的 LoveIt 主题修改及增强（三） - Stilig's blog</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E6%80%BB%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/" rel="nofollow">Hugo：总字数统计 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E5%8D%9A%E5%AE%A2%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/" rel="nofollow">Hugo：博客运行时间 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E4%B8%80%E9%94%AE%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8/" rel="nofollow">Hugo：一键回到顶部 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/" rel="nofollow">Hugo：自定义字体 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1/" rel="nofollow">Hugo：访问量统计 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E5%86%85%E5%AE%B9%E6%8A%98%E5%8F%A0%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6/" rel="nofollow">Hugo：内容折叠与代码块大小限制 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7/" rel="nofollow">Hugo：图片点击放大 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E6%B7%BB%E5%8A%A0%E7%83%AD%E5%8A%9B%E5%9B%BE/" rel="nofollow">Hugo：添加热力图 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E6%B7%BB%E5%8A%A0%E9%9A%8F%E6%9C%BA%E6%B5%8F%E8%A7%88%E6%96%87%E7%AB%A0%E5%8A%9F%E8%83%BD/" rel="nofollow">Hugo：添加随机浏览文章功能 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E9%98%85%E8%AF%BB%E8%BF%9B%E5%BA%A6%E6%9D%A1/" rel="nofollow">Hugo：阅读进度条 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://huuuuuuo.github.io/post/hugo%E5%BD%92%E6%A1%A3%E6%94%B9%E4%B8%BA%E5%B9%B4%E6%9C%88%E7%BB%9F%E8%AE%A1/" rel="nofollow">Hugo：归档改为年月日统计 | Blog (huuuuuuo.github.io)</a></p>
+<p><a href="https://limuran.top/p/hugo-stack-%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/" rel="nofollow">Hugo Stack 主题美化 (limuran.top)</a></p>
+<p><a href="https://stilig.me/posts/hugo-adds-giscus/" rel="nofollow">Hugo 添加 Giscus 评论 - Stilig's blog</a></p>
+<p><a href="https://irithys.com/hugo-mod-1/" rel="nofollow">给 Hugo 加一点好玩的功能 (irithys.com)</a></p>
+<p><a href="https://chance.fyi/post/hugo/add-utterances/" rel="nofollow">hugo添加utterances🔮评论系统 | Chance</a></p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" rel="nofollow">多语言 hugo 添加总字数统计和建站时间 - 滑翔闪'S BLOG (huaxiangshan.com)</a></p>
+<p><a href="https://lihan3238.github.io/p/hugomusic/" rel="nofollow">hugo博客音乐组件 (lihan3238.github.io)</a></p>
+<p><a href="https://lihan3238.github.io/p/hugo_template_customize/" rel="nofollow">hugo模板自定义修改 (lihan3238.github.io)</a></p>
+<p><a href="https://lihan3238.github.io/p/hugo_template_customize/#%E6%96%B0%E5%BB%BA%E6%A8%A1%E6%9D%BF" rel="nofollow">hugo模板自定义修改 (lihan3238.github.io)</a></p>
+<p><a href="https://www.neverstop.eu.org/post/2022/08/insert-embed-music-in-hugo/" rel="nofollow">如何在hugo生成的网页中插入嵌入式音乐 | Ian's Site (neverstop.eu.org)</a></p>
+<p><a href="https://munlelee.github.io/post/hugo%E5%8D%9A%E5%AE%A2-stack%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%80%E7%AB%99/" rel="nofollow">Hugo博客 | stack主题修改第一站 (munlelee.github.io)</a></p>
+<p><a href="https://yelleis.top/p/hugo-theme-stack-beautification/#" rel="nofollow">hugo stack 主题美化 (yelleis.top)</a></p>
+<p><a href="https://falasool.github.io/posts/custom-hugo-theme-stack/" rel="nofollow">Hugo ｜ 自定义 hugo-theme-Stack - Falasool</a></p>
+<p><a href="https://note.chukogals.top/archives/18/" rel="nofollow">【搬运】APLAYER FOR HUGO</a></p>
+<p><a href="https://falasool.github.io/posts/hugo-shortcuts/" rel="nofollow">ShortCuts 短代码</a></p>
+<p><a href="https://blog.reincarnatey.net/2023/build-hugo-blog-with-stack-mod/#%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8" rel="nofollow">建站技术 | 使用 Hugo + Stack 简单搭建一个博客</a><br>
+<a href="https://bore.vip/archives/3bf3725e/" rel="nofollow">Hugo Stack 主题配置与使用</a></p>
+<h2>Gmeek 博客教程汇总</h2>
+<p><a href="https://github.com/Meekdai/meekdai.github.io">meekdai.github.io</a></p>
+<p><a href="https://github.com/cao-gift/cao-gift.github.io">cao-gift.github.io</a></p>
+<p><a href="https://github.com/tiengming/tiengming.github.io">tiengming.github.io</a></p></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');}});</script>
+
+</html>
