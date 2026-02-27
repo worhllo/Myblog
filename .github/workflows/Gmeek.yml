@@ -5,12 +5,12 @@ on:
   issues:
     types: [opened, edited]
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 16 * * *"
     
 jobs:
   build:
     name: Generate blog
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: ${{ github.event.repository.owner.id == github.event.sender.id || github.event_name == 'schedule' }}
     permissions: write-all
     steps:
@@ -36,8 +36,10 @@ jobs:
       - name: Clone source code
         run: |
           GMEEK_VERSION=$(jq -r ".GMEEK_VERSION" config.json)
-          git clone https://github.com/hst1189/Gmeek.git /opt/Gmeek;
+          git clone https://github.com/Meekdai/Gmeek.git /opt/Gmeek;
           cd /opt/Gmeek/
+          lastTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          if [ $GMEEK_VERSION == 'last' ]; then git checkout $lastTag; else git checkout $GMEEK_VERSION; fi;
 
       - name: Install dependencies
         run: |
@@ -69,7 +71,7 @@ jobs:
           
   deploy:
     name: Deploy blog
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     permissions:
       contents: write
