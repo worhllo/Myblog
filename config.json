@@ -21,7 +21,7 @@
     "nightTheme":"dark-blue",
 
     "urlMode":"issue",
-    "showPostSource":0,
+    "showPostSource":1,
     "needComment":1,
     "spoiler":0,
 
