@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         html {    
-            background: url('https://blog.freeblock.cn/background.webp') no-repeat center center fixed;
+            background: url('https://blog.freeblock.cn/background.jpg') no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -109,7 +109,7 @@ footer.insertBefore(sponsorInfo, footer.firstChild);
         style.innerHTML = `
 
         html {    
-            background: url('https://blog.freeblock.cn/background.webp') no-repeat center center fixed;
+            background: url('https://blog.freeblock.cn/background.jpg') no-repeat center center fixed;
             background-size: cover;
         }
 
@@ -189,7 +189,7 @@ footer.insertBefore(sponsorInfo, footer.firstChild);
         style.innerHTML = `
         
         html {    
-            background: url('https://blog.freeblock.cn/background.webp') no-repeat center center fixed;
+            background: url('https://blog.freeblock.cn/background.jpg') no-repeat center center fixed;
             background-size: cover;
         }
 
