@@ -63,6 +63,22 @@ def generate_summary(text):
         print(f"发生异常：{str(e)}")
         return ""
 
+# 在现有 Summary.py 基础上添加以下功能
+
+def add_summary_to_blogbase(article_id, summary_text):
+    """将AI总结添加到 blogBase.json"""
+    with open('blogBase.json', 'r', encoding='utf-8') as f:
+        blog_data = json.load(f)
+    
+    # 查找对应文章并添加总结
+    for article in blog_data['articles']:
+        if article['id'] == article_id:
+            article['summary'] = summary_text
+            break
+    
+    with open('blogBase.json', 'w', encoding='utf-8') as f:
+        json.dump(blog_data, f, ensure_ascii=False, indent=2)
+
 # 使用示例
 article_content = """
 GitHub Actions的配置需要包含工作流触发器、任务定义和运行环境。
