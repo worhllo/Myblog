@@ -1,0 +1,3563 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>小饅頭の部落格</title><link>https://grapehut.dpdns.org</link><description>Stay hungry. Stay foolish. --Steve Jobs</description><copyright>小饅頭の部落格</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://grapehut.dpdns.org</link></image><lastBuildDate>Wed, 25 Feb 2026 14:50:09 +0000</lastBuildDate><managingEditor>小饅頭の部落格</managingEditor><ttl>60</ttl><webMaster>小饅頭の部落格</webMaster><item><title>Vol.43 eSIM</title><link>https://grapehut.dpdns.org/post/44.html</link><description># Eskimo App
+
+支持平台：
+
+iOS 版： 【[点击下载](https://apps.apple.com/us/app/eskimo-esim-travel-internet/id1590276868)】
+
+Android 安卓版： 【[点击下载](https://play.google.com/store/apps/details?id=travel.eskimo.esim&amp;hl)】
+
+注意：要确保你的手机是支持eSIM功能的才可以哦！
+
+
+# GigSky 
+免费套餐：【[点击获取](https://gigsky.sng.link/Euypu/kbao?referralCode=OZAB101&amp;_p=%257B%2522referralCode%2522%253A%2522OZAB101%2522%257D&amp;_forward_params=2)】
+流量100MB,有效期是7天，可以当作备用
+
+
+# iRoamly
+[iRoamly](https://iroamly.pxf.io/2RrYBg) 是用途广泛的旅行eSIM品牌，可在超过140个国家/地区提供快速稳定的互联网连接。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/44.html</guid><pubDate>Wed, 25 Feb 2026 14:49:34 +0000</pubDate></item><item><title>Vol.42 MongoDB入門</title><link>https://grapehut.dpdns.org/post/42.html</link><description>cheatsheet
+https://learn.mongodb.com/learn/course/mongodb-shell-cheatsheet/main/mongodb-shell-cheatsheet
+
+# 🚀MongoDB CRUD 操作
+
+Commands |  凡例
+---|---
+mongosh | mongosh 'mongodb+srv://cluster0.t34zxhe.mongodb.net/' --apiVersion 1 --username dnUser
+db.version() | 显示DB版本
+show dbs  |  显示全部DB
+show collections |  显示当前DB里全部collections 
+show tables |  显示当前DB里全部collections
+use \&lt;dbname\&gt;  | 切换DB 
+db | 显示现在所在DB
+db.getCollectionInfos() |  显示当前DB里全部collections的信息
+
+
+
+### ⚜️有用的命令
+Commands |  凡例
+---|---
+db.users.count() | 查看件数
+db.users.distinct('tags') |  查看tags 所有值
+db.users.stats() |  查看表状态
+db.users.findOne() | 取一条查看表结构
+schema(db.test) | 查看表结构 https://github.com/mongodb-labs/mongosh-snippets
+
+&lt;img width='707' height='515' alt='Image' src='https://github.com/user-attachments/assets/02ab760c-ed74-44bd-8a14-6b6b82e30c13' /&gt;
+
+
+### ⚜️Read
+Commands |  備考
+---|---
+db.users.find()                                                            | 获取全部数据
+db.users.find({ “name.nickname”: “123 Main St” })    | ★查询子文档 { “name.nickname”}的数据
+db.users.find({ name: “Kyle” })                                    | 查询 {name: “Kyle” }的数据
+db.users.find({ name: /Kyle/ })                                    | 查询包含“Kyle” 的数据
+db.users.find({ name: /^Kyle/ })                                 | 查询 “Kyle”开头 的数据
+db.users.find({ name: { $eq: “Kyle” } })                        | 相当于=
+db.users.find({ name: { $ne: “Kyle” } })                        | 相当于!=
+db.users.find({ name: { $not: { $eq: “Kyle” } } })          | 相当于not 
+db.users.find({ age: { $gt: 12 } })                                 | 相当于&gt;
+db.users.find({ age: { $gte: 15 } })                               | 相当于&gt;=
+db.users.find({ age: { $lt: 12 } })                                  | 相当于&lt;
+db.users.find({ age: { $lte: 15 } })                                | 相当于&lt;=
+db.users.find({ name: { $in: [“Kyle”, “Mike”] } })          | 相当于in
+db.users.find({ name: { $nin: [“Kyle”, “Mike”] } })        | 相当于not in
+db.users.find({ $and: [{ age: 12 }, { name: “Kyle” }] })  | 相当于and
+db.users.find({ $or: [{ age: 12 }, { name: “Kyle” }] })     | 相当于or
+db.users.find({ name: { $exists: true } })                      | 相当于exist     
+db.users.find({ name: { $exists: false} })                      | 相当于name is null  
+db.users.find({ $expr: { $gt: [“$balance”, “$debt”] } }) | 相当于expr
+db.users.find({ name: “Kyle” }, { name: 1, age: 1 })      |  获取{ name: “Kyle” }的数据，但只返回  name, age 2个项目
+db.users.find({}, { age: 0 })                                          | 获取全部数据，但只返回  除 age 以外的项目
+db.users.find().limit(1)                                                | 获取第1条
+db.users.find().skip(4)                                                | 跳过4条后，获取剩下全部数据
+db.users.find().skip(2).limit(3)                                    | 跳过2条后，获取3条
+db.users.find().sort({ name: 1, age: -1 })                    | 排序，相当于 order by name acs , age desc
+
+
+### ⚜️Create
+Commands | 備考
+---|---
+db.users.insert( { } )  | 插入单条 / 多条
+db.users.insertOne({ name: “Kyle” }) | 插入单条
+db.users.insertMany([{ age: 26 }, { age: 20 }]) |  insertMany( [ {},{},{} ] )  插入多条，数组形式　
+
+
+### ⚜️Update
+Commands |  備考
+---|---
+db.users.update( {更新条件}, {$set:{ 更新内容}})                 | 不指定mutil 的话，只更新一条
+db.users.updateOne({age:16},{$set:{age:20}})                     | 年龄20的数据更新为 21，如果不写set，整条数据将被替换 
+db.users.updateOne({ age: 12 }, { $set: { name: 'Hi' }})       | ★不存在的字段就添加  { name: 'Hi' } 
+db.users.updateOne({ age: 12 }, { $unset: { age: '' }})         | 年龄12的数据， 清空年龄 
+db.users.updateMany({}, { $set: { school: 'new collage' }}) | $set，添加新项目{ school: 'new collage' }
+db.users.updateMany({}, { $unset: { school: '' }})　            | $unset，删除项目{ school: 'new collage' }
+db.users.updateMany({}, { $push: { friends: 'John' }})         | $push，添加一个数组{ friends: “John” }
+db.users.updateMany({}, { $pull: { friends: 'Mike' }})          | $pull，从数组中删除一个项目{ friends: “Mike” }
+db.users.updateMany({}, {$rename:{'school':'home'}})        | $rename、項目名変更 'school' → 'home'
+db.users.updateMany({ age: 12 }, { $inc: { age: 2 }})            | $inc、年龄12的数据， 年龄+ 2
+
+
+### ⚜️Delete
+Commands |  備考
+---|---
+db.users.deleteOne({ age: 20 })                   | 删除第一条 年龄20的数据
+db.users.deleteMany({ age: 12 })                 | 删除所有 年龄12的数据
+
+
+### ⚜️Index
+Commands |  備考
+---|---
+db.users.getIndexes()                                     | 获得所有index
+db.users.createIndex({name:1})                      | 添加index         
+db.users.createIndex({name:1,home:-1})        | 添加 联合index         1:升序  -1:降序
+db.users.dropIndex('index_name')                | 删除index
+db.users.dropIndexes()                                   | 删除所有index
+db.users.totalIndexSize()                                | total size of all indexes of collection
+
+
+### ⚜️Aggregate
+`Gmeek-html&lt;img src='https://images2018.cnblogs.com/blog/476931/201806/476931-20180619212647050-925796422.png'&gt;`
+
+聚合操作 | 作用 | SQL | 凡例
+-- | --| -- | --
+**$match**  | 过滤 | where/having         | { $match:{amount:{$gte:50}} }
+**$project** | 投影 | select                     |  { $project:{_id: 0 ,cust_id:1,status:1} }  //1:显示字段  0: 不显示字段
+**$group** 🔹| 分组 | group by            |  { $group:{_id:'$cust_id',total:{$sum:'$amount'}} }
+**$lookup** | 左外连接 | left outer join |  
+$sort            | 排序         | order by         |  { $sort:{_id:1} }    // 1:升序  -1:降序
+$limit           | 结果限制  |  limit              |  { $limit:1 }   //  仅显示1件
+$skip           | 结果限制  | skip                |   { $skip:3 }   //  跳过3件
+$count        | 件数         | count             |  { $count:'count'}  //  显示件数
+$unwind     | 展开数组  | ー                   |  将数组拆分为单独的文档
+
+
+事例：
+```javascript
+
+db.collection.aggregate()　不会报错，且会和find一样返回所有文档
+
+db.orders.aggregate([
+   {$group: {_id: null,count: { $sum: 1 }}}  //全表件数
+])
+
+db.orders.aggregate([
+   {$group: { _id: null, total: { $sum: '$price' }}}　//全表价格总和
+])
+
+db.users.aggregate([
+  {$match:{access:'valid'}},
+  {$group:{_id:'$cust_id',total:{$sum:'$amount'}}},
+  {$project:{_id:1,status:1,amount:1} },
+  {$sort:{total:-1}}            // 1:升序  -1:降序
+])
+
+
+// 展开数组
+db.students.aggregate({$unwind:'$score'})
+{
+name:'张三',
+score:[
+    {subject:'语文',score:84},
+    {subject:'数学',score:94},
+    {subject:'英语',score:74}]
+}
+
+{name:'张三',score: {subject:'语文',score:84}}
+{name:'张三',score: {subject:'数学',score:94}}
+{name:'张三',score: {subject:'英语',score:74}}
+
+
+// 展开2层数组
+db.students.aggregate(
+    {$unwind:'$hobbies'},
+    {$unwind:'$hobbies.type'}
+)
+
+
+// $bucket用法
+db.products.aggregate({
+    $bucket:{
+        groupBy:'$price',
+        boundaries:[10,20,30,40],
+        default:'other',
+        output:{'count':{$sum:1}}
+    }
+})
+
+// $facet用法
+db.products.aggregate({
+    $facet:{
+        price:{
+            $bucket:{ }
+        },
+        year:{
+            $bucket:{ }
+        }
+    }
+})
+
+```
+
+&gt; [!TIP]
+&gt; 🔹group阶段的内存限制为100M。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/42.html</guid><pubDate>Sun, 30 Nov 2025 06:06:40 +0000</pubDate></item><item><title>Vol.41 GraphQL（apollo-server-express-mongodb）</title><link>https://grapehut.dpdns.org/post/41.html</link><description>https://shinagawa-web.com/blogs/typescript-apollo-server-express-mongodb-guide
+
+`Gmeek-html&lt;img src='https://i.gyazo.com/d9294ea53005e7d0500899a46e6b2b50.png'&gt;`
+
+
+
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/41.html</guid><pubDate>Sat, 15 Nov 2025 14:51:55 +0000</pubDate></item><item><title>Vol.40 CORS対策 </title><link>https://grapehut.dpdns.org/post/40.html</link><description># CORS 設定
+https://expressjs.com/en/resources/middleware/cors.html
+
+## 🚀JSONP（不推荐）
+
+#### client →domainA:8080　→ domainB:3000
+```javascript
+&lt;!DOCTYPE html&gt;  domainA:8080
+&lt;html&gt;
+&lt;script&gt;
+function getData(data) {
+    console.log(data.name);
+    console.log(data.age);
+}
+&lt;/script&gt;
+
+&lt;/script src='http://domainB:3000/api/data' /&gt;     // 服务器端的返回值会直接执行
+&lt;/script src='http://domainB:3000/api/data?callback=getData' /&gt;  // 
+&lt;/html&gt;
+
+例：&lt;script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'&gt;&lt;/script&gt;
+
+&lt;script&gt;タグのsrc属性でドメイン指定で、異なるドメインのjsファイルを読み込むことができます。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/40.html</guid><pubDate>Sat, 15 Nov 2025 09:51:55 +0000</pubDate></item><item><title>Vol.39 Socket.io入門</title><link>https://grapehut.dpdns.org/post/39.html</link><description>官方文档：https://socket.io/zh-CN/docs/v4/server-socket-instance/
+`Gmeek-html&lt;img src='https://socket.io/zh-CN/images/bidirectional-communication-socket.png'&gt;`
+
+① 客户端　通过 socket.emit('key1', input.value)  发送表单内容
+↓　　
+② 服务器端　通过 socket.on('key1',  (引数) =&gt; {  DB 或者其他处理 } )　接收内容
+↓
+③ 服务器端　通过 io.emit('key2', 内容);　发送内容
+↓
+④ 客户端　通过 socket.on('key2', (引数) =&gt; { 画面处理 } )  接收内容
+
+
+
+## socket.id
+```
+// server-side
+io.on('connection', (socket) =&gt; {
+  console.log(socket.id); // ojIckSD2jqNzOqIrAGzL   //此标识符与客户端的值同步。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/39.html</guid><pubDate>Sat, 15 Nov 2025 07:13:12 +0000</pubDate></item><item><title>Vol.38 ExpressJS入門</title><link>https://grapehut.dpdns.org/post/38.html</link><description>## 🚀 Framework Comparison
+Framework | Type | Performance | Learning Curve | TypeScript Support | Best Used For
+-- | -- | -- | -- | -- | --
+Express.js | Minimalist | Good | Low | Partial | General-purpose web apps, APIs
+Nest.js | Full-featured | Good | High | Excellent | Enterprise apps, complex APIs
+Fastify | Minimalist | Excellent | Medium | Good | High-performance APIs
+Koa.js | Minimalist | Very Good | Medium | Good | Modern, async-focused apps
+Hapi.js | Full-featured | Good | Medium | Good | Enterprise apps, configuration-driven
+Adonis.js | Full-stack MVC | Good | High | Excellent | Full-stack applications
+Restify | API-focused | Good | Low | Partial | RESTful APIs
+Meteor | Full-stack | Moderate | Medium | Good | Reactive full-stack apps
+Loopback | API-focused | Good | Medium | Excellent | API generation with minimal coding
+Strapi | Headless CMS | Good | Low (UI) | Good | Content management, API creation
+
+
+## 🚀 API文档
+https://expressjs.com/5x/api.html
+https://expressjs.com/5x/api.html#req.app
+https://expressjs.com/5x/api.html#res.app
+https://expressjs.com/guide/writing-middleware.html
+
+
+## 🚀 基本写法
+https://www.w3schools.com/nodejs/nodejs_express.asp
+
+事前准备：install
+```javascript
+npm init -y　// NodeJSプロジェクト初期化
+
+npm install express
+npm install typescript
+npm install @types/node
+npm install @types/express
+或者：npm install express typescript @types/node @types/express
+
+npx tsc --init　// TypeScript初期化
+tsconfig.json     // 入力出力設定
+    'compilerOptions': {
+    // File Layout
+    'rootDir': './src',
+    'outDir': './dist',
+
+自動编译：
+①npx tsc --watch    // 编译 .ts → .js
+②VS Code のメニューから [ターミナル] -&gt; [タスクの実行...] を選択、「tsc: watch - tsconfig.json」を入力
+
+```
+
+基本例
+
+&gt;[!TIP]
+&gt; import express from 'express';
+&gt; const app=express();
+&gt;app.get('/', (req,res)=&gt;{  } )
+&gt;app.post('/', (req,res)=&gt;{  } )
+&gt;app.put('/:id', (req,res)=&gt;{  } )
+&gt;app.delete('/:id', (req,res)=&gt;{  } )
+&gt;app.use( (req,res,next)=&gt;{ next(); })  // 中间件
+&gt;app.listen( 3000,  ()=&gt;{ console.log('Server is running on 3000') }) 
+
+```javascript
+
+import path from 'path';
+const __dirname = import.meta.dirname;
+
+import express from 'express';
+const app = express();
+
+// Middleware for parsing JSON
+app.use(express.json());
+
+const mid = function (req, res, next) {    // ミドルウェア定義
+    console.log({ msg: `${new Date()} ${req.method} ${req.originalUrl}` })
+    next();
+}
+app.use(mid);  // ミドルウェア
+
+app.use(express.static(__dirname, 'public', { maxAge: 86400000 }));  // 静的ファイルのキャッシュ機能(1日間キャッシュ有効)
+
+app.get('/image', (req, res) =&gt; {    // 静的ファイル
+  res.sendFile(path.join(__dirname, 'public','images','test.png'));
+});
+
+
+let users = [
+  { id: 1, name: 'John Doe', email: 'john@example.com' },
+  { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
+];
+
+// GET - Retrieve all users
+app.get('/api/users', (req, res) =&gt; { 
+  if (!users) return res.status(404).json({ message: 'User not found' });
+  res.json(users);
+});
+
+// GET - Retrieve a specific user
+app.get('/api/users/:id', (req, res) =&gt; {  // 使用${req.query}获取值    /api/users/123
+  const user = users.find(u =&gt; u.id === parseInt(req.params.id));
+  if (!user) return res.status(404).json({ message: 'User not found' });
+  res.json(user);
+});
+
+app.get('/api/users/:id/book/:bookID', (req, res) =&gt; {    // 使用${req.params}获取值    /api/users/123/book/aaaa
+    res.status(200).send({ ID: `${req.params.id}`, bookID: `${req.params.bookID}` });
+})
+
+app.get('/api/search', (req, res) =&gt; {  // 使用${req.query}获取值    /api/search?id=express&amp;mail=2
+    res.status(200).send({ id:`${req.query.id}`, mail: `${req.query.mail}` });
+})
+
+// POST - Create a new user
+app.post('/api/users', (req, res) =&gt; {  // POST 和 GET 可以匹配同一路由
+  const newUser = {
+    id: users.length + 1,
+    name: req.body.name,
+    email: req.body.email
+  };
+  users.push(newUser);
+  res.status(201).json(newUser);
+});
+
+// PUT - Update a user completely
+app.put('/api/users/:id', (req, res) =&gt; {
+  const user = users.find(u =&gt; u.id === parseInt(req.params.id));
+  if (!user) return res.status(404).json({ message: 'User not found' });
+  user.name = req.body.name;
+  user.email = req.body.email;
+  res.json(user);
+});
+
+// DELETE - Remove a user
+app.delete('/api/users/:id', (req, res) =&gt; {
+  const userIndex = users.findIndex(u =&gt; u.id === parseInt(req.params.id));
+  if (userIndex === -1) return res.status(404).json({ message: 'User not found' });
+  const deletedUser = users.splice(userIndex, 1);
+  res.json(deletedUser[0]);
+});
+
+
+app.use((req, res) =&gt; {
+    console.log(path.join(__dirname, '../public', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, '../public', '404.html'));
+})
+
+app.listen(3000, (err) =&gt; {
+    if (err) console.log(err);
+    console.log('Server is run on 3000');
+})
+```
+
+```javascript
+curl -X GET http://localhost:3000/api/users
+&gt; {'msg':'GET OK'}
+
+curl -X POST http://localhost:3000/api/users
+&gt; {'msg':'POST OK'}   
+
+curl -X PUT http://localhost:3000/api/users/123
+&gt; {'id':'123','msg':'PUT OK'}
+
+curl -X DELETE http://localhost:3000/api/users/123
+&gt; {'id':'123','msg':'DELETE OK'}
+
+curl -X POST http://localhost:3000/api/users  -H 'Content-Type: application/json' -d '{'name':'太郎', 'age':'30'}'  
+```
+
+
+## 🚀ExpressRequest
+```javascript
+app.get('/', (req, res) =&gt; {
+
+    req.host              // 主机名 'example.com:3000'
+    req.hostname           //主机名 'example.com'
+    req.ip                 // 客户端ip ::ffff:127.0.0.1
+    req.method             // HTTP method of the request: GET, POST, PUT, and so on
+    req.originalUrl    // /根路径后面的部分
+    req.params        // 路由参数（例：/:id）
+    req.query              // url 参数  ?后面的部分（例：?a=dadda&amp;b=dasda）
+    req.body               // 配合app.use(express.json())、获取·json
+
+    req.headers            //获取全部头
+    req.get('content-type')  // 获取content-type
+    req.get('user-agent')   // 获取user-agent
+})
+```
+
+
+## 🚀ExpressResponse
+```javascript
+app.get('/', (req, res) =&gt; {
+
+    res.status(403).end()
+    res.status(400).send('Bad Request')
+    res.status(404).sendFile('/absolute/path/to/404.png')
+    res.status(200).json( {id:1,name:'Peter'}) 
+    
+    - res.status()   // 返回状态
+    - res.send()    // 返回多种形式数据
+    - res.end()    // 结束响应
+    - res.json()    // 返回json
+    
+    res.set('Content-Type', 'text/plain')
+    res.set('Content-Type', 'text/html')
+    res.set('Content-Type', 'application/json')
+    res.set('Content-Type', 'application/pdf')
+    res.set('xxx-code', '520')  // 可以任意设置
+    res.append(key , value)
+    
+    res.render( )    // 渲染模板
+    res.redirect( 'https://google.com')  // 重定向请求
+    res.download(path.join(_dirname, 'data.json' )) // 弹出文件下载
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))  // 返回文件
+    
+    res.type('application/json') // set Content-Type
+    
+    res.jsonp( )    // 返回 jsonp
+    
+    res.cookie(name [, options])  // cookie
+    res.clearCookie(name [, options])
+
+})
+```
+
+## 🚀cookie
+```javascript
+npm install cookie-parser
+
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const app = express();
+
+app.use(cookieParser());
+
+app.get('/', (req, res) =&gt; {
+    const allCookies = req.cookies;
+    const token = req.cookies.token;
+});
+
+// set cookies
+res.status(201).cookie('token', `${token}`, {
+    expires: new Date(Date.now() + 8 * 3600000)  // cookie will be removed after 8 hours
+})
+.redirect(301, '/admin')
+
+```
+
+
+Property | Type | Description
+-- | -- | --
+domain | String | cookie 的域名。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/38.html</guid><pubDate>Wed, 12 Nov 2025 09:58:06 +0000</pubDate></item><item><title>Vol.37 NodeJS入門</title><link>https://grapehut.dpdns.org/post/37.html</link><description># NodeJS
+Node.js web site： https://nodejs.org/
+Nodesource：https://deb.nodesource.com/
+Node.js is a free, **open-source JavaScript runtime** that runs on Windows, Mac, Linux, and more. 
+Built on **Chrome's V8 JavaScript engine**. it lets you execute JavaScript code **outside of a web browser**, **enabling server-side**. 
+Node.js uses an **Non-blocking I/O**, **event-driven**, **single-threaded** with **event loop** model. 
+
+#### 🎉you can build with Node.js（Node.js的应用场景）
+
+- **Web Servers**: Create fast, scalable network applications
+- **File Operations**: Read, write, and manage files on the server
+- **Database Interaction**: Work with databases like MongoDB, MySQL, and more
+- **APIs**: Build RESTful services and GraphQL APIs
+- **Real-time**: Handle WebSockets for live applications
+- **CLI Tools**: Create command-line applications
+- **IoT**: Hardware control
+
+
+#### 🎉How the Event Loop Works（Node.js的事件循环是如何工作的）
+
+1. Execute the main script (synchronous code)
+2. Process any microtasks (Promises, process.nextTick)
+3. Execute timers (setTimeout, setInterval)
+4. Run I/O callbacks (file system, network operations)
+5. Process setImmediate callbacks
+6. Handle close events (like socket.on('close'))
+```javascript
+console.log('1. Start');
+process.nextTick(() =&gt; console.log('2. Next tick'));
+Promise.resolve().then(() =&gt; console.log('3. Promise'));
+setTimeout(() =&gt; console.log('4. Timeout'), 0);
+setImmediate(() =&gt; console.log('5. Immediate'));
+console.log('6. End');
+
+The output will be：1.Start &gt; 6.End &gt; 2.Next tick &gt; 3.Promise &gt; 4.Timeout &gt; 5.Immediate
+```
+
+## 🚀 安装Node.js
+Ubuntu/Debian:
+```
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+CentOS/RHEL:
+```
+curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
+sudo yum install -y nodejs
+```
+macOS (使用 Homebrew):
+```
+brew install node@18
+```
+Windows: 
+```
+下载安装包：https://nodejs.org/
+node -v  # 应显示 v18.x.x
+npm -v   # 应显示 9.x.x 或更高
+```
+
+## 🚀 运行Node.js 程序
+```javascript
+node app.js
+npm run xxx（.package.json里定义）
+```
+
+## 🚀Debugging Node.js Applications
+1. Start your application with **node --inspect app.js**
+2. Open Chrome and navigate to **chrome://inspect**
+3. Click on 'Open dedicated DevTools for Node'
+4. Set breakpoints and debug your application
+
+```javascript
+# Start with inspector (listens on default port 9229)
+node --inspect app.js
+
+# Break on first line of application
+node --inspect-brk app.js
+
+# Specify a custom port
+node --inspect=9222 app.js
+
+# Enable remote debugging (be careful with this in production)
+node --inspect=0.0.0.0:9229 app.js
+```
+
+## 🚀环境变量
+```
+# Install dotenv package
+npm install dotenv
+
+// Load environment variables from .env file
+require('dotenv').config();
+
+// Get a specific environment variable
+const apiKey = process.env.API_KEY;
+const port = process.env.PORT || 3000;
+const isProduction = process.env.NODE_ENV === 'production';
+
+// List all environment variables
+console.log('Environment variables:', process.env);
+```
+
+
+## 🚀JavaScript Concepts
+- **Variables**: let (mutable), const (immutable), var (legacy)
+- **Functions**: Regular, **arrow functions**, and methods
+- **Objects &amp; Arrays**: Data structures for organizing data
+- **Modules**: require() (CommonJS) and import/export (ES6)
+- **Error Handling**: try/catch blocks
+```javascript
+// Variables (let, const, var)
+let name = 'Node.js';
+const version = 20;
+
+// Array
+const colors = ['red', 'green', 'blue'];
+
+例：
+const obj = [
+    { name: 'apples', quantity: 2 },
+    { name: 'bananas', quantity: 0 },
+    { name: 'cherries', quantity: 5 },
+];
+
+◆改变原本数组
+push(element1, ..., elementN): 配列の末尾に要素を追加
+pop(): 配列の末尾から要素を削除し、その値を返す
+unshift(element1, ..., elementN): 配列の先頭に要素を追加
+shift(): 配列の先頭から要素を削除し、その値を返す
+splice(开始位置,  削除数(０的话不删除),  element1, ..., elementN): 
+
+splice() 例：
+const myMusic = ['piano', 'guitar', 'violin', 'orchestra'];
+myMusic.splice(2, 0, 'drum');  
+myMusic is [piano', 'guitar', 'drum', 'guitar', 'violin', 'orchestra']  // 添加drum
+
+const myMusic = ['piano', 'guitar', 'drum', 'violin', 'orchestra']
+myMusic.splice(3, 1, 'sax');
+myMusic is ['piano', 'guitar', 'drum', 'sax', 'orchestra']   // violin删除 替换成sax
+
+◆不改变原本数组
+find( ): callback条件を満たす配列内の**最初の要素**を返す、見つからない場合は undefined を返す
+filter( ):  callback条件を満たす配列内の**すべての要素**を返す、見つからない場合は 「」 を返す
+reduce(function (previous, current, index, array):  配列要素の隣同士を演算して要素の初めから終わりまで繰り返す
+map( ): 遍历数组，返り値あり
+forEach(): 遍历数组， 返り値なし
+
+slice(开始位置,  截取到位置(不包括该为)): 返り値あり
+join('-')  结合数组成字符串
+splite('-')   拆分字符串成数组
+
+const apples = obj.find(i =&gt; i.name === 'apples');   　//{ name: 'apples', quantity: 2 } 抽出
+const aaa = obj.filter(i =&gt; i.quantity &gt;= 2);  // [ { name: 'apples', quantity: 2 }, { name: 'cherries', quantity: 5 } ]  抽出
+obj.map(i =&gt; i.quantity=== 'apples');   　//改变原有obj 　
+
+
+
+// Object
+const user = {
+  name: 'Alice',
+  age: 25,
+  greet() {
+    console.log(`Hi, I'm ${this.name}`);
+  }
+};
+
+// Arrow Functions
+const addArrow = (a, b) =&gt; a + b;
+const double = num =&gt; num * 2;
+
+// Destructuring  (ES6+)
+const user = { name: 'Alice', age: 30, location: 'New York' };
+const { name, age } = user;
+console.log(name, age);
+
+// Template Literals  (ES6+)
+const name = 'Alice';
+console.log(`Hello, ${name}!`);
+
+// Array spread - combining arrays
+const numbers = [1, 2, 3];
+const moreNumbers = [4, 5, 6];
+const combined = [...numbers, ...moreNumbers];
+console.log(combined);
+```
+
+
+
+
+## 🚀Node.js vs Browser
+
+https://www.w3schools.com/nodejs/nodejs_vs_browser.asp
+
+Feature | Node.js | Browser
+-- | -- | --
+File System Access | Yes | No
+Networking (TCP/UDP) | Yes | No
+DOM Access | No | Yes
+Global Object | Node.js uses global | browsers use window or self
+Modules | CommonJS (require) / ES modules (import); | ES modules (import) / &lt;script&gt; tags 引用
+Environment Variables | Yes (process.env) | No
+Security | Full OS access | Sandboxed
+Package Management | npm/yarn | CDN/Bundler
+
+
+
+
+## 🚀Non-blocking 同步&amp;异步（**Async/Await** vs **Promises** vs **Callbacks**）
+https://www.w3schools.com/nodejs/nodejs_async_await.asp
+
+#### Callback Hell
+```javascript
+getUser(userId, (err, user) =&gt; {
+  if (err) return handleError(err);
+  getOrders(user.id, (err, orders) =&gt; {
+    if (err) return handleError(err);
+    processOrders(orders, (err) =&gt; {
+      if (err) return handleError(err);
+      console.log('All done!');
+    });
+  });
+});
+```
+
+#### Promises
+```javascript
+getUser(userId)
+  .then(result =&gt; console.log(result))
+  .catch(error =&gt; console.error(error))
+  .finally(() =&gt; console.log('Operation completed'));
+```
+
+#### Async/Await (推薦)
+```javascript
+async function readFiles() {
+  try {
+    console.log('1. Starting to read files...');
+    const data1 = await fs.readFile('file1.txt', 'utf8');
+    const data2 = await fs.readFile('file2.txt', 'utf8');
+    console.log('2. Files read successfully!');
+    return { data1, data2 };
+  } catch (error) {
+    console.error('Error reading files:', error);
+  }
+}
+readFiles();
+```
+
+
+
+
+
+# Node.js Modules
+
+## 🚀CommonJS vs ES Modules
+https://www.w3schools.com/nodejs/nodejs_modules_esm.asp
+
+Feature | CommonJS | ES Modules
+-- | -- | --
+File Extension | .js (default) | .mjs (or .js with proper config)
+Import Syntax | require() | import
+Export Syntax | module.exports |  export default / export
+Import Timing | Dynamic (runtime) | Static (parsed before execution)
+Top-level Await | Not supported | Supported
+File URL in Imports | required for local files | import for local files
+浏览器 |  不支持 |  支持
+package.json | ー | 'type': 'module'
+
+
+## 🚀Module Loading and Caching（路径分析：确定模块位置）
+When you require a module, Node.js looks for it in this order:
+
+1. Core Node.js modules (like fs, http)
+2. Node modules in node_modules folders
+3. Local files (using ./ or ../ prefix)
+
+
+1. 优先加载内置模块，即使有同名文件，也会优先使用内置模块。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/37.html</guid><pubDate>Tue, 11 Nov 2025 03:56:53 +0000</pubDate></item><item><title>Vol.36 网络资源</title><link>https://grapehut.dpdns.org/post/36.html</link><description>
+## 常用项目
+- [Github](https://github.com/dashboard-feed)
+- [开发资源索引 Free for Developers](https://free-for.dev/)
+- [V2EX](https://www.v2ex.com/)
+- [Linux.do](https://linux.do/)
+- [万年历](https://wannianli.tianqi.com/)
+- [ZeroSSL 免费证书](https://app.zerossl.com/dashboard) 免费账户有3次90天证书机会, 用完可以换账号或者删号重建
+- [qx规则配置](https://whatshub.top/quantumultx)
+- [Maven 仓库搜索](https://central.sonatype.com/)
+
+## 在线文档
+- [cheatsheets](https://devhints.io/)  开发工具速查表
+- [开发文档](https://devdocs.io/)  编程语言API文档
+- [Awesome-Redteam](https://github.com/Threekiii/Awesome-Redteam/blob/master/README.md)  安全工具集
+- [Java全栈知识体系](https://pdai.tech/)
+- [阿里云SDK凭据管理](https://help.aliyun.com/zh/sdk/developer-reference/v2-manage-access-credentials)
+
+### 微信
+- [微信公众平台](https://mp.weixin.qq.com/)
+- [微信官方文档](https://developers.weixin.qq.com/doc/)
+- [微信开放平台](https://open.weixin.qq.com/)
+- [微信拉取用户信息](https://wohugb.gitbooks.io/wechat/content/authorize/step_four.html)
+- [微信支付开发文档](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=1_1)
+- [企业微信接口签名校验](https://work.weixin.qq.com/api/jsapisign)
+- [微信公众平台接口调试](https://mp.weixin.qq.com/debug/)
+
+### 支付宝
+- [支付宝文档中心](https://opendocs.alipay.com/open/common/abilitymap)
+
+### 腾讯云
+- [腾讯云文档中心](https://cloud.tencent.com/document/product)
+
+## 搜索引擎
+- [SourceGraph 源码搜索](https://sourcegraph.com/search) 支持高级搜索语法
+- [grep.app 源码搜索](https://grep.app/) 功能较上面的简单
+- [电子书搜索](https://book.tstrs.me/)
+- [盘友圈 网盘搜索](https://panyq.com/)
+- [ASH搜剧助手](https://so.allsharehub.com/)
+
+## 娱乐资源
+- [扫雷竞技](https://www.minesweeperpro.com/)
+- [雀魂麻将👍](https://game.maj-soul.com/1/)
+- [小霸王](https://www.yikm.net/)
+- [免费字体](https://wangchujiang.com/free-font/)
+- [在线音乐🎵](http://mc.alger.fun/)
+
+## 软件服务
+- [注册姬](https://tools.565676.xyz/)
+- [爬墙工具库](https://repo.trojan-cdn.com/)
+- [星光图床](https://stardots.ink/zh)
+- [CG资源网 可下Mac版设计软件](https://www.cgzy.net/)
+
+## 在线工具
+- [美国地址生成器](https://usaddressgen.com/tax-free-address/?state=AK)
+- [城市地铁线路图](https://subway.cuvii.dev/)
+- [JSON在线编辑 支持图表展示](https://json4u.cn/editor)
+- [锤子在线工具网](https://www.toolhelper.cn/)
+- [免费公共API](https://www.freepublicapis.com/)
+- [公共DNS大全](https://toolb.cn/publicdns)
+- [Html代码效果展示](https://www.runoob.com/try/try.php?filename=trycss_navbar_vertical&amp;basepath=0)
+- [URL and website scanner](https://urlscan.io/)
+- [免费图标](https://icon-icons.com/zh/)
+- [在线文档转换](https://www.aconvert.com/cn/)  在线转换各类PDF，文档，电子书，图像，图标，视频，音频和压缩文件  
+- [墙不墙](https://downforeveryoneorjustme.com/)
+- [网络剪贴板](https://netcut.cn/)
+- [ChatGPT指令大全](https://www.explainthis.io/zh-hans/chatgpt)
+- [Linux命令搜索](https://wangchujiang.com/linux-command/)
+- [SSL证书在线检测工具](https://csr.chinassl.net/ssl-checker.html)
+- [SSL证书验证工具](https://www.dute.org/ssl-validate)
+- [httpbin](http://www.httpbin.org/)
+- [m3u8在线播放器](http://m3u8player.org/)
+- [command命令帮助](https://commandnotfound.cn/)
+- [查号吧](https://www.chahaoba.com/)
+- [查错工具网](http://24log.chacuo.net/)
+- [聚合|爱达杂货铺](https://adzhp.cn/)
+- [取色器](https://www.jyshare.com/front-end/6210/#f4329c)
+
+### IP工具
+- [查看我的IP地址](https://ip.skk.moe)
+- [IP归属地查询](https://vpng.net/)
+- [域名查IP](https://ipw.cn/ping/)
+- [DNS查询](https://ipw.cn/dns/)
+- [IP地址查询工具](https://zh-hans.ipshu.com/)
+- [IP反查域名](https://www.dnsgrep.cn/ip)
+- [IPv6连接测试](https://test-ipv6.com/index.html.zh_CN)
+- [IP查询](https://ip.ainou.moe/)
+- [端口连通检测](http://port.ping.pe/)
+
+### 临时邮箱
+- [guerrillamail](https://www.guerrillamail.com/zh/inbox)
+- [emailnator](https://www.emailnator.com/)
+- [tempmail100](https://tempmail100.com/zh-cn/)
+
+### 免费域名
+- [azote](https://www.azote.org/index.html)
+
+### regex 正则表达式
+- [正则可视化](https://regex-vis.com/)
+- [正则校验101](https://regex101.com/)
+- [正则表达式文档](https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md)
+
+### 下载工具
+- [下载工具](https://d.serctl.com/) 离线下载文件, 用于本地下载慢的情况
+- [视频下载](https://cobalt.tools/) 社交媒体视频下载
+- [Online Wget](https://wget.alanreed.org/) 用于在线打开木马文件
+
+### 加密解密
+- [在线RSA加密解密](https://the-x.cn/cryptography/Rsa.aspx)
+- [在线生成公钥私钥对](http://www.metools.info/code/c80.html)
+- [MD5加密解密](https://www.md5online.org/md5-encrypt.html)
+- [JS混淆还原工具](https://tool.lu/js)
+- [JS混淆解码](https://lelinhtinh.github.io/de4js/)
+- [JavaScript Deobfuscator](https://deobfuscate.io/)  A simple but powerful deobfuscator to remove common JavaScript obfuscation techniques
+
+### Chrome&amp;Edge
+- [Crx4Chrome](https://www.crx4chrome.com/) 可下载插件最新版本
+- [Chrome 插件下载](https://crxdl.com/) 插件版本不一定是最新的 
+
+### 在线订阅转换工具
+- [v1.mk](https://suburl.v1.mk/)
+
+### AI工具
+- [3MinTop](https://3min.top)
+- [AI Studio](https://aistudio.google.com/)
+- [Abacus](https://apps.abacus.ai/chatllm)
+- [ChatGPT](https://chatgpt.com/)
+- [Cici](https://www.cici.com/chat/)
+- [Claude](https://claude.ai/)
+- [Coze](https://www.coze.com/space)
+- [DEVV_](https://devv.ai/)
+- [DeepSeek](https://chat.deepseek.com/)
+- [Dify](https://cloud.dify.ai/apps)
+- [DuckDuckGo](https://duck.ai)
+- [Felo](https://felo.ai/)
+- [Flowith](https://www.flowith.io/)
+- [Gemini](https://gemini.google.com/)
+- [Genspark](https://www.genspark.ai/)
+- [GitHub Copilot](https://github.com/copilot)
+- [Grok](https://grok.com)
+- [Groq](https://chat.groq.com/)
+- [Hika](https://hika.fyi/)
+- [HuggingChat](https://huggingface.co/chat/)
+- [Kimi](https://kimi.moonshot.cn/)
+- [Lambda Chat](https://lambda.chat/)
+- [LeChat](https://chat.mistral.ai/chat)
+- [Monica](https://monica.im/home/)
+- [NotebookLM](https://notebooklm.google.com/)
+- [Perplexity](https://www.perplexity.ai/)
+- [Poe](https://poe.com)
+- [QwenLM](https://qwenlm.ai/)
+- [SiliconFlow](https://cloud.siliconflow.cn/playground/chat)
+- [SparkDesk](https://xinghuo.xfyun.cn/desk)
+- [ThinkAny](https://thinkany.ai/)
+- [WPS灵犀](https://copilot.wps.cn/)
+- [You](https://you.com/)
+- [bolt](https://bolt.new/)
+- [万知](https://www.wanzhi.com/)
+- [商量](https://chat.sensetime.com/wb/chat)
+- [天工AI](https://www.tiangong.cn/)
+- [小艺](https://xiaoyi.huawei.com/chat/)
+- [文心一言](https://yiyan.baidu.com/)
+- [智谱清言](https://chatglm.cn/main/alltoolsdetail)
+- [海螺](https://hailuoai.com/)
+- [百小应](https://ying.baichuan-ai.com/chat)
+- [百度AI搜索](https://chat.baidu.com/)
+- [知乎直答](https://zhida.zhihu.com/)
+- [秘塔AI搜索](https://metaso.cn/)
+- [纳米AI](https://bot.n.cn/)
+- [纳米AI搜索](https://www.n.cn/)
+- [腾讯元宝](https://yuanbao.tencent.com/chat)
+- [豆包](https://www.doubao.com/chat/)
+- [跃问](https://yuewen.cn/chats/new)
+- [通义千问](https://tongyi.aliyun.com/qianwen/)
+- [Le Chat - Mistral AI](https://chat.mistral.ai/chat)
+- [Grok](https://grok.dairoot.cn/admin)
+
+## TVbox接口
+  - [饭太硬](https://www.饭太硬.com/)
+  - [肥猫](https://肥猫.com/)
+  - [酷酷琪](https://kukuqi666.github.io/TVBoxOS-Mobile/website/)
+  - [余生](https://ysys.lic10.cn/)
+  - [老猫迷](https://d.n13.club/)
+  - [FongMI](https://dao.fongmi.eu.org/)
+  - [鸭先知](https://www.yxzhi.com/9257.html)
+  - [硬核指南](https://yinghe.app/yingshicang-jiekou/)
+  - [聚玩盒子](https://www.juwanhezi.com/other/jsonlist)
+  - [Gao](https://github.com/gaotianliuyun/gao)
+  - [进恩](https://jinenyy.vip/app/tvbox/)
+  - [月光宝盒](http://ygbhbox.3vfree.club/ygbh/index.html)
+  - [TvBox接口源](https://www.iyouhun.com/tv/)
+  - [影视](https://xhdwc.tk/)
+  - [影视备用](http://6080.eu.org/)
+
+## 影视资源
+  - [黑夜影院](https://darkvod.cc/)
+  - [鲨鱼TV](https://www.danmutv.com/)
+  - [魔法解析 智能解析](https://wantwatch.me/)
+  - [饺子影视](https://www.jiaozi.me/)
+  - [饭团影视](https://www.fantuan.vip/)
+  - [飞流视频](https://www.flixflop.com/)
+  - [音范丝](https://www.yinfans.me/)
+  - [韩剧看看 超清](https://www.hanjukankan.com/)
+  - [青蛙电影网](https://qingwa.org/)
+  - [金牌影视](https://www.6umkq9b.com/)
+  - [趣动漫 超清](https://www.qdm8.com)
+  - [蛋蛋赞影院](https://www.dandanzan.club/)
+  - [蛋蛋兔](https://www.dandantu.cc/)
+  - [蘑菇影视](https://www.5o5k.com/)
+  - [聚合搜索](https://wdoo.net/)
+  - [聚合影视](https://juheyingshi.com/)
+  - [美益达影视](https://www.meiyd12.com/)
+  - [美柏影视](https://www.mp4be.com/)
+  - [网飞猫](https://www.ncat1.app/)
+  - [统一影视](https://www.tyys2.com/)
+  - [素白白影视 超清无广](https://www.subaibaiys.com/)
+  - [简单TV](https://jiandantv.com/)
+  - [第一动漫网](https://www.1dm2.cc/)
+  - [短剧网](https://www.duanju2.com/)
+  - [真狼影视](https://www.zhenlang.cc/)
+  - [看看屋](https://www.kankanwu.cc/)
+  - [看看屋](https://kkw345.com/)
+  - [皮皮影视](https://www.pipi15.tv/)
+  - [番茄影视](https://www.yirenmeng.com/)
+  - [电影港](https://www.dygang.cc/)
+  - [电影先生 高清](https://dianyi.ng/)
+  - [独播库 超清无广](https://www.duboku.tv/)
+  - [狂人](https://www.kpkuang.one/)
+  - [爱迪影视](https://adys.tv/)
+  - [爱看机器人](https://v.aikanbot.com/)
+  - [爱看影视](https://www.akys.info/)
+  - [爱电影](https://www.gs4x7nq4.com/)
+  - [爱影视](https://www.wiys.lol/)
+  - [爱壹帆](https://www.iyf.lv/)
+  - [火车太堵](https://www.tdgo.shop/)
+  - [海纳TV](https://www.hainatv.net/)
+  - [泰剧网](https://v.taijuwang.com/)
+  - [注视影视](https://gaze.run/)
+  - [泥视频 超清](https://www.nivod.vip/)
+  - [泡泡视频](https://www.paopaoshipin.com/)
+  - [枫林网](https://imaple8.co/)
+  - [极光影视](https://hellociqryx6e.com/)
+  - [来看点播 超清](https://lkvod.me/)
+  - [新剧坊](https://www.xinjuc.com/)
+  - [搜片](https://soupian.one/)
+  - [快点播](https://www.quickvod.cc/)
+  - [布谷TV](https://www.bugutv.vip/)
+  - [子子影视](https://www.ziziys.com/)
+  - [奈飞工厂](https://www.netflixgc.com/)
+  - [太乙电影](https://ww88.taieea.sbs/)
+  - [大米星球](https://www.dmxq.fun/)
+  - [大师兄影视](https://dsxys.pro/)
+  - [多多视频](https://www.duoduotv.cc)
+  - [在线之家](https://www.zxzjhd.com/)
+  - [咕咕番](https://www.gugu3.com/)
+  - [可可影视](https://www.kkys03.com/)
+  - [可乐影视](https://www.klyingshi2.com/)
+  - [厂长资源 超清](https://www.czzy77.com/)
+  - [华人直播 蓝光画质，需科学](https://huaren.live/)
+  - [午夜剧场](https://wyjc.life/)
+  - [劇迷](https://jumi.tv/)
+  - [剧看看](https://www.jukankan.tv/)
+  - [剧爷爷](https://www.juyeye.cc/)
+  - [八号影院](https://www.bahaotv.com/)
+  - [修罗影视](https://www.xlys01.com/)
+  - [低端影视](https://ddys.pro/)
+  - [人人影视](https://www.svip1.fun/)
+  - [乐视视频](https://www.le.com/)
+  - [两个BT](https://bttwo.vip/)
+  - [yigeG](https://ygg01.com/)
+  - [ondemand 蓝光画质，需科学](https://www.ondemandchina.com/)
+  - [gimy](https://gimy.cc/)
+  - [WarHut](https://v.warhut.cn/)
+  - [VidHub](https://vidhub.me/)
+  - [TVB云播](http://www.hktvyb.vip/)
+  - [Soap2Day 海外影视站](https://ww25.soap2day.day/)
+  - [NT动漫](https://www.ntdm9.com/)
+  - [NO视频](https://www.novipnoad.net/)
+  - [LLYA](https://www.llyady.com/)
+  - [LIVIBO](https://www.libvio.vip/)
+  - [Kimivod 超清](https://kimivod.com/)
+  - [Hdmoli](https://www.hdmoli.pro/)
+  - [Freeok 超清无广](https://www.freeok.my/)
+  - [FreeHD](https://www.freehd.vip/)
+  - [FMOVIES](https://ww4.fmovies.co/home/)
+  - [Chok影院](https://www.chok8.vip/)
+  - [Cartoon TV 海外动漫站，无中文字幕](https://cartoonntv2.blogspot.com/)
+  - [CN影院 蓝光画质，需科学](https://cnys.tv/)
+  - [Auete影视](https://auete.pro/)
+  - [AGE动漫](https://www.agedm.org/)
+  - [94影城](https://94itv.app/)
+  - [91美剧](https://mjw21.com/)
+  - [91毒舌](https://www.duse1.com)
+  - [69美剧](https://www.69mj.com/)
+  - [55短剧](https://www.duanju55.com/)
+  - [5555电影](https://wu5mz.com/)
+  - [4k影视 超清](https://www.4kvm.tv/)
+  - [4K](https://4k-av.com/)
+  - [4K-HDR](https://4khdr.cn/)
+  - [1817](https://sn1817.com/)
+
+## TTS
+  - [TTS文本转语音](https://tts.ciallo.de/)
+  - [语音合成](https://tts.neolovec.com/)
+  - [文本转语音](https://t.leftsite.cn/) 支持导入爱阅记
+  
+## 其他
+  - [简明字帖](https://www.babawar.com)
+  - [RoutineHub iOS快捷指令](https://routinehub.co)
+  - [JS Visualizer 9000](https://www.jsv9000.app/)
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/36.html</guid><pubDate>Fri, 10 Oct 2025 14:57:18 +0000</pubDate></item><item><title>Vol.35 TVBox源</title><link>https://grapehut.dpdns.org/post/35.html</link><description># 🚀 资源站列表
+https://www.yszzq.com/ziyuan/
+
+
+✔️　电影天堂资源：http://caiji.dyttzyapi.com/api.php/provide/vod
+✔️　如意资源　　：https://cj.rycjapi.com/api.php/provide/vod   | http://www.ryzyw.com
+✔️　暴风资源　　：https://bfzyapi.com/api.php/provide/vod    | bfzy.tv 
+✔️　天涯资源　　：https://tyyszy.com/api.php/provide/vod
+✔️　小猫咪资源　：https://zy.xmm.hk/api.php/provide/vod
+✔️　非凡资源　　：http://ffzy.tv/api.php/provide/vod   | ffzy.tv | ffzy1.tv | ffzy2.tv | ffzy3.tv | ffzy4.tv | ffzy5.tv
+✔️　360资源　　 ：https://360zy.com/api.php/provide/vod
+✔️　爱奇艺资源　：https://iqiyizy1.com/api.php/provide/vod    | iqiyizy1.com 至 iqiyizy9.com
+✔️　卧龙资源　　：https://wolongzyw.com/api.php/provide/vod
+✔️　极速资源　　：https://jszyapi.com/api.php/provide/vod
+✔️　豆瓣资源　　：https://dbzy.tv/api.php/provide/vod
+✔️　魔爪资源　　：https://mozhuazy.com/api.php/provide/vod
+✔️　魔都资源　　：https://www.mdzyapi.com/api.php/provide/vod   | http://moduzy.com
+✔️　最大资源　　：https://api.zuidapi.com/api.php/provide/vod
+✔️　樱花资源　　：https://m3u8.apiyhzy.com/api.php/provide/vod   | https://yhzy.cc
+✔️　百度云资源　：https://api.apibdzy.com/api.php/provide/vod
+✔️　无尽资源　　：https://api.wujinapi.me/api.php/provide/vod   | https://www.wujinzy.com
+✔️　旺旺短剧　　：https://wwzy.tv/api.php/provide/vod
+✔️　iKun资源　　：https://ikunzyapi.com/api.php/provide/vod   | ikunzy.com | ikunzy.net | ikunzy.org | ikunzy.vip | ikzy1.com（1-9均可访问）
+✔️　量子资源　　：https://cj.lziapi.com/api.php/provide/vod   | https://lzizy.com
+✔️　速播资源　　：https://subocaiji.com/api.php/provide/vod
+✔️　U酷资源　　 ：https://api.ukuapi88.com/api.php/provide/vod   | https://ukuzy0.com
+✔️　金鹰资源　　：https://jinyingzy.com/api.php/provide/vod   | jinyingzy.com | jinyingzy.net | jinyingziyuan.com | jyzy1.com | jyzy2.com | jyzy3.com
+✔️　光速资源　　：https://api.guangsuapi.com/api.php/provide/vod   | https://www.guangsuzy.com
+✔️　虎牙资源　　：https://www.huyaapi.com/api.php/provide/vod   | http://huyazy.net
+✔️　淘片资源　　：https://taopianapi.com/cjapi/sda/vod/json.html   | https://www.taopianzy.com
+✔️　极速资源　　：https://jszyapi.com/api.php/provide/vod   | https://www.jisuzy.com
+✔️　红牛资源　　：https://www.hongniuzy2.com/api.php/provide/vod   | https://hongniuzy.net
+✔️　速播资源　　：https://subocj.com/api.php/provide/vod   | https://www.subocaiji.com
+✔️　茅台资源　　：https://caiji.maotaizy.cc/api.php/provide/vod   | https://mtzy.me
+✔️　牛牛资源　　：https://api.niuniuzy.me/api.php/provide/vod   | https://niuniuzy.cc
+✔️　豪华资源　　：https://hhzyapi.com/api.php/provide/vod   | https://haohuazy.com
+✔️　优质资源　　：https://1080zyk1.com 至 1080zyk15.com
+
+❌　火花资源　　：https://cj.huohua.live/api.php/provide/vod/?uid=你的UID      ※UID
+❌　麒麟资源　　：http://www.qilinzyz.com/api.php/provide/vod     ※IP
+❌　华为吧资源　：https://cjhwba.com/api.php/provide/vod　　　 ※IP
+❌　蜂巢资源　　：https://api.fczy888.me/api.php/provide/vod        ※IP
+❌　黑木耳资源　：https://json.heimuer.xyz/api.php/provide/vod | https://json.heimuer.xyz
+❌　快车资源　　：http://kuaichezy.com/      备用域名：kuaichezy1.com 至 kuaichezy9.com
+❌　新浪资源　　：https://www.xinlangzy.com/
+❌　索尼资源　　：https://suonizy.com/
+
+
+
+
+# 🚚 老司机资源（ 🔞NSFW）
+✔️　鲨鱼资源   https://shayuapi.com/
+✔️　X资源联盟　https://www.xzylm.com/
+✔️　美少女资源站 https://www.msnii.com/api/json.php
+✔️　淫水机资源站 https://www.xrbsp.com/api/json.php
+✔️　香奶儿资源站 https://www.gdlsp.com/api/json.php
+✔️　白嫖资源站 https://www.kxgav.com/api/json.php
+✔️　小湿妹资源站 https://www.afasu.com/api/json.php
+✔️　黄AV资源站 https://www.pgxdy.com/api/json.php
+
+✔️　大奶子资源　：https://apidanaizi.com/api.php/provide/vod |  https://www.danaizizy1~5.com
+✔️　CK资源　　　：https://ckzy.me/api.php/provide/vod | 备用域名：ckzy.me | www.ckzy1.com　
+✔️　jkun资源　 　：https://jkunzyapi.com/api.php/provide/vod | 备用域名：jkzyuan.cc | jkunzy.com | jkunzy.cc | jkunzy.vip | jkunzy.live | jkunzy.top
+✔️　搜AV资源　　：https://api.souavzy.vip/api.php/provide/vod
+✔️　155资源　  　：https://155api.com/api.php/provide/vod
+✔️　lsb资源　　　：https://apilsbzy1.com/api.php/provide/vod
+✔️　黄色仓库资源：https://hsckzy.vip/api.php/provide/vod
+✔️　玉兔资源　　：https://apiyutu.com/api.php/provide/vod
+✔️　百万资源　　：https://api.bwzym3u8.com/api.php/provide/vod
+
+
+大地 https://dadiapi.com/api.php/provide/vod
+壹壹资源 https://www.221zyz.vip/inc/api.php/provide/vod
+草莓 https://caiji.caomeiapi.com/inc/api.php/provide/vod
+花椒 https://cj.apihjzy.com/inc/api.php/provide/vod
+老鸭 https://api.apilyzy.com/api.php/provide/vod
+色窝资源 https://sewozyapi.com/api.php/provide/vod
+番号资源 http://fhapi9.com/api.php/provide/vod
+草榴 https://www.caoliuzy.com/api.php/provide/vod
+辣椒 https://apilj.com/api.php/provide/vod
+芒果 https://mgzyz1.com/api.php/provide/vod
+玉兔 https://apiyutu.com/api.php/provide/vod
+森林 https://slapibf.com/api.php/provide/vod
+155 https://155api.com/api.php/provide/vod
+奶香 https://Naixxzy.com/api.php/provide/vod
+伊人 https://api.yrzyapi.com/api.php/provide/vod
+奥斯卡 https://aosikazy.com/api.php/provide/vod
+花椒 https://apihjzy.com/api.php/provide/vod
+丝袜 https://www.siwazyw.cc/api.php/provide/vod
+91麻豆 https://91md.me/api.php/provide/vod
+爱播 https://cj.apiabzy.com/api.php/provide/vod
+久久 http://99zy.pw/api.php/provide/vod
+秀色 https://api.xiuseapi.com/api.php/provide/vod
+芒果 https://www.mgav1.cc/api.php/provide/vod
+辣椒2 http://api.11bat.com/api.php/provide/vod
+免費AV線上看 https://legallet.org/api.php/provide/vod
+葡萄资源 https://caiji.putaozy.net/inc/api.php/provide/vod
+探探资源 https://apittzy.com/api.php/provide/vod
+KK资源网 https://kkzy.me/api.php/provide/vod
+色猫资源 https://api.maozyapi.com/inc/api.php/provide/vod
+乐播 https://lbapi9.com/api.php/provide/vod
+7000影视 https://hd7000.com/api.php/provide/vod
+色鸭资源 https://api.seyavod.com/api.php/provide/vod
+玉兔资源 https://yutuzy3.com/api.php/provide/vod
+老色逼资源站 https://apilsbzy1.com/api.php/provide/vod
+羞涩高清 https://xxhd.online//api.php/provide/vod
+天美AV https://tmav.art/api.php/provide/vod
+青楼资源 https://qlzy.tv/api.php/provide/vod
+色南国资源 https://api.sexnguon.com/api.php/provide/vod
+极致资源 https://jizhiapi.com/api.php/provide/vod
+葡萄资源 https://putaozy19.com/inc/api.php/provide/vod
+好片资源 https://haopianapi.com/api.php/provide/vod
+黄色资源 http://hszy.vip/api.php/provide/vod
+奥斯卡资源 https://aosikazy.com/api.php/provide/vod
+青楼资源 https://qlzy.tv/api.php/provide/vod
+伊人资源 https://api.yirenziyuan.com/api.php/provide/vod
+155资源 https://155api.com/api.php/provide/vod
+滴滴资源 https://api.ddapi.cc/api.php/provide/vod
+橘猫资源 https://to.to-long.com/api.php/provide/vod
+花色资源 https://api.huasezy.xyz/api.php/provide/vod
+雪豹资源 https://api.xbapi.cc/api.php/provide/vod
+好片资源 https://haopianapi.com/api.php/provide/vod
+奥斯卡资源 https://aosikazy.com/api.php/provide/vod
+森林资源 https://madoucun.com//api.php/provide/vod
+极速官采 http://gc.zhuijuba.vip/api.php/provide/vod
+宝塔资源 https://baotazy.com/api.php/provide/vod
+滴滴资源 https://api.ddapi.cc/api.php/provide/vod
+草榴资源 https://www.caoliuzyw.com/api.php/provide/vod
+番号资源 http://fhapi9.com/api.php/provide/vod
+老鸭资源 https://api.apilyzy.com/api.php/provide/vod
+QQ传媒 https://qqcm.sbs/api.php/provide/vod
+鸡坤资源 https://jkunzyapi.com/api.php/provide/vod
+
+
+# 🍃 webview资源
+```
+荔枝网,#genre#
+
+广东卫视,webview://https://www.gdtv.cn/tvChannelDetail/43
+广东影视,webview://https://www.gdtv.cn/tvChannelDetail/53
+广东珠江,webview://https://www.gdtv.cn/tvChannelDetail/44
+广东新闻,webview://https://www.gdtv.cn/tvChannelDetail/45
+广东民生,webview://https://www.gdtv.cn/tvChannelDetail/48
+深圳卫视,webview://https://www.sztv.com.cn/dianshi.shtml?id=7867
+深圳都市,webview://https://www.sztv.com.cn/dianshi.shtml?id=7868
+深圳电视剧,webview://https://www.sztv.com.cn/dianshi.shtml?id=7880
+大湾区卫视,webview://https://www.gdtv.cn/tvChannelDetail/51
+大湾区卫视（海外版）,webview://https://www.gdtv.cn/tvChannelDetail/46
+4K超高清,webview://https://www.gdtv.cn/tvChannelDetail/16
+广东少儿,webview://https://www.gdtv.cn/tvChannelDetail/54
+广东体育,webview://https://www.gdtv.cn/tvChannelDetail/47
+嘉佳卡通,webview://https://www.gdtv.cn/tvChannelDetail/66
+岭南戏曲,webview://https://www.gdtv.cn/tvChannelDetail/15
+广东移动,webview://https://www.gdtv.cn/tvChannelDetail/74
+荔枝台,webview://https://www.gdtv.cn/tvChannelDetail/100
+纪录片,webview://https://www.gdtv.cn/tvChannelDetail/94
+GRTN健康频道,webview://https://www.gdtv.cn/tvChannelDetail/99
+GRTN文化频道,webview://https://www.gdtv.cn/tvChannelDetail/75
+GRTN生活频道,webview://https://www.gdtv.cn/tvChannelDetail/102
+GRTN教育频道,webview://https://www.gdtv.cn/tvChannelDetail/104
+
+
+
+
+央视频,#genre#
+CCTV1,webview://https://yangshipin.cn/tv/home?pid=600001859
+CCTV2,webview://https://yangshipin.cn/tv/home?pid=600001800
+CCTV3,webview://https://tv.cctv.com/live/cctv3
+CCTV4,webview://https://yangshipin.cn/tv/home?pid=600001814
+CCTV5,webview://https://yangshipin.cn/tv/home?pid=600001818
+CCTV5+,webview://https://yangshipin.cn/tv/home?pid=600001817
+CCTV6,webview://https://yangshipin.cn/tv/home?pid=600108442
+CCTV7,webview://https://yangshipin.cn/tv/home?pid=600004092
+CCTV8,webview://https://yangshipin.cn/tv/home?pid=600001803
+CCTV9,webview://https://yangshipin.cn/tv/home?pid=600004078
+CCTV10 ,webview://https://yangshipin.cn/tv/home?pid=600001805
+CCTV11,webview://https://yangshipin.cn/tv/home?pid=600001806
+CCTV12,webview://https://yangshipin.cn/tv/home?pid=600001807
+CCTV13,webview://https://yangshipin.cn/tv/home?pid=600001811
+CCTV14,webview://https://yangshipin.cn/tv/home?pid=600001809
+CCTV15,webview://https://yangshipin.cn/tv/home?pid=600001815
+CCTV16 ,webview://https://yangshipin.cn/tv/home?pid=600098637
+CCTV17,webview://https://yangshipin.cn/tv/home?pid=600001810
+CCTV4K,webview://https://yangshipin.cn/tv/home?pid=600002264
+CCTV8K,webview://https://yangshipin.cn/tv/home?pid=600156816
+CGTN英语,webview://https://yangshipin.cn/tv/home?pid=600014550
+CGTN记录,webview://https://yangshipin.cn/tv/home?pid=600084781
+CGTN俄语,webview://https://yangshipin.cn/tv/home?pid=600084758
+CGTN法语,webview://https://yangshipin.cn/tv/home?pid=600084704
+CGTN西语,webview://https://yangshipin.cn/tv/home?pid=600084744
+CGTN阿语,webview://https://yangshipin.cn/tv/home?pid=600084782
+CCTV 风云剧场,webview://https://yangshipin.cn/tv/home?pid=600099658
+CCTV 第一剧场,webview://https://yangshipin.cn/tv/home?pid=600099655
+CCTV 怀旧剧场,webview://https://yangshipin.cn/tv/home?pid=600099620
+北京卫视,webview://https://yangshipin.cn/tv/home?pid=600002309
+江苏卫视,webview://https://yangshipin.cn/tv/home?pid=600002521
+东方卫视,webview://https://yangshipin.cn/tv/home?pid=600002483
+浙江卫视,webview://https://yangshipin.cn/tv/home?pid=600002520
+湖南卫视,webview://https://yangshipin.cn/tv/home?pid=600002475
+湖北卫视,webview://https://yangshipin.cn/tv/home?pid=600002508
+广东卫视,webview://https://yangshipin.cn/tv/home?pid=600002485
+广西卫视,webview://https://yangshipin.cn/tv/home?pid=600002509
+黑龙江卫视,webview://https://yangshipin.cn/tv/home?pid=600002498
+海南卫视,webview://https://yangshipin.cn/tv/home?pid=600002506
+重庆卫视,webview://https://yangshipin.cn/tv/home?pid=600002531
+深圳卫视,webview://https://yangshipin.cn/tv/home?pid=600002481
+四川卫视,webview://https://yangshipin.cn/tv/home?pid=600002516
+河南卫视,webview://https://yangshipin.cn/tv/home?pid=600002525
+福建东南卫视,webview://https://yangshipin.cn/tv/home?pid=600002484
+贵州卫视,webview://https://yangshipin.cn/tv/home?pid=600002490
+江西卫视,webview://https://yangshipin.cn/tv/home?pid=600002503
+辽宁卫视,webview://https://yangshipin.cn/tv/home?pid=600002505
+安徽卫视,webview://https://yangshipin.cn/tv/home?pid=600002532
+河北卫视,webview://https://yangshipin.cn/tv/home?pid=600002493
+山东卫视,webview://https://yangshipin.cn/tv/home?pid=600002513
+天津卫视,webview://https://yangshipin.cn/tv/home?pid=600152137
+吉林卫视,webview://https://yangshipin.cn/tv/home?pid=600190405
+陕西卫视,webview://https://yangshipin.cn/tv/home?pid=600190400
+宁夏卫视,webview://https://yangshipin.cn/tv/home?pid=600190737
+内蒙古卫视,webview://https://yangshipin.cn/tv/home?pid=600190401
+云南卫视,webview://https://yangshipin.cn/tv/home?pid=600190402
+山西卫视,webview://https://yangshipin.cn/tv/home?pid=600190407
+青海卫视,webview://https://yangshipin.cn/tv/home?pid=600190406
+西藏卫视,webview://https://yangshipin.cn/tv/home?pid=600190403
+甘肃卫视,webview://https://yangshipin.cn/tv/home?pid=600190408
+
+
+CCTV1,webview://https://m-live.cctvnews.cctv.com/live/landscape.html?liveRoomNumber=11200132825562653886&amp;toc_style_id=feeds_only_back&amp;share_to=copy_url&amp;track_id=c3e89ea6-77d8-4230-89a3-a492aa16ee4c
+CCTV2,webview://https://m-live.cctvnews.cctv.com/live/landscape.html?liveRoomNumber=12030532124776958103&amp;toc_style_id=feeds_only_back&amp;share_to=copy_url&amp;track_id=8ff44314-c7a7-4241-be6e-11a7b7224db4
+CCTV1,webview://https://tv.cctv.com/live/cctv1
+CCTV2,webview://https://tv.cctv.com/live/cctv2
+CCTV3,webview://https://tv.cctv.com/live/cctv3
+CCTV4,webview://https://tv.cctv.com/live/cctv4
+CCTV5,webview://https://tv.cctv.com/live/cctv5
+CCTV5+,webview://https://tv.cctv.com/live/cctv5plus
+CCTV6,webview://https://tv.cctv.com/live/cctv6
+CCTV6,webview://https://www.1905.com/cctv6/live/
+CCTV7,webview://https://tv.cctv.com/live/cctv7
+CCTV8,webview://https://tv.cctv.com/live/cctv8
+CCTV9,webview://https://tv.cctv.com/live/cctvjilu
+CCTV10 ,webview://https://tv.cctv.com/live/cctv10
+CCTV11,webview://https://tv.cctv.com/live/cctv11
+CCTV12,webview://https://tv.cctv.com/live/cctv12
+CCTV13,webview://https://tv.cctv.com/live/cctv13
+CCTV14,webview://https://tv.cctv.com/live/cctvchild
+CCTV15,webview://https://tv.cctv.com/live/cctv15
+CCTV16,webview://https://tv.cctv.com/live/cctv16
+CCTV17,webview://https://tv.cctv.com/live/cctv17
+
+CCTV4,webview://https://m-live.cctvnews.cctv.com/live/landscape.html?liveRoomNumber=10620168294224708952&amp;toc_style_id=feeds_only_back&amp;share_to=copy_url&amp;track_id=7f4e2027-e822-49f3-88b1-2ffe00919f92
+CCTV13,webview://https://m-live.cctvnews.cctv.com/live/landscape.html?liveRoomNumber=16265686808730585228&amp;toc_style_id=feeds_only_back&amp;share_to=copy_url&amp;track_id=ac0e1dc7-d2a2-403b-ad45-9ed44fe89895
+
+
+广东,#genre#
+
+深圳卫视,webview://https://www.sztv.com.cn/dianshi.shtml?id=7867
+深圳都市,webview://https://www.sztv.com.cn/dianshi.shtml?id=7868
+深圳电视剧,webview://https://www.sztv.com.cn/dianshi.shtml?id=7880
+深圳财经,webview://https://www.sztv.com.cn/dianshi.shtml?id=7871
+深圳少儿,webview://https://www.sztv.com.cn/dianshi.shtml?id=7881
+深圳移动,webview://https://www.sztv.com.cn/dianshi.shtml?id=7869
+深圳宜和购物,webview://https://www.sztv.com.cn/dianshi.shtml?id=7878
+深圳国际,webview://https://www.sztv.com.cn/dianshi.shtml?id=7944
+广州综合,http://tencentplaygzrb01.gztv.com/live/zonghes.m3u8
+广州新闻,http://tencentplaygzrb01.gztv.com/live/xinwen.m3u8
+广州影视,http://tencentplaygzrb01.gztv.com/live/yingshi.m3u8
+广州法治,http://tencentplaygzrb01.gztv.com/live/fazhi.m3u8
+广州南国都市,http://tencentplaygzrb01.gztv.com/live/nanguodushi.m3u8
+佛山顺德,webview://http://xiubo.net/tv/gd/fssd.html
+佛山公共,webview://http://xiubo.net/tv/gd/fsgg.html
+佛山影视,webview://http://xiubo.net/tv/gd/fsys.html
+佛山高明,webview://http://xiubo.net/tv/gd/fsgm.html
+佛山三水,webview://http://xiubo.net/tv/gd/fsss.html
+佛山综合,webview://http://xiubo.net/tv/gd/fszh.html
+佛山南海,webview://http://xiubo.net/tv/gd/fsnh.html
+江门综合,webview://http://www.jmtv.cn/live/jm_live_h5.shtml?pid=2
+江门侨乡生活,webview://http://www.jmtv.cn/live/jm_live_h5.shtml?pid=1
+东莞新闻综合,webview://https://dgrtv.sun0769.com/index.php/online2/4
+东莞生活资讯,webview://https://dgrtv.sun0769.com/index.php/online2/5
+河源综合,webview://https://www.hyrtv.cn/itv/zhds/
+河源公共,webview://https://www.hyrtv.cn/itv/ggds/
+清远新闻综合,webview://https://h5.qyrb.cn/h5/nfzmy-television-and-radio/#/?channelId=1
+清远文旅生活,webview://https://h5.qyrb.cn/h5/nfzmy-television-and-radio/#/?channelId=3
+韶关,webview://https://www.sgmsw.cn/v/tv?spm=0.0.0.0.nRYAvk&amp;id=SB05RIYZOU8JR418AUQOF62CAJQ08D0E
+肇庆综合,webview://https://zqh5.xjrb.com/h5/nfzmy-television-and-radio/#/?channelId=33
+云浮综合,webview://https://static.yft.ndoe.cn/hd/ysx/#/?channelType=0&amp;channelId=8
+云浮文旅,webview://https://static.yft.ndoe.cn/hd/ysx/#/?channelType=0&amp;channelId=9
+广州综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88889
+佛山综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88888
+东莞综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88887
+潮州综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88886
+河源综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88890
+惠州综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88891
+江门综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88892
+揭阳综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88893
+茂名综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88894
+梅州综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88895
+清远综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88896
+汕头综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88897
+汕尾综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88898
+韶关综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88899
+阳江综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88901
+云浮综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88902
+湛江综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88903
+肇庆综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88904
+中山综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88905
+珠海综合,webview://https://api.chinaaudiovisual.cn/share_view/html/shareAudition.html?id=88906
+
+教育,#genre#
+
+CETV1,webview://https://tv.gxtv.cn/channel/channelivePlay_ffa6b6e1b32b4a16a73eb3ef66f8bfc7.html
+CETV2,webview://https://tv.gxtv.cn/channel/channelivePlay_80d0ffb42c114eaf9663708629ff0a3e.html
+CETV4,webview://https://tv.gxtv.cn/channel/channelivePlay_67eace939278435bb4bca90800fb4225.html
+每经AI电视,https://swiftplay.hxkjmedia.com/tv/spbW.m3u8
+
+
+上海,#genre#
+
+东方卫视,webview://https://live.kankanews.com/huikan?id=1
+上海新闻综合,webview://https://live.kankanews.com/huikan?id=2
+上海都市,webview://https://live.kankanews.com/huikan?id=4
+第一财经,webview://https://live.kankanews.com/huikan?id=5
+哈哈炫动,webview://https://live.kankanews.com/huikan?id=9
+五星体育,webview://https://live.kankanews.com/huikan?id=10
+魔都眼,webview://https://live.kankanews.com/huikan?id=11
+新纪实,webview://https://live.kankanews.com/huikan?id=12
+
+湖南,#genre#
+
+长沙新闻,webview://https://live.mgtv.com/?channelId=269
+长沙政法,webview://https://live.mgtv.com/?channelId=254
+
+江苏,#genre#
+
+江苏城市,webview://https://live.jstv.com/?channelId=535
+江苏综艺,webview://https://live.jstv.com/?channelId=556
+江苏影视,webview://https://live.jstv.com/?channelId=542
+江苏新闻,webview://https://live.jstv.com/?channelId=536
+江苏教育,webview://https://live.jstv.com/?channelId=545
+江苏体育,webview://https://live.jstv.com/?channelId=537
+江苏国际,webview://https://live.jstv.com/?channelId=544
+优漫卡通,webview://https://live.jstv.com/?channelId=543
+南京新闻综合频道,webview://https://www.nbs.cn/live/?id=109152
+南京十八生活频道,webview://https://www.nbs.cn/live/?id=110094
+南京教育科技频道,webview://https://www.nbs.cn/live/?id=109153
+南京文旅纪录频道,webview://https://www.nbs.cn/live/?id=110093
+南京少年儿童频道,webview://https://www.nbs.cn/live/?id=110095
+江宁电视台,webview://http://tv.haoqu99.com/3/jiangsu/jiangning.html
+盐城一套,webview://https://www.0515yc.cn/folder147/folder148/folder156/
+铜川综合,webview://https://www.tcsrm.cn/tvradio/tczhpd.html
+铜川公共,webview://https://www.tcsrm.cn/tvradio/tcggpd.html
+铜川综合,webview://http://ews.joyhua.cn/tvradio/tczh.html
+铜川公共,webview://http://ews.joyhua.cn/tvradio/tcgg.html
+无锡移动,webview://https://live.wifiwx.com/m2/?page=live&amp;id=494#/pkgA/pages/live/live?id=494
+张家港1,webview://http://jrwx.zjgonline.com.cn/ysz_share/share/index_share.html?contentType=tvlive&amp;channelId=1&amp;mmsurl=http://mms.zjgonline.com.cn:8080/mms4.5&amp;token=lgijnojhrspoywsk
+张家港2,webview://http://jrwx.zjgonline.com.cn/ysz_share/share/index_share.html?contentType=tvlive&amp;channelId=2&amp;mmsurl=http://mms.zjgonline.com.cn:8080/mms4.5&amp;token=lgijnojhrspoywsk
+无锡新闻综合,http://stream.thmz.com/wxtv1/playlist.m3u8
+无锡娱乐,http://stream.thmz.com/wxtv2/playlist.m3u8
+无锡都市资讯,http://stream.thmz.com/wxtv3/playlist.m3u8
+无锡生活,http://stream.thmz.com/wxtv4/playlist.m3u8
+无锡经济,http://stream.thmz.com/wxtv5/playlist.m3u8
+靖江新闻综合,http://visit.jjbctv.com:1935/live/xwzhpc/playlist.m3u8
+镇江新闻综合,http://tv.q1.cm/stream/b71cb8847f56152f3d58e9b91368d1e647088849e09ac441e4ceebab99c75847.m3u8
+镇江新闻综合,http://tv.hackrss.net/stream/b71cb8847f56152f3d58e9b91368d1e647088849e09ac441e4ceebab99c75847.m3u8
+泰州-1,http://stream1.mytaizhou.net/xwzhnew/playlist.m3u8
+泰州-2,http://stream1.mytaizhou.net/jjshnew/playlist.m3u8
+泰州-3,http://stream1.mytaizhou.net/ysylnew/playlist.m3u8
+盐城新闻综合,https://live1yc.0515yc.cn/ycyt01/sd/live.m3u8
+盐城城市公共,https://live1yc.0515yc.cn/ycet02/sd/live.m3u8
+盐城法制生活,https://live1yc.0515yc.cn/ycst03/sd/live.m3u8
+南京新闻综合,http://live.nbs.cn/channels/njtv/xwpdb/nbs06.m3u8
+南京娱乐,http://live.nbs.cn/channels/njtv/ylpd/500k.m3u8
+南京娱乐,http://live.nbs.cn/channels/njtv/ylpd/m3u8:500k/live.m3u8
+南京娱乐,https://live.nbs.cn/channels/njtv/ylpd/m3u8:500k/live.m3u8
+南京十八,http://live.nbs.cn/channels/njtv/sbsh/nbs24.m3u8
+南京十八,http://live.nbs.cn/channels/njtv/sbpd/m3u8:500k/live.m3u8
+南京十八,http://live.nbs.cn/channels/njtv/sbpd/500k.m3u8
+南京十八,http://live.nbs.cn/channels/njtv/sbpd/500k.m3u8?zjiangsd
+南京教科,http://live.nbs.cn/channels/njtv/jkpd/nbs06.m3u8
+南京少儿,http://live.nbs.cn/channels/njtv/sepd/nbs23.m3u8
+南京文旅纪录,http://live.nbs.cn/channels/njtv/wljl/nbs24.m3u8
+南京信息,http://live.nbs.cn/channels/njtv/xxpd/500k.m3u8
+南京信息,http://live.nbs.cn/channels/njtv/xxpd/m3u8:500k/live.m3u8
+南京信息,https://live.nbs.cn/channels/njtv/xxpd/m3u8:500k/live.m3u8
+南京江宁综合,https://jiangning-tv-hls.cm.jstv.com/jiangning-tv/jnxwzh.m3u8
+南京六合新闻综合,http://p2hs.vzan.com/720020/432453820030502236/live.m3u8
+苏州新闻综合,https://live-auth.51kandianshi.com/szgd/csztv1.m3u8
+苏州社会经济,https://live-auth.51kandianshi.com/szgd/csztv2.m3u8
+苏州文化生活,https://live-auth.51kandianshi.com/szgd/csztv3.m3u8
+苏州电影娱乐信息,https://live-auth.51kandianshi.com/szgd/csztv4.m3u8
+苏州生活资讯,https://live-auth.51kandianshi.com/szgd/csztv5.m3u8
+苏州4k,https://live-auth.51kandianshi.com/szgd/csztv4k_hd.m3u8
+苏州常熟综合,http://cstvplay.21cs.cn/cstv1/cstv1.m3u8
+苏州常熟民生经济,http://cstvplay.21cs.cn/cstv2/cstv2.m3u8
+苏州吴江新闻综合,https://ctlive2.wjdaily.com/wjtv/ch1.m3u8
+无锡新闻,http://stream.thmz.com/wxtv1/playlist.m3u8
+无锡都市,http://stream.thmz.com/wxtv3/playlist.m3u8
+无锡生活,http://stream.thmz.com/wxtv4/playlist.m3u8
+无锡经济,http://stream.thmz.com/wxtv5/playlist.m3u8
+无锡娱乐,http://stream.thmz.com/wxtv2/playlist.m3u8
+无锡教育,https://tv.wxjy.com.cn:9001/tvwebstream/tv_channel_1359/index.m3u8
+无锡江阴新闻,http://221.228.70.101:8080/live/xinwen.m3u8
+无锡宜兴新闻,http://yixing-tv-ori-hls.jstv.com/yixing-tv-ori/yixing_xw.m3u8
+无锡宜兴紫砂,http://yixing-tv-ori-hls.jstv.com/yixing-tv-ori/yixing_zs.m3u8
+镇江新闻综合,http://zjtv-wshls.homecdn.com/live/2aa50.m3u8
+镇江社会民生,http://zjtv-wshls.homecdn.com/live/2aa16.m3u8
+镇江文化娱乐,http://zjtv-wshls.homecdn.com/live/2aa58.m3u8
+常州都市,http://8.138.7.223/tv/cztv.php?id=2
+常州生活,http://8.138.7.223/tv/cztv.php?id=3
+常州公共,http://8.138.7.223/tv/cztv.php?id=4
+常州金坛综合,http://jintan-tv-ori-hls.jstv.com/jintan-tv-ori/jintan_xw.m3u8
+扬州综合,http://cm-wshls.homecdn.com/live/8bb.m3u8
+扬州城市,http://cm-wshls.homecdn.com/live/8bd.m3u8
+扬州生活,http://cm-wshls.homecdn.com/live/8bf.m3u8
+扬州邗江综合,http://cm-wshls.homecdn.com/live/8c3.m3u8
+扬州高邮综合,http://gaoyou-tv-hls.cm.jstv.com/gaoyou-tv/gaoyouxw.m3u8
+扬州江都综合,http://cm-wshls.homecdn.com/live/8c1.m3u8
+连云港新闻,http://live.lyg1.com/zhpd/sd/live.m3u8
+南通如东新闻,http://rudong-tv-hls.cm.jstv.com/rudong-tv/rdxwzh.m3u8
+盐城大丰新闻,http://dafeng-tv-hls.cm.jstv.com/dafeng-tv/dafengyt.m3u8
+盐城大丰公共,http://dafeng-tv-hls.cm.jstv.com/dafeng-tv/dafenget.m3u8
+徐州邳州综合,https://liveplus.pznews.com/pzzhpd/sd/live.m3u8
+徐州新沂新闻,http://live.xysrmt.cn/xwzh/sd/live.m3u8
+徐州新沂生活,http://live.xysrmt.cn/shpd/sd/live.m3u8
+徐州睢宁综合,http://suining-tv-hls.cm.jstv.com/suining-tv/suiningzh.m3u8
+徐州睢宁三农,http://suining-tv-hls.cm.jstv.com/suining-tv/suiningsn.m3u8
+泰州综合,http://stream1.mytaizhou.net/xwzh/sd/live.m3u8?_upt=f97c80491706200828
+泰州靖江新闻综合,http://visit.jjbctv.com:1935/live/xwzhpc/playlist.m3u8
+泰州姜堰新闻综合,https://jiangyan-tv-hls.cm.jstv.com/jiangyan-tv/jiangyanzh.m3u8
+宿迁泗阳资讯,http://siyang-tv-hls.cm.jstv.com/siyang-tv/siyangzx.m3u8
+宿迁沭阳综合,http://shuyang-tv-hls.cm.jstv.com/shuyang-tv/shuyangzh.m3u8
+淮安公共,http://live1.habctv.com/ggpdsl/sd/live.m3u8?zjiangsd
+淮安影院娱乐,http://live1.habctv.com/ysylsl/sd/live.m3u8?zjiangsd
+淮安淮安公共,http://live1.habctv.com/ggpdsl/sd/live.m3u8
+淮安涟水综合,http://lianshui-tv-hls.cm.jstv.com/lianshui-tv/lsxw.m3u8
+江阴新闻综合,http://221.228.70.101:8080/live/xinwen.m3u8
+
+山东,#genre#
+
+青岛-1,webview://http://www.qtv.com.cn/live/tv/index.shtml
+青岛-2,webview://http://www.qtv.com.cn/live/tv/tv_qtv2.shtml
+青岛-3,webview://http://www.qtv.com.cn/live/tv/tv_qtv3.shtml
+青岛-4,webview://http://www.qtv.com.cn/live/tv/tv_qtv4.shtml
+青岛-5,webview://http://www.qtv.com.cn/live/tv/tv_qtv5.shtml
+青岛-6,webview://http://www.qtv.com.cn/live/tv/tv_qtv6.shtml
+东营新闻综合,webview://https://www.hhek.cn/folder4/folder3228/
+东营公共,webview://https://www.hhek.cn/folder4/folder38/
+东营科教,webview://https://www.hhek.cn/folder4/folder39/
+威海新闻综合,webview://http://lv.weihai.tv/live_13705e35636b2136b590e5a015bb801c.html
+威海都市生活,webview://http://lv.weihai.tv/live_8bfc704cbba598e76540f5d4f61a0e03.html
+威海海洋,webview://http://lv.weihai.tv/live_6dffaf124b89957024f9f31de302d183.html
+山东教育电视台,webview://https://www.sdetv.com.cn/edu/pc/live/index.html
+济宁1,webview://https://www.jnnews.tv/app/tv/76
+济宁2,webview://https://www.jnnews.tv/app/tv/152
+济宁3,webview://https://www.jnnews.tv/app/tv/74
+东营1,webview://https://www.dongyingnews.cn/v/tv/?id=0
+东营2,webview://https://www.dongyingnews.cn/v/tv/?id=1
+东营3,webview://https://www.dongyingnews.cn/v/tv/?id=2
+潍坊1,webview://http://www.wfcmw.cn/wfrtv_pdLive.html?tv=1
+潍坊2,webview://http://www.wfcmw.cn/wfrtv_pdLive.html?tv=2
+潍坊3,webview://http://www.wfcmw.cn/wfrtv_pdLive.html?tv=3
+潍坊4,webview://http://www.wfcmw.cn/wfrtv_pdLive.html?tv=4
+威海1,webview://https://iapp.weihai.tv/share/dHZsLTE1Ny0x.html
+威海2,webview://https://iapp.weihai.tv/share/dHZsLTE1Ny0z.html
+威海3,webview://https://iapp.weihai.tv/share/dHZsLTE1Ny0xMg.html
+聊城电视,webview://http://www.lcxw.cn/kands/
+泰安1,webview://http://www.taianxinwen.com/tatv/contents/113/1.html
+泰安2,webview://http://live.1545ts.net/zhibotatv2.html
+枣庄公共,webview://https://app.zzxwcm.cn/application/tenma01ds_tvradio/view/web/#/?id=7
+
+浙江,#genre#
+
+浙江卫视,webview://https://www.cztv.com/liveTV/101
+浙江钱江,webview://https://www.cztv.com/liveTV/102
+浙江经济生活,webview://https://www.cztv.com/liveTV/103
+浙江教科影视,webview://https://www.cztv.com/liveTV/104
+浙江民生休闲,webview://https://www.cztv.com/liveTV/106
+浙江新闻,webview://https://www.cztv.com/liveTV/107
+浙江少儿,webview://https://www.cztv.com/liveTV/108
+浙江国际,webview://https://www.cztv.com/liveTV/110
+浙江好易购,webview://https://www.cztv.com/liveTV/111
+浙江之江纪录,webview://https://www.cztv.com/liveTV/112
+杭州综合,webview://https://tv.hoolo.tv/hzzh/
+西湖明珠,webview://https://tv.hoolo.tv/xhmz/
+杭州生活,webview://https://tv.hoolo.tv/hzsh/
+杭州影视,webview://https://tv.hoolo.tv/utv/
+杭州青少体育,webview://https://tv.hoolo.tv/hzse/
+杭州文化,webview://https://tv.hoolo.tv/whpd/
+宁波-1,webview://https://www.ncmc.nbtv.cn/gbds/folder8458/NBTV1/index.shtml
+宁波-2,webview://https://www.ncmc.nbtv.cn/gbds/folder8458/NBTV2/index.shtml
+宁波-3,webview://https://www.ncmc.nbtv.cn/gbds/folder8458/NBTV3/index.shtml
+宁波-4,webview://https://www.ncmc.nbtv.cn/gbds/folder8458/NBTV4/index.shtml
+绍兴公共,webview://https://www.shaoxing.com.cn/app/tv/78
+绍兴新闻综合,webview://https://www.shaoxing.com.cn/app/tv/74
+绍兴文化影视,webview://http://www.shaoxing.com.cn/app/tv/75
+浙江新闻,https://ali-m-l.cztv.com/channels/lantian/channel007/1080p.m3u8
+浙江经济生活,https://ali-m-l.cztv.com/channels/lantian/channel003/1080p.m3u8
+浙江民生休闲,https://ali-m-l.cztv.com/channels/lantian/channel006/1080p.m3u8
+浙江国际,https://ali-m-l.cztv.com/channels/lantian/channel010/1080p.m3u8
+浙江少儿,https://ali-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8
+浙江教科影视,https://ali-m-l.cztv.com/channels/lantian/channel004/1080p.m3u8
+浙江影视娱乐,https://ali-m-l.cztv.com/channels/lantian/channel005/1080p.m3u8
+之江纪录,https://ali-m-l.cztv.com/channels/lantian/channel012/1080p.m3u8
+钱江频道,https://ali-m-l.cztv.com/channels/lantian/channel002/1080p.m3u8
+杭州青少,http://183.130.30.174:8808/rtp/233.50.201.177:5140
+杭州余杭综合,http://l.cztvcloud.com/channels/lantian/SXyuhang1/720p.m3u8
+杭州余杭未来,http://l.cztvcloud.com/channels/lantian/SXyuhang3/720p.m3u8
+杭州萧山综合,http://l.cztvcloud.com/channels/lantian/SXxiaoshan1/720p.m3u8
+杭州萧山生活,http://l.cztvcloud.com/channels/lantian/SXxiaoshan2/720p.m3u8
+杭州临平综合,http://l.cztvcloud.com/channels/lantian/SXyuhang2/720p.m3u8
+宁波余姚综合,http://l.cztvcloud.com/channels/lantian/SXyuyao1/720p.m3u8
+宁波象山综合,http://l.cztvcloud.com/channels/lantian/SXxiangshan1/720p.m3u8
+绍兴新闻综合,http://live.shaoxing.com.cn/video/s10001-sxhb/index.m3u8
+绍兴文化影视,http://live.shaoxing.com.cn/video/s10001-sxtv3/index.m3u8
+绍兴嵊州综合,http://l.cztvcloud.com/channels/lantian/SXshengzhou1/720p.m3u8
+绍兴诸暨综合,http://l.cztvcloud.com/channels/lantian/SXzhuji3/720p.m3u8
+绍兴上虞综合,http://l.cztvcloud.com/channels/lantian/SXshangyu1/720p.m3u8
+绍兴上虞文化影视,http://l.cztvcloud.com/channels/lantian/SXshangyu2/720p.m3u8
+绍兴上虞新商都,http://l.cztvcloud.com/channels/lantian/SXshangyu3/720p.m3u8
+温州龙游综合,http://l.cztvcloud.com/channels/lantian/SXlongyou1/720p.m3u8
+温州龙游综合,https://l.cztvcloud.com/channels/lantian/SXlongyou1/720p.m3u8
+温州龙游生活娱乐,https://l.cztvcloud.com/channels/lantian/SXlongyou2/720p.m3u8
+温州文成综合,http://l.cztvcloud.com/channels/lantian/SXwencheng1/720p.m3u8
+温州苍南综合,http://l.cztvcloud.com/channels/lantian/SXcangnan1/720p.m3u8
+温州永嘉综合,http://l.cztvcloud.com/channels/lantian/SXyongjia1/720p.m3u8
+嘉兴平湖综合,http://l.cztvcloud.com/channels/lantian/SXpinghu1/720p.m3u8
+嘉兴平湖民生休闲,http://l.cztvcloud.com/channels/lantian/SXpinghu2/720p.m3u8
+金华兰溪综合,http://l.cztvcloud.com/channels/lantian/SXlanxi1/720p.m3u8
+金华金华东阳综合,http://l.cztvcloud.com/channels/lantian/SXdongyang1/720p.m3u8
+丽水缙云综合,http://l.cztvcloud.com/channels/lantian/SXjinyun1/720p.m3u8
+丽水龙泉综合,http://l.cztvcloud.com/channels/lantian/SXlongquan1/720p.m3u8
+丽水青田综合,http://l.cztvcloud.com/channels/lantian/SXqingtian1/720p.m3u8
+丽水庆元综合,http://l.cztvcloud.com/channels/lantian/SXqingyuan1/720p.m3u8
+丽水松阳综合,http://l.cztvcloud.com/channels/lantian/SXsongyang1/720p.m3u8
+丽水遂昌综合,http://l.cztvcloud.com/channels/lantian/SXsuichang1/720p.m3u8
+丽水云和综合,http://l.cztvcloud.com/channels/lantian/SXyunhe1/720p.m3u8
+舟山普陀综合,http://l.cztvcloud.com/channels/lantian/SXputuo1/720p.m3u8
+衢州开化综合,http://l.cztvcloud.com/channels/lantian/SXkaihua1/720p.m3u8
+衢州衢江综合,http://l.cztvcloud.com/channels/lantian/SXqujiang1/720p.m3u8
+
+安徽,#genre#
+
+安徽卫视,webview://https://www.ahtv.cn/folder9000/folder20193?channelIndex=0
+安徽经济生活,webview://https://www.ahtv.cn/folder9000/folder20193?channelIndex=1
+安徽综艺体育,webview://https://www.ahtv.cn/folder9000/folder20193?channelIndex=2
+安徽国际,webview://https://www.ahtv.cn/folder9000/folder20193?channelIndex=6
+安徽影视,webview://https://www.ahtv.cn/folder9000/folder20193?channelIndex=3
+安徽公共,webview://https://www.ahtv.cn/folder9000/folder20193?channelIndex=4
+安徽农业科教,webview://https://www.ahtv.cn/folder9000/folder20193?channelIndex=5
+安徽移动,webview://https://www.ahtv.cn/folder9000/folder20193?channelIndex=7
+淮北新闻综合,webview://https://www.hbnews.net/tv/
+亳州综合,webview://https://www.ahbztv.com/televisi0n.html
+滁州新闻综合,webview://http://www.cztv.cc/Live/index?liveid=1
+滁州公共,webview://http://www.cztv.cc/Live/index?liveid=2
+滁州科教,webview://http://www.cztv.cc/Live/index?liveid=3
+芜湖新闻综合,webview://http://www.wuhubtv.com/folder1194/#
+合肥新闻,webview://https://app.hfbtc.cn/shows/2/1.html
+合肥生活,webview://https://app.hfbtc.cn/shows/2/2.html
+合肥科创,webview://https://app.hfbtc.cn/shows/2/3.html
+合肥教育法治,webview://https://app.hfbtc.cn/shows/2/4.html
+池州综合,webview://https://www.chiznews.com/radio-television
+铜陵新闻综合,webview://http://wxfx.tlbts.com/mag/livevideo/v1/video/wapVideoView?id=56
+铜陵教育科技,webview://http://wxfx.tlbts.com/mag/livevideo/v1/video/wapVideoView?id=58
+黄山新闻综合,webview://http://www.hsnewsnet.com/web/tvnews/
+黄山文旅,webview://http://www.hsnewsnet.com/web/tvlife/
+
+贵州,#genre#
+
+贵州卫视,webview://https://www.gzstv.com/tv/ch01
+贵州公共,webview://https://www.gzstv.com/tv/ch02
+贵州影视文艺,webview://https://www.gzstv.com/tv/ch03
+贵州大众生活,webview://https://www.gzstv.com/tv/ch04
+贵州生态乡村,webview://https://www.gzstv.com/tv/ch05
+贵州科教健康,webview://https://www.gzstv.com/tv/ch06
+贵州移动,webview://https://www.gzstv.com/tv/ch13
+
+黑龙江,#genre#
+
+黑龙江卫视,webview://https://www.hljtv.com/live/folder418/
+黑龙江文体,webview://https://www.hljtv.com/live/folder423/
+黑龙江影视,webview://https://www.hljtv.com/live/folder425/
+黑龙江新闻法治,webview://https://www.hljtv.com/live/folder424/
+黑龙江都市,webview://https://www.hljtv.com/live/folder419/
+黑龙江农业科教,webview://https://www.hljtv.com/live/folder420/
+黑龙江少儿,webview://https://www.hljtv.com/live/folder422/
+哈尔滨新闻综合,webview://https://www.hrbtv.net/folder79/folder81/
+哈尔滨生活,webview://https://www.hrbtv.net/folder79/folder85/
+哈尔滨影视,webview://https://www.hrbtv.net/folder79/folder87/
+
+广西,#genre#
+
+广西卫视,webview://https://tv.gxtv.cn/channel/channelivePlay_e7a7ab7df9fe11e88bcfe41f13b60c62.html
+广西综艺旅游,webview://https://tv.gxtv.cn/channel/channelivePlay_f3335975f9fe11e88bcfe41f13b60c62.html
+广西都市,webview://https://tv.gxtv.cn/channel/channelivePlay_fdbaf085f9fe11e88bcfe41f13b60c62.html
+广西影视,webview://https://tv.gxtv.cn/channel/channelivePlay_5e923d82058e11e9ba67e41f13b60c62.html
+广西新闻,webview://https://tv.gxtv.cn/channel/channelivePlay_9dfd8600075811e9ba67e41f13b60c62.html
+广西国际,webview://https://tv.gxtv.cn/channel/channelivePlay_bfa17b64157f11e999f0e41f13b60c62.html
+广西移动电视,webview://https://tv.gxtv.cn/channel/channelivePlay_78dbfd44e6b74ab687204d2d8113cbf5.html
+北海新闻综合,webview://http://www.bhtv.cc/index?path=live
+梧州,webview://https://www.wzrtv.cn/dist/index.html#/live
+梧州1,webview://https://www.wzrtv.cn/dist/index.html#/liveTvDetail/22/%E6%96%B0%E9%97%BB%E7%BB%BC%E5%90%88
+梧州2,webview://https://www.wzrtv.cn/dist/index.html#/liveTvDetail/23/%E5%85%AC%E5%85%B1%E9%A2%91%E9%81%93
+梧州3,webview://https://www.wzrtv.cn/dist/index.html#/liveTvDetail/15/%E6%95%99%E8%82%B2%E7%94%9F%E6%B4%BB
+桂林新闻综合,webview://https://guilinbcnew.zainanjing365.com//share/live/detailTv?resourceId=33
+桂林2,webview://https://guilinbcnew.zainanjing365.com//share/live/detailTv?resourceId=34
+桂林3,webview://https://guilinbcnew.zainanjing365.com//share/live/detailTv?resourceId=35
+贺州,webview://http://www.gxhzxw.com/index.php/page-view-id-50
+来宾,webview://https://share-laibin.gxlbcloud.com/fhshare/#/live_detail?contentType=4&amp;id=9
+北海1,webview://https://share.bhxww.com/app/template/displayTemplate/news/liveDetail/47/36184.html
+北海2,webview://https://play-a2.quklive.com:443/live/1727311690820146.m3u8
+南宁新闻综合,https://hls.nntv.cn/nnlive/XWZH_24.m3u8
+南宁都市生活,http://hls.nntv.cn/nnlive/WLSH_24.m3u8
+南宁影视娱乐,http://hls.nntv.cn/nnlive/YSYL_244.m3u8
+南宁文旅生活,https://hls.nntv.cn/nnlive/WLSH_24.m3u8
+南宁公共,http://hls.nntv.cn/nnlive/GGPD_24.m3u8
+南宁公共,https://hls.nntv.cn/nnlive/GGPD_24.m3u8
+南宁老友live,https://hls.nntv.cn/nnlive/LYL1_24.m3u8
+南宁宾阳综合,https://live.gxrb.com.cn/gx/binyang/index.m3u8
+南宁横州新闻综合,http://live.nnnews.net/video/s10004-hztv-hd/index.m3u8
+桂林新闻综合,https://pull.gltvs.com/live/glxw/playlist.m3u8?v=b0528684bf934e120e1c30fc808e6576&amp;t=1796868188
+桂林新闻综合,https://pull.gltvs.com:443/live/glxw/playlist.m3u8?v=b0528684bf934e120e1c30fc808e6576&amp;t=1796868188
+桂林科教旅游,https://pull.gltvs.com/live/glkj/playlist.m3u8?v=4282cdc9071e32fd382778e37d8bf172&amp;t=2024816762
+梧州新闻综合,http://live.wzrtv.cn:80/xwzh1/sd/live.m3u8
+梧州公共,http://live.wzrtv.cn:80/ggpd1/sd/live.m3u8
+梧州教育生活,http://live.wzrtv.cn:80/jysh1/sd/live.m3u8
+河池罗城综合,http://111.12.75.177:9100/lctvlive/lch.m3u8
+河池罗城综合,http://www.3jlc.cn:80/lctvlive/lcm.m3u8
+崇左天等综合,https://live.gxrb.com.cn/gx/tiandeng/index.m3u8
+
+山西,#genre#
+
+山西卫视,webview://https://www.sxrtv.com/tv/index.shtml
+
+陕西,#genre#
+
+陕西卫视,webview://http://live.snrtv.com/star
+陕西新闻资讯,webview://http://live.snrtv.com/1
+陕西都市青春,webview://http://live.snrtv.com/2
+陕西银龄,webview://http://live.snrtv.com/3
+陕西秦腔,webview://http://live.snrtv.com/5
+陕西体育休闲,webview://http://live.snrtv.com/7
+
+海南,#genre#
+
+海南卫视,webview://http://tc.hnntv.cn/
+三沙卫视,webview://https://www.hnntv.cn/live.html?playType=livePlay&amp;channelId=5&amp;referPage=home
+海南新闻,webview://https://www.hnntv.cn/live.html?playType=livePlay&amp;channelId=3&amp;referPage=home
+海南公共,webview://https://www.hnntv.cn/live.html?playType=livePlay&amp;channelId=4&amp;referPage=home
+海南文旅,webview://https://www.hnntv.cn/live.html?playType=livePlay&amp;channelId=6&amp;referPage=home
+海南少儿,webview://https://www.hnntv.cn/live.html?playType=livePlay&amp;channelId=7&amp;referPage=home
+海南自贸,webview://https://www.hnntv.cn/live.html?playType=livePlay&amp;channelId=1&amp;referPage=home
+
+福建,#genre#
+
+福建新闻,webview://https://live.fjtv.net/xwpd/
+福建旅游,webview://https://live.fjtv.net/dspd/
+福建公共,webview://https://live.fjtv.net/ggpd/
+福建经视,webview://https://live.fjtv.net/jspd/
+海峡卫视,webview://https://www.fjtv.net/folder526/folder536/
+厦门一套,https://live1b.kxm.xmtv.cn/xm1bf/playlist.m3u8
+厦门一套,https://live1b.kxm.xmtv.cn/xm1bf/tvzb/live.m3u8
+厦门二套,https://live1b.kxm.xmtv.cn/xm2bf/playlist.m3u8
+厦门二套,https://live1b.kxm.xmtv.cn/xm2bf/tvzb/live.m3u8
+移动电视,https://live1b.kxm.xmtv.cn/xmyidongbf_1b/playlist.m3u8
+厦门移动电视,https://live1b.kxm.xmtv.cn/xmyidongbf_1b/tvzb/live.m3u8
+
+宁夏,#genre#
+
+宁夏卫视,webview://https://www.nxtv.com.cn/tv/ws/
+宁夏公共,webview://https://www.nxtv.com.cn/tv/gg/
+宁夏经济,webview://https://www.nxtv.com.cn/tv/jj/
+宁夏少儿,webview://https://www.nxtv.com.cn/tv/se/
+宁夏文旅,webview://https://www.nxtv.com.cn/tv/ys/
+
+青海,#genre#
+
+青海卫视,webview://https://www.qhbtv.com/new_index/live/folder2646/
+青海经视,webview://https://www.qhbtv.com/new_index/live/folder2647/
+青海都市,webview://https://www.qhbtv.com/new_index/live/folder2648/
+
+云南,#genre#
+
+云南卫视,webview://https://www.yntv.cn/live.html
+
+新疆,#genre#
+
+新疆卫视,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=1
+新疆2套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=3
+新疆3套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=4
+新疆4套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=16
+新疆5套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=17
+新疆7套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=18
+新疆8套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=19
+新疆9套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=20
+新疆10套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=21
+新疆11套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=22
+新疆12套,webview://https://www.xjtvs.com.cn/column/tv/434?channelId=23
+```
+
+
+# 🍃 下载资源
+ffmpeg的用法：https://qiita.com/cha84rakanal/items/e84fe4eb6fbe2ae13fd8
+```
+例：ffmpeg -i https://play.modujx15.com/20240821/HPThUhEC/index.m3u8 video.mp4
+```
+
+---
+📌 sample：https://www.example.com/api.php/provide/vod
+📌 温馨提示：资源站点可能会不定期更换域名，建议收藏并定期检查更新。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/35.html</guid><pubDate>Sun, 21 Sep 2025 09:23:13 +0000</pubDate></item><item><title>Vol.34 n8n入門</title><link>https://grapehut.dpdns.org/post/34.html</link><description># 安装n8n
+```
+sudo docker run -d -p 5678:5678 --name n8n -v ./n8n_data:/home/node/.n8n -e N8N_SECURE_COOKIE=false docker.n8n.io/n8nio/n8n
+※允许http访问    -e N8N_SECURE_COOKIE=false   　
+```
+
+访问地址：192.168.0.200:5678
+
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/34.html</guid><pubDate>Sun, 21 Sep 2025 09:22:14 +0000</pubDate></item><item><title>Vol.33 Vite + React入門</title><link>https://grapehut.dpdns.org/post/33.html</link><description>## 搭建 Vite 项目
+```
+npm create vite@latest
+
+输入 project name
+选择 react / vue
+选择 javascript / typescript
+```
+```
+cd my-project （project name）
+
+npm install
+npm run dev
+```
+
+# [React Icons](https://react-icons.github.io/react-icons)
+```
+npm install react-icons --save
+
+import { FaBeer } from 'react-icons/fa';
+
+function Question() {
+  return (
+    &lt;h3&gt;
+      Lets go for a &lt;FaBeer /&gt;?
+    &lt;/h3&gt;
+  );
+}
+```。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/33.html</guid><pubDate>Sun, 21 Sep 2025 09:21:42 +0000</pubDate></item><item><title>Vol.32 Docker入門</title><link>https://grapehut.dpdns.org/post/32.html</link><description>`Gmeek-html&lt;iframe style='border-radius:12px' width='100%' height='200px' src='https://www.youtube.com/embed/RzYO_cGqrAY?si=qO64_ABMM0jyvNUi' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen&gt;&lt;/iframe&gt;`
+
+
+# 🎉CheatSheet
+[CheatSheet](/imgs/DockerCheatSheet.pdf)
+
+`Gmeek-html&lt;img src='/imgs/DockerCheatSheet.png'&gt;`
+
+
+
+# 🎉安装Docker
+```
+sudo curl -fsSL https://get.docker.com | sh    #安装Docker
+sudo systemctl enable --now docker             #启动Docker服务
+sudo docker -v                                 #查看docker版本，检查是否安装成功
+```
+
+# 🎉一些Docker常用命令
+```
+🪄拉取image
+sudo docker pull docker.io/library/image_name:lastest      #拉取镜像
+                               ↑            ↑
+                     空间（官方空间可省略）  image（版本省略的话，默认最新）
+
+例：　sudo docker pull nginx　#省略写法表示，从官网拉取nginx的最新版本
+ ```
+
+```
+🪄运行image
+
+docker run   #每次从image 创建新容器及运行
+
+sudo docker run -d  -p 80:8080  -v /data:/data  image_name:lastest      
+                ↑　　　↑　　　　　　↑               ↑
+           -d 后台运行 -p 端口映射 -v 目录映射   image（版本省略的话，默认最新）
+           host内:docker内　host内:docker内
+```
+
+```
+🪄进入容器
+sudo run -it  image_name 
+          ↑
+     -it 进入容器后
+```
+
+
+```
+🪄挂载卷
+sudo docker volume create  volume_name                                #创建挂载卷
+sudo run -d  -p 80:8080  -v volume_name:/data  image_name:lastest     #用挂载卷启动容器
+
+sudo docker volume inspect volume_name                                #查看挂载卷的真是目录
+sudo docker volume list                                               #查看所有挂载卷
+sudo docker volume rm volume_name                                     #删除挂载卷
+```
+
+```
+🪄image管理
+sudo docker images                       #查看docker中所有image
+sudo docker rmi image_id/image_name      #删除image
+```
+
+```
+🪄container管理
+sudo docker ps -a                             #查看docker中所有容器
+sudo docker rm  container_id/container_name   #删除容器
+```
+
+```
+🪄container管理
+sudo docker ps -a                             #查看docker中所有容器
+sudo docker rm  container_id/container_name   #删除容器
+```
+
+```
+🪄启动停止container
+sudo docker start container_id/container_name   #启动容器
+sudo docker stop container_id/container_name   #停止容器
+```
+
+```
+🪄查看docker内network
+sudo docker network ls
+・bridge 
+・host 
+・null
+```
+
+
+
+# 🎉Docker image 制作及Push
+```
+Dockerfile   添加此文件（注意：头文字大写，没有后缀）
+
+FROM node:18-alpine
+WORKDIR /app
+COPY index.js /index.js
+RUN npm install -g pnpm
+RUN pnpm install
+CMD node /index.js
+EXPOSE 3000
+```
+```
+sudo docker build -t user_name/image_name:version .
+sudo docker push user_name/image_name   #上传image
+```
+
+
+
+# 🎉Docker compose
+```
+docker-compose.yaml
+每一个compose，自动创建一个子网
+
+sudo docker compose up -d  #启动compose里所有容器 并自动创建一个子网
+sudo docker compose down   #停止并删除compose里所有容器
+
+sudo docker compose start #启动compose
+sudo docker compose stop #停止compose
+```
+
+
+
+# 🎉Docker Playground
+https://labs.play-with-docker.com/
+
+
+
+# 🎉Docker运行实例
+1. [gemini-balance](https://github.com/snailyp/gemini-balance)
+```
+mkdir ./geminibalance_data
+vi .geminibalance.env
+
+API_KEYS=['AIxxxx','AIxxxx','AIxxxx','AIxxxx']
+ALLOWED_TOKENS=['登入密码']
+DATABASE_TYPE=sqlite
+SQLITE_DATABASE=default_db
+
+sudo docker run -d --restart=always -p 8000:8000 --name gemini-balance -v ./geminibalance_data:/app/data --env-file .geminibalance.env ghcr.io/snailyp/gemini-balance:latest
+```
+
+
+2. [n8n](https://github.com/n8n-io/n8n)
+```
+mkdir ./n8n_data
+sudo docker run -d --restart=always -p 5678:5678 --name n8n -v ./n8n_data:/home/node/.n8n -e N8N_SECURE_COOKIE=false docker.n8n.io/n8nio/n8n
+```
+
+
+3. [青龙面板](https://github.com/whyour/qinglong)
+```
+mkdir ./qinglong_data
+sudo docker run -d --restart=always -p 5700:5700 --name qinglong -v ./qinglong_data:/ql/data whyour/qinglong:latest
+```
+
+
+4. [CloudSaver](https://github.com/jiangrui1994/CloudSaver)
+```
+mkdir ./cloudsaver_data
+mkdir ./cloudsaver_config
+
+sudo docker run -d --restart=always -p 8008:8008 --name cloud-saver -v ./cloudsaver_data:/app/data -v ./cloudsaver_config:/app/config jiangrui1994/cloudsaver:latest
+```
+```
+[{'name':'115网盘资源分享频道','id':'Lsp115'},{'id':'alyp_1','name':'网盘(高品质)影视'},{'id':'shareAliyun','name':'阿里云盘发布频道'},{'id':'Quark_Movies','name':'夸克云盘综合资源'},{'id':'Aliyun_4K_Movies','name':'阿里云盘4K影视'},{'id':'zaihuayun','name':'阿里云盘资源'},{'id':'PanjClub','name':'盘酱酱Club'},{'id':'tianyirigeng','name':'天翼云盘资源频道'},{'id':'xx123pan','name':'123云盘资源频道'},{'id':'zyzhpd123','name':'123云盘综合频道'},{'id':'cloudtianyi','name':'天翼云盘资源发布频道'},{'id':'tyypzhpd','name':'天翼云盘综合频道'},{'id':'Oscar_4Kmovies','name':'奥斯卡4K蓝光（精品）影视磁力站'},{'id':'ydypzyfx','name':'移动云盘资源分享'},{'id':'bdwpzhpd','name':'百度网盘综合频道'},{'id':'Q66share','name':'阿里云盘吧'},{'id':'BaiduCloudDisk','name':'百度网盘资源分享'},{'id':'yunpan139','name':'网盘资源收藏（移动云盘）'},{'id':'yunpanuc','name':'网盘资源收藏（UC网盘）'},{'id':'qixingzhenren','name':'云盘资源发布频道'},{'id':'duanjucabian','name':'热门短剧/擦边短剧/精选短剧/在线预览'},{'id':'yoyokuakeduanju','name':'YOYO资源|夸克|短剧'},{'id':'Channel_Shares_115','name':'Shares_115_Channel'},{'id':'yeqingjie_GJG666','name':'爷青回动画分享'},{'id':'gotopan','name':'迅雷云盘'},{'id':'oneonefivewpfx','name':'影巢'},{'id':'zhenyingsg','name':'帧影时光'},{'id':'movielover8888_TV','name':'【热门网剧在线】'},{'id':'CBduanju','name':'全网擦边｜电影｜资源分享'},{'id':'ucquark','name':'UC夸克百度迅雷资源分享'},{'id':'weichengduanju666','name':'短剧大全资源'},{'id':'yingxiangkj','name':'影享空间'},{'name':'夸克网盘资源收藏夹','id':'QuarkFree'},{'name':'综艺网盘资源频道','id':'TG654TG'},{'name':'115影视资源分享频道','id':'QukanMovie'},{'name':'夸克丶百度丶迅雷丶4K网盘','id':'WFYSFX02'},{'name':'网盘资源收藏','id':'naclyunpan'},{'name':'综艺网盘资源频道','id':'TG654TG'},{'name':'网盘资源收藏','id':'naclyunpan'},{'name':'夸克丶百度丶迅雷丶4K网盘','id':'WFYSFX02'},{'name':'115影视资源分享频道','id':'QukanMovie'}]
+```
+
+5. [DeepLX](https://github.com/OwO-Network/DeepLX)
+```
+sudo docker run -d --restart=always -p 1188:1188 --name deeplx missuo/deeplx:latest
+```
+
+6. [uptime-kuma](https://github.com/louislam/uptime-kuma)
+```
+sudo docker run -d --restart=always -p 3001:3001 --name uptime-kuma -v uptime-kuma:/app/data louislam/uptime-kuma:latest
+```
+
+7. [excalidraw](https://github.com/excalidraw/excalidraw)
+```
+sudo docker run -d --restart=always -p 5000:5000 --name excalidraw excalidraw/excalidraw:latest
+```
+
+8. [komari](https://github.com/komari-monitor/komari)
+```
+mkdir ./komari_data
+sudo docker run -d --restart=always -p 25774:25774 --name komari -v ./komari_data:/app/data  ghcr.io/komari-monitor/komari:latest
+
+docker logs komari
+
+http://&lt;your_server_ip&gt;:25774
+```
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/32.html</guid><pubDate>Sun, 21 Sep 2025 09:20:37 +0000</pubDate></item><item><title>Vol.31 科学上网（VPN客户端）</title><link>https://grapehut.dpdns.org/post/31.html</link><description># 翻墙回国
+- quick-fox
+https://www.quick-fox.com/zh-CN
+
+- 穿梭
+https://www.transocks.com/
+
+
+
+# 翻墙出国  
+- StarVPN 
+https://www.starvpn.com/free-vpn
+iOS  2GB/天
+Android 和 Windows 100GB/月
+
+- VivaVPN
+https://www.vivavpn.pro
+不限流量 !
+
+- ZIVPN
+https://zivpn.com
+不限流量 !
+
+- HelloVPN
+https://www.hellovpn.app
+不限流量 !
+
+- Hola VPN
+https://hola.org
+提供原生IP，免费有时间限制
+ 
+- AdGuard VPN — 极速且安全的代理
+https://adguard-vpn.com/zh_cn/welcome.html
+每个月享受 3GB
+ 
+- TunnelBear 
+每月2000M流量，秒开4k/8k视频
+ 
+- Turbo VPN
+安全免费的 VPN 代理！ 5个免费节点
+ 
+- 美国 VPN 
+Planet VPN lite 代理，提供原生IP
+ 
+- 免费VPN 
+Free VPN – 1VPN，不限流量!
+ 
+- DotVPN
+快速且私密的VPN
+ 
+- Urban VPN Proxy
+超多免费节点！速度极快，秒开4K、8K视频。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/31.html</guid><pubDate>Sun, 21 Sep 2025 09:20:13 +0000</pubDate></item><item><title>Vol.30 科学上网（代理节点客户端）</title><link>https://grapehut.dpdns.org/post/30.html</link><description># Shadowsocks(SS)、ShadowsocksR(SSR)、V2Ray、Clash、Trojan等科学上网协议
+
+### Shadowsocks是什么？
+Shadowsocks（简称SS）是一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种开发包，大家常说的SS科学上网这里说的就是Shadowsocks协议。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/30.html</guid><pubDate>Sun, 21 Sep 2025 09:19:50 +0000</pubDate></item><item><title>Vol.29 git入門</title><link>https://grapehut.dpdns.org/post/29.html</link><description># git 公式サイト
+[https://git-scm.com](https://git-scm.com/)
+
+[http://git-cheatsheet.com](http://git-cheatsheet.com/)
+
+[PDF](https://wac-cdn.atlassian.com/dam/jcr:e7e22f25-bba2-4ef1-a197-53f46b6df4a5/SWTM-2088_Atlassian-Git-Cheatsheet.pdf)
+
+# git-cheat-sheet
+![git](./git-cheat-sheet.png)
+
+
+# git 工作原理
+![git](./git-status.png)
+```
+・Remote：远程仓库，托管代码的服务器
+・Repository：仓库区（或版本库），其中HEAD指向最新放入仓库的版本
+・Index／Stage：暂存区（或索引区），用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息
+・Workspace：工作区，就是你平时存放项目代码的地方
+```
+#### １．具体例：下图中的四条命令在「工作区」、「暂存区」、「仓库区」之间复制文件。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/29.html</guid><pubDate>Sun, 21 Sep 2025 09:19:25 +0000</pubDate></item><item><title>Vol.28 如何找到Shopify中国卖家网站</title><link>https://grapehut.dpdns.org/post/28.html</link><description>
+## 你想知道别人的Shopify网站怎么做的吗？
+
+一个傻瓜式的方式教大家如何找到Shopify中国卖家的网站（当然也可以找国外的）。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/28.html</guid><pubDate>Sun, 21 Sep 2025 09:18:45 +0000</pubDate></item><item><title>Vol.27 科学上网（自建代理节点）</title><link>https://grapehut.dpdns.org/post/27.html</link><description># 方法一：claw.cloud 部署
+
+### Claw Cloud爪云）部署 Vless       
+```
+Docker image：7techlife/seven
+Cpu：0.2
+Memory：256m
+Port：80
+Public Address：不公开 
+
+部署后在logs里 查找 聚合链接 粘贴到V2ray
+```
+
+
+### Claw Cloud爪云）部署 Hysteria2       
+```
+Docker image：7techlife/sevenhy2
+Cpu：0.1
+Memory：64m
+Port：7777
+Public Address：选择udp:// 
+部署后在logs里 查找下面链接 粘贴到V2ray
+hy2:// 一次性强密码 @ public address（去掉udp://）?insecure=1&amp;alpn=h3#sevenhy2
+
+```
+
+
+---
+
+# 方法二：cf worker 部署
+
+
+
+## 🔖 新建Worker
+cf里创建一个worker（worker名字任意，如 cf996），初始脚本（work.js） 为默认Helloworld 即可
+cf会自动生成worker网址   如：https://cf996.hst1189.workers.dev
+
+
+## 🔖 脚本地址
+替换默认脚本 work.js 后部署
+为了防止ERROR1101 , 建议使用以下混淆代码
+https://github.com/yonggekkk/Cloudflare-vless-trojan
+　∟[Vless_workers_pages](https://github.com/yonggekkk/Cloudflare_vless_trojan/tree/main/Vless_workers_pages)
+　∟[Trojan_workers_pages](https://github.com/yonggekkk/Cloudflare_vless_trojan/tree/main/Trojan_workers_pages)
+
+
+## 🔖 Worker添加变量
+### 1. Vless节点的变量设置
+
+`Gmeek-html&lt;img src='../imgs/vlessnode/clouDNS0.PNG'&gt;`
+
+```
+建议修改） uuid ⇒ 8cda8d90-9c66-4f59-8f98-d433d6238a8c
+默认即可）proxyip ⇒ 默认443端口：ipv4地址、ipv6地址、域名（非443端口：ipv4地址/ipv6地址/域名：端口）
+默认即可）ip1 ~ ip13 ⇒ 订阅节点：优选IP
+默认即可）pt1 ~ pt13 ⇒ 订阅节点：优选IP对应端口
+```
+
+&gt; [!TIP]
+&gt; uuid 获取方式
+```
+cmd ⇒ Powershell -NoExit -Command '[guid]::NewGuid()
+```
+
+
+
+## 2. Trojan节点的变量设置
+```
+建议修改）pswd ⇒ 万人骑密码：trojan
+默认即可）proxyip ⇒ 默认443端口：ipv4地址、ipv6地址、域名（非443端口：ipv4地址/ipv6地址/域名：端口）
+默认即可）ip1 ~ ip13 ⇒ 订阅节点：优选IP
+默认即可）pt1 ~ pt13 ⇒ 订阅节点：优选IP对应端口
+```
+
+
+## 🔖 获取链接地址
+上述变量设置以后，部署，更新网址 ↓
+https://cf996.hst1189.workers.dev/8cda8d90-9c66-4f59-8f98-d433d6238a8c
+打开此网址，找到里面的链接，黏贴到软件里即可
+
+
+
+## 🔖 绑定域名（可选，被墙对策）
+CF的worker 域名（https://*. workers.dev）被墙的话，可以通过绑定域名回避
+1. CF里添加网站 cf996.ip-ddns.com（通过clouDNS免费获得）
+2. clouDNS 添加DNS解释 A2个，NS2个（双向解析，如下图，必须和CF设置同步一致）
+3. CF里的worker 绑定自定义域名（test.cf996.ip-ddns.com、※必须添加前缀，clouDNS的根域名无法绑定）
+4. CF里自动添加 worker解析  ，相应的在clouDNS添加  worker的DNS解释 CNAME1个
+5. 添加TSL的DNS解析  TXT2个（等待几分钟~数小时）
+
+
+下图绑定 clouDNS的免费域名为例：
+`Gmeek-html&lt;img src='../imgs/vlessnode/clouDNS1.PNG'&gt;`
+`Gmeek-html&lt;img src='../imgs/vlessnode/clouDNS2.PNG'&gt;`
+`Gmeek-html&lt;img src='../imgs/vlessnode/clouDNS3.PNG'&gt;`
+
+ 
+```
+原始网址：
+https://cf996.hst1189.workers.dev/8cda8d90-9c66-4f59-8f98-d433d6238a8c
+
+绑定域名后：
+https://test.cf996.ip-ddns.com/8cda8d90-9c66-4f59-8f98-d433d6238a8c
+```
+
+
+
+
+
+# 🔖 常用软件
+1、安卓Android：[v2rayNG](https://github.com/2dust/v2rayNG/tags)、[Nekobox](https://github.com/starifly/NekoBoxForAndroid/releases)、[Karing](https://github.com/KaringX/karing/tags)、v2box
+
+2、电脑Windows：[v2rayN](https://github.com/2dust/v2rayN/tags)、[Hiddify](https://github.com/hiddify/hiddify-next/tags)、[Karing](https://github.com/KaringX/karing/tags)
+
+3、苹果Ios：Karing、Hiddify Proxy &amp; VPN、Shadowrocket(小火箭)、Streisand、v2box
+
+4、软路由Openwrt：[homeproxy](https://github.com/kiddin9/openwrt-packages)，建议使用系统自带的软件库查找更新
+
+注意：其他平台客户端未开启分片功能情况下，workers域的6个443系TLS节点是不可用的
+
+注意：Shadowrocket(小火箭)、v2box、v2rayn、v2rayng客户端对trojan+ws有强制开启TLS问题，造成trojan+ws不通。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/27.html</guid><pubDate>Sun, 21 Sep 2025 09:18:14 +0000</pubDate></item><item><title>Vol.26 科学上网（批量免费节点）</title><link>https://grapehut.dpdns.org/post/26.html</link><description>**订阅链接：**
+
+```
+https://raw.githubusercontent.com/mfuu/v2ray/master/v2ray
+```
+```
+https://raw.githubusercontent.com/mfuu/v2ray/master/clash.yaml
+```
+
+
+# 方法一
+利用google搜索  inurl:clash/proxies
+
+```
+可选参数
+c=国家（HK、TW、KR、JP、US等）
+type=节点类型（ss、ssr、vmess、trojan等）
+speed=速度（数字）需要节点池打开测速才有效
+使用&amp;拼接（问号“?”和逗号“,”都是半角英文）
+
+例如：https://sub.0664.net/clash/proxies?c=HK,TW,KR,JP,US&amp;type=ss,trojan
+筛选出香港、台湾、韩国、日本、美国地区的ss和trojan类型
+
+https://sub.0664.net/ 回到首页
+获取订阅URL
+  https://sub.0664.net/ss/sub
+  https://sub.0664.net/vmess/sub
+  ...
+```
+
+
+
+
+
+# 方法二
+利用BPB-Worker-Panel 面板的漏洞
+
+免费获取BPB面板的后台地址：
+【[点击获取](https://fofa.info/result?qbase64=aWNvbl9oYXNoPSItMTM1NDAyNzMxOSIgJiYgYXNuPSIxMzMzNSIgJiYgcG9ydD0iODAi)】80端口
+【[点击获取](https://fofa.info/result?qbase64=aWNvbl9oYXNoPSItMTM1NDAyNzMxOSIgJiYgYXNuPSIxMzMzNSIgJiYgcG9ydD0iNDQzIg%3D%3D)】443端口
+
+
+打开后获取到大量的BPB-Worker-Panel 面板地址，只需在连接后面加上/login，就可以看到BBP面板的后台，`版本号是2.5.3 以上`就可以直接免费导入使用！
+
+然后把获得的地址填写到V2ray客户端里，如下所示：
+`Gmeek-html&lt;img src='https://www.freedidi.com/wp-content/uploads/2024/11/2fed20789620241124163317-2079x1440.webp'&gt;`
+
+
+# 导入代理
+下载V2ray 客户端： [2dust/v2rayN](https://github.com/2dust/v2rayN/release)
+导入：　菜单「服务器」→  从剪贴板导入链接
+
+```
+trojan://bpb-trojan@www.vpslook.com:443?security=tls&amp;sni=这里填域名&amp;alpn=h3&amp;fp=randomized&amp;allowlnsecure=1&amp;type=ws&amp;host=这里填域名&amp;path=%2Ftr%3Fed%3D2560#BPB
+
+伪装域名(host)：需要替换
+SNI：需要替换
+```
+
+
+
+
+# 【高阶篇】
+
+- 需要安装下Python，没有安装的可以前往【[python官网】](https://www.python.org/)进行下载安装，推荐[python3.10.3](https://www.python.org/downloads/release/python-3103/) 版本
+
+- 安装下 Python 依赖库
+
+```
+pip install requests beautifulsoup4
+pip install selenium
+```
+如果报错，提示找不到package，可能python版本比较低，可以通过下面的命令解决
+
+```
+pip install selenium requests beautifulsoup4 packaging
+ ```
+
+- 把下面的代码另存为一个vpn.py
+
+```
+import requests
+from bs4 import BeautifulSoup
+from packaging import version  # 用于比较版本号
+
+# FOFA 查询页面 URL
+FOFA_URL = 'https://fofa.info/result?qbase64=aWNvbl9oYXNoPSItMTM1NDAyNzMxOSIgJiYgYXNuPSIxMzMzNSIgJiYgcG9ydD0iNDQzIg%3D%3D'
+
+# 文件名定义
+OUTPUT_FILE_1 = '1.txt'
+OUTPUT_FILE_2 = '2.txt'
+OUTPUT_FILE_OK = 'OK.txt'
+
+def get_fofa_results():
+import requests
+from bs4 import BeautifulSoup
+from packaging import version  # 用于比较版本号
+
+# FOFA 查询页面 URL
+FOFA_URL = 'https://fofa.info/result?qbase64=aWNvbl9oYXNoPSItMTM1NDAyNzMxOSIgJiYgYXNuPSIxMzMzNSIgJiYgcG9ydD0iNDQzIg%3D%3D'
+
+# 文件名定义
+OUTPUT_FILE_1 = '1.txt'
+OUTPUT_FILE_2 = '2.txt'
+OUTPUT_FILE_OK = 'OK.txt'
+
+def get_fofa_results():
+    '''抓取 FOFA 页面并提取结果地址'''
+    print('正在抓取 FOFA 页面...')
+    response = requests.get(FOFA_URL)
+    if response.status_code != 200:
+        print(f'无法访问 FOFA 页面，状态码：{response.status_code}')
+        return []
+
+    # 使用 BeautifulSoup 解析 HTML 内容
+    soup = BeautifulSoup(response.text, 'html.parser')
+    results = []
+
+    # 查找所有结果链接
+    for link in soup.find_all('a', href=True):
+        url = link['href']
+        if url.startswith('https://'):  # 提取 https 开头的链接
+            results.append(url)
+
+    print(f'提取到 {len(results)} 个地址')
+    return results
+
+def append_login_to_urls(input_file, output_file):
+    '''将地址加上 /login 并保存到新文件'''
+    print(f'正在处理 {input_file}，将地址加上 /login 并保存到 {output_file}...')
+    with open(input_file, 'r', encoding='utf-8') as infile, open(output_file, 'w', encoding='utf-8') as outfile:
+        for line in infile:
+            url = line.strip() + '/login'
+            outfile.write(url + '\n')
+    print(f'已完成地址追加，结果保存到 {output_file}')
+
+def check_bpb_version(input_file, output_file):
+    '''访问地址并检查 BPB Panel 的版本号'''
+    print(f'正在验证 {input_file} 中的地址...')
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    }
+    min_version = version.parse('2.5.3')  # 最低版本号
+    with open(input_file, 'r', encoding='utf-8') as infile, open(output_file, 'w', encoding='utf-8') as outfile:
+        for line in infile:
+            url = line.strip()
+            try:
+                response = requests.get(url, headers=headers, timeout=10)
+                if response.status_code == 200 and 'BPB Panel' in response.text:
+                    # 提取版本号
+                    raw_version = extract_version(response.text)
+                    if raw_version:
+                        parsed_version = version.parse(raw_version)
+                        if parsed_version &gt; min_version:
+                            print(f'[匹配] {url} (版本号: {parsed_version})')
+                            outfile.write(url + '\n')
+            except Exception as e:
+                print(f'[错误] 无法访问 {url}，错误：{e}')
+    print(f'验证完成，符合条件的地址保存到 {output_file}')
+
+def extract_version(html):
+    '''从 HTML 内容中提取 BPB Panel 的版本号'''
+    if 'BPB Panel' in html:
+        start_index = html.find('BPB Panel')
+        # 提取版本号（假设版本号以 2 开头）
+        version_start = html.find('2', start_index)
+        version_end = version_start
+        while version_end &lt; len(html) and (html[version_end].isdigit() or html[version_end] == '.'):
+            version_end += 1
+        return html[version_start:version_end]
+    return None
+
+def main():
+    # 第一步：抓取 FOFA 页面结果并保存到 1.txt
+    urls = get_fofa_results()
+    with open(OUTPUT_FILE_1, 'w', encoding='utf-8') as f:
+        for url in urls:
+            f.write(url + '\n')
+    print(f'FOFA 页面结果已保存到 {OUTPUT_FILE_1}')
+
+    # 第二步：将 1.txt 地址加上 /login 并保存到 2.txt
+    append_login_to_urls(OUTPUT_FILE_1, OUTPUT_FILE_2)
+
+    # 第三步：验证 2.txt 中的地址，符合条件的保存到 OK.txt
+    check_bpb_version(OUTPUT_FILE_2, OUTPUT_FILE_OK)
+
+if __name__ == '__main__':
+    main()
+```
+
+- 最后在终端下执行命令：
+
+```
+python vpn.py
+```
+
+在脚本的所在目录会生成结果OK.txt，里面就是我们需要的地址！
+
+`Gmeek-html&lt;img src='https://www.freedidi.com/wp-content/uploads/2024/11/c85b610e7e20241124163116-2081x1440.webp'&gt;`
+
+&gt; [!CAUTION]
+&gt; 默认我只获取了第一个页面，因为如果批量获取分页的话，会引起网站防火墙的拦截。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/26.html</guid><pubDate>Sun, 21 Sep 2025 09:16:34 +0000</pubDate></item><item><title>Vol.25 「白嫖」大語言模型LLM</title><link>https://grapehut.dpdns.org/post/25.html</link><description># 🔖 Openrouter.ai
+获取KEY：https://openrouter.ai/settings/keys
+API地址： https://openrouter.ai/api/v1/chat/completions
+模型：deepseek/deepseek-r1:free
+
+# 🔖 大模型竞技场
+https://lmarena.ai/leaderboard
+
+# 🔖 代理地址
+https://api-proxy.me/
+
+
+
+# 🔖 Gemini API生态  （国内无法直接访问，需代理）
+https://gemini.google.com/   （面向普通用户）
+https://aistudio.google.com/   (面向开发人员)
+https://notebooklm.google.com/
+
+### APIキー
+获取KEY：https://aistudio.google.com/apikey
+API地址： https://generativelanguage.googleapis.com/v1beta/
+模型：Gemini 2.5 Flash Preview 05-20
+
+### Gemini費用
+https://ai.google.dev/gemini-api/docs/rate-limits#free-tier
+10次/分，500次/天，250,000token/分
+
+
+### 多Key轮询
+https://github.com/snailyp/gemini-balance
+```
+1. 创建挂在文件夹
+mkdir ./geminibalance-data
+
+2. 设置env
+vi .geminibalance-env
+
+下列参数：
+API_KEYS=['AIxxxxxxxxx','AIxxxxxxxxx','AIxxxxxxxxxx']
+ALLOWED_TOKENS=['登入密码']
+DATABASE_TYPE=sqlite
+SQLITE_DATABASE=default_db
+
+
+3. 启动容器
+sudo docker run -d -p 8000:8000 --name gemini-balance -v ./geminibalance-data:/app/data --env-file .geminibalance-env ghcr.io/snailyp/gemini-balance:latest
+```
+
+```
+提供商类型：OpenAI
+提供名：GeminiBalance
+APIkey：登入密码
+API地址：http://192.168.0.200:8000
+模型：Gemini 2.5 Flash Preview 05-20
+
+```
+
+### 自建代理方法：
+通过下面自建代理，同时能转成常用的 OpenAI格式接口
+[openai-gemini](https://github.com/PublicAffairs/openai-gemini)通过Github Actions功能，在Cloudflare创建Worker
+
+```
+1. 选择VPS
+例：Deploy to Cloudflare
+・获取 Account ID
+・获取 API Token  选择所有账户，所有区域
+
+2. Fork repository　运行github workflower， 自動部署 Cloudflare Worker（Worker默认名字为 gemini ） 
+
+3. Worker绑定域名（例如：gemini.grapehut.us.kg） 　※然后就可以调用此域名了
+```
+
+
+
+
+
+# 🔖 OpenAI API
+### 0. https://api.openai.com（国内无法直接访问，需要自建代理）
+代理API地址：https://api-proxy.me/openai
+模型：gpt-4o-mini
+
+
+以下2个，大佬自建的代理服务
+### 1. https://github.com/chatanywhere/GPT_API_free （一天200次）
+```
+gpt-4o-mini，和gpt-3.5-turbo共享一天200次
+国内动态加速 直连无需代理
+支持 gpt-3.5-turbo系列 / gpt-4系列 / gpt-4o系列 / gpt-4o-audio-preview / embeddings / DALL·E / whisper 等
+```
+模型：gpt-4o-mini
+获取KEY：[申请内测免费Key](https://api.chatanywhere.org/v1/oauth/free/render)
+API地址： https://api.chatanywhere.tech (国内中转，延时更低)
+　　　　　https://api.chatanywhere.org (国外使用)
+
+
+### 2. https://github.com/popjane/free_chatgpt_api （不限量 无门槛）
+```
+完全免费使用以下勾选模型：
+★ ✓gpt-4o-mini（不限量 无门槛）
+ 　✓gpt-3.5-turbo-0125
+ 　✓gpt-3.5-turbo-1106
+ 　✓gpt-3.5-turbo
+ 　✓gpt-3.5-turbo-16k
+ 　✓net-gpt-3.5-turbo (可联网搜索模型-稳定性稍差)
+ 　✓whisper-1
+ 　✓dall-e-2
+ 　×text-开头系列模型，例如：text-davinci（免费版已取消text系列模型）
+ 　×gpt-4全系列（只定期限量开放）
+ 　×付费版API支持OpenAI所有模型，包括（联网、绘画、聊天、向量、图片分析、文件分析、GPTs等）
+ 　×付费版API支持Midjourney专业绘画、Suno音乐生成、PPT生成、多种视频模型。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/25.html</guid><pubDate>Sun, 21 Sep 2025 09:16:05 +0000</pubDate></item><item><title>Vol.24 「白嫖」cloudflare无限企业邮箱</title><link>https://grapehut.dpdns.org/post/24.html</link><description># 白嫖cloudflare无限企业邮箱
+
+## 🎉收邮件
+1. 进入cloudflare，选择一个已绑定的域名
+2. 启用email routing，自动生成５条DNS记录（３个MX，２个TXT），添加结果可以在DNS面板里看到
+3. 设置email routing规则，编辑Catch-All绑定一个転送邮箱，通过邮箱验证后，転送状态变为可用
+
+&gt; [!TIP]
+&gt; 邮箱「**任意字符**@ **上述绑定的域名**」， 所接受到的邮件 都会転送到Catch-All
+&gt; 例：发送至：**任意**@**grapehut.xyz**  的邮件，会転送到Catch-All 绑定邮箱
+
+&gt; [!TIP]
+&gt; cloudflare邮件设置的概要栏里可以查看，所有收到的邮件
+
+
+
+## 🎉发邮件
+resend.com的API服务  
+https://resend.com/onboarding
+
+1. Add Domain，自动生成3条DNS（1条MX，2条TXT）
+`Gmeek-html&lt;img src='../imgs/resend/resend1.PNG'&gt;`
+
+
+2. 添加回 cloudflare
+`Gmeek-html&lt;img src='../imgs/resend/resend2.PNG'&gt;`
+
+
+#### 测试
+https://resend.com/docs/send-with-nodejs
+
+```javascript
+import { Resend } from 'resend';
+
+const resend = new Resend('re_xxxxxxx');
+
+(async function () {
+  const { data, error } = await resend.emails.send({
+    from: 'Acme &lt;任意@grapehut.xyz&gt;',
+    to: ['目标邮箱@outlook.com'],
+    subject: 'Hello World',
+    html: '&lt;strong&gt;It works!&lt;/strong&gt;',
+  });
+
+  if (error) {
+    return console.error({ error });
+  }
+
+  console.log({ data });
+})();
+```。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/24.html</guid><pubDate>Sun, 21 Sep 2025 09:15:40 +0000</pubDate></item><item><title>Vol.23 「白嫖」批量gmail, outlook</title><link>https://grapehut.dpdns.org/post/23.html</link><description># 📫 Gamil
+例如：johndoe@gmail.com
+
+1. 任意位置添加「.」，都被视为同一个地址
+```
+john.doe@gmail.com
+johnd.oe@gmail.com
+jo.hndoe@gmail.com
+```
+ 
+2. 后置添加「+」，都被视为同一个地址```
+```
+johndoe+news@gmail.com
+johndoe+abc@gmail.com
+johndoe+shop@gmail.com
+``` 
+
+3. 使用「googlemail.com」域名
+```
+johndoe@googlemail.com
+```
+
+4. 上述3种方法结合起来
+```
+john.doe+lable@googlemail.com
+```
+
+
+
+# 📫 Outlook
+通过为outlook设备别名的方式，一次获得10个outlook邮箱，outlook邮箱与真实的完全一样。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/23.html</guid><pubDate>Sun, 21 Sep 2025 09:14:39 +0000</pubDate></item><item><title>Vol.22 「白嫖」aws免费一年</title><link>https://grapehut.dpdns.org/post/22.html</link><description># 配置服务器
+
+🔖### 1. 注册aws账号（需要信用卡，验证时会扣除1美元或等值的货币）
+https://aws.amazon.com/cn/campaigns/nc20241101/
+
+🔖### 2. 选择免费额度的配置来创建一个EC2实例
+    名称：任意
+    系统：任意（选择平时常用系统  **Ubuntu**）
+    硬件配置（选择默认的免费）
+    实例类型（默认的**t2.micro**）
+    存储（免费最大30GB）
+    
+　创建密钥（保存为`xxx.pem`，下载到本地， ssh联接用）
+    创建安全组（允许`SSH ✓`，`HTTP ✓`，`HTTPS  ✓`） 
+
+🔖### 3. 确认一下实体配置信息，启动实体
+
+🔖### 4. 进入实体，查看公有IP，进行ssh链接，使用下载到本地的密钥（`xxx.pem`） ，选择Ubuntu的话，默认用户名：`ubuntu
+　　例如：公有IPv4：18.181.184.67
+　　ssh -i 'aws_ubuntu.pem' ubuntu@ec2-18-181-184-67.ap-northeast-1.compute.amazonaws.com
+
+🔖### 5. `sudo -i`  进入root权限
+查看硬件配置
+```
+CPU：lscpu
+内存：free -h
+磁盘容量：df -h
+OS版本：cat /etc/issue
+```
+
+🔖### 6. 安装Docker
+```
+curl -fsSL https://get.docker.com | sh    #安装Docker
+systemctl enable --now docker             #启动Docker服务
+docker -v                                 #查看docker版本，检查是否安装成功
+docker ps -a                            #查看docker中所有容器
+```
+
+
+🔖### 7. 开放端口，设置安全组
+`Gmeek-html&lt;img src='../imgs/aws_security_rull.png'&gt;`
+
+&gt; [!TIP]
+&gt; http 的默认端口: 80
+&gt; https 的默认端口: 433
+&gt; ssh 的默认端口: 22
+&gt; telnet 的默认端口: 23
+&gt; ftp 的默认端口: 20 和 21 ，  20负责连接，21负责传输数据
+&gt; sftp 的默认端口: 22
+
+
+
+
+🔖### 8. 常见问题
+
+《无法ping的解决方案》
+首先Ping只是向服务器发送ICMP的数据包，如果在服务器的防火墙没有允许ICMP协议的数据包的话，那么即使服务器正常运行，那也是ping不同的。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/22.html</guid><pubDate>Sun, 21 Sep 2025 09:14:04 +0000</pubDate></item><item><title>Vol.21  Portableapps便携软件制作</title><link>https://grapehut.dpdns.org/post/21.html</link><description># 前言
+`PortableApps.com Launcher`（以下简称PAL）是`PortableApps.com`开发的便携软件制作工具。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/21.html</guid><pubDate>Sun, 21 Sep 2025 09:13:29 +0000</pubDate></item><item><title>Vol.20 油猴（Tampermonkey)</title><link>https://grapehut.dpdns.org/post/20.html</link><description># 平台比較
+|   | Greasemonkey | Violentmonkey | Tampermonkey| Scriptcat
+-- |-- | -- | --|--
+Firefox | 〇 | 〇 | 〇|〇
+Chrome | × | 〇 | 〇|〇
+Safari | × | × | 〇|〇
+外部エディタ | × | 〇 | 〇|〇
+インポート/エクスポート | 〇 | 〇 | 〇|〇
+Dropbox 同期 | × | 〇 | 〇|×
+Google Drive 同期 | × | 〇 | 〇|×
+One Drive 同期 | × | 〇 | 〇|×
+WebDAV 同期 | × | 〇 | 〇|×
+Yandex Disk 同期 | × | × | 〇|×
+ライセンス | MIT | MIT | proprietary |GPL-3.0 license
+リポジトリ | [GitHub](https://github.com/greasemonkey/greasemonkey/) | [GitHub](https://github.com/violentmonkey/violentmonkey) | [2018 年更新停止](https://github.com/Tampermonkey/tampermonkey)|[GitHub](https://github.com/scriptscat/scriptcat)
+公式サイト | [公式サイト](https://www.greasespot.net/) | [公式サイト](https://violentmonkey.github.io/) | [公式サイト](https://www.tampermonkey.net/)| [公式サイト](https://docs.scriptcat.org)
+Initial release | 2005/03/28 | 2013/09/03 | 2010/05/26|
+
+# 脚本收藏
+  - https://greasyfork.org/scripts
+  - https://sleazyfork.org/scripts
+  - https://scriptcat.org/en/search
+
+---
+Telegram Media Downloader
+- https://greasyfork.org/ja/scripts/446342
+
+百度网盘下载
+- https://greasyfork.org/ja/scripts/484953
+ 
+ 跨克网盘下载
+- https://greasyfork.org/ja/scripts/471333
+
+GitHub仓库页面添加一个'DeepWiki'按钮
+- https://greasyfork.org/ja/scripts/534147
+
+解除CSDN登录复制
+- https://greasyfork.org/ja/scripts/505207
+
+YouTube 広告を自動スキップ
+- https://greasyfork.org/ja/scripts/498197
+
+東方永頁機
+- https://greasyfork.org/ja/scripts/438684
+
+
+---
+pixiv-downloader
+- https://sleazyfork.org/ja/scripts/432150
+
+圖片全載Next（支持寫真、H漫、漫畫的網站1000+）
+- https://sleazyfork.org/ja/scripts/463305
+ 
+ComicRead
+- https://sleazyfork.org/ja/scripts/374903
+
+JavBus Javdb library trailer（JavBus/Javdb/library/javbooks/avmoo/avsox/sehuatang/msin）
+- https://sleazyfork.org/ja/scripts/441120
+
+老司机修炼手册（支持网站 missav | jable.tv | pornhub | 18comic | 91porn | 91porna | xvideos）
+- https://sleazyfork.org/ja/scripts/519635
+
+missav永远播放+不弹广告
+- https://sleazyfork.org/ja/scripts/499213
+
+missav批量备份收藏视频
+- https://sleazyfork.org/ja/scripts/497682
+
+OneJAVOneWeb（javbusjavlibrary.com| onejav.com| 141jav.com| jav321.com| javbus.com| hpjav.tv| jable.tv| hpav.tv| javdb.com| freejavbt.com| avmoo.click）
+- https://sleazyfork.org/ja/scripts/428639
+
+亚洲审美车（theav101.com| theav108.com| theav109.com| theav.fun| theav120.com| theav09.fun| theav121.com）
+- https://sleazyfork.org/ja/scripts/455251
+
+解锁海角社区资源
+- https://sleazyfork.org/zh-CN/scripts/509466
+
+
+
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/20.html</guid><pubDate>Sun, 21 Sep 2025 09:13:05 +0000</pubDate></item><item><title>Vol.19 Hyper-v安装openwrt软路由</title><link>https://grapehut.dpdns.org/post/19.html</link><description># 事前准备
+
+### 1. 下载 OpenWrt 镜像
+骷髅大佬版本：[DHDAXCW/OpenWRT_x86_x64](https://github.com/DHDAXCW/OpenWRT_x86_x64/releases)
+
+`ext4` 文件系统镜像可以对任何改动都进行持久化存储，
+`squashfs` 一般情况下对文件系统的改动无法持久化，每次重启都会重置更改，但便于从错误配置中重置。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/19.html</guid><pubDate>Sun, 21 Sep 2025 09:12:28 +0000</pubDate></item><item><title>Vol.18 jsdelivr CDN</title><link>https://grapehut.dpdns.org/post/18.html</link><description># 关于jsdelivr 
+&gt; https://www.jsdelivr.com/
+
+## jsdelivr CDN 和 GitHub 的关系
+jsdelivr 是一个免费且可靠的内容分发网络（CDN）服务，允许开发者将静态资源存储在 GitHub 仓库中，并通过 jsdelivr 进行全球加速访问。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/18.html</guid><pubDate>Sun, 21 Sep 2025 09:11:51 +0000</pubDate></item><item><title>Vol.17 Omakub 专为开发者设计的 Ubuntu</title><link>https://grapehut.dpdns.org/post/17.html</link><description># 前言
+Omakub 是一个专为开发者设计的 Ubuntu 环境配置项目，由 Ruby on Rails 的创造者 David Heinemeier Hansson（DHH）发起。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/17.html</guid><pubDate>Sun, 21 Sep 2025 09:10:40 +0000</pubDate></item><item><title>Vol.16 家用服务器（Ubuntu編）</title><link>https://grapehut.dpdns.org/post/16.html</link><description># 1. 安装Ubuntu系统🔖
+Linux发行版Ubuntu24.04LTS　　※LTS的意思是'长期支持'
+https://ubuntu.com/
+
+#### ・查看硬件配置
+```
+OS版本：cat /etc/issue
+CPU：lscpu
+内存：free -h
+磁盘容量：df -h
+```
+
+#### ・系统清理
+```
+sudo apt autoremove  ※自动删除无用软件包
+sudo apt autoclean　　※自动清除软件包缓存
+```
+
+#### ・系统更新
+```
+sudo apt update
+sudo apt upgrade
+```
+
+```javascript
+#!/bin/bash
+# Ubuntu系统维护脚本
+
+# 1. 更新软件包列表并升级所有软件包
+echo '更新软件包列表...'
+sudo apt update &amp;&amp; sudo apt upgrade -y
+
+# 2. 清理无用软件包及缓存
+echo '清理无用软件包...'
+sudo apt autoremove -y
+echo '清理软件包缓存...'
+sudo apt autoclean
+
+# 3. (可选) 进行ClamAV病毒扫描（需先安装ClamAV）
+# echo '启动ClamAV扫描...'
+# sudo clamscan -r --remove /home
+
+# 4. (可选) 清理过大的日志文件（如大于50M的日志）
+echo '检查并清理过大的日志文件...'
+find /var/log -type f -name '*.log' -size +50M -exec sudo truncate -s 0 {} \;
+
+echo '系统维护任务已完成。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/16.html</guid><pubDate>Sun, 21 Sep 2025 09:09:57 +0000</pubDate></item><item><title>Vol.15 Win开启SMB安全共享</title><link>https://grapehut.dpdns.org/post/15.html</link><description># 🔖 禁用 SMB1
+强烈建议关闭，打开Windows機能面板
+```
+cmd ⇒ OptionalFeatures.exe
+```
+SMB1 可以追溯到20世纪80年代 IBM 和 [微软](https://pinpai.smzdm.com/1461/)的DOS 时代
+距离今天已经有三十多年的时间，当时计算机安全还不存在，它在拦截攻击方面有重大的架构问题
+如今版本的 windows 10/11 都默认禁用了 SMB1
+
+
+
+
+# 🔖 安全使用 SMB 共享的步骤
+1. 新建一个用户专门用于共享文件的授权，并设置此用户的权限
+2. 设置网络共享和系统安全的相关设置
+3. 开启共享，授权指定用户
+4. 删除 %User% 默认共享
+
+
+## 🐻 1. 创建专用的用户
+新建一个本地用户，设置只用于 SMB 共享
+```
+cmd ⇒ compmgmt.msc  打开计算机管理面板
+本地用户和组⇒　用户⇒　右键空白处，点击“新用户”
+```
+
+新建账号为 'joker' 的用户为例，相关设置如下：　
+只用于共享，设置**不能更改密码**，**密码不会过期**
+
+`Gmeek-html&lt;img src='../imgs/smb/smb0.png'&gt;`
+`Gmeek-html&lt;img src='../imgs/smb/smb1.png'&gt;`
+`Gmeek-html&lt;img src='../imgs/smb/smb2.png'&gt;`
+`Gmeek-html&lt;img src='../imgs/smb/smb3.png'&gt;`
+`Gmeek-html&lt;img src='../imgs/smb/smb4.png'&gt;`
+
+
+## 🐻 2. 设置网络共享和系统安全的相关设置
+
+#### 2.1 分配用户权限
+设置好之后，joker 用户就无法本地登录到系统，同时也无法通过远程桌面的形式登录到本机，
+目的就是让 joker 只能用来 SMB 共享。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/15.html</guid><pubDate>Sun, 21 Sep 2025 09:09:23 +0000</pubDate></item><item><title>Vol.14 Scoop（Windows软件管理）</title><link>https://grapehut.dpdns.org/post/14.html</link><description># 🔖 Windows でのパッケージ管理は Scoop
+
+什么是 Scoop？它是一个在 Windows 上运行的软件包管理器。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/14.html</guid><pubDate>Sun, 21 Sep 2025 09:08:51 +0000</pubDate></item><item><title>Vol.13 PowerToys使用技巧</title><link>https://grapehut.dpdns.org/post/13.html</link><description># 下载PowerToys
+https://github.com/microsoft/PowerToys
+
+# 下载插件
+1. [ChatGPTPowerToys](https://github.com/ferraridavide/ChatGPTPowerToys)
+将下载的插件解压后，放置到这个目录下：`C:\Program Files\PowerToys\RunPlugins`
+重启PowerToys。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/13.html</guid><pubDate>Sun, 21 Sep 2025 09:08:19 +0000</pubDate></item><item><title>Vol.12 Win cmd &amp; Powershell</title><link>https://grapehut.dpdns.org/post/12.html</link><description># cmd命令
+
+## 各种面板
+http://wingsan.web.fc2.com/WinCom/index.html
+
+命令|说明
+---|---
+winver|windows版本
+lusrmgr.msc|用户和组
+netplwiz|用户账号管理
+compmgmt.msc|电脑管理
+devmgmt.msc　|硬件管理
+diskmgmt.msc　|磁盘管理
+dxdiag　|DirectX診断
+regedit　|注册表
+firewall.cpl |防火墙
+control　|控制面板
+services.msc |服务进程
+taskmgr　|任务管理
+appwiz.cpl　|软件一览
+ComputerDefaults　|window默认程序
+OptionalFeatures　|window附加功能★
+sysdm.cpl　|环境变量★
+fsmgmt.msc |共享文件夹
+mstsc　|远程桌面
+fonts　|字体
+
+
+## 查看IP
+```
+内网ip：　ipconfig
+
+公网ip：　curl ip-api.com
+公网ip：　curl ipinfo.io 
+公网ip：　curl ip.network/more
+公网ip：　curl api.myip.com
+公网ip：　curl ip9.com.cn/get
+
+指定ip：　curl http://ip-api.com/json/目的ip
+指定ip：　curl https://ipinfo.io/目的ip
+指定ip：　curl https://ip9.com.cn/get?ip=目的ip
+
+网络诊断：  tracert -w 3000 -h 30 目的ip   例：tracert -w 3000 -h 30 www.google.com
+```
+
+## WIFI密码
+```
+netsh wlan show profiles                         　←查看名字
+netsh wlan show profiles name=xxxx key=clear        ←名字代入
+```
+
+## 强制启动旧版IE6.0浏览器
+```
+CreateObject('InternetExplorer.Application').Visible=true
+保存为vbs
+```
+
+## 修复系统文件
+```
+sfc /scannow
+```
+
+## 恢复应用商店
+```
+wsreset -i
+```
+
+## 右键菜单
+```
+传统菜单(Win10)　reg add 'HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32' /f /ve
+折叠菜单(Win11)　reg delete 'HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}' /f 
+```
+
+## 永久暂停Windows自动更新
+```
+reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings' /v FlightSettingsMaxPauseDays /t reg_dword /d 9999 /f
+```
+
+
+## Windows家庭版，强制开启hyper-v
+
+```
+pushd '%~dp0'
+dir /b %SystemRoot%servicingPackages*Hyper-V*.mum &gt;hv.txt
+for /f %%i in ('findstr /i . hv.txt 2^&gt;nul') do dism /online /norestart /add-package:'%SystemRoot%servicingPackages%%i'
+del hv.txt
+Dism /online /enable-feature /featurename:Microsoft-Hyper-V -All /LimitAccess /ALL
+pause
+
+将文本文档改名为'xxx.bat'，需注意.bat是扩展名
+运行完成后，重启电脑
+```
+
+
+
+## Window附加功能
+```
+機能の確認     dism /online /Get-Features
+機能の有効化  dism /online /Enable-Feature:役割名
+機能の無効化  dism /online /Disable-Feature:役割名
+```
+
+```
+＜Hyper-V＞ 
+dism /online /enable-feature /featurename:Microsoft-Hyper-V/all /norestart
+dism /online /enable-feature /featurename:Microsoft-Hyper-V-All/all /norestart
+dism /online /enable-feature /featurename:Microsoft-Hyper-V-Hypervisor/all /norestart
+dism /online /enable-feature /featurename:Microsoft-Hyper-V-Services/all /norestart
+dism /online /enable-feature /featurename:Microsoft-Hyper-V-Tools-All/all /norestart
+dism /online /enable-feature /featurename:Microsoft-Hyper-V-Management-Clients/all /norestart
+dism /online /enable-feature /featurename:Microsoft-Hyper-V-Management-PowerShell/all /norestart
+
+＜WSL＞
+dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+＜虚拟机Platform＞
+dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+表示名 | 機能名
+-- | --
+.NET Framework 3.5 (.NET 2.0 および 3.0 を含む) | NetFx3
+.NET Framework 4.8 Advanced Services | NetFx4-AdvSrvs
+-- | --
+Hyper-V | Microsoft-Hyper-V
+Hyper-V プラットフォーム | Microsoft-Hyper-V-All
+Hyper-V Hypervisor | Microsoft-Hyper-V-Hypervisor
+Hyper-V サービス | Microsoft-Hyper-V-Services
+Hyper-V 管理ツール | Microsoft-Hyper-V-Tools-All
+Hyper-V GUI 管理ツール | Microsoft-Hyper-V-Management-Clients
+Windows PowerShell 用 Hyper-V モジュール | Microsoft-Hyper-V-Management-PowerShell
+-- | --
+Linux 用 Windows サブシステム | Microsoft-Windows-Subsystem-Linux
+-- | --
+仮想マシン プラットフォーム | VirtualMachinePlatform
+
+
+
+
+
+
+
+# Powershell命令
+
+## Powershell的基本概念
+
+## ps1文件
+一个PowerShell脚本其实就是一个简单的文本文件， 这个文件包含了一系列PowerShell命令，每个命令显示为独立的一行，文件名需要加上.ps1的扩展名。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/12.html</guid><pubDate>Sun, 21 Sep 2025 09:07:48 +0000</pubDate></item><item><title>Vol.11 Windows KMS激活</title><link>https://grapehut.dpdns.org/post/11.html</link><description>```
+# Windows 11 LTSC 2024
+tiny11_24H2
+　https://archive.org/details/tiny11-2409 
+　✓tiny11 24H2 AMD64.iso
+　SHA256：87c926dcb9c2927a0d67c5f4084308c61a29581e259e6f4d9ebd36f44c79559a
+
+Windows 11 Insider Preview Build 26100 Enterprise LTSC English x86-64
+　https://archive.org/details/26100-ltsc-x64-enus
+　✓26100.1.240331-1435.ge_release_CLIENT_ENTERPRISES_OEM_x64FRE_en-us.iso
+```
+
+```
+# Windows 11 LTSC KMS激活
+slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+slmgr -skms kms.0t.net.cn
+slmgr -ato
+```
+
+```
+# Windows MAS激活
+irm https://massgrave.dev/get | iex
+```
+
+```
+#Office 2021 Pro plus
+https://archive.org/details/microsoft_volume_license_office_2019_202110
+https://github.com/massgravel/Microsoft-Activation-Scripts
+8WXTP-MN628-KY44G-VJWCK-C7PCF
+```
+
+
+
+# Windows
+
+&gt; 引用： https://learn.microsoft.com/ja-jp/windows-server/get-started/kms-client-activation-keys
+
+## Windows 11 零售版 RTM 通用安装密钥
+
+Windows 11 系统版本 | 通用 Key / 安装密钥 / 注册码
+-- | --
+Windows 11 Home | YTMG3-N6DKC-DKB77-7M9GH-8HVX7
+Windows 11 Home N | 4CPRK-NM3K3-X6XXQ-RXX86-WXCHW
+Windows 11 Home Single Language | BT79Q-G7N6G-PGBYW-4YWX6-6F4BT
+Windows 11 Home Country Specific | N2434-X9D7W-8PF6X-8DV9T-8TYMD
+Windows 11 Pro | VK7JG-NPHTM-C97JM-9MPGT-3V66T
+Windows 11 Pro N | 2B87N-8KFHP-DKV6R-Y2C8J-PKCKT
+Windows 11 Pro for Workstations | DXG7C-N36C4-C4HTG-X4T3X-2YV77
+Windows 11 Pro for Workstations N | WYPNQ-8C467-V2W6J-TX4WX-WT2RQ
+Windows 11 Pro Education | 8PTT6-RNW4C-6V7J2-C2D3X-MHBPB
+Windows 11 Pro Education N | GJTYN-HDMQY-FRR76-HVGC7-QPF8P
+Windows 11 Education | YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY
+Windows 11 Education N | 84NGF-MHBT6-FXBX8-QWJK7-DRR8H
+Windows 11 Enterprise | XGVPP-NMH47-7TTHJ-W3FW7-8HV2C
+Windows 11 Enterprise N | WGGHN-J84D6-QYCPR-T7PJ7-X766F
+Windows 11 Enterprise G N | FW7NV-4T673-HF4VX-9X4MM-B4H4T
+
+
+## 适用于 KMS 激活的 Win11 安装序列号
+
+Windows 11 版本 | KMS 客户端安装序列号
+-- | --
+Windows 11 Home | TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
+Windows 11 Home N | 3KHY7-WNT83-DGQKR-F7HPR-844BM
+Windows 11 Home Home Single Language | 7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH
+Windows 11 Home Country Specific | PVMJN-6DFY6-9CCP6-7BKTT-D3WVR
+Windows 11 Pro | W269N-WFGWX-YVC9B-4J6C9-T83GX
+Windows 11 Pro N | MH37W-N47XK-V7XM9-C7227-GCQG9
+Windows 11 Pro for Workstations | NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J
+Windows 11 Pro for Workstations N | 9FNHH-K3HBT-3W4TD-6383H-6XYWF
+Windows 11 Pro Education | 6TP4R-GNPTD-KYYHQ-7B7DP-J447Y
+Windows 11 Pro Education N | YVWGF-BXNMC-HTQYQ-CPQ99-66QFC
+Windows 11 Education | NW6C2-QMPVW-D7KKK-3GKT6-VCFB2
+Windows 11 Education N | 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ
+Windows 11 Enterprise | NPPR9-FWDCX-D2C8J-H872K-2YT43
+Windows 11 Enterprise N | DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
+Windows 11 Enterprise G | YYVX9-NTFWV-6MDM3-9PT4T-4M68B
+Windows 11 Enterprise G N | 44RPN-FTY23-9VTTB-MP9BX-T84FV
+Windows 11 Enterprise LTSC 2019 | M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+Windows 11 Enterprise N LTSC 2019 | 92NFX-8DJQP-P6BBQ-THF9C-7CG2H
+
+
+
+
+## Windows Enterprise LTSC および LTSB 
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows 11 Enterprise LTSC 24H2 | M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+Windows 10 Enterprise LTSC 2021　\|　Windows 10 Enterprise LTSC 2019 | M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+Windows 10 Enterprise N LTSC 2021　\|　Windows 10 Enterprise N LTSC 2019 | 92NFX-8DJQP-P6BBQ-THF9C-7CG2H
+
+
+## Windows 11 と Windows 10
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows 11 Pro　\|　Windows 10 Pro | W269N-WFGWX-YVC9B-4J6C9-T83GX
+Windows 11 Pro N　\|　Windows 10 Pro N | MH37W-N47XK-V7XM9-C7227-GCQG9
+Windows 11 Pro for Workstations　\|　Windows 10 Pro for Workstations | NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J
+Windows 11 Pro for Workstations N　\|　Windows 10 Pro for Workstations N | 9FNHH-K3HBT-3W4TD-6383H-6XYWF
+Windows 11 Pro Education　\|　Windows 10 Pro Education | 6TP4R-GNPTD-KYYHQ-7B7DP-J447Y
+Windows 11 Pro Education N　\|　Windows 10 Pro Education N | YVWGF-BXNMC-HTQYQ-CPQ99-66QFC
+Windows 11 Education　\|　Windows 10 Education | NW6C2-QMPVW-D7KKK-3GKT6-VCFB2
+Windows 11 Education N　\|　Windows 10 Education N | 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ
+Windows 11 Enterprise　\|　Windows 10 Enterprise | NPPR9-FWDCX-D2C8J-H872K-2YT43
+Windows 11 Enterprise N　\|　Windows 10 Enterprise N | DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
+Windows 11 Enterprise G　\|　Windows 10 Enterprise G | YYVX9-NTFWV-6MDM3-9PT4T-4M68B
+Windows 11 Enterprise G N　\|　Windows 10 Enterprise G N | 44RPN-FTY23-9VTTB-MP9BX-T84FV
+
+## Windows 8.1
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows 8.1 Pro | GCRJD-8NW9H-F2CDX-CCM8D-9D6T9
+Windows 8.1 Pro N | HMCNV-VVBFX-7HMBH-CTY9B-B4FXY
+Windows 8.1 Enterprise | MHF9N-XY6XB-WVXMC-BTDCT-MKKG7
+Windows 8.1 Enterprise N | TT4HM-HN7YT-62K67-RGRQJ-JFFXW
+
+
+## Windows 8
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows 8 Pro | NG4HW-VH26C-733KW-K6F98-J8CK4
+Windows 8 Pro N | XCVCF-2NXM9-723PB-MHCB7-2RYQQ
+Windows 8 Enterprise | 32JNW-9KQ84-P47T8-D8GGY-CWCK7
+Windows 8 Enterprise N | JMNMF-RHW7P-DMY6X-RF3DR-X2BQT
+
+
+## Windows 7
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows 7 Professional | FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4
+Windows 7 Professional N | MRPKT-YTG23-K7D7T-X2JMM-QY7MG
+Windows 7 Professional E | W82YF-2Q76Y-63HXB-FGJG9-GF7QX
+Windows 7 Enterprise | 33PXH-7Y6KF-2VJC9-XBBR8-HVTHH
+Windows 7 Enterprise N | YDRBP-3D83W-TY26F-D46B2-XCKRJ
+Windows 7 Enterprise E | C29WB-22CC8-VJ326-GHFJW-H9DH4
+
+
+
+## Windows Vista
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows Vista Business | YFKBB-PQJJV-G996G-VWGXY-2V3X8
+Windows Vista Business N | HMBQG-8H2RH-C77VX-27R82-VMQBT
+Windows Vista Enterprise | VKK3X-68KWM-X2YGT-QR4M6-4BWMV
+Windows Vista Enterprise N | VTC42-BM838-43QHV-84HX6-XJXKV
+
+
+## Windows IoT Enterprise
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows IoT Enterprise LTSC 2021 | KBN8V-HFGQ4-MGXVD-347P6-PDQGT
+
+
+
+
+# Windows Server LTSC
+
+## Windows Server 2025
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows Server 2025 Standard | MFY9F-XBN2F-TYFMP-CCV49-RMYVH
+Windows Server 2025 Datacenter | 2KNJJ-33Y9H-2GXGX-KMQWH-G6H67
+Windows Server 2025 Datacenter: Azure Edition | ?
+
+## Windows Server 2022
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows Server 2022 Standard | VDYBN-27WPP-V4HQT-9VMD4-VMK7H
+Windows Server 2022 Datacenter | WX4NM-KYWYW-QJJR4-XV3QB-6VM33
+Windows Server 2022 Datacenter: Azure Edition | NTBV8-9K7Q8-V27C6-M2BTV-KHMXV
+
+## Windows Server 2019
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows Server 2019 Standard | N69G4-B89J2-4G8F4-WWYCC-J464C
+Windows Server 2019 Datacenter | WMDGN-G9PQG-XVVXX-R3X43-63DFG
+Windows Server 2019 Essentials | WVDHN-86M7X-466P6-VHXV7-YY726
+
+## Windows Server 2016
+オペレーティング システムのエディション | KMS クライアント プロダクト キー
+-- | --
+Windows Server 2016 Standard | WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY
+Windows Server 2016 Datacenter | CB7KF-BWN84-R7R2Y-793K2-8XDDG
+Windows Server 2016 Essentials | JCKRF-N37P4-C2D82-9YXRT-4M63B
+
+
+## Windows Server バージョン 20H2、2004、1909、1903、1809
+&gt; Windows Server バージョン 20H2以前 は、2022 年 8 月 9 日にサービス終了
+
+オペレーティング システムのエディション	| KMS クライアント プロダクト キー
+-- | --
+Windows Server Standard	| N2KJX-J94YW-TQVFB-DG9YT-724CC
+Windows Server Datacenter	| 6NMRW-2C8FM-D24W7-TQWMY-CWH2D
+
+
+# KMS激活
+## Windows 11 PRO KMS激活
+```
+slmgr -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+slmgr -skms kms.0t.net.cn
+slmgr -ato
+```
+
+## Windows 11 （24H2）LTSC KMS激活
+```
+slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+slmgr -skms kms.0t.net.cn
+slmgr -ato
+```
+
+
+## Windows Server 2025 KMS激活
+```
+slmgr -ipk MFY9F-XBN2F-TYFMP-CCV49-RMYVH
+slmgr -skms kms.0t.net.cn
+slmgr -ato
+```
+
+- 服务器标准：MFY9F-XBN2F-TYFMP-CCV49-RMYVH
+- 数据中心：2KNJJ-33Y9H-2GXGX-KMQWH-G6H67
+
+
+
+# Office、Project 和 Visio 激活的 GVLK
+
+## GVLK for Office LTSC 2024
+产品 | GVLK
+-- | --
+Office LTSC 专业增强版 2024 | XJ2XN-FW8RK-P4HMP-DKDBV-GCVGB
+Office LTSC 标准版 2024 | V28N4-JG22K-W66P8-VTMGK-H6HGR
+Project Professional 2024 | FQQ23-N4YCY-73HQ3-FM9WC-76HF4
+Project Standard 2024 | PD3TT-NTHQQ-VC7CY-MFXK3-G87F8
+Visio LTSC Professional 2024 | B7TN8-FJ8V3-7QYCP-HQPMV-YY89G
+Visio LTSC Standard 2024 | JMMVY-XFNQC-KK4HK-9H7R3-WQQTV
+Access LTSC 2024 | 82FTR-NCHR7-W3944-MGRHM-JMCWD
+Excel LTSC 2024 | F4DYN-89BP2-WQTWJ-GR8YC-CKGJG
+Outlook LTSC 2024 | D2F8D-N3Q3B-J28PV-X27HD-RJWB9
+PowerPoint LTSC 2024 | CW94N-K6GJH-9CTXY-MG2VC-FYCWP
+Skype for Business LTSC 2024 | 4NKHF-9HBQF-Q3B6C-7YV34-F64P3
+Word LTSC 2024 | MQ84N-7VYDM-FXV7C-6K7CC-VFW9J
+
+
+## GVLK for Office LTSC 2021
+产品 | GVLK
+-- | --
+Office LTSC Professional Plus 2021|FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH
+Office LTSC Standard 2021|KDX7X-BNVR8-TXXGX-4Q7Y8-78VT3
+Project Professional 2021|FTNWT-C6WBT-8HMGF-K9PRX-QV9H8
+Project Standard 2021|J2JDC-NJCYY-9RGQ4-YXWMH-T3D4T
+Visio LTSC Professional 2021|KNH8D-FGHT4-T8RK3-CTDYJ-K2HT4
+Visio LTSC Standard 2021|MJVNY-BYWPY-CWV6J-2RKRT-4M8QG
+Access LTSC 2021|WM8YG-YNGDD-4JHDC-PG3F4-FC4T4
+Excel LTSC 2021|NWG3X-87C9K-TC7YY-BC2G7-G6RVC
+Outlook LTSC 2021|C9FM6-3N72F-HFJXB-TM3V9-T86R9
+PowerPoint LTSC 2021|TY7XF-NFRBR-KJ44C-G83KF-GX27K
+Publisher LTSC 2021|2MW9D-N4BXM-9VBPG-Q7W6M-KFBGQ
+Skype for Business LTSC 2021|HWCXN-K3WBT-WJBKY-R8BD9-XK29P
+Word LTSC 2021|TN8H9-M34D3-Y64V9-TR72V-X79KV
+
+
+## Office 2019 的 GVLK
+产品 | GVLK
+-- | --
+Office 专业增强版 2019|NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+2019 Office Standard|6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK
+Project Professional 2019|B4NPR-3FKK7-T2MBV-FRQ4W-PKD2B
+2019 Project Standard|C4F7P-NCP8C-6CQPT-MQHV9-JXD2M
+2019 Visio Professional|9BGNQ-K37YR-RQHF2-38RQ3-7VCBB
+2019 Visio Standard|7TQNQ-K3YQQ-3PFH7-CCPPM-X4VQ2
+Access 2019|9N9PT-27V4Y-VJ2PD-YXFMF-YTFQT
+Excel 2019|TMJWT-YYNMB-3BKTF-644FC-RVXBD
+Outlook 2019|7HD7K-N4PVK-BHBCQ-YWQRW-XW4VK
+PowerPoint 2019|RRNCX-C64HY-W2MM7-MCH9G-TJHMQ
+Publisher 2019|G2KWX-3NW6P-PY93R-JXK2T-C9Y9V
+Skype for Business 2019|NCJ33-JHBBY-HTK98-MYCV8-HMKHJ
+Word 2019|PBX3G-NWMT6-Q7XBW-PYJGG-WXD33
+ 
+
+## Office 2016 的 GVLK
+产品 | GVLK
+-- | --
+Office Professional Plus 2016|XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
+Office Standard 2016|JNRGM-WHDWX-FJJG3-K47QV-DRTFM
+Project Professional 2016|YG9NW-3K39V-2T3HJ-93F3Q-G83KT
+Project Standard 2016|GNFHQ-F6YQM-KQDGJ-327XX-KQBVC
+Visio Professional 2016|PD3PC-RHNGV-FXJ29-8JK7D-RJRJK
+Visio Standard 2016|7WHWN-4T7MP-G96JF-G33KR-W8GF4
+Access 2016|GNH9Y-D2J4T-FJHGG-QRVH7-QPFDW
+Excel 2016|9C2PK-NWTVB-JMPW8-BFT28-7FTBF
+OneNote 2016|DR92N-9HTF2-97XKM-XW2WJ-XW3J6
+Outlook 2016|R69KK-NTPKF-7M3Q4-QYBHW-6MT9B
+PowerPoint 2016|J7MQP-HNJ4Y-WJ7YM-PFYGF-BY6C6
+Publisher 2016|F47MM-N3XJP-TQXJ9-BP99D-8837K
+Skype for Business 2016|869NQ-FJ69K-466HW-QYCP2-DDBV6
+Word 2016|WXY84-JN2Q9-RBCCQ-3Q3J3-3PFJ6
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/11.html</guid><pubDate>Sun, 21 Sep 2025 09:07:21 +0000</pubDate></item><item><title>Vol.10 WinPE工具</title><link>https://grapehut.dpdns.org/post/10.html</link><description># 微 PE 工具箱
+
+## 以下是使用微 PE 安装 Windows 11 的详细教程：
+
+#### 1. 准备工作：
+   - 一个容量不小于 8GB 的 U 盘（建议使用 USB 3.0 及以上版本，速度更快）。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/10.html</guid><pubDate>Sun, 21 Sep 2025 09:06:58 +0000</pubDate></item><item><title>Vol.09 WSL（Windows Subsystem for Linux）</title><link>https://grapehut.dpdns.org/post/9.html</link><description># 🎉关于 WSL（Windows Subsystem for Linux）
+Windows 的一项功能，可用于在 Windows 计算机上运行 Linux 环境，而无需单独的虚拟机或双引导。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/9.html</guid><pubDate>Sun, 21 Sep 2025 09:06:28 +0000</pubDate></item><item><title>Vol.08 Window虚拟机(HyperV)</title><link>https://grapehut.dpdns.org/post/8.html</link><description># 常用VM虚拟机软件一览
+
+目前市面上适合个人用户使用的9款虚拟化软件。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/8.html</guid><pubDate>Sun, 21 Sep 2025 09:05:53 +0000</pubDate></item><item><title>Vol.07 「建站」独立开发者之穷鬼省钱套餐</title><link>https://grapehut.dpdns.org/post/7.html</link><description># 技术栈
+前端React + 后端 Node.js       主流：Next.js
+
+
+# Serverless Function
+服务|特色
+--|--
+[Claw.cloud](https://run.claw.cloud/)|最近比较火的容器，github老用户的话，每月$5的免费额度
+[GitHub Pages](https://pages.github.com)|GitHub Pages 让开发者可以在 .github.io 域上免费托管静态站点。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/7.html</guid><pubDate>Sun, 21 Sep 2025 09:04:21 +0000</pubDate></item><item><title>Vol.06 「建站」「js插件」萌萌哒的看板娘 (ノ≧∇≦)ノ - Live2D widget</title><link>https://grapehut.dpdns.org/post/6.html</link><description># 内容简介
+把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform
+
+
+# 添加内容
+如果你是小白，或者只需要最基础的功能，那么只用将这下面代码加入 html 页面的 head 或 body 中，即可加载看板娘：
+```
+&lt;script src='https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js'&gt;&lt;/script&gt;
+&lt;script src='https://cdn.jsdelivr.net/npm/jquery-ui@1.14.1/dist/jquery-ui.min.js'&gt;&lt;/script&gt;
+&lt;script src='https://cdn.jsdelivr.net/gh/hst1189/live2d-widget/autoload.js'&gt;&lt;/script&gt;
+```
+autoload.js 会自动加载：`live2d.min.js` `waifu.min.css` `waifu-tips.min.js` `ModelDefine.js` 
+详细参考：[hst1189.github.io/live2d-widget](https://hst1189.github.io/live2d-widget)
+
+# 添加效果
+https://www.grapehut.xyz/
+`Gmeek-html&lt;img src='https://www.live2d.com/wp-content/themes/cubism_new/assets/img/index/index-nizimalive-mainimg.png'&gt;`
+
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/6.html</guid><pubDate>Sun, 21 Sep 2025 09:02:02 +0000</pubDate></item><item><title>Vol.05 「建站」「js插件」APlayer &amp; DPlayer</title><link>https://grapehut.dpdns.org/post/5.html</link><description># 内容简介
+DIYGod 大神的2款插件
+
+
+# APlayer
+APlayer is a lovely HTML5 music player.
+
+- Media formats
+MP4 H.264 (AAC or MP3)
+WAVE PCM
+Ogg Theora Vorbis
+
+- Features
+Playlist
+Lyrics
+
+[Github](https://github.com/DIYgod/APlayer/)、[中文文档](https://aplayer.js.org/#/zh-Hans/) 
+
+### 使用方法
+```
+step1: 
+&lt;script src='https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js'&gt;&lt;/script&gt;
+&lt;link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css'&gt;
+
+step2:
+const music_div = document.createElement('div')
+music_div.id = 'music_player'   // 设置元素id
+document.body.appendChild(music_div)  // 插入到body元素最后
+
+step3:
+const ap = new APlayer({
+    container: document.getElementById('music_player'),
+    listFolded: false,
+    listMaxHeight: 90,
+    lrcType: 3,
+    audio: [
+        {
+        name: 'Time after time ～花舞う街で～',
+        artist: '倉木 麻衣',
+        url: '../music/TimeAfterTime.mp3',
+        lrc: '../music/TimeAfterTime.lrc',
+        cover: '../music/cover1.jpg',
+        theme: '#ebd0c2'
+        },
+       {
+        name: 'song name',
+        artist: 'artist',
+        url: 'xx.mp3',
+        lrc: 'xx.lrc',
+        cover: 'cover1.jpg',
+        theme: '#ebd0c2' 
+       }
+    ]
+});
+```
+### 添加效果
+`Gmeek-html&lt;img src='https://imgur.com/JDrJXCr.png'&gt;`
+
+
+
+# DPlayer
+DPlayer is a lovely HTML5 danmaku video player to help people build video and danmaku easily.
+
+- Streaming formats
+[HLS](https://github.com/video-dev/hls.js)
+[FLV](https://github.com/Bilibili/flv.js)
+[MPEG DASH](https://github.com/Dash-Industry-Forum/dash.js)
+[WebTorrent](https://github.com/webtorrent/webtorrent)
+Any other custom streaming formats
+
+- Media formats
+MP4 H.264
+WebM
+Ogg Theora Vorbis
+
+- Features
+Danmaku
+Screenshot
+Hotkeys
+Quality switching
+Thumbnails
+Subtitle
+
+[中文文档](https://dplayer.diygod.dev/zh/)
+
+### 使用方法
+```
+step1:  &lt;script src='https://cdn.jsdelivr.net/npm/dplayer@1.27.1/dist/DPlayer.min.js'&gt;&lt;/script&gt;
+step2:  &lt;div id='dplayer' style='width: 100%; height: 100%'&gt;&lt;/div&gt;
+step3: 
+const dp = new DPlayer({
+  container: document.getElementById('dplayer'),
+  video: {
+      url: https://myqcloud.com/xxx.mp4'); // COSビデオオブジェクトアドレス
+  },
+});
+```
+参考：https://www.tencentcloud.com/jp/document/product/436/53812
+
+### 添加效果
+`Gmeek-html&lt;img src='https://imgur.com/207ch36.jpg'&gt;`
+
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/5.html</guid><pubDate>Sun, 21 Sep 2025 09:01:20 +0000</pubDate></item><item><title>Vol.04 「建站」网站发布（域名绑定）</title><link>https://grapehut.dpdns.org/post/4.html</link><description>```
+域名　→　cloudflare　→　github
+```
+
+# 一、注册域名（任意域名）
+付费的，免费的都可以，根据自身钱包的富裕程度，👀  省略若干字。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/4.html</guid><pubDate>Sun, 21 Sep 2025 09:00:39 +0000</pubDate></item><item><title>Vol.03 「建站」Gmeek使用手册（高级篇）</title><link>https://grapehut.dpdns.org/post/3.html</link><description># 一、主题配置 👀 
+
+### 1. 手动模式（默认）
+这种模式就是当访问者第一次打开博客页面时，呈现的是亮主题。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/3.html</guid><pubDate>Sun, 21 Sep 2025 08:52:50 +0000</pubDate></item><item><title>Vol.02 「建站」Gmeek使用手册（进阶篇）</title><link>https://grapehut.dpdns.org/post/2.html</link><description># 📑 自定义配置文件
+&gt; [!IMPORTANT]
+&gt; 按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦
+&gt; 修改配置文件后，一定要手动全局生成一次，不然会报错
+&gt; 配置文件为`json`格式
+
+&gt; [!CAUTION]
+&gt; 最后一行配置末尾不需要逗号，其他行末尾都需要逗号（英文逗号）
+
+`config.json` 就是配置文件，具体说明如下：
+```javascript
+{
+    'title':'小饅頭の部落格',
+    'subTitle':'Stay hungry. Stay foolish. --Steve Jobs',
+    'avatarUrl':'../avatar.png',
+    'GMEEK_VERSION':'last',
+    
+    'displayTitle':'小饅頭の部落格',
+    'homeUrl':'https://www.grapehut.xyz',
+    'faviconUrl':'../favicon.svg',
+    
+    'email':'&lt;style&gt;@font-face {font-family: 'CustomFont';src: '../fonts/975MaruSC-Bold.ttf') format('truetype');}#postBody {font-family: CustomFont;}&lt;/style&gt;',
+    'startSite':'08/31/2024',
+    'filingNum':'&lt;a href='https://icp.gov.moe/?keyword=20241189' target='_blank'&gt;萌ICP备20241189号&lt;/a&gt;',
+    'onePageListNum':100,
+    
+    '#singlePage':['about','link'],       没有用上about 和link 2页面，注释掉了
+
+    
+    'iconList':{
+        'RSS月刊':'M0 2.75A2.75 2.75 0 0 1 2.75 0h10.5A2.75 2.75 0 0 1 16 2.75v10.5A2.75 2.75 0 0 1 13.25 16H2.75A2.75 2.75 0 0 1 0 13.25ZM2.75 1.5c-.69 0-1.25.56-1.25 1.25v10.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25V2.75c0-.69-.56-1.25-1.25-1.25Z M8 4a.75.75 0 0 1 .75.75V6.7l1.69-.975a.75.75 0 0 1 .75 1.3L9.5 8l1.69.976a.75.75 0 0 1-.75 1.298L8.75 9.3v1.951a.75.75 0 0 1-1.5 0V9.299l-1.69.976a.75.75 0 0 1-.75-1.3L6.5 8l-1.69-.975a.75.75 0 0 1 .75-1.3l1.69.976V4.75A.75.75 0 0 1 8 4Z',
+        '网站导航':'M14.184 1.143v-.001l1.422 2.464a1.75 1.75 0 0 1-.757 2.451L3.104 11.713a1.75 1.75 0 0 1-2.275-.702l-.447-.775a1.75 1.75 0 0 1 .53-2.32L11.682.573a1.748 1.748 0 0 1 2.502.57Zm-4.709 9.32h-.001l2.644 3.863a.75.75 0 1 1-1.238.848l-1.881-2.75v2.826a.75.75 0 0 1-1.5 0v-2.826l-1.881 2.75a.75.75 0 1 1-1.238-.848l2.049-2.992a.746.746 0 0 1 .293-.253l1.809-.87a.749.749 0 0 1 .944.252ZM9.436 3.92h-.001l-4.97 3.39.942 1.63 5.42-2.61Zm3.091-2.108h.001l-1.85 1.26 1.505 2.605 2.016-.97a.247.247 0 0 0 .13-.151.247.247 0 0 0-.022-.199l-1.422-2.464a.253.253 0 0 0-.161-.119.254.254 0 0 0-.197.038ZM1.756 9.157a.25.25 0 0 0-.075.33l.447.775a.25.25 0 0 0 .325.1l1.598-.769-.83-1.436-1.465 1Z',
+        '字体甄选':'M11.134 1.535c.7-.509 1.416-.942 2.076-1.155.649-.21 1.463-.267 2.069.34.603.601.568 1.411.368 2.07-.202.668-.624 1.39-1.125 2.096-1.011 1.424-2.496 2.987-3.775 4.249-1.098 1.084-2.132 1.839-3.04 2.3a3.744 3.744 0 0 1-1.055 3.217c-.431.431-1.065.691-1.657.861-.614.177-1.294.287-1.914.357A21.151 21.151 0 0 1 .797 16H.743l.007-.75H.749L.742 16a.75.75 0 0 1-.743-.742l.743-.008-.742.007v-.054a21.25 21.25 0 0 1 .13-2.284c.067-.647.187-1.287.358-1.914.17-.591.43-1.226.86-1.657a3.746 3.746 0 0 1 3.227-1.054c.466-.893 1.225-1.907 2.314-2.982 1.271-1.255 2.833-2.75 4.245-3.777ZM1.62 13.089c-.051.464-.086.929-.104 1.395.466-.018.932-.053 1.396-.104a10.511 10.511 0 0 0 1.668-.309c.526-.151.856-.325 1.011-.48a2.25 2.25 0 1 0-3.182-3.182c-.155.155-.329.485-.48 1.01a10.515 10.515 0 0 0-.309 1.67Zm10.396-10.34c-1.224.89-2.605 2.189-3.822 3.384l1.718 1.718c1.21-1.205 2.51-2.597 3.387-3.833.47-.662.78-1.227.912-1.662.134-.444.032-.551.009-.575h-.001V1.78c-.014-.014-.113-.113-.548.027-.432.14-.995.462-1.655.942Zm-4.832 7.266-.001.001a9.859 9.859 0 0 0 1.63-1.142L7.155 7.216a9.7 9.7 0 0 0-1.161 1.607c.482.302.889.71 1.19 1.192Z',
+        'Gift':'M2 2.75A2.75 2.75 0 0 1 4.75 0c.983 0 1.873.42 2.57 1.232.268.318.497.668.68 1.042.183-.375.411-.725.68-1.044C9.376.42 10.266 0 11.25 0a2.75 2.75 0 0 1 2.45 4h.55c.966 0 1.75.784 1.75 1.75v2c0 .698-.409 1.301-1 1.582v4.918A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V9.332C.409 9.05 0 8.448 0 7.75v-2C0 4.784.784 4 1.75 4h.55c-.192-.375-.3-.8-.3-1.25ZM7.25 9.5H2.5v4.75c0 .138.112.25.25.25h4.5Zm1.5 0v5h4.5a.25.25 0 0 0 .25-.25V9.5Zm0-4V8h5.5a.25.25 0 0 0 .25-.25v-2a.25.25 0 0 0-.25-.25Zm-7 0a.25.25 0 0 0-.25.25v2c0 .138.112.25.25.25h5.5V5.5h-5.5Zm3-4a1.25 1.25 0 0 0 0 2.5h2.309c-.233-.818-.542-1.401-.878-1.793-.43-.502-.915-.707-1.431-.707ZM8.941 4h2.309a1.25 1.25 0 0 0 0-2.5c-.516 0-1 .205-1.43.707-.337.392-.646.975-.879 1.793Z',
+        'Book':'M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z',
+        '音楽♪':'M12.7 0.9L7.3 0.9C6 0.9 4.9 2 4.9 3.3L4.9 10.1C4.5 9.9 4.1 9.8 3.6 9.8C2.1 9.8 0.9 11 0.9 12.4C0.9 13.9 2.1 15.1 3.6 15.1C5 15.1 6.2 13.9 6.2 12.4L6.2 3.3C6.2 2.7 6.7 2.2 7.3 2.2L12.7 2.2C13.3 2.2 13.8 2.7 13.8 3.3L13.8 7.5C13.4 7.3 12.9 7.1 12.4 7.1C11 7.1 9.8 8.3 9.8 9.8C9.8 11.2 11 12.4 12.4 12.4C13.9 12.4 15.1 11.2 15.1 9.8L15.1 3.3C15.1 2 14 0.9 12.7 0.9ZM3.6 13.8C2.8 13.8 2.2 13.2 2.2 12.4C2.2 11.7 2.8 11.1 3.6 11.1C4.3 11.1 4.9 11.7 4.9 12.4C4.9 13.2 4.3 13.8 3.6 13.8ZM12.4 11.1C11.7 11.1 11.1 10.5 11.1 9.8C11.1 9 11.7 8.4 12.4 8.4C13.2 8.4 13.8 9 13.8 9.8C13.8 10.5 13.2 11.1 12.4 11.1ZM12.4 11.1',
+        'Me':'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z'
+    },
+
+如上 找了一些好玩的图标↑　实际用到的如下，在exlink里 添加 ↓
+
+    'exlink':{
+        'RSS月刊':'https://www.grapehut.xyz/gmerss',
+        '音楽♪':'https://mc.alger.fun/#/list?type=%E6%97%A5%E8%AF%AD',
+        'Me':'https://www.grapehut.xyz/me'
+    },
+    
+    'commentLabelColor':'#006b75',
+    'yearColorList':['#bc4c00', '#0969da', '#1f883d', '#A333D0'],
+    
+    'i18n':'CN',
+    'UTC':8,
+    
+    'themeMode':'fix',
+    'dayTheme':'light',
+    'nightTheme':'dark-blue',
+    
+    'urlMode':'issue',
+    
+    'style':'',
+    'script':'&lt;script src='../assets/ArticleTOC.js'&gt;&lt;/script&gt;&lt;script src='../assets/lightbox.js'&gt;&lt;/script&gt;&lt;script&gt;document.querySelectorAll('a').forEach(anchor =&gt; {const img = anchor.querySelector('img');if (img &amp;&amp; img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');}});&lt;/script&gt;',
+    'allHead':'&lt;script src='../assets/RonanTheme.js'&gt;&lt;/script&gt;&lt;script src='../assets/GmeekVercount.js'&gt;&lt;/script&gt;&lt;script async src='https://cdn.seline.so/seline.js' data-token='5b15b5092d4879e'&gt;&lt;/script&gt;&lt;script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'&gt;&lt;/script&gt;',
+    'head':'',
+    'indexStyle':'',
+    'indexScript':'',
+
+    'spoiler':0,     #是否开启页面NSFW遮挡
+
+    'lived2D':1,   #是否开启二次元娘
+    'lived2D_script':'&lt;script src='https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js'&gt;&lt;/script&gt;&lt;script src='https://cdn.jsdelivr.net/npm/jquery-ui@1.14.1/dist/jquery-ui.min.js'&gt;&lt;/script&gt;&lt;script src='https://cdn.jsdelivr.net/gh/hst1189/live2d-widget/autoload.js'&gt;&lt;/script&gt;',
+
+    'sakuraPlus':1,  #是否开启樱花飘落
+    'sakuraPlus_script':'&lt;script src='../assets/sakuraPlus.js'&gt;&lt;/script&gt;',
+    
+    'rssSplit':'sentence',
+    'bottomText':'❤️ 转载文章请注明出处，谢谢！❤️',
+    'ogImage':'',
+    'primerCSS':'&lt;link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' /&gt;',
+    'showPostSource':0,
+    'needComment':1
+}}
+```
+
+
+| **配置参数** | **说明** | 
+|---|---|
+| title | 【必须】博客标题 |
+| subTitle | 【必须】博客描述&amp;自述 |
+| avatarUrl | 【必须】博客头像 |
+| GMEEK_VERSION | 【必须】Gmeek版本，一般写`last`也可以用具体tag版本 |
+| displayTitle | 用于头像后面的标题展示，如果和`title`一致则不用添加 |
+| homeUrl | 博客的主页地址，自定义域名时需要配置 |
+| faviconUrl | 页面的favicon地址，如果和avatarUrl一致则不用添加 |
+| email | 用于自动提交仓库时用，不添加也可以 |
+| startSite | 用于页面底部显示网站运行天数 |
+| filingNum | 用于页面底部显示备案信息 |
+| onePageListNum | 用于首页每页展示的文章数量 |
+| singlePage | 自定义独立页面，例如`about`或者`link`等 |
+| iconList | 用于定义singlePage按钮展示的[SVG图标](https://primer.style/foundations/icons/#16px) (16px)，`about`和`link`内置无需定义 |
+| exlink | 用于自定义首页右上角圆形按钮到外部链接功能，按钮图标定义在iconList中 |
+| commentLabelColor | 用于自定义显示评论数量标签的颜色 |
+| yearColorList | 用于自定义显示不同年份标签的颜色 |
+| i18n | 用于定义博客语言，目前支持`EN`/`CN`/`RU` |
+| UTC | 用于定义[时区](https://en.wikipedia.org/wiki/List_of_UTC_offsets) |
+| themeMode| 用于定义主题模式，默认为`manual`，也可选择`fix`|
+| dayTheme | 用于定义[亮主题](https://github.com/settings/appearance) |
+| nightTheme | 用于定义[暗主题](https://github.com/settings/appearance) |
+| urlMode | 用于定义文章链接生成模式，目前支持`pinyin`/`issue`/`ru_translit` |
+| style | 用于自定义文章页CSS |
+| script | 用于自定义文章页JavaScript |
+| head | 用于自定义文章页head内容 |
+| allHead | 用于自定义所有页面head内容 |
+| indexStyle | 用于自定义首页CSS |
+| indexScript | 用于自定义首页JavaScript |
+| showPostSource | 在文章页显示issue链接按钮，1显示，0不显示 |
+| rssSplit | 设置RSS输出的截断符号，默认`sentence`为第一句话，可配置其他特殊符号 |
+| bottomText | 用于设置文章页面右下角显示的内容 |
+| ogImage | 用于设置Open Graph协议展示的图片 |
+| primerCSS | 用于设置primer.css的CDN地址，默认使用[南科大](https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css) |
+| needComment | 用于设置是否需要评论功能，1开启评论，0关闭 |
+
+。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/2.html</guid><pubDate>Sun, 21 Sep 2025 08:50:57 +0000</pubDate></item><item><title>Vol.01 「建站」Gmeek使用手册（基础篇）</title><link>https://grapehut.dpdns.org/post/1.html</link><description># 前言
+[Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架
+超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`
+&gt; 引用：https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html
+
+
+# 📑 一、安装
+&gt; [!TIP]
+&gt; 安装极其简单，根据以下步骤，一步一步操作。</description><guid isPermaLink="true">https://grapehut.dpdns.org/post/1.html</guid><pubDate>Sun, 21 Sep 2025 08:49:40 +0000</pubDate></item></channel></rss>
