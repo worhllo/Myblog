@@ -7,16 +7,14 @@
     <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
     <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
     <link rel="icon" href="../favicon.svg">
-<meta name="description" content="## 一、理论蒸发值的计算来源
-在太阳能驱动的界面蒸发技术中，1.47 kg m⁻² h⁻¹的理论蒸发值是基于**能量守恒定律**和**水的汽化潜热**计算得出的，且这一数值是特定条件下的**理论最大值**。">
+<meta name="description" content="Guthub 个人主页 （官方称呼是 profile）可以展示很多有用的信息，例如添加一个首页被访问次数的计数器，一个被 Star 与 Commit 的概览信息，以及各种技能标签，设备标签等，还可以利用 wakatime 显示你最近编码各类语言的使用时长，以及你最近 Steam 游戏游玩排行榜。">
 <meta property="og:title" content="关于蒸发速率">
-<meta property="og:description" content="## 一、理论蒸发值的计算来源
-在太阳能驱动的界面蒸发技术中，1.47 kg m⁻² h⁻¹的理论蒸发值是基于**能量守恒定律**和**水的汽化潜热**计算得出的，且这一数值是特定条件下的**理论最大值**。">
+<meta property="og:description" content="Guthub 个人主页 （官方称呼是 profile）可以展示很多有用的信息，例如添加一个首页被访问次数的计数器，一个被 Star 与 Commit 的概览信息，以及各种技能标签，设备标签等，还可以利用 wakatime 显示你最近编码各类语言的使用时长，以及你最近 Steam 游戏游玩排行榜。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://note.142588.xyz/post/19.html">
 <meta property="og:image" content="../avatar.png">
 <title>关于蒸发速率</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 
 </head>
@@ -40,7 +38,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     body {padding: 8px;}
     .postTitle{font-size:24px;}
 }
-
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
 </style>
 
 
@@ -72,44 +80,396 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h2>一、理论蒸发值的计算来源</h2>
-<p>在太阳能驱动的界面蒸发技术中，1.47 kg m⁻² h⁻¹的理论蒸发值是基于<strong>能量守恒定律</strong>和<strong>水的汽化潜热</strong>计算得出的，且这一数值是特定条件下的<strong>理论最大值</strong>。该数值的核心逻辑是：在“1个太阳光”（即1 kW m⁻²的太阳能输入）条件下，假设<strong>所有入射太阳能全部转化为水蒸发所需的能量</strong>（无任何能量损失），基于水的汽化潜热计算出的最大可能蒸发速率。具体步骤如下：</p>
-<ol>
-<li>
-<p><strong>太阳能输入能量计算</strong><br>
-1个太阳光的功率为1 kW m⁻²（即1000 J s⁻¹ m⁻²）。在1小时内，单位面积（1 m²）接收的总太阳能为：<br>
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bb4ace5bddce12e03065ae22e874fada370b84c88001c9104f751ba66e62d4fb/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735333730393238393030345f696d6167655f7968506c4b642e706e67"><img src="https://camo.githubusercontent.com/bb4ace5bddce12e03065ae22e874fada370b84c88001c9104f751ba66e62d4fb/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735333730393238393030345f696d6167655f7968506c4b642e706e67" alt="图片" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1753709289004_image_yhPlKd.png" style="max-width: 100%;"></a></p>
-</li>
-<li>
-<p><strong>水的汽化潜热</strong><br>
-水蒸发需要吸收热量（汽化潜热），即水分子脱离液态表面成为气态所需的能量。在常温（界面蒸发通常在室温附近发生）下，水的汽化潜热约为<strong>2450 kJ kg⁻¹</strong>（注：汽化潜热随温度升高略有降低，100℃时约为2260 kJ kg⁻¹，但界面蒸发多在低温下进行，故取较高值）。</p>
-</li>
-<li>
-<p><strong>理论蒸发速率计算</strong><br>
-若太阳能100%转化为蒸发潜热，单位时间（1小时）单位面积（1 m²）的最大蒸发量为：<br>
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/19de8944bc71942526d5c5d6e28bb01337b561aad79523256ef1756474053388/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735333730393236363434365f696d6167655f316e48506b502e706e67"><img src="https://camo.githubusercontent.com/19de8944bc71942526d5c5d6e28bb01337b561aad79523256ef1756474053388/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313735333730393236363434365f696d6167655f316e48506b502e706e67" alt="图片" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1753709266446_image_1nHPkP.png" style="max-width: 100%;"></a></p>
-</li>
-</ol>
-<h2>二、理论最大值</h2>
-<p>1.47 kg m⁻² h⁻¹是<strong>理想条件下的理论上限</strong>，原因如下：</p>
+<div class="markdown-body" id="postBody"><p>Guthub 个人主页 （官方称呼是 profile）可以展示很多有用的信息，例如添加一个首页被访问次数的计数器，一个被 Star 与 Commit 的概览信息，以及各种技能标签，设备标签等，还可以利用 wakatime 显示你最近编码各类语言的使用时长，以及你最近 Steam 游戏游玩排行榜。</p>
+<h2>默认主页</h2>
+<p>默认情况下，GitHub 个人主页会显示其仓库信息、提交信息，例如 Linux 之父 Linus 的 <a href="https://github.com/torvalds">GitHub 主页</a> 长这样：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608249-1320927684.png" rel="nofollow"><img src="https://camo.githubusercontent.com/2f9cf4a4b8bada80c2b7c6d9d5b27b808b116600e739c9437eb628ed23d72d36/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383234392d313332303932373638342e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608249-1320927684.png" style="max-width: 100%;"></a></p>
+<p>但是，这个主页是可以定制的。GitHub 支持这个功能，并且有相关的文档说明：<a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile">Setting up and managing your GitHub profile - GitHub Docs</a>。</p>
+<p>例如有的长这样：<a href="https://github.com/foru17">Luo Lei</a></p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608648-1549229925.png" rel="nofollow"><img src="https://camo.githubusercontent.com/5c6c23f1706b3d9b2b5372f1a67abe4bf4f11471256b92a43fc69899ae2c7633/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383634382d313534393232393932352e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608648-1549229925.png" style="max-width: 100%;"></a></p>
+<p>这就远比默认主页好看不少，令人印象深刻。</p>
+<h2>原理</h2>
+<p>自定义主页很简单。我们首先在 GitHub 上新建一个仓库，仓库名和自己 Github 用户名相同，然后添加一个 README.md 自述文件，在该文件里添加信息即可。</p>
+<p>例如，我创建的仓库：<a href="https://github.com/Peter-JXL/Peter-JXL">github.com/Peter-JXL/Peter-JXL</a></p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609079-1256998123.png" rel="nofollow"><img src="https://camo.githubusercontent.com/756ad9fcc08c2d8fcf200b22670e9147734e0883f9b8de3d1f675b0dc6a6cb61/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630393037392d313235363939383132332e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609079-1256998123.png" style="max-width: 100%;"></a></p>
+<p>可以看到右上角有个提示：</p>
+<blockquote>
+<p><strong>Peter-JXL/Peter-JXL</strong> is a special repository.</p>
+<p>Its <code class="notranslate">README.md</code> will appear on your public profile.</p>
+<p>翻译：</p>
+<p>这是一个特殊的仓库。</p>
+<p>它的 <code class="notranslate">README.md</code> 会出现在你的首页中。</p>
+</blockquote>
+<h2>侧边栏</h2>
+<p>在讲解如何定制之前，我们先关注下左侧也有个人信息展示：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608327-1090425598.png" rel="nofollow"><img src="https://camo.githubusercontent.com/4e7c362c562376d2db74fe6cee227b6c7d59556734cf79da3563c934338b57c3/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383332372d313039303432353539382e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608327-1090425598.png" style="max-width: 100%;"></a></p>
+<p>这个可以直接在个人首页上，点击左侧的 Edit profile 进行编辑：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609036-1256782953.png" rel="nofollow"><img src="https://camo.githubusercontent.com/ab776684014d5321062cc89629ccbad6c795e309281c661d8d4861cd9b094e49/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630393033362d313235363738323935332e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609036-1256782953.png" style="max-width: 100%;"></a></p>
+<p>可以修改名字、签名（Bio）、公司、地点、邮箱、网站.......... 按需修改即可。</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101719856-1541374132.png" rel="nofollow"><img src="https://camo.githubusercontent.com/b147c4da716513ba97922707785447eb6bf54c978fe9a9ed17f8bab5c5a85069/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313731393835362d313534313337343133322e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101719856-1541374132.png" style="max-width: 100%;"></a></p>
+<p>接下来讲讲如何定制右侧。</p>
+<h2>新建仓库</h2>
+<p>新建一个同名仓库，并添加一个自述文件（README.md），确认：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608096-1191518163.png" rel="nofollow"><img src="https://camo.githubusercontent.com/87ded219a072eccf5bb47974e4df4a36c0356aa973b8e6394a15e97695e30bd6/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383039362d313139313531383136332e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608096-1191518163.png" style="max-width: 100%;"></a></p>
+<p>GitHub 默认为此文件添加了一行字：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607923-405831706.png" rel="nofollow"><img src="https://camo.githubusercontent.com/24f9b4f92d060c306e0955c85f89820611813c8475fca6dd085a46e3afa4efda/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373932332d3430353833313730362e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607923-405831706.png" style="max-width: 100%;"></a></p>
+<p>此时我们的首页也会跟着变：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101744170-402346270.png" rel="nofollow"><img src="https://camo.githubusercontent.com/4e5761a06a7ff02f956c222755018a446e51f7fd6045a2210d30fa9159117bba/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313734343137302d3430323334363237302e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101744170-402346270.png" style="max-width: 100%;"></a></p>
+<h2>如何定制</h2>
+<p>接下来，你就可以通过修改 README.md 来定制主页了。由于是 Markdown 文件，扩展性很高，并且全面支持 emoji。</p>
+<p>此外，人的创造力有限，如何短时间内拥有一个酷炫的个人主页呢？</p>
+<p>答案是 <code class="notranslate">ctrl+c</code>，<code class="notranslate">ctrl+v</code>。看到好看的模板，可以直接 fork，修改下相关变量即可。</p>
+<p>此外 GitHub 上也有不少人收集优秀案例：</p>
 <ul>
-<li>其计算前提是“<strong>能量100%利用</strong>”：即假设太阳能无反射损失、无光热材料自身热损耗（如热辐射、热传导至周围环境）、无水分蒸发过程中的额外能量消耗（如加热水体本体而非界面）。</li>
-<li>实际场景中，能量损耗不可避免（如材料反射部分太阳光、热量向空气或基底扩散），因此实际蒸发速率必然低于该值。</li>
+<li><a href="https://github.com/abhisheknaiidu/awesome-github-profile-readme">awesome-github-profile-readme</a></li>
+<li><a href="https://github.com/EddieHubCommunity/awesome-github-profiles">awesome-github-profiles</a></li>
+<li><a href="https://github.com/rzashakeri/beautify-github-profile">beautify-github-profile</a></li>
 </ul>
-<h2>三、突破“1.47”的本质是“能量输入总量增加”</h2>
-<p>1.47 kg m⁻² h⁻¹的理论上限基于“<strong>仅利用1个太阳光的能量</strong>（1 kW m⁻²）且100%转化为蒸发潜热”。若通过<strong>优化光热材料</strong>、<strong>结构设计（如隔热层、亲疏水调控）减少能量损耗</strong>、或者<strong>从环境中获取额外能量</strong>，就此时蒸发速率自然可突破该上限。这是高蒸发速率合理性的关键。</p>
-<h4>3.1. 利用环境中的“显热”或“潜热”</h4>
+<p>接下来讲讲一些常见的信息展示。</p>
+<h3>GitHub 统计卡片</h3>
+<p>官网：<a href="https://github.com/anuraghazra/github-readme-stats">github.com/anuraghazra/github-readme-stats</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101707878-941962266.png" rel="nofollow"><img src="https://camo.githubusercontent.com/73490762cfae564ca29878964dc10dc91ef2577d3927c2bb6cde30cb84812ff7/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313730373837382d3934313936323236362e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101707878-941962266.png" style="max-width: 100%;"></a></p>
+<p>使用方法很简单，将如下代码复制到你的 markdown 文件中，更改 <code class="notranslate">?username=</code> 的值为你的 GitHub 用户名：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span>Anurag's GitHub stats<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://github-readme-stats.vercel.app/api?username=anuraghazra</span><span class="pl-s">)</span></pre></div>
+<p>这个是默认样式，很简陋，可以配置显示图标、主题样式等，具体请看官网文档。</p>
+<h3>GitHub 使用语言统计</h3>
+<p>官网：<a href="https://github.com/anuraghazra/github-readme-stats">github.com/anuraghazra/github-readme-stats</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608762-188973005.png" rel="nofollow"><img src="https://camo.githubusercontent.com/266e032ce40082f7b060beda47a356a797a8fce0073f9209023117f8e1a1e56b/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383736322d3138383937333030352e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608762-188973005.png" style="max-width: 100%;"></a></p>
+<p>使用方法同上，复制如下代码，更改 <code class="notranslate">?username=</code> 的值：</p>
+<div class="highlight highlight-source-css-less"><pre class="notranslate">![<span class="pl-c1">Top</span> Langs](https:<span class="pl-c"><span class="pl-c">//</span>github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra)</span></pre></div>
+<p>同理，这个也可以配置主题和布局（参考文档）。</p>
+<h3>Metrics 统计信息</h3>
+<p>会展示 GitHub 上的一些统计信息，效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608412-1311638171.png" rel="nofollow"><img src="https://camo.githubusercontent.com/7fca3c24d79ff830d92270a01fe1110cafa8f45cbd0215001e7e95c11d9f6836/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383431322d313331313633383137312e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608412-1311638171.png" style="max-width: 100%;"></a></p>
+<p>我们可以去官网演示下：输入你的 GitHub 用户名，然后点击按钮：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608449-804005404.png" rel="nofollow"><img src="https://camo.githubusercontent.com/5c319209b2dcf9b8a8548fe68cee7e18075b72d2fe656c456a489f31fc8a6314/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383434392d3830343030353430342e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608449-804005404.png" style="max-width: 100%;"></a></p>
+<blockquote>
+<p>PS：这个项目也是开源在 GitHub 上的：<a href="https://github.com/lowlighter/metrics">github.com/lowlighter/metrics</a>，并且还有其他的功能（后续会讲到）。</p>
+</blockquote>
+<p>就能看到效果如下：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101722385-725670568.png" rel="nofollow"><img src="https://camo.githubusercontent.com/e13102e5be14f43f86e39aec6dac4f62b38961c8566deb908d588b5d51c85f19/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313732323338352d3732353637303536382e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101722385-725670568.png" style="max-width: 100%;"></a></p>
+<p>这个配置起来稍微复杂一点点。根据<a href="https://github.com/lowlighter/metrics/blob/master/.github/readme/partials/documentation/setup/action.md">官网文档</a>，使用该功能的方式之一是使用 GitHub Action。</p>
+<p>首先我们得创建一个 GitHub personal token，位置：右上角个人头像 → settings → Developer settings → Personal access tokens：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607461-1522764764.png" rel="nofollow"><img src="https://camo.githubusercontent.com/06878f4886ba673260512822644db18461ff81aa181b3ce3c313621d4549ef18/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373436312d313532323736343736342e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607461-1522764764.png" style="max-width: 100%;"></a></p>
+<p>接下来就是勾选 scopes（可以理解为权限，这个就根据不同插件的要求来勾选了，具体得看文档）：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607979-411925127.png" rel="nofollow"><img src="https://camo.githubusercontent.com/42fffabcf7c33cdb90674260beb7951b9cd2810e49ce35c9adc79f57c094bdb0/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373937392d3431313932353132372e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607979-411925127.png" style="max-width: 100%;"></a></p>
+<p>然后会生成 token，只展示一次，注意好好保管：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607843-281038661.png" rel="nofollow"><img src="https://camo.githubusercontent.com/fb5dfcbccba53be2ea7e7cf7248e0f087c9d5bb857c61b6c101bc02361894748/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373834332d3238313033383636312e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607843-281038661.png" style="max-width: 100%;"></a></p>
+<p>然后去到个人项目里的 settings 页面，将刚刚生成的 token 作为一个密钥（先创建一个环境，名字为 production；然后再创建一个名字为 METRICS_TOKEN 的 secret，值为刚刚生成的 token）：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607831-1629851952.png" rel="nofollow"><img src="https://camo.githubusercontent.com/0442bbc864fe2bd2d4e5342113263949b0828f00916ce9a988509b04d5e8ae6d/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373833312d313632393835313935322e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607831-1629851952.png" style="max-width: 100%;"></a></p>
+<p>第三步，生成一个 Action，其实 metrics 已经帮我们生成了一个 Action：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607035-203280444.png" rel="nofollow"><img src="https://camo.githubusercontent.com/8436c71575ad74db7605708ed51f913c83d229f667701764c234c53fe5d3fd93/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373033352d3230333238303434342e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607035-203280444.png" style="max-width: 100%;"></a></p>
+<p>内容如下（建议自行核对下，例如我这边在第 9 行加了个 environment 变量）：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">name</span>: <span class="pl-s">Metrics</span>
+<span class="pl-ent">on</span>:
+  <span class="pl-c"><span class="pl-c">#</span> Schedule updates (each hour)</span>
+  <span class="pl-ent">schedule</span>: <span class="pl-s">[{cron: "0 * * * *"}]</span>
+  <span class="pl-c"><span class="pl-c">#</span> Lines below let you run workflow manually and on each commit</span>
+  <span class="pl-ent">workflow_dispatch</span>:
+  <span class="pl-ent">push</span>: <span class="pl-s">{branches: ["master", "main"]}</span>
+<span class="pl-ent">jobs</span>:
+  <span class="pl-ent">github-metrics</span>:
+    <span class="pl-ent">runs-on</span>: <span class="pl-s">ubuntu-latest</span>
+    <span class="pl-ent">environment</span>: 
+      <span class="pl-ent">name</span>: <span class="pl-s">production</span>
+    <span class="pl-ent">permissions</span>:
+      <span class="pl-ent">contents</span>: <span class="pl-s">write</span>
+    <span class="pl-ent">steps</span>:
+      - <span class="pl-ent">uses</span>: <span class="pl-s">lowlighter/metrics@latest</span>
+        <span class="pl-ent">with</span>:
+          <span class="pl-c"><span class="pl-c">#</span> Your GitHub token</span>
+          <span class="pl-c"><span class="pl-c">#</span> The following scopes are required:</span>
+          <span class="pl-c"><span class="pl-c">#</span>  - public_access (default scope)</span>
+          <span class="pl-c"><span class="pl-c">#</span> The following additional scopes may be required:</span>
+          <span class="pl-c"><span class="pl-c">#</span>  - read:org      (for organization related metrics)</span>
+          <span class="pl-c"><span class="pl-c">#</span>  - read:user     (for user related data)</span>
+          <span class="pl-c"><span class="pl-c">#</span>  - read:packages (for some packages related data)</span>
+          <span class="pl-c"><span class="pl-c">#</span>  - repo          (optional, if you want to include private repositories)</span>
+          <span class="pl-ent">token</span>: <span class="pl-s">${{ secrets.METRICS_TOKEN }}</span>
+
+          <span class="pl-c"><span class="pl-c">#</span> Options</span>
+          <span class="pl-ent">user</span>: <span class="pl-s">Peter-JXL</span>
+          <span class="pl-ent">template</span>: <span class="pl-s">classic</span>
+          <span class="pl-ent">base</span>: <span class="pl-s">header, activity, community, repositories, metadata</span>
+          <span class="pl-ent">config_timezone</span>: <span class="pl-s">Asia/Shanghai</span></pre></div>
+<p>等我们提交后，就会自动生成一个 svg 文件：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607545-501989452.png" rel="nofollow"><img src="https://camo.githubusercontent.com/53644da1796c0f66b100525e1b74ee2b83979a5e2e99b6dda632ed71cbd4b0de/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373534352d3530313938393435322e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607545-501989452.png" style="max-width: 100%;"></a></p>
+<p>然后我们在自述文件里添加这个图片，例如 Markdown 格式如下（其实也可以用 HTML 格式，更灵活）：</p>
+<div class="highlight highlight-source-css-scss"><pre class="notranslate">![<span class="pl-e">Metrics</span>](/<span class="pl-ent">github-metrics</span><span class="pl-e">.svg</span>)</pre></div>
+<p>此时的首页效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101735825-1579669032.png" rel="nofollow"><img src="https://camo.githubusercontent.com/8b274d79400d698d1827358013196f0f792e732f6ceb4d60947754f4f0f858b4/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313733353832352d313537393636393033322e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101735825-1579669032.png" style="max-width: 100%;"></a></p>
+<h3>GitHub 资料奖杯</h3>
+<p>官网：<a href="https://github.com/ryo-ma/github-profile-trophy">github.com/ryo-ma/github-profile-trophy</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609350-744398729.png" rel="nofollow"><img src="https://camo.githubusercontent.com/f980079efc1cff2133f2c96d00138ca1f5f9ea7b42ef6d33f1990ca3cbe19a43/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630393335302d3734343339383732392e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609350-744398729.png" style="max-width: 100%;"></a></p>
+<p>使用方法同上，复制如下代码，更改 <code class="notranslate">?username=</code> 的值：</p>
+<div class="highlight highlight-source-css-less"><pre class="notranslate">![trophy](https:<span class="pl-c"><span class="pl-c">//</span>github-profile-trophy.vercel.app/?username=ryo-ma)</span></pre></div>
+<p>同理，这个也可以配置主题。</p>
+<h3>GitHub 徽章</h3>
+<p>为你的开源项目生成高质量小徽章图标，直接复制链接使用。</p>
+<p>官网：<a href="https://shields.io/" rel="nofollow">Shields.io</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608312-1084523721.png" rel="nofollow"><img src="https://camo.githubusercontent.com/c42b5a8064460f4eae9e58ab275475b5672a895f6ea962063fd3427164169622/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383331322d313038343532333732312e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608312-1084523721.png" style="max-width: 100%;"></a></p>
+<p>示例代码：</p>
+<pre lang="php-template" class="notranslate"><code class="notranslate">&lt;img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&amp;logo=html5&amp;logoColor=white" /&gt; 
+&lt;img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&amp;logo=css3" /&gt; 
+&lt;img src="https://img.shields.io/badge/-JavaScript-oringe?style=flat-square&amp;logo=javascript" /&gt;
+</code></pre>
+<h3>GitHub 访客徽章</h3>
+<p>这个徽章会实时改变，记录此页面被访问的次数。</p>
+<p>官网：<a href="https://visitor-badge.glitch.me/" rel="nofollow">visitor-badge.glitch.me</a></p>
+<p>效果：<a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607327-1957868961.png" rel="nofollow"><img src="https://camo.githubusercontent.com/8749e0a8632338b4bb168aff53b32a15e16890fff985c1428d27a47fcd0335f0/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373332372d313935373836383936312e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607327-1957868961.png" style="max-width: 100%;"></a></p>
+<p>使用方法：复制如下代码到 Markdown 并替换 <code class="notranslate">page_id</code> 的值为用户名</p>
+<div class="highlight highlight-source-css-less"><pre class="notranslate">![visitors](https:<span class="pl-c"><span class="pl-c">//</span>visitor-badge.glitch.me/badge?page_id=page.id&amp;left_color=green&amp;right_color=red)</span></pre></div>
+<p>可以配置颜色，参数为：left_color，right_color</p>
+<h3>GitHub 活动统计图</h3>
+<p>动态生成的活动图，用于显示您过去 31 天的 GitHub 活动。</p>
+<p>官网：<a href="https://github.com/Ashutosh00710/github-readme-activity-graph/">github.com/Ashutosh00710/github-readme-activity-graph</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608680-1116378345.png" rel="nofollow"><img src="https://camo.githubusercontent.com/840709166fa257f7d9bde2778b9a8c59e1521dc55fb40dbfb8cab7e9807c8e87/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383638302d313131363337383334352e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608680-1116378345.png" style="max-width: 100%;"></a></p>
+<p>使用方法同上，复制如下代码，更改 <code class="notranslate">?username=</code> 的值：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span>Ashutosh's github activity graph<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://github-readme-activity-graph.vercel.app/graph?username=Ashutosh00710</span><span class="pl-s">)</span></pre></div>
+<p>可以配置主题。</p>
+<h3>修仙系列统计卡片</h3>
+<p>一个以凡人修仙传境界为基础的 Github 统计卡片。等级分为：['道祖', '大罗', '太乙', '金仙', '真仙', '大乘', '合体', '炼虚', '化神', '元婴', '金丹', '筑基', '练气']，对应区间：[1, 5, 10, 15, 20, 30,40,50,60, 70, 80, 90, 100]。</p>
+<p>官网：<a href="https://github.com/IceEnd/github-immortality">IceEnd/github-immortality</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609441-686162446.png" rel="nofollow"><img src="https://camo.githubusercontent.com/c81fedfd37499c2ae8f24526fb42158fc1dcbd52f87e6b0cced77067b375efa3/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630393434312d3638363136323434362e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609441-686162446.png" style="max-width: 100%;"></a></p>
+<p>使用方法同上，复制如下代码，更改 <code class="notranslate">?username=</code> 的值：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span>IceEnd's GitHub stats<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://github-immortality.vercel.app/api?username=iceend</span><span class="pl-s">)</span></pre></div>
+<h3>GitHub 连续打卡</h3>
+<p>在 README 中展示您连续提交代码的次数。</p>
+<p>官网：<a href="https://github.com/DenverCoder1/github-readme-streak-stats">github.com/DenverCoder1/github-readme-streak-stats</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101742066-699078718.png" rel="nofollow"><img src="https://camo.githubusercontent.com/bc0586c76236c475290d9b3fee28d6885a05aa76a24fa357093b42e835a14b73/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313734323036362d3639393037383731382e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101742066-699078718.png" style="max-width: 100%;"></a></p>
+<p>使用方法同上，复制如下代码，更改 <code class="notranslate">?username=</code> 的值：</p>
+<div class="highlight highlight-source-css-less"><pre class="notranslate">![GitHub Streak](https:<span class="pl-c"><span class="pl-c">//</span>streak-stats.demolab.com/?user=DenverCoder1)</span></pre></div>
+<p>同理，支持主题、样式等配置。</p>
+<h3>社交统计</h3>
+<p>在 README 中展示你在一些流行的网站的数据，例如知乎，GitHub，B 站，LeetCode，掘金，CSDN，牛客。</p>
+<p>官网：<a href="https://github.com/songquanpeng/stats-cards">github.com/songquanpeng/stats-cards</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608430-1064011465.png" rel="nofollow"><img src="https://camo.githubusercontent.com/aad12f2d3cda267d1d9c7b961301d8367d2b580815be4e12c9f7769b322b3af8/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383433302d313036343031313436352e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608430-1064011465.png" style="max-width: 100%;"></a></p>
+<p>使用方法：复制代码到 Markdown 并替换 username 的值为那个网站的用户名</p>
+<div class="highlight highlight-source-css-less"><pre class="notranslate">![](https:<span class="pl-c"><span class="pl-c">//</span>stats.justsong.cn/api/leetcode?username=quanpeng&amp;cn=true)</span></pre></div>
+<h3>star 趋势</h3>
+<p>如果想要统计和展示自己某个项目的 star 趋势，可以使用下面这两个工具。</p>
+<h4>Star History</h4>
+<p>官网：<a href="https://star-history.t9t.io/" rel="nofollow">https://star-history.t9t.io</a></p>
+<p>输入仓库名，就能自动生成 star 增长曲线。还能输入多个仓库查看项目对比：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608916-1036793162.png" rel="nofollow"><img src="https://camo.githubusercontent.com/1dd695d315fa0d7745e189508cdcd6e0a398dd881a0ed5a5da099d393d13d3e1/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383931362d313033363739333136322e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608916-1036793162.png" style="max-width: 100%;"></a></p>
+<h4>GitHub Star History</h4>
+<p>官网：<a href="https://codetabs.com/github-stars/github-star-history.html" rel="nofollow">https://codetabs.com/github-stars/github-star-history.html</a></p>
+<p>用法和上一个工具完全一样，就是样式有点不同：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609581-1712981499.png" rel="nofollow"><img src="https://camo.githubusercontent.com/1d59f367f41f7fa61ec4cfcf19e4ceb2ec6cf9e73ee2209ab891d1c8c9216455/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630393538312d313731323938313439392e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609581-1712981499.png" style="max-width: 100%;"></a></p>
+<h3>GitHub Corners：分享角标</h3>
+<p>如果你的 GitHub 项目有一个对应的网站，并且想要用户通过网站跳转到 GitHub 项目页从而得到 star，不防试试这个。</p>
+<p>官网：<a href="https://tholman.com/github-corners" rel="nofollow">https://tholman.com/github-corners</a></p>
+<p>它可以帮你生成给网站添加 GitHub 角标的代码，只需要选择一个风格，复制代码到自己的项目主页文件中，将超链接替换为自己的仓库地址即可。</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101749621-381427328.png" rel="nofollow"><img src="https://camo.githubusercontent.com/66ae1c928ead89d2d8286f15e6458440f8ea7e7b74724e536c65aaf56aa39f77/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313734393632312d3338313432373332382e706e67" alt="image" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101749621-381427328.png" style="max-width: 100%;"></a></p>
+<h3>打字特效</h3>
+<p>让内容通过打字的特效来展示，炫酷。</p>
+<p>官网：<a href="https://github.com/DenverCoder1/readme-typing-svg">github.com/DenverCoder1/readme-typing-svg</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608895-596016728.svg" rel="nofollow"><img src="https://camo.githubusercontent.com/58f74d5f5bad9e74a0bd4bc07a7d27d193421f90ffd9b5e0fe0e07b6416d6898/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383839352d3539363031363732382e737667" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608895-596016728.svg" style="max-width: 100%;"></a></p>
+<p>使用方法：复制代码到 Markdown 并替换 <code class="notranslate">?lines=</code> 的值为你想要的内容，字与字之间用分号隔开</p>
+<div class="highlight highlight-source-css"><pre class="notranslate">![<span class="pl-ent">Typing</span> <span class="pl-ent">SVG</span>](https<span class="pl-kos">:</span><span class="pl-c1">/</span><span class="pl-c1">/</span>readme-typing<span class="pl-c1">-</span>svg.<span class="pl-c1">demolab</span>.<span class="pl-c1">com</span><span class="pl-c1">/</span>?lines<span class="pl-c1">=</span>First<span class="pl-c1">+</span><span class="pl-ent">line</span><span class="pl-c1">+</span><span class="pl-ent">of</span><span class="pl-c1">+</span><span class="pl-ent">text</span>;Second<span class="pl-c1">+</span><span class="pl-ent">line</span><span class="pl-c1">+</span><span class="pl-ent">of</span><span class="pl-c1">+</span><span class="pl-ent">text</span>)</pre></div>
+<p>更多配置参考官网文档。还可以去 <a href="https://readme-typing-svg.demolab.com/demo/" rel="nofollow">demo</a> 站里自行调试：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608931-1806432447.png" rel="nofollow"><img src="https://camo.githubusercontent.com/b7696ffb9533ddcffe7b5456996baa79a592ffec7043ecd7029b2c40a5931ea2/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383933312d313830363433323434372e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608931-1806432447.png" style="max-width: 100%;"></a></p>
+<h3>贪吃蛇</h3>
+<p>默认的提交信息是这样子的：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928102438867-288768880.png" rel="nofollow"><img src="https://camo.githubusercontent.com/b5775a001b49a69bb21f54040435590e1a438afeec2f0d10389fec7121b507b3/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130323433383836372d3238383736383838302e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928102438867-288768880.png" style="max-width: 100%;"></a></p>
+<p>而我们可以将其变成一个动画：一只贪吃蛇挨个吃掉图里的绿点：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607400-2109400644.svg" rel="nofollow"><img src="https://camo.githubusercontent.com/338446da6afad09c5b2bee93f871178015986ada3dc3af6ce29cfea3bf61c8c2/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373430302d323130393430303634342e737667" alt="github-contribution-grid-snake" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607400-2109400644.svg" style="max-width: 100%;"></a></p>
+<p>使用起来也不难，先新建一个 workflow 文件（名字随意），不需要任何改动，然后提交：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">name</span>: <span class="pl-s">generate animation</span>
+
+<span class="pl-ent">on</span>:
+  <span class="pl-c"><span class="pl-c">#</span> run automatically every 2 hours</span>
+  <span class="pl-ent">schedule</span>:
+    - <span class="pl-ent">cron</span>: <span class="pl-s"><span class="pl-pds">"</span>0 */2 * * *<span class="pl-pds">"</span></span> 
+  
+  <span class="pl-c"><span class="pl-c">#</span> allows to manually run the job at any time</span>
+  <span class="pl-ent">workflow_dispatch</span>:
+  
+  <span class="pl-c"><span class="pl-c">#</span> run on every push on the master branch</span>
+  <span class="pl-ent">push</span>:
+    <span class="pl-ent">branches</span>:
+    - <span class="pl-s">master</span>
+  
+
+<span class="pl-ent">jobs</span>:
+  <span class="pl-ent">generate</span>:
+    <span class="pl-ent">permissions</span>: 
+      <span class="pl-ent">contents</span>: <span class="pl-s">write</span>
+    <span class="pl-ent">runs-on</span>: <span class="pl-s">ubuntu-latest</span>
+    <span class="pl-ent">timeout-minutes</span>: <span class="pl-c1">5</span>
+  
+    <span class="pl-ent">steps</span>:
+      <span class="pl-c"><span class="pl-c">#</span> generates a snake game from a github user (&lt;github_user_name&gt;) contributions graph, output a svg animation at &lt;svg_out_path&gt;</span>
+      - <span class="pl-ent">name</span>: <span class="pl-s">generate github-contribution-grid-snake.svg</span>
+        <span class="pl-ent">uses</span>: <span class="pl-s">Platane/snk/svg-only@v3</span>
+        <span class="pl-ent">with</span>:
+          <span class="pl-ent">github_user_name</span>: <span class="pl-s">${{ github.repository_owner }}</span>
+          <span class="pl-ent">outputs</span>: <span class="pl-s">|</span>
+<span class="pl-s">            dist/github-contribution-grid-snake.svg</span>
+<span class="pl-s">            dist/github-contribution-grid-snake-dark.svg?palette=github-dark</span>
+<span class="pl-s"></span>  
+  
+      <span class="pl-c"><span class="pl-c">#</span> push the content of &lt;build_dir&gt; to a branch</span>
+      <span class="pl-c"><span class="pl-c">#</span> the content will be available at https://raw.githubusercontent.com/&lt;github_user&gt;/&lt;repository&gt;/&lt;target_branch&gt;/&lt;file&gt; , or as github page</span>
+      - <span class="pl-ent">name</span>: <span class="pl-s">push github-contribution-grid-snake.svg to the output branch</span>
+        <span class="pl-ent">uses</span>: <span class="pl-s">crazy-max/ghaction-github-pages@v3.1.0</span>
+        <span class="pl-ent">with</span>:
+          <span class="pl-ent">target_branch</span>: <span class="pl-s">output</span>
+          <span class="pl-ent">build_dir</span>: <span class="pl-s">dist</span>
+        <span class="pl-ent">env</span>:
+          <span class="pl-ent">GITHUB_TOKEN</span>: <span class="pl-s">${{ secrets.GITHUB_TOKEN }}</span></pre></div>
+<p>将下列代码复制到 Markdown 内，将用户名部分替换成你自己的，并提交。</p>
+<p>这段代码的目的是：加载贪吃蛇动画，且贪吃蛇的暗亮风格与你的 Github 的暗亮风格进行自动适配。</p>
+<pre lang="php-template" class="notranslate"><code class="notranslate">&lt;picture&gt;
+  &lt;source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Peter-JXL/Peter-JXL/output/github-contribution-grid-snake-dark.svg"&gt;
+  &lt;source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Peter-JXL/Peter-JXL/output/github-contribution-grid-snake.svg"&gt;
+  &lt;img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Peter-JXL/Peter-JXL/output/github-contribution-grid-snake.svg"&gt;
+&lt;/picture&gt;
+</code></pre>
+<p>之前我们设置的是每隔 2 小时更新一次，我们可以先手动跑一次。点击 <code class="notranslate">generate animation</code>，点击 <code class="notranslate">Run workflow</code>：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609277-1413288135.png" rel="nofollow"><img src="https://camo.githubusercontent.com/3e48e136eca4de957ad47aced278b73117b70cdc8fd3ec6fa3df873f210073f1/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630393237372d313431333238383133352e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101609277-1413288135.png" style="max-width: 100%;"></a></p>
+<p>稍等片刻，显示运行成功，再次回到仓库主页就会看到贪吃蛇动画已被加载：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608452-625477041.png" rel="nofollow"><img src="https://camo.githubusercontent.com/9755af371209731ac666c4f93e2aa2cccbd3b610e028d8383bbaf9572a30bfb8/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383435322d3632353437373034312e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608452-625477041.png" style="max-width: 100%;"></a></p>
+<h3>博客文章同步</h3>
+<p>如果你有博客网站，且网站带有 RSS 功能，就可以配置此功能，它能在你的 GitHub 首页上显示最近更新的博客</p>
+<p>原理：利用 <a href="https://github.com/gautamkrishnar/blog-post-workflow">blog-post-workflow</a> 在自述文件上展示最近几篇博客文章。</p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101717443-837051867.png" rel="nofollow"><img src="https://camo.githubusercontent.com/47f613feb38d7acdd55155d95173f79deefef5b54beb3498d613be4222ceab9e/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313731373434332d3833373035313836372e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101717443-837051867.png" style="max-width: 100%;"></a></p>
+<p>使用起来也很简单。首先创建一个 workflow（例如 <code class="notranslate">blog-post-workflow.yml</code> ），需要改动最后一行的 <code class="notranslate">feed_list</code> 的内容为你自己网站的 RSS 链接。</p>
+<div class="highlight highlight-source-css-less"><pre class="notranslate">name: Latest blog post workflow
+on:
+  schedule: # Run workflow automatically
+    <span class="pl-k">-</span> cron: <span class="pl-s"><span class="pl-pds">'</span>0 */2 * * *<span class="pl-pds">'</span></span> # Runs every hour, on the hour
+  workflow_dispatch: # Run workflow manually (without waiting for the cron to be called), through the GitHub Actions Workflow <span class="pl-c1">page</span> directly
+permissions:
+  <span class="pl-c1">contents</span>: write # To write the generated <span class="pl-c1">contents</span> to the readme
+
+jobs:
+  update<span class="pl-k">-</span>readme<span class="pl-k">-</span>with<span class="pl-k">-</span>blog:
+    name: Update this repo<span class="pl-s"><span class="pl-pds">'</span>s README with latest blog posts</span>
+<span class="pl-s">    runs-on: ubuntu-latest</span>
+<span class="pl-s">    steps:</span>
+<span class="pl-s">      - name: Checkout</span>
+<span class="pl-s">        uses: actions/checkout@v3</span>
+<span class="pl-s">      - name: Pull in blog<span class="pl-pds">'</span></span><span class="pl-ent">s</span> posts
+        uses: gautamkrishnar<span class="pl-k">/</span>blog<span class="pl-k">-</span>post<span class="pl-k">-</span>workflow<span class="pl-smi">@v1</span>
+        with:
+          feed_list: <span class="pl-s"><span class="pl-pds">"</span>https://www.peterjxl.com/rss.xml<span class="pl-pds">"</span></span></pre></div>
+<p>更多构建参数请参考 🔗 <a href="https://github.com/gautamkrishnar/blog-post-workflow?tab=readme-ov-file#options">github.com/gautamkrishnar/blog-post-workflow</a>，包括显示文章数量、显示主题等等。</p>
+<p>然后在自述文件输入这些内容，程序会自动抓取文章标题、链接等并替换这两个注释：</p>
+<pre lang="php-template" class="notranslate"><code class="notranslate">📕 &amp;nbsp;**Latest Blog Posts**
+&lt;!-- BLOG-POST-LIST:START --&gt;
+&lt;!-- BLOG-POST-LIST:END --&gt;
+</code></pre>
+<p>同理，此时是看不到文章列表的，我们得先手工运行一次 action：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608651-808338005.png" rel="nofollow"><img src="https://camo.githubusercontent.com/ab134daf2cb8caa445e2326e3b85c5b6b3f2f21df172303606c69423767baef2/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383635312d3830383333383030352e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608651-808338005.png" style="max-width: 100%;"></a></p>
+<h3>你的 GitHub 故事</h3>
+<p>GitHub 已经内置了年度提交数统计，方便我们回顾：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607541-1341325803.png" rel="nofollow"><img src="https://camo.githubusercontent.com/7c3c70dba918fc24382c00207972be978e67e39600acf8c937a16510dce373ad/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373534312d313334313332353830332e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607541-1341325803.png" style="max-width: 100%;"></a></p>
+<p>但我们可以更炫酷地用 3D 模型来展示：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101715533-583270384.png" rel="nofollow"><img src="https://camo.githubusercontent.com/cd697576e55e06518b6bf28431dfefb9be027ba6380f63bc125fa193c39821a4/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313731353533332d3538333237303338342e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101715533-583270384.png" style="max-width: 100%;"></a></p>
+<p>官网：<a href="https://skyline.github.com/">https://skyline.github.com</a></p>
+<p>用法：输入自己的 GitHub 用户名，和想要查看的年份，i就可以自动生成炫酷的 3D 模型。</p>
+<p>PS：</p>
 <ul>
-<li><strong>空气显热利用</strong>：界面蒸发系统若设计为“开放体系”，可通过空气对流从周围环境（如大气）吸收热量（空气的温度高于蒸发界面时，热量从空气传递至系统）。例如，干燥、高温的空气流经蒸发表面时，其携带的热能可补充蒸发所需能量，此时总能量输入 = 太阳能 + 空气显热，远超1 kW m⁻²。</li>
-<li><strong>环境辐射能利用</strong>：系统可能通过特殊结构（如红外透明膜）接收周围环境的热辐射（如地面、大气的长波辐射），进一步增加能量输入。</li>
+<li>这个功能是 GitHub 官方在 2021 年推出的，但是后续又下线了，暂时不知道什么时候回归。</li>
+<li>该网站可以生成 STL 文件，这是用于 3D 立体光刻的文件格式。</li>
+<li>GitHub 本身也是支持查看 <a href="https://docs.github.com/zh/repositories/working-with-files/using-files/working-with-non-code-files">3D 文件</a>的，也就是可以托管和渲染 .stl 的 3D 文件</li>
+<li>如果你有 3D 打印机的话，可以通过该文件自己打印出来。或者用线上打印服务 <a href="https://www.shapeways.com/" rel="nofollow">shapeways.com</a>：</li>
 </ul>
-<h4>3.2 汽化潜热的“间接降低”</h4>
-<p>水的汽化潜热随温度升高而略有降低（如100℃时约为2260 kJ/kg，低于常温的2450 kJ/kg）。若光热材料能将界面温度显著提升（如通过高效热局域化，使蒸发界面温度达到50-80℃），则相同能量下可蒸发更多水分。例如：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101613661-1941367915.png" rel="nofollow"><img src="https://camo.githubusercontent.com/cf736f063dae9e024afde1ba1c0d99a92984bdf5438f7dfc069cfe651aa5deae/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313631333636312d313934313336373931352e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101613661-1941367915.png" style="max-width: 100%;"></a></p>
+<p>也有不少开发者拿到了打印后的纪念品：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608509-1642752248.png" rel="nofollow"><img src="https://camo.githubusercontent.com/fe9b3aa26b2d6b8cf379569aa22463704defae7ec2d673250aafdc9b2d0784bd/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383530392d313634323735323234382e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608509-1642752248.png" style="max-width: 100%;"></a></p>
+<h3>GitHub 3D 统计</h3>
+<p>使用 3D 图来展示信息。</p>
+<p>官网：<a href="https://github.com/yoshi389111/github-profile-3d-contrib">github.com/yoshi389111/github-profile-3d-contrib</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101733424-1461202365.png" rel="nofollow"><img src="https://camo.githubusercontent.com/96a2caf226af985ee74b6badf9c97ffedee658214ff6131f69351180c24e0d9b/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313733333432342d313436313230323336352e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101733424-1461202365.png" style="max-width: 100%;"></a></p>
+<p>使用方法是用 GitHub Action。首先创建文件 <code class="notranslate">.github/workflows/profile-3d.yml</code>，内容如下：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">name</span>: <span class="pl-s">GitHub-Profile-3D-Contrib</span>
+
+<span class="pl-ent">on</span>:
+  <span class="pl-ent">schedule</span>: <span class="pl-c"><span class="pl-c">#</span> 03:00 JST == 18:00 UTC</span>
+    - <span class="pl-ent">cron</span>: <span class="pl-s"><span class="pl-pds">"</span>0 18 * * *<span class="pl-pds">"</span></span>
+  <span class="pl-ent">workflow_dispatch</span>:
+
+<span class="pl-ent">jobs</span>:
+  <span class="pl-ent">build</span>:
+    <span class="pl-ent">runs-on</span>: <span class="pl-s">ubuntu-latest</span>
+    <span class="pl-ent">name</span>: <span class="pl-s">generate-github-profile-3d-contrib</span>
+    <span class="pl-ent">steps</span>:
+      - <span class="pl-ent">uses</span>: <span class="pl-s">actions/checkout@v3</span>
+      - <span class="pl-ent">uses</span>: <span class="pl-s">yoshi389111/github-profile-3d-contrib@0.7.1</span>
+        <span class="pl-ent">env</span>:
+          <span class="pl-ent">GITHUB_TOKEN</span>: <span class="pl-s">${{ secrets.GITHUB_TOKEN }}</span>
+          <span class="pl-ent">USERNAME</span>: <span class="pl-s">${{ github.repository_owner }}</span>
+      - <span class="pl-ent">name</span>: <span class="pl-s">Commit &amp; Push</span>
+        <span class="pl-ent">run</span>: <span class="pl-s">|</span>
+<span class="pl-s">          git config user.name github-actions</span>
+<span class="pl-s">          git config user.email github-actions@github.com</span>
+<span class="pl-s">          git add -A .</span>
+<span class="pl-s">          git commit -m "generated"</span>
+<span class="pl-s">          git push</span></pre></div>
+<p>然后手动执行一次 action：<code class="notranslate">Actions</code> -&gt; <code class="notranslate">GitHub-Profile-3D-Contrib</code> -&gt; <code class="notranslate">Run workflow</code></p>
+<p>然后会生成这些文件（带路径，各种主题的都有）：</p>
 <ul>
-<li>若界面温度升至60℃，汽化潜热约为2350 kJ/kg，1个太阳光下理论上限约为3600/2350≈1.53，虽提升有限，但结合环境能量输入后，总蒸发速率可进一步提高。</li>
+<li><code class="notranslate">profile-3d-contrib/profile-green-animate.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-green.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-season-animate.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-season.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-south-season-animate.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-south-season.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-night-view.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-night-green.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-night-rainbow.svg</code></li>
+<li><code class="notranslate">profile-3d-contrib/profile-gitblock.svg</code></li>
 </ul>
-<h4>3.3 系统设计的“协同强化”</h4>
-<p>通过结构优化（如超亲水通道快速补水、疏水表面减少液体滞留、多孔结构增加蒸发面积），可减少蒸发过程中的“非能量损耗”（如水分运输阻力、表面张力限制），使系统更高效地利用总能量（包括太阳能+环境能）。例如，高孔隙率材料的蒸发面积远大于投影面积，实际单位“有效蒸发面积”的速率可能更高，宏观上表现为高数值。</p></div>
+<p>最后在 Markdown 里添加即可。</p>
+<p>PS，如果遇到了这样的报错：</p>
+<div class="highlight highlight-source-vbnet"><pre class="notranslate"><span class="pl-smi">remote:</span> <span class="pl-smi">Permission</span> <span class="pl-k">to</span> <span class="pl-smi">mthsBelloni/mthsBelloni.git</span> <span class="pl-smi">denied</span> <span class="pl-k">to</span> <span class="pl-smi">github-actions[bot].</span>
+<span class="pl-smi">fatal:</span> <span class="pl-smi">unable</span> <span class="pl-k">to</span> <span class="pl-smi">access</span> <span class="pl-c">'https://github.com/Peter-JXL/Peter-JXL/': The requested URL returned error: 403</span>
+<span class="pl-k">Error</span><span class="pl-smi">:</span> <span class="pl-smi">Process</span> <span class="pl-smi">completed</span> <span class="pl-k">with</span> <span class="pl-k">exit</span> <span class="pl-smi">code</span> <span class="pl-s">128</span><span class="pl-smi">.</span></pre></div>
+<p>大概率是因为没有配置 actions 的写权限，导致无法写入 svg 文件。解决办法：加上权限</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608018-1075866667.png" rel="nofollow"><img src="https://camo.githubusercontent.com/123413ac543ed4fa8b03f35fb9b518479d78e4f2d37e6a8805841c645fc90720/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383031382d313037353836363636372e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608018-1075866667.png" style="max-width: 100%;"></a></p>
+<h3>感谢参与者</h3>
+<p>每位开源项目的参与者都值得记录和感谢，传统方式是手工编辑，项目负责人一个一个地把参与者的名字记录到 README.md，非常低效。</p>
+<p>可以使用一种更高效、自动化的方式来添加项目贡献者：</p>
+<p>项目名：All Contributors</p>
+<p>官网：<a href="https://allcontributors.org/" rel="nofollow">https://allcontributors.org</a></p>
+<p>可以用命令行或者机器人的方式自动将项目的贡献者补充到项目文档中，并且生成排版精美的表格，效果如下：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101732315-1280251704.png" rel="nofollow"><img src="https://camo.githubusercontent.com/ed166c8dd1eec45dcfe979b72a84be183fd8c482d883173f51f7fec21b31ac3a/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313733323331352d313238303235313730342e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101732315-1280251704.png" style="max-width: 100%;"></a></p>
+<h2>Profile 编辑器</h2>
+<p>这个项目是一个是一个可视化 profile 生成工具，使用者无需学习 Markdown 语法，仅需要在对应窗口中输入或者选择相应的内容，工具会自动生成 Markdown 脚本。脚本编辑完成以后，直接复制粘贴到自己的 Github 即可。</p>
+<p>官网：<a href="https://profilinator.rishav.dev/" rel="nofollow">profilinator.rishav.dev</a></p>
+<p>效果：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101611907-836613337.png" rel="nofollow"><img src="https://camo.githubusercontent.com/13e2bd199b550ed777eef50fc114eb9fd7c6eced84d21eb34b05877cdf52c355/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313631313930372d3833363631333333372e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101611907-836613337.png" style="max-width: 100%;"></a></p>
+<h2>关于 Gitee</h2>
+<p>很遗憾，Gitee，号称国内版的 GitHub，并没有提供类似的功能。但我们可以完善下个人信息部分：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607611-409520292.png" rel="nofollow"><img src="https://camo.githubusercontent.com/308e7c09a898cd0a4d2f0e06c5087ea8be7d56153dda79f8d1a787e0ab43e9dc/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373631312d3430393532303239322e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607611-409520292.png" style="max-width: 100%;"></a></p>
+<p>方法：在个人主页里打开个人设置</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607777-339368842.png" rel="nofollow"><img src="https://camo.githubusercontent.com/56974f27ddeba6cd7872bc99494626691c764cce63a16494c95a933e3e31bebd/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630373737372d3333393336383834322e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101607777-339368842.png" style="max-width: 100%;"></a></p>
+<p>打开个人资料，可以修改公司，职务，微信，QQ，领英，微博，博客，所在地，自我介绍等信息，多多少少能优化下个人主页：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101730191-1986093419.png" rel="nofollow"><img src="https://camo.githubusercontent.com/ac319bebbef82ce137857b420a7c08d5efbcf4c9cd13127e912013a2e55653b3/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313733303139312d313938363039333431392e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101730191-1986093419.png" style="max-width: 100%;"></a></p>
+<p>例如鱼皮的长这样：</p>
+<p><a href="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608249-2008145442.png" rel="nofollow"><img src="https://camo.githubusercontent.com/d9261c20c58f0e31ba1b69b012c601e38c68bf21aa31525438bc57f1222d8282/68747470733a2f2f696d67323032342e636e626c6f67732e636f6d2f626c6f672f313133393430372f3230323430392f313133393430372d32303234303932383130313630383234392d323030383134353434322e706e67" alt="" data-canonical-src="https://img2024.cnblogs.com/blog/1139407/202409/1139407-20240928101608249-2008145442.png" style="max-width: 100%;"></a></p>
+<h2>最后</h2>
+<p>本文仅仅列出一些常见的功能，感兴趣的同学可以自行搜索更多功能，甚至自定义。</p>
+<p>这是我的 GitHub 主页，大家可以抄抄作业（如果能点个 star 就更好了😏）：<a href="https://github.com/Peter-JXL">https://github.com/Peter-JXL</a></p>
+<p>特别注意：由于 GFW 的原因，可能需要魔法上网后才能看到一些内容。</p>
+<p>最后，祝你玩得开心！</p>
+<h2>参考</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/454597068" rel="nofollow">Github 首页美化教程（一）：打造个性化的 GitHub 首页 - 知乎</a></p>
+<p><a href="https://realyujie.xlog.app/Beautify-your-GitHub-personal-homepage" rel="nofollow">美化自己的 GitHub 个人主页 - 0x5E</a></p>
+<p><a href="https://blog.csdn.net/a2360051431/article/details/130945944" rel="nofollow">Github 自定义个人首页_github 主页搭建-CSDN 博客</a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
@@ -134,7 +494,7 @@ if("03/01/2025"!=""){
 </script></div>
 </body>
 <script>
-var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
 var utterancesLoad=0;
 
 console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
@@ -181,7 +541,70 @@ function iFrameLoading(){
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
 
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
 
 </script>
 <script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
