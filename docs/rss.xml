@@ -1,5 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 13:27:00 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>3-2-1 备份规则</title><link>https://note.142588.xyz/post/24.html</link><description>[![](https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png)](https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png)
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 13:31:28 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「建站」Gmeek使用手册（基础篇）</title><link>https://note.142588.xyz/post/25.html</link><description>## 前言
+
+[Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架  
+超轻量级个人博客模板，完全基于`Github Pages` 、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`
+
+&gt; 引用：[https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html](https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html)
+
+## 📑 一、安装
+
+Tip
+
+安装极其简单，根据以下步骤，一步一步操作。</description><guid isPermaLink="true">https://note.142588.xyz/post/25.html</guid><pubDate>Fri, 06 Mar 2026 13:31:00 +0000</pubDate></item><item><title>3-2-1 备份规则</title><link>https://note.142588.xyz/post/24.html</link><description>[![](https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png)](https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png)
 
 自 3-2-1 备份规则在 21 世纪初首次提出以来，发生了很多变化。</description><guid isPermaLink="true">https://note.142588.xyz/post/24.html</guid><pubDate>Fri, 06 Mar 2026 13:26:30 +0000</pubDate></item><item><title>给博客添加数字分页条</title><link>https://note.142588.xyz/post/23.html</link><description>Gmeek 默认的分页只有 `上一页` 和 `下一页`，翻页的时候就感觉很无力，没有那种掌控全局的感觉，所以搞一个插件插入数字分页条吧。</description><guid isPermaLink="true">https://note.142588.xyz/post/23.html</guid><pubDate>Fri, 06 Mar 2026 06:45:30 +0000</pubDate></item><item><title>x86_64和AMD64和ARM64？傻傻分不清楚？</title><link>https://note.142588.xyz/post/22.html</link><description>## 什么是指令集
 
