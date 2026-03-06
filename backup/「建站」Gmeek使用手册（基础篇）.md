@@ -157,6 +157,6 @@ Caution
 Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
 ```
 
-本文浏览量29次
+## 转载说明
 
-❤️ 转载文章请注明出处，谢谢！❤️
+参考链接：[「建站」Gmeek使用手册（基础篇）](https://grapehut.dpdns.org/post/1.html)
