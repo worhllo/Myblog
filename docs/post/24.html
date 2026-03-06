@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="[![](https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png)](https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png)
+
+自 3-2-1 备份规则在 21 世纪初首次提出以来，发生了很多变化。">
+<meta property="og:title" content="3-2-1 备份规则">
+<meta property="og:description" content="[![](https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png)](https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png)
+
+自 3-2-1 备份规则在 21 世纪初首次提出以来，发生了很多变化。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/24.html">
+<meta property="og:image" content="../avatar.png">
+<title>3-2-1 备份规则</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">3-2-1 备份规则</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/24" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p><a href="https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png" rel="nofollow"><img src="https://camo.githubusercontent.com/fa18badc56db5d6f7b32abd5bcc54921e3f4b4c588468500abffe2d2ef5193f2/68747470733a2f2f7777772e6261636b626c617a652e636f6d2f626c6f672f77702d636f6e74656e742f75706c6f6164732f323032322f30362f62622d62682d332d322d312d4261636b75702d53747261746567792d526566726573685f44657369676e2d42322e706e67" alt="" data-canonical-src="https://www.backblaze.com/blog/wp-content/uploads/2022/06/bb-bh-3-2-1-Backup-Strategy-Refresh_Design-B2.png" style="max-width: 100%;"></a></p>
+<p>自 3-2-1 备份规则在 21 世纪初首次提出以来，发生了很多变化。当时，iPad 还只是苹果公司的一个构想。Facebook 只有区区 5 亿用户。泰勒·斯威夫特只发行了两张专辑。百视达视频还存在，Netflix 还在送 DVD 到你家门口。</p>
+<p>与科技领域的大多数事物不同，3-2-1 备份规则多年来一直屹立不倒。尽管备份方法随着现代数据保护和云存储服务的发展而不断演变，但该规则仍然是数据冗余的事实标准。今天，我将解释什么是 3-2-1 备份规则，它发生了哪些变化，以及你如何轻松实现 3-2-1 备份，以保证你的<a href="https://www.backblaze.com/cloud-storage" rel="nofollow">数据安全和受保护</a>。</p>
+<h2>什么是 3-2-1 备份规则？</h2>
+<p>3-2-1 备份规则是一种简单、有效的数据备份策略，用于保护你的数据安全。它建议你将数据的三个副本存储在两种不同的介质上，其中一个副本存放在异地。让我们详细分解一下：</p>
+<ul>
+<li><strong>三份数据副本</strong>：你的三个副本包括原始数据（也称为生产数据），再加上另外两个副本。</li>
+<li><strong>两种不同的介质</strong>：你应该将数据存储在两种不同的存储介质上，例如本地驱动器和云存储服务。如今，这与 21 世纪初的含义有所不同。我稍后会详细说明这一点。</li>
+<li><strong>一份异地副本</strong>：你应该将一份数据副本存放在异地，理想情况下，与另外两个副本相距几英里以上，以防范可能影响本地副本的自然和物理灾难。</li>
+</ul>
+<p>如果你想保护你的个人信息、照片、工作文件或其他重要数据，3-2-1 备份策略是一个不错的选择。通过使用多种存储类型和位置，它有助于避免出现单点故障，从而防范人为错误、<a href="https://www.backblaze.com/blog/backblaze-drive-stats-for-q1-2024/" rel="nofollow">硬盘崩溃</a>、盗窃、自然灾害或<a href="https://www.backblaze.com/blog/category/cloud-storage/ransomware/" rel="nofollow">勒索软件</a>带来的风险。</p>
+<h2>3-2-1 备份规则如何运作？</h2>
+<p>假设多年前你为了给税务会计提供资料，给你的社会安全卡拍了一张照片——这个文件名为“<code class="notranslate">socialsecurity.jpg</code>”，存放在你家的电脑上，作为原始数据。这也是数据的第一个“副本”。</p>
+<p>你家里还有一个外部硬盘，用于<a href="https://www.backblaze.com/cloud-backup/personal/mac-online-backup" rel="nofollow">备份你常用的 Mac</a> 或游戏用的<a href="https://www.backblaze.com/cloud-backup/personal/windows-online-backup" rel="nofollow">PC</a>。这个外部硬盘会在备份过程中备份 <code class="notranslate">socialsecurity.jpg</code>。这是不同存储介质上的第二个副本。</p>
+<p>除了这个外部硬盘，你还有一个<a href="https://www.backblaze.com/cloud-backup" rel="nofollow">在线备份解决方案</a>（我们推荐 Backblaze，你懂的！）。在线备份会持续扫描你的电脑，并将你的数据上传到云端（通俗地说，就是异地数据中心）。<code class="notranslate">Socialsecurity.jpg</code> 也会被包含在这次上传中，成为数据的第三个副本。</p>
+<p>哦！另外，你的纸质社会安全卡希望能存放在<a href="https://www.backblaze.com/blog/building-your-digital-go-bag/" rel="nofollow">防火保险箱</a>里（而不是你的钱包里），这算是一个额外的保障。</p>
+<h2>3-2-1 备份策略发生了哪些变化？</h2>
+<p>当 3-2-1 规则首次提出时，有更多类型的介质可供选择来存储数据——不起眼的软盘、CD、蓝光光盘、U盘、外部硬盘驱动器（HDD）、固态硬盘（SSD）、网络附加存储（NAS）、磁带库等等。其中一些已经不再受欢迎，并且不再适用于现代数据存储需求（CD 和 DVD，我正看着你们呢）。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3bddb5fee0a09b26d204dc348d85c354fbc9f8d205b8c53f4ae9fa0a70aa4b3f/68747470733a2f2f7777772e6261636b626c617a652e636f6d2f626c6f672f77702d636f6e74656e742f75706c6f6164732f323032322f30382f4261636b626c617a652d332d322d315f315f466c6f7070792d4469736b732e706e67"><img src="https://camo.githubusercontent.com/3bddb5fee0a09b26d204dc348d85c354fbc9f8d205b8c53f4ae9fa0a70aa4b3f/68747470733a2f2f7777772e6261636b626c617a652e636f6d2f626c6f672f77702d636f6e74656e742f75706c6f6164732f323032322f30382f4261636b626c617a652d332d322d315f315f466c6f7070792d4469736b732e706e67" alt="一张咖啡杯放在软盘上的照片。" data-canonical-src="https://www.backblaze.com/blog/wp-content/uploads/2022/08/Backblaze-3-2-1_1_Floppy-Disks.png" style="max-width: 100%;"></a></p>
+<p>别担心，软盘。我们为你找到了用处。</p>
+<p>有些介质对于想要备份数据的典型家庭电脑用户来说既不实用也不划算（例如磁带库）。有些技术在当时价格高得令人望而却步，但现在已经便宜多了（如 SSD）。</p>
+<p>还有一个重要的方面在当时还不主流：云™（你可能听说过它被称为“别人的电脑”）。</p>
+<p>那么，这对 3-2-1 备份策略意味着什么呢？你还需要将数据保存在两种不同的介质上吗？</p>
+<h3>真的需要两种不同的介质吗？</h3>
+<p>简单来说：是，但也不是。如今，你<strong>不需要将数据保存在两种不同类型的介质上，但你确实需要将数据保存在两种不同的设备上。</strong></p>
+<p>详细来说就复杂一些了。最初，使用两种存储介质的想法有两个原因。其一，它可以防止其中一种介质在<a href="https://www.backblaze.com/blog/storage-tech-of-the-future-ceramics-dna-and-more/" rel="nofollow">新存储技术</a>出现时被淘汰（还是在说你呢，CD），导致数据无法用新存储技术读取。其二，将备份副本保存在单独的设备上是明智之举，这样硬件故障就不会同时影响两个本地副本。例如，如果你的电脑突然无法充电，你仍然可以从硬盘中恢复数据。</p>
+<p>虽然介质淘汰始终是一个令人担忧的问题，但云存储用于备份的出现几乎消除了这一问题。云服务提供商负责维护物理存储设备，并<a href="https://www.backblaze.com/blog/backblaze-network-stats/" rel="nofollow">确保你的数据随时可访问</a>。因此，如果你使用云备份服务，你只需要担心将数据保存在两个设备上，而不是两种不同的介质上。这具体是什么样子呢？</p>
+<h3>最简单的 3-2-1 备份</h3>
+<p>如果你将家用电脑备份到外部硬盘，并使用诸如 <a href="https://www.backblaze.com/cloud-backup" rel="nofollow">Backblaze 电脑备份</a>之类的服务将这两个设备都备份到云端，你就实现了 3-2-1 备份。</p>
+<ul>
+<li>你拥有<strong>三份数据副本</strong>：一份在你的电脑上，一份在你的硬盘上，一份在云端。</li>
+<li>你的数据存储在<strong>两种不同的设备</strong>上：你的电脑和你的外部硬盘。（严格来说，是三种设备，因为你的数据也存储在云端）。</li>
+<li>其中<strong>一份</strong>副本是异地的：云端的副本。</li>
+</ul>
+<h2>3-2-1 策略仍然是标准吗？</h2>
+<p>如果你根本没有进行备份，那么实施 3-2-1 备份策略仍然是保护你的数据的最佳做法。但是，在当今世界，3-2-1 规则更多地成为了一个起点，而不是一个完整的数据备份解决方案。</p>
+<p><a href="https://www.backblaze.com/blog/complete-guide-ransomware/" rel="nofollow">勒索软件攻击</a>的兴起要求加强 3-2-1 策略的基本原则——冗余、地理距离和访问——并增加额外的保护措施。针对联网机器并捕获包括备份在内的所有数据的网络犯罪日益增多，这意味着数据安全需要额外的保护层。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4e57abed6564e7cfbf798e20b748b637fee36b406462ac7feac506a90024dd06/68747470733a2f2f7777772e6261636b626c617a652e636f6d2f626c6f672f77702d636f6e74656e742f75706c6f6164732f323032322f30382f4261636b626c617a652d332d322d315f325f43796265727069672e706e67"><img src="https://camo.githubusercontent.com/4e57abed6564e7cfbf798e20b748b637fee36b406462ac7feac506a90024dd06/68747470733a2f2f7777772e6261636b626c617a652e636f6d2f626c6f672f77702d636f6e74656e742f75706c6f6164732f323032322f30382f4261636b626c617a652d332d322d315f325f43796265727069672e706e67" alt="一幅装饰性图片，展示了一个名为“网络猪”的网络攻击猪角色，正用他的笔记本电脑攻击服务器。" data-canonical-src="https://www.backblaze.com/blog/wp-content/uploads/2022/08/Backblaze-3-2-1_2_Cyberpig.png" style="max-width: 100%;"></a></p>
+<p>已经出现了这种行之有效的备份策略的新版本，例如 <a href="https://www.backblaze.com/blog/whats-the-diff-3-2-1-vs-3-2-1-1-0-vs-4-3-2/" rel="nofollow">3-2-1-1-0 或 4-3-2 备份</a>。听起来有些多余？其实不然。</p>
+<p>好消息是，像 Backblaze 这样的公司至少可以让异地备份这部分变得不那么麻烦——我们会为你完成这项工作，并遵循安全最佳实践。</p>
+<h2>为什么我既需要本地备份又需要异地备份？</h2>
+<p>无论你是想<a href="https://www.backblaze.com/cloud-backup/personal/mac-online-backup" rel="nofollow">备份 Mac</a> 还是<a href="https://www.backblaze.com/cloud-backup/personal/windows-online-backup" rel="nofollow">PC</a>，本地备份都是在电脑出现问题时快速访问数据的简单方法。如果你的笔记本电脑或台式机的硬盘崩溃了，而你有一个最新的外部硬盘，你可以快速找回大部分数据，或者在你的电脑维修或更换期间，将外部硬盘用于另一台电脑。</p>
+<p>如果你记得让外部硬盘保持更新，数据丢失的风险就会很小，因为你可能只会丢失笔记本电脑上未复制的文件。大多数外部硬盘甚至都附带了确保其随时更新的软件。</p>
+<p>拥有本地备份是一个很好的开始，但拥有异地备份（例如云存储备份）是完整备份策略的关键组成部分。</p>
+<p>更新的备份策略利用了云的优势，提供：</p>
+<ul>
+<li><strong>便利性</strong>：在云端备份大量数据速度很快。</li>
+<li><strong>耐用性和可靠性</strong>：你的数据受到保护，免受火灾、自然灾害等影响。</li>
+<li><strong>协作性</strong>：通过权限进行共享直观且轻松。</li>
+</ul>
+<h2>3-2-1 备份规则是完美的吗？</h2>
+<p>世上没有完美的备份系统，但 3-2-1 方法对大多数人和企业来说都是一个很好的起点。甚至美国政府也推荐这种方法。在 2012 年为美国计算机应急准备小组（US-CERT）撰写的一篇论文中，卡内基梅隆大学在其出版物《数据备份选项》中推荐了 3-2-1 方法。</p>
+<p>然而，随着数据风险的演变，特别是随着勒索软件等网络威胁的增加以及针对备份副本的定向攻击，许多组织正在探索增强型策略，如 3-2-1-1-0 或 4-3-2。这些较新的方法在 3-2-1 规则的基础上，增加了额外的数据完整性和安全性层。</p>
+<p>实际上，3-2-1 规则提供了一种平衡的方法：将三份数据副本存储在两种不同的存储类型中，并进行一份异地备份，可防范硬件故障、自然灾害和大多数网络攻击。</p>
+<p>但根据你的业务连续性需求和数据敏感性，你可能希望探索提供更快恢复时间和额外数据保护的其他备份解决方案。</p>
+<h2>备份是最好的保障</h2>
+<p>3-2-1 计划非常适合备份你的文件。如果你把这个策略看作是一份保险单，你会希望它能在不可想象的事情发生时提供所需的保障。服务也很重要；拥有本地、异地和离线备份会给你更多的备份恢复选择。</p>
+<h4>Backblaze 备份，3-2-1 就绪……</h4>
+<p>虽然 Backblaze 无法帮助解决停电、电脑加密或防盗技术问题（尽管我们可以<a href="https://www.backblaze.com/cloud-backup/features/find-my-computer" rel="nofollow">定位电脑</a>），但我们简化了你的数据备份过程。而且（根据我们最近的调查），只有 <a href="https://www.backblaze.com/blog/2023-state-of-the-backup-as-data-needs-grow-backups-need-to-fill-the-gaps/" rel="nofollow">11% 的拥有电脑的受访者每天进行备份</a>，人们确实需要帮助！</p>
+<p><a href="https://www.backblaze.com/cloud-backup" rel="nofollow">开始使用</a> Backblaze 电脑备份（适用于你的个人或企业电脑）有助于解决你完整的 3-2-1 备份策略中至关重要的“1”。而且，凭借我们包含的一年版本历史功能（如果你想升级，还可以选择<a href="https://www.backblaze.com/cloud-backup/features/extended-version-history" rel="nofollow">永久版本历史</a>），如果你的物理设备出现任何问题，你对备份数据会有额外的保护层。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
