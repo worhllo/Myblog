@@ -8,7 +8,7 @@
     "homeUrl":"https://note.142588.xyz",
     "faviconUrl":"../favicon.svg",
 
-    "onePageListNum":5,
+    "onePageListNum":10,
     "i18n":"CN",
     "UTC":8,
     "singlePage":["link","about"],
