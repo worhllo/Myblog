@@ -107,3 +107,6 @@ const dp = new DPlayer({
 ### 添加效果
 
 ![](Vol.05%20%E3%80%8C%E5%BB%BA%E7%AB%99%E3%80%8D%E3%80%8Cjs%E6%8F%92%E4%BB%B6%E3%80%8DAPlayer%20&%20DPlayer/207ch36.jpg)
+## 转载说明
+
+参考链接：[「建站」「js插件」APlayer & DPlayer](https://grapehut.dpdns.org/post/5.html)
