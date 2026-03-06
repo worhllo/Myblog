@@ -138,7 +138,7 @@ Github的语法里面有5种警报强调信息，分别是`NOTE` `TIP` `IMPORTAN
 
 ### 使用方式：
 
-```php-template
+```
 <details>
     <summary>展开</summary>
     <pre><code>
@@ -151,13 +151,14 @@ Github的语法里面有5种警报强调信息，分别是`NOTE` `TIP` `IMPORTAN
 
 ### 效果：
 
-展开
-
-```bash
-# 这里空一行，下面开始写代码
-    # 在这里写折叠的代码
+<details>
+    <summary>展开</summary>
+    <pre><code>
+    # 这里空一行，下面开始写代码
+    # 代码在这里
     # 最后这两行结束标签一定要顶格写且不能接在代码后面！！！
-```
+</code></pre>
+</details>
 
 ## 五、文章插入html标签 👀
 
