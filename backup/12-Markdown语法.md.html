@@ -1,0 +1,229 @@
+
+  <article class="markdown-body">
+    <h1 id="markdown">Markdown语法介绍</h1>
+<h2 id="_1">一、标题</h2>
+<h3 id="_2">三号</h3>
+<h4 id="_3">四号</h4>
+<h5 id="_4">五号标题</h5>
+<h6 id="_5">六号标题【最低】</h6>
+<h2 id="_6">二、分割线</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>*号分割线
+</code></pre></div></div>
+
+<hr />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>-分割线
+</code></pre></div></div>
+
+<hr />
+<h2 id="_7">三、粗体斜体</h2>
+<p><em>斜体</em>  </p>
+<p><strong>粗体</strong>  </p>
+<p><del>删除线</del>  </p>
+<h2 id="_8">四、超链接和图片</h2>
+<p><a href="https://www.baidu.com">超链接,方法1</a>  </p>
+<p><a href="https://www.baidu.com">超链接,方法2</a>  </p>
+<p><img alt="图片显示的文字" src="https://img2.artron.net/artist/A0261635/brt026163505145.jpg" />  </p>
+<h2 id="_9">五、无序列表</h2>
+<ul>
+<li>a  <ul>
+<li>b  </li>
+<li>b  <ul>
+<li>C  <ul>
+<li>V  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>B  </li>
+</ul>
+<h2 id="_10">六、有序列表</h2>
+<ol>
+<li>a  </li>
+<li>b  <ol>
+<li>c  </li>
+<li>c  </li>
+</ol>
+</li>
+</ol>
+<h2 id="_11">七、文字引用</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>使用 &gt; 表示，可以有多个 &gt; 表示层级更深
+</code></pre></div></div>
+
+<blockquote>
+<p>第一层  </p>
+<blockquote>
+<p>第二层<br />
+这样跳不下去  </p>
+<blockquote>
+<p>还可更深  </p>
+</blockquote>
+</blockquote>
+<p>这样就跳出去了  </p>
+</blockquote>
+<h2 id="_12">八、行内代码</h2>
+<p>其实上边已经用过很多次，即使用 ` 表示  </p>
+<p><code>这是行内代码  
+中间可以换行</code>  </p>
+<h2 id="_13">九、代码块</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="err">​```</span><span class="n">代码段</span><span class="err">```</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>  
+</code></pre></div></div>
+<h2 id="_14">十、表格</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">商品name</th>
+<th style="text-align: right;">price</th>
+<th>num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">靠左</td>
+<td style="text-align: right;">靠右</td>
+<td>3</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">4</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_15">十一、流程图</h2>
+<blockquote>
+<p>解释一下这个例子：  </p>
+<blockquote>
+<ul>
+<li>
+<p><code>mermaid</code>是Mermaid语言的标记。  </p>
+</li>
+<li>
+<p><code>graph TD;</code>指定了图的类型和方向，这里是从上到下（Top Down）的有向图（Directed Graph）。  </p>
+</li>
+<li>
+<p><code>A--&gt;B;</code>和<code>A--&gt;C;</code>表示两个箭头从A出发分别指向B和C。  </p>
+</li>
+<li>
+<p><code>B--&gt;D;</code>和<code>C--&gt;D;</code>表示两个箭头从B和C出发分别指向D。  </p>
+</li>
+</ul>
+<blockquote>
+<p>mermaid<br />
+graph TD<br />
+A(工业用地效率)--&gt;B1(土地利用强度)<br />
+A--&gt;B2(土地经济效益)<br />
+B1--&gt;C1(容积率)<br />
+B1--&gt;C2(建筑系数)<br />
+B1--&gt;C3(亩均固定资本投入)<br />
+B2--&gt;D1(亩均工业产值)<br />
+B2--&gt;D2(亩均税收)  </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="_16">高级语法</h1>
+<h2 id="_17">数学公式</h2>
+<p><code>$\ce{Hg^2+ -&gt;[I-] HgI2 -&gt;[I-] [Hg^{II}I4]^2-}$</code>  </p>
+<p><code>$H(D_2) = -\left(\frac{2}{4}\log_2 \frac{2}{4} + \frac{2}{4}\log_2 \frac{2}{4}\right) = 1$</code>  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>  \begin{pmatrix}  
+  1 &amp; a_1 &amp; a_1^2 &amp; \cdots &amp; a_1^n \\  
+  1 &amp; a_2 &amp; a_2^2 &amp; \cdots &amp; a_2^n \\  
+  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\  
+  1 &amp; a_m &amp; a_m^2 &amp; \cdots &amp; a_m^n \\  
+  \end{pmatrix}  
+</code></pre></div></div>
+<h2 id="_18">目录</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="err">@</span><span class="o">[</span><span class="n">toc</span><span class="o">]</span><span class="w"> </span><span class="n">或</span><span class="w"> </span><span class="o">[</span><span class="n">toc</span><span class="o">]</span>
+</code></pre></div></div>
+
+<h2 id="html">HTML原生语句</h2>
+<p><span style="display:block; text-align:right; color:orangered;">橙色居右</span> <span style="display:block; text-align:center; color:orangered;">橙色居中</span>  </p>
+<p><font face="黑体">我是黑体字</font> <font face="微软雅黑">我是微软雅黑</font> <font face="STCAIYUN">我是华文彩云</font> <font color="#0099ff" size="7" face="黑体">color=#0099ff size=72 face="黑体"</font> <font color="#00ffff" size="72">color=#00ffff</font> <font color="gray" size="72">color=gray</font>  </p>
+<blockquote>
+<p>颜色的英文单词：  </p>
+<p>red（赤）<br />
+orange（橙）<br />
+yellow（黄）<br />
+green（绿）<br />
+cyan（青）<br />
+blue（蓝）<br />
+purple（紫）<br />
+字体的英文单词：  </p>
+<p>rm（罗马字体）<br />
+it （意大利字体）<br />
+bf（黑体）<br />
+sl （斜体）<br />
+sf （等线体）<br />
+sc （小体大写字母）<br />
+tt （打字机字体）<br />
+mit （数学斜体）  </p>
+</blockquote>
+<h2 id="_19">转义</h2>
+<p>在 Markdown 编辑器里面使用了很多特殊符号来表示特定的意义，该特殊符号将不再显示，这个时候就需要转义字符——反斜杠，如下：  </p>
+<p>**转义特殊符号正常显示**  </p>
+<p><strong>无转义特殊符号无法正常显示</strong>  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+

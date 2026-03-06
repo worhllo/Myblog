@@ -1,0 +1,88 @@
+
+  <article class="markdown-body">
+    <h2 id="word">【Word 添加页码（首页不显示）】操作教程</h2>
+<ol>
+<li>
+<p>首先，打开文档，点击顶部菜单栏的【插入】选项卡，在 “页眉和页脚” 功能区找到【页码】按钮（图标是一个小书本加数字）。<br />
+<img alt="Sunny_20250508_215011.png" src="https://cloudflare-imgbed-9xb.pages.dev/file/1746712253421_Sunny_20250508_215011.png" />  </p>
+</li>
+<li>
+<p>点击【页码】下拉菜单，根据需求选择页码的位置，比如 “页面底端”“页面顶端” 或 “页边距”。这里以 “页面底端” 为例，选择一个你喜欢的页码样式（比如普通数字居中、外侧等）。<br />
+<img alt="Sunny_20250508_215221.png" src="https://cloudflare-imgbed-9xb.pages.dev/file/1746712366058_Sunny_20250508_215221.png" />  </p>
+<blockquote>
+<p>此时，所有页面（包括首页）都会显示页码，但我们需要让首页不显示，接着看下一步！  </p>
+</blockquote>
+</li>
+<li>
+<p>在【设计】选项卡的 “选项” 功能区，找到【首页不同】复选框，勾选它！<br />
+<img alt="Sunny_20250508_215447.png" src="https://cloudflare-imgbed-9xb.pages.dev/file/1746712533145_Sunny_20250508_215447.png" />  </p>
+</li>
+<li>
+<p>如果希望从第二页开始页码为 “1”（即首页无页码，第二页是第 1 页）。则在【页眉和页脚工具 - 设计】选项卡中，点击【页码】下拉菜单，选择【设置页码格式】。在弹出的对话框中，勾选【起始页码】，并确保数值为 “0”<br />
+<img alt="3eqwefd.png" src="https://cloudflare-imgbed-9xb.pages.dev/file/1746712935229_3eqwefd.png" />  </p>
+</li>
+<li>
+<p>点击【确定】，此时第二页会显示 “1”，后续页面依次递增。  </p>
+</li>
+<li>
+<p>设置完成后，点击【页眉和页脚工具 - 设计】选项卡中的【关闭页眉和页脚】按钮，或直接双击文档正文区域，回到正常编辑状态。<br />
+<img alt="Sunny_20250508_220309.png" src="https://cloudflare-imgbed-9xb.pages.dev/file/1746713022075_Sunny_20250508_220309.png" />  </p>
+</li>
+</ol>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+

@@ -1,50 +1,45 @@
 <!DOCTYPE html>
-<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
-    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
-    <link rel="icon" href="../favicon.svg">
-<meta name="description" content="### 一、前言
-现如今市面上的快速启动软件简直多如牛毛，包括但不限于CLaunch、Lily、Lucy、nrLaunch、nTrun、Rolan、TrayLauncher、TrueLaunchBar、TurboLaunch、音速启动（VStart）、ALMRun、ALTRun、Keypirinha、Launchy、Listary、PowerToysRun、uTools、Wox、RunZ、RunAny...,但是xRun却是我体验下来最简洁好用的！
-
-- 轻，快，简单
-- 快速完成文件夹跳转
-- 快速启动程序
-
-总结下来，以上就它的三大特点！
-### 二、xRun能干什么？
-它只是一个纯粹的快速启动，用最少的步骤实现操作结果的呈现。">
-<meta property="og:title" content="专为快速启动而生的软件">
-<meta property="og:description" content="### 一、前言
-现如今市面上的快速启动软件简直多如牛毛，包括但不限于CLaunch、Lily、Lucy、nrLaunch、nTrun、Rolan、TrayLauncher、TrueLaunchBar、TurboLaunch、音速启动（VStart）、ALMRun、ALTRun、Keypirinha、Launchy、Listary、PowerToysRun、uTools、Wox、RunZ、RunAny...,但是xRun却是我体验下来最简洁好用的！
-
-- 轻，快，简单
-- 快速完成文件夹跳转
-- 快速启动程序
-
-总结下来，以上就它的三大特点！
-### 二、xRun能干什么？
-它只是一个纯粹的快速启动，用最少的步骤实现操作结果的呈现。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://note.142588.xyz/post/20.html">
-<meta property="og:image" content="../avatar.png">
+    <link href="https://note.142588.xyz/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://note.142588.xyz/assets/highlight.css" rel="stylesheet" />
+    <link href="https://note.142588.xyz/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
+    <!-- <link href="https://note.142588.xyz/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://note.142588.xyz/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="../favicon.svg"><script src="https://note.142588.xyz/assets/vercount.js"></script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
 <title>专为快速启动而生的软件</title>
-
-
+<link href="https://note.142588.xyz/assets/starry-night@3.6.0/style/dimmed.css" rel="stylesheet" />
 
 </head>
 <style>
-body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
 </style>
 
 <style>
-.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
 .title-right{display:flex;margin:auto 0 0 auto;}
 .title-right .circle{padding: 14px 16px;margin-right:8px;}
 #postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
@@ -52,11 +47,49 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 .g-emoji{font-size:24px;}
-@media (max-width: 600px) {
-    body {padding: 8px;}
-    .postTitle{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
 }
 
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 60px; /* 距离底部60px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+    right: 5%; /* 距离右侧 5% */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
+
+.previous_page {text-align: left;}
+.next_page {text-align: right;}
 </style>
 
 
@@ -64,165 +97,276 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 
 <body>
     <div id="header">
-<h1 class="postTitle">专为快速启动而生的软件</h1>
-<div class="title-right">
-    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathHome" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-    
-    <a href="https://github.com/worhllo/Myblog/issues/20" target="_blank" class="btn btn-invisible circle" title="Issue">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-    
+<h1>
+    <a style="font-size:18px">专为快速启动而生的软件</a>
+</h1>
 
-    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+<div class="title-right">
+
+    <a href="https://note.142588.xyz"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/worhllo/Myblog/issues/20" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
-    </a>
+    </button>
 
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h3>一、前言</h3>
-<p>现如今市面上的快速启动软件简直多如牛毛，包括但不限于CLaunch、Lily、Lucy、nrLaunch、nTrun、Rolan、TrayLauncher、TrueLaunchBar、TurboLaunch、音速启动（VStart）、ALMRun、ALTRun、Keypirinha、Launchy、Listary、PowerToysRun、uTools、Wox、RunZ、RunAny...,但是xRun却是我体验下来最简洁好用的！</p>
+
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#76AB01">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://note.142588.xyz/tag.html#介绍">介绍</a></object>
+        </span>
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-29 11:05:29</time></span>
+
+<p>
+
+<div class="markdown-body" id="postBody">
+
+  <article class="markdown-body">
+    <h3 id="_1">一、前言</h3>
+<p>现如今市面上的快速启动软件简直多如牛毛，包括但不限于CLaunch、Lily、Lucy、nrLaunch、nTrun、Rolan、TrayLauncher、TrueLaunchBar、TurboLaunch、音速启动（VStart）、ALMRun、ALTRun、Keypirinha、Launchy、Listary、PowerToysRun、uTools、Wox、RunZ、RunAny...,但是xRun却是我体验下来最简洁好用的！  </p>
 <ul>
-<li>轻，快，简单</li>
-<li>快速完成文件夹跳转</li>
-<li>快速启动程序</li>
+<li>轻，快，简单  </li>
+<li>快速完成文件夹跳转  </li>
+<li>快速启动程序  </li>
 </ul>
-<p>总结下来，以上就它的三大特点！</p>
-<h3>二、xRun能干什么？</h3>
-<p>它只是一个纯粹的快速启动，用最少的步骤实现操作结果的呈现。它可以在任意位置一步打开文件夹，在任意位置一步启动想要启动的程序，它可以用最少的字符输入大段常用的文字内容（如快件地址信息，如常用的短语）。<br>
-它可以用命令行的模式启动，也可以用菜单模式启动。</p>
-<h3>三、xrun文件组成</h3>
-<p>一个主程序<strong>xrun .exe</strong>，一个配置文件<strong>config.ini</strong>，xrun不需要安装，也没有设置窗口，所有的设置都是通过config.ini完成。<br>
-xrun推荐在win10x64以上的系统使用。<br>
-<strong>强烈建议使用前仔细查看config.ini文件</strong></p>
-<h3>四、怎么用？</h3>
+<p>总结下来，以上就它的三大特点！  </p>
+<h3 id="xrun">二、xRun能干什么？</h3>
+<p>它只是一个纯粹的快速启动，用最少的步骤实现操作结果的呈现。它可以在任意位置一步打开文件夹，在任意位置一步启动想要启动的程序，它可以用最少的字符输入大段常用的文字内容（如快件地址信息，如常用的短语）。<br />
+它可以用命令行的模式启动，也可以用菜单模式启动。  </p>
+<h3 id="xrun_1">三、xrun文件组成</h3>
+<p>一个主程序<strong>xrun .exe</strong>，一个配置文件<strong>config.ini</strong>，xrun不需要安装，也没有设置窗口，所有的设置都是通过config.ini完成。<br />
+xrun推荐在win10x64以上的系统使用。<br />
+<strong>强烈建议使用前仔细查看config.ini文件</strong>  </p>
+<h3 id="_2">四、怎么用？</h3>
 <ol>
-<li><strong>命令窗口模式</strong>：xrun的命令行窗口模式是通过双击热键呼出命令窗口，输入命令回车完成。热键可以定义为双击Ctrl键，或者双击 shift键盘，设置可以设置为Lctrl指定左ctrl键）</li>
-<li><strong>菜单模式</strong>：xrun的菜单模式是通过单击鼠标中键跳出菜单（五键鼠标的xbutton1也可以唤出菜单），菜单分三部分组成，上段为文件夹，常用快速打开或者快速跳转，中部为CLSID特殊文件夹（如控制面板，打印机，回收站等），下段为常用程序。其中CLSID文件夹和常用程序可以设置在菜单中显示与否。</li>
+<li><strong>命令窗口模式</strong>：xrun的命令行窗口模式是通过双击热键呼出命令窗口，输入命令回车完成。热键可以定义为双击Ctrl键，或者双击 shift键盘，设置可以设置为Lctrl指定左ctrl键）  </li>
+<li><strong>菜单模式</strong>：xrun的菜单模式是通过单击鼠标中键跳出菜单（五键鼠标的xbutton1也可以唤出菜单），菜单分三部分组成，上段为文件夹，常用快速打开或者快速跳转，中部为CLSID特殊文件夹（如控制面板，打印机，回收站等），下段为常用程序。其中CLSID文件夹和常用程序可以设置在菜单中显示与否。  </li>
 </ol>
-<h3>五、如何自定义命令：</h3>
-<p>xrun的自定义命令分为两种，</p>
-<h4>5.1 一种是单命令，写在config.ini中的[s_cmdstr]段落中</h4>
-<p>如定义wd来启动word，ffp来启动firefox的隐私模式。写法为：</p>
-<pre lang="language" class="notranslate"><code class="notranslate">wd=C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE|Word
-</code></pre>
-<p>其中</p>
+<h3 id="_3">五、如何自定义命令：</h3>
+<p>xrun的自定义命令分为两种，  </p>
+<h4 id="51-configinis_cmdstr">5.1 一种是单命令，写在config.ini中的[s_cmdstr]段落中</h4>
+<p>如定义wd来启动word，ffp来启动firefox的隐私模式。写法为：  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>wd=C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE|Word  
+</code></pre></div></div>
+<p>其中<br />
+- <strong>wd</strong>表示自定义短命令，<br />
+- 等号<strong>C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</strong>表示要执行的程序<br />
+- 结尾的<strong>|</strong>分隔符后面的<strong>word</strong>表示该程序将会显示在菜单中，显示菜单名称为<strong>word</strong>  </p>
+<p>这种情况下，你可以双击热键呼出命令窗口，输入<strong>wd</strong>，回车启动word，或者你可以单击鼠标中键，在菜单中选择<strong>word</strong>启动word。如果<strong>|</strong>后面留空，则该exe将不会显示在菜单中，但是依然可以在命令窗口中输入执行。  </p>
+<p>单命令主要是启动一个单独的程序用。支持带参数模式，如<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>ffp=D:\firefox_113\core\firefox.exe -private-window  
+</code></pre></div></div>
+输入ffp，会启动firefox的隐私模式。在windows系统中win+R中能运行的命令，都不需要单独定义，可以直接输入运行，当然，你也可以自定义，比如：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>ip=cmd.exe /k ipconfig  
+</code></pre></div></div>
+输入ip就会打开cmd窗口并且执行ipconfig的命令。  </p>
+<p>单命令还支持文件夹模式，举例说比如在<code>d:\soft\study\action\usa\pureteen\hot\2023</code>这个隐藏的文件夹，该文件夹下面存放了一些不希望别人看到的资料，那么桌面上放个快捷方式也不妥当，资源管理器一路点下去也是非常耗时，这时候可以自定义一行：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>331=d:\soft\study\action\usa\pureteen\hot\2023  
+</code></pre></div></div>
+这样你可以输入<strong>331</strong>的时候就会一步打开该文件夹，但是菜单中并不显示，这对于一些隐私操作来说是非常方便的。  </p>
+<h4 id="52-configinim_cmdstr">5.2 第二种是多命令，写在config.ini中的[m_cmdstr]段落中</h4>
+<p>双命令最常用的作为网络查询，比如你可以这样定义：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>jd=https://search.jd.com/Search?keyword={query}  
+</code></pre></div></div>
+其中<strong>jd</strong>为自定义命令，后面的表示到京东上搜索{<strong>query</strong>}这个关键词。那么在命令窗口中输入<strong>jd 小米14</strong>，回车后就会自动打开浏览器进入京东搜索<strong>小米14</strong>，凡是支持搜索的网络站点都可以在这里写入，如豆瓣，bilibili，微博，github等等。其中{<strong>query</strong>} 表示关键词，上面例子中的<strong>小米14</strong>这就是要搜索的关键词。  </p>
+<p>双命令还有一个隐藏的功能，就是快速用管理员模式运行程序（包括上面自定义的单命令程序），比如你可以输入<strong>admin wd</strong>，回车后就会以管理员模式启动word，输入<strong>admin cmd</strong> 就会以管理员模式启动cmd命令行。管理员模式命令为admin开始。  </p>
+<h3 id="_4">六、如何自定义菜单</h3>
+<p><strong>菜单中顶部的常用文件夹在config.ini中的[quick_folder]段落中</strong>  </p>
+<p>这个文件夹始终在菜单中显示，并不支持命令行模式，如果需要命令行中启动文件夹，请采用上面单命令的文件夹模式。比如你可以这样定义：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>软件=D:\soft|C:\Windows\System32\imageres.dll,153  
+</code></pre></div></div>
+- 其中<strong>软件</strong>就表示显示菜单上的名称<br />
+- 等号后面表示对应的文件夹全路径地址<br />
+- <strong>|</strong>分隔号后面表示自定义该文件夹的图标（如果留空则采用默认的常规文件夹图标）  </p>
+<p>这时候你可以鼠标中键呼出菜单，点击菜单中的软件，那么就会在资源管理器中打开D:\soft文件夹，这里有几种场景：<br />
+- 当前有资源管理器窗口打开，则会在最近的资源管理器中快速切换到D:\soft文件夹，<br />
+- 如果当前没有资源管理器，则会自动打开一个新的资源管理窗口并进入D:\soft文件夹。<br />
+- 你也可以在当前资源管理器中按住shift再点击菜单，这样就会打开一个新的资源管理器窗口而不是直接在原来的资源管理器窗口中切换到D:\soft。  </p>
+<p>这就是我最喜欢的文件夹跳转功能。文件夹跳转还有一个实用场景就是比如打开保存这类的对话框，在该对话框顶部中键唤出菜单，选择文件夹，则会自动跳转到该文件夹内，这个对快速保存和快速打开文件时可以节省很大的时间的。  </p>
+<p>菜单的中部有一个CLSID菜单，这个菜单主要是存放一些特殊文件夹作为二级菜单显示，比如快速打开回收站，控制面板，打印机，桌面，用户文档等等。这个CLSID可以设置显示或者不显示。  </p>
+<p>菜单的下部就是常用程序的菜单，这个菜单的数据来源于你自定义的单命令中的内容，并且指定了该命令显示在菜单中，如果自定义但命令中明确不在菜单中显示，那么该命令将不会出现在菜单该区域内。  </p>
+<h3 id="_5">七、补充操作</h3>
 <ul>
-<li><strong>wd</strong>表示自定义短命令，</li>
-<li>等号<strong>C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</strong>表示要执行的程序</li>
-<li>结尾的**|<strong>分隔符后面的</strong>word<strong>表示该程序将会显示在菜单中，显示菜单名称为</strong>word**</li>
+<li>左键双击资源管理器空白处，比如左侧树形列表的空白处，会自动跳转上一层目录  </li>
+<li>左键双击任务栏空白处，同样可以唤出命令窗口  </li>
+<li>使用5键鼠标的，单击鼠标的xbutton1同样也可以唤出快速菜单。  </li>
+<li>命令窗口在失去焦点后则会自动隐藏。  </li>
+<li>在打开保存之类的对话框中，点击鼠标中键仅显示文件夹部分，clsid和快速程序的菜单部分不会显示。  </li>
+<li>单命令[<strong>s_cmdstr</strong>]段落和文件夹[<strong>quick_folder</strong>] 段落中如果一行只输入X，则表示菜单在此位置生成一个分隔线。  </li>
 </ul>
-<p>这种情况下，你可以双击热键呼出命令窗口，输入<strong>wd</strong>，回车启动word，或者你可以单击鼠标中键，在菜单中选择<strong>word</strong>启动word。如果**|**后面留空，则该exe将不会显示在菜单中，但是依然可以在命令窗口中输入执行。</p>
-<p>单命令主要是启动一个单独的程序用。支持带参数模式，如</p>
-<pre lang="language" class="notranslate"><code class="notranslate">ffp=D:\firefox_113\core\firefox.exe -private-window
-</code></pre>
-<p>输入ffp，会启动firefox的隐私模式。在windows系统中win+R中能运行的命令，都不需要单独定义，可以直接输入运行，当然，你也可以自定义，比如：</p>
-<pre lang="language" class="notranslate"><code class="notranslate">ip=cmd.exe /k ipconfig
-</code></pre>
-<p>输入ip就会打开cmd窗口并且执行ipconfig的命令。</p>
-<p>单命令还支持文件夹模式，举例说比如在<code class="notranslate">d:\soft\study\action\usa\pureteen\hot\2023</code>这个隐藏的文件夹，该文件夹下面存放了一些不希望别人看到的资料，那么桌面上放个快捷方式也不妥当，资源管理器一路点下去也是非常耗时，这时候可以自定义一行：</p>
-<pre lang="language" class="notranslate"><code class="notranslate">331=d:\soft\study\action\usa\pureteen\hot\2023
-</code></pre>
-<p>这样你可以输入<strong>331</strong>的时候就会一步打开该文件夹，但是菜单中并不显示，这对于一些隐私操作来说是非常方便的。</p>
-<h4>5.2 第二种是多命令，写在config.ini中的[m_cmdstr]段落中</h4>
-<p>双命令最常用的作为网络查询，比如你可以这样定义：</p>
-<pre lang="language" class="notranslate"><code class="notranslate">jd=https://search.jd.com/Search?keyword={query}
-</code></pre>
-<p>其中<strong>jd</strong>为自定义命令，后面的表示到京东上搜索{<strong>query</strong>}这个关键词。那么在命令窗口中输入<strong>jd 小米14</strong>，回车后就会自动打开浏览器进入京东搜索<strong>小米14</strong>，凡是支持搜索的网络站点都可以在这里写入，如豆瓣，bilibili，微博，github等等。其中{<strong>query</strong>} 表示关键词，上面例子中的<strong>小米14</strong>这就是要搜索的关键词。</p>
-<p>双命令还有一个隐藏的功能，就是快速用管理员模式运行程序（包括上面自定义的单命令程序），比如你可以输入<strong>admin wd</strong>，回车后就会以管理员模式启动word，输入<strong>admin cmd</strong> 就会以管理员模式启动cmd命令行。管理员模式命令为admin开始。</p>
-<h3>六、如何自定义菜单</h3>
-<p><strong>菜单中顶部的常用文件夹在config.ini中的[quick_folder]段落中</strong></p>
-<p>这个文件夹始终在菜单中显示，并不支持命令行模式，如果需要命令行中启动文件夹，请采用上面单命令的文件夹模式。比如你可以这样定义：</p>
-<pre lang="language" class="notranslate"><code class="notranslate">软件=D:\soft|C:\Windows\System32\imageres.dll,153
-</code></pre>
-<ul>
-<li>其中<strong>软件</strong>就表示显示菜单上的名称</li>
-<li>等号后面表示对应的文件夹全路径地址</li>
-<li>**|**分隔号后面表示自定义该文件夹的图标（如果留空则采用默认的常规文件夹图标）</li>
-</ul>
-<p>这时候你可以鼠标中键呼出菜单，点击菜单中的软件，那么就会在资源管理器中打开D:\soft文件夹，这里有几种场景：</p>
-<ul>
-<li>当前有资源管理器窗口打开，则会在最近的资源管理器中快速切换到D:\soft文件夹，</li>
-<li>如果当前没有资源管理器，则会自动打开一个新的资源管理窗口并进入D:\soft文件夹。</li>
-<li>你也可以在当前资源管理器中按住shift再点击菜单，这样就会打开一个新的资源管理器窗口而不是直接在原来的资源管理器窗口中切换到D:\soft。</li>
-</ul>
-<p>这就是我最喜欢的文件夹跳转功能。文件夹跳转还有一个实用场景就是比如打开保存这类的对话框，在该对话框顶部中键唤出菜单，选择文件夹，则会自动跳转到该文件夹内，这个对快速保存和快速打开文件时可以节省很大的时间的。</p>
-<p>菜单的中部有一个CLSID菜单，这个菜单主要是存放一些特殊文件夹作为二级菜单显示，比如快速打开回收站，控制面板，打印机，桌面，用户文档等等。这个CLSID可以设置显示或者不显示。</p>
-<p>菜单的下部就是常用程序的菜单，这个菜单的数据来源于你自定义的单命令中的内容，并且指定了该命令显示在菜单中，如果自定义但命令中明确不在菜单中显示，那么该命令将不会出现在菜单该区域内。</p>
-<h3>七、补充操作</h3>
-<ul>
-<li>左键双击资源管理器空白处，比如左侧树形列表的空白处，会自动跳转上一层目录</li>
-<li>左键双击任务栏空白处，同样可以唤出命令窗口</li>
-<li>使用5键鼠标的，单击鼠标的xbutton1同样也可以唤出快速菜单。</li>
-<li>命令窗口在失去焦点后则会自动隐藏。</li>
-<li>在打开保存之类的对话框中，点击鼠标中键仅显示文件夹部分，clsid和快速程序的菜单部分不会显示。</li>
-<li>单命令[<strong>s_cmdstr</strong>]段落和文件夹[<strong>quick_folder</strong>] 段落中如果一行只输入X，则表示菜单在此位置生成一个分隔线。</li>
-</ul>
-<h3>八、热字符串操作</h3>
-<p>xrun有一个高级操作，叫热字符串操作，它可以更快速的启动程序，和输入大段常用的文字内容。假如你在单命令中自定义了这样的一行：</p>
-<pre lang="language" class="notranslate"><code class="notranslate">wd=C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE|Word
-</code></pre>
-<p>这时候你可以呼出命令窗口，输入<strong>wd</strong>回车来启动word，也可以中键菜单选择<strong>word</strong>菜单启动word，但是你可以在任何界面直接输入<strong>wd+</strong>（不需要回车）来更快的启动word。这就是热字符串，有单命令中的自定义命都支持这种方式。</p>
-<ul>
-<li>其中<strong>wd</strong>时你定义的简化命令</li>
-<li>+是热字符串启动的标识符所</li>
-</ul>
-<p>热字符串还有一个操作就是简化常用短语的输入，比如在交换快递地址信息的时候。你可以在config.ini中的[autoreplacetext]段定义这样的一行</p>
-<pre lang="language" class="notranslate"><code class="notranslate">dz=xx省xx市xx区XX街道xx号`r`n收件人：XXX`r`n电话：xxxxxxxxxxx
-</code></pre>
-<p>然后你可以在任何接收输入的窗口（比如微信，qq，淘宝等等），输入<strong>dz+</strong>，这样就会自动将等号后面的内容瞬间呈现。其中<code class="notranslate">r</code>n表示换行。</p>
-<p>热字符串操作可以在任何界面任何位置进行无显示的操作。</p>
-<h3>九、转载说明</h3>
-<p>原文出处：[吾爱破解论坛]<br>
-原文链接：[<a href="https://www.52pojie.cn/thread-1876082-1-1.html" rel="nofollow">xRun-专为快速启动而生的软件-Ver 3.7</a>]</p></div>
-<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+<h3 id="_6">八、热字符串操作</h3>
+<p>xrun有一个高级操作，叫热字符串操作，它可以更快速的启动程序，和输入大段常用的文字内容。假如你在单命令中自定义了这样的一行：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>wd=C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE|Word  
+</code></pre></div></div>
+这时候你可以呼出命令窗口，输入<strong>wd</strong>回车来启动word，也可以中键菜单选择<strong>word</strong>菜单启动word，但是你可以在任何界面直接输入<strong>wd+</strong>（不需要回车）来更快的启动word。这就是热字符串，有单命令中的自定义命都支持这种方式。<br />
+- 其中<strong>wd</strong>时你定义的简化命令<br />
+- +是热字符串启动的标识符所  </p>
+<p>热字符串还有一个操作就是简化常用短语的输入，比如在交换快递地址信息的时候。你可以在config.ini中的[autoreplacetext]段定义这样的一行<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>dz=xx省xx市xx区XX街道xx号`r`n收件人：XXX`r`n电话：xxxxxxxxxxx  
+</code></pre></div></div>
+然后你可以在任何接收输入的窗口（比如微信，qq，淘宝等等），输入<strong>dz+</strong>，这样就会自动将等号后面的内容瞬间呈现。其中<code>r</code>n表示换行。  </p>
+<p>热字符串操作可以在任何界面任何位置进行无显示的操作。  </p>
+<h3 id="_7">九、转载说明</h3>
+<p>原文出处：[吾爱破解论坛]<br />
+原文链接：[<a href="https://www.52pojie.cn/thread-1876082-1-1.html">xRun-专为快速启动而生的软件-Ver 3.7</a>]  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://note.142588.xyz/post/21.html" aria-label="Previous Page">Markdown 编辑器如何修改图片大小</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://note.142588.xyz/post/19.html" aria-label="Next Page">关于蒸发速率</a></div>
+</nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/worhllo/Myblog/issues/20" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/worhllo/Myblog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
-
 </div>
-    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
-<div id="footer2">
-    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
-</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://note.142588.xyz"> 留心笔记 </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
 
 <script>
-var now=new Date();
-document.getElementById("copyrightYear").innerHTML=now.getFullYear();
-
 if("03/01/2025"!=""){
+    var now=new Date();
     var startSite=new Date("03/01/2025");
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
-    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
 }
 </script></div>
+
+    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
+    <script src="https://note.142588.xyz/assets/oneko.js/oneko.js"></script>
 </body>
 <script>
-var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
 var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 
-console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek last %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
 </script>
 
+
 <script>
-document.getElementById("pathHome").setAttribute("d",IconList["home"]);
-document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 
 
 
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");
-    cmButton.disabled=true;
     cmButton.innerHTML="loading";
     span=document.createElement("span");
     span.setAttribute("class","AnimatedEllipsis");
@@ -232,9 +376,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","worhllo/Myblog");
     script.setAttribute("issue-term","title");
-    
-    script.setAttribute("theme","dark-blue");
-    
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
@@ -254,9 +400,11 @@ function iFrameLoading(){
     }
 }
 
-
-
 </script>
-<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');}});</script>
+
+
+
+<script src="https://note.142588.xyz/assets/toc.js"></script>
+
 
 </html>

@@ -1,0 +1,116 @@
+
+  <article class="markdown-body">
+    <h2 id="_1">什么是指令集</h2>
+<p>你要知道指令集(instruction set)是一个什么东西。指令集就像是计算机硬件和软件之间的桥梁,它定义了处理器可以执行的基本操作。操作系统和应用软件必须根据指令集来编写,才能在特定的处理器上运行。这意味着我们熟悉的操作系统和软件都与CPU的架构密不可分,而CPU的架构本质上就是由其对应的指令集决定的。  </p>
+<h2 id="_2">如何看自己电脑架构</h2>
+<p>最常见的，当我们在Github上下载软件时，就会发现琳琅满目的版本：例如：    </p>
+<div  align="center">  
+<img src="https://cloudflare-imgbed-9xb.pages.dev/file/1754055197138_github.png" width = "500" height = "200" alt="xxx">  
+</div>
+<p>这时候，很多人就会摸不着头脑，不知道具体应该下载哪一个。其实，看完上文，聪明的你肯定想到了要根据自己电脑的架构进行选择。具体来说：  </p>
+<h3 id="windows">对于 Windows:</h3>
+<p>按下 “Win + R” 键,打开 “运行” 对话框。  <br />
+输入 “msinfo32” 并按下回车键,打开 “系统信息” 窗口。  <br />
+在 “系统摘要” 部分,查看 “系统类型” 一项,它会显示你的架构信息。    </p>
+<div  align="center">  
+<img src="https://cloudflare-imgbed-9xb.pages.dev/file/1754054623577_Sunny_20250801_212311.png" width = "500" height = "250" alt="xxx">  
+</div>
+
+<blockquote>
+<p>这里可以看到我们的系统是x64的，  </p>
+</blockquote>
+<h3 id="macos">对于 macOS:</h3>
+<p>点击屏幕左上角的苹果菜单,选择 “关于本机”。  <br />
+在打开的窗口中,你可以看到你的 Mac 型号和处理器信息。  <br />
+如果你使用的是较新的 Mac 设备(如采用 Apple M1 芯片的设备),处理器信息将显示为 “Apple M1” 或类似的名称。    </p>
+<div  align="center">  
+<img src="https://cloudflare-imgbed-9xb.pages.dev/file/1754054823861_mac.png" width = "200" height = "300" alt="xxx">  
+</div>
+
+<h3 id="linux">对于 Linux:</h3>
+<p>打开终端(Terminal)。  </p>
+<ol>
+<li>输入以下命令并按下回车键:  </li>
+<li><code>lscpu</code>  </li>
+<li>lscpu 该命令将显示有关你的 CPU 的详细信息,包括架构、型号和速度等。  </li>
+</ol>
+<div  align="center">  
+<img src="https://cloudflare-imgbed-9xb.pages.dev/file/1754055005614_linux.png" width = "500" height = "200" alt="xxx">  
+</div>
+
+<blockquote>
+<p>这里可以看到我们的服务器是x86_64的，这和前面windows的x64实际上是一个东西。  </p>
+</blockquote>
+<h2 id="_3">如何基于架构选择软件</h2>
+<p>确定了你的架构就可以基于你的架构选对应的软件了，一般情况下，不同的架构常常对应不同用途的设备：  <br />
+<strong>arm64</strong>和<strong>aarch64</strong>对应<strong>64位ARM架构(ARMv8)</strong>,常见于移动设备和嵌入式系统。  <br />
+<strong>armv7l</strong>和<strong>arm</strong>对应<strong>32位ARM架构(ARMv7)</strong>,常见于较旧的移动设备和嵌入式系统。  <br />
+<strong>x86_64、x64和amd64</strong>对应<strong>64位x86架构</strong>,常见于个人电脑和服务器。<br />
+<strong>x86</strong>和<strong>i386</strong>对应<strong>32位x86架构</strong>,常见于较旧的个人电脑。（基本上可以淘汰了）  <br />
+<strong>dmg</strong>和<strong>zip</strong>通常表示<strong>macOS</strong>和<strong>Windows</strong>平台的安装包格式。  </p>
+<p>下面是一个常见架构名称的等价关系清单:  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>ARMv8 = ARM64 = AArch64    
+ARMv7 = armv7l = ARM    
+x86\_64 = x64 = amd64    
+x86 = x86\_32  
+</code></pre></div></div>
+<h2 id="_4">转载说明</h2>
+<p>参考链接：[<a href="https://blog.csdn.net/crazyjinks/article/details/139093927">x86_64和AMD64和ARM64？傻傻分不清楚？-CSDN博客</a>]  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
