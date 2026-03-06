@@ -119,25 +119,20 @@ Github的语法里面有5种警报强调信息，分别是`NOTE` `TIP` `IMPORTAN
 
 ### 效果：
 
-Note
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
 
-Useful information that users should know, even when skimming content.
+> [!TIP]
+> Helpful advice for doing things better or more easily.
 
-Tip
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
 
-Helpful advice for doing things better or more easily.
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
 
-Important
-
-Key information users need to know to achieve their goal.
-
-Warning
-
-Urgent info that needs immediate user attention to avoid problems.
-
-Caution
-
-Advises about risks or negative outcomes of certain actions.
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
 
 ## 四、折叠显示 👀
 
