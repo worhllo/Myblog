@@ -1,5 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 13:38:17 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「建站」「js插件」APlayer &amp; DPlayer</title><link>https://note.142588.xyz/post/29.html</link><description>## 内容简介
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 13:40:17 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「建站」「js插件」萌萌哒的看板娘 (ノ≧∇≦)ノ - Live2D widget</title><link>https://note.142588.xyz/post/30.html</link><description>## 内容简介
+
+把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform
+
+## 添加内容
+
+如果你是小白，或者只需要最基础的功能，那么只用将这下面代码加入 html 页面的 head 或 body 中，即可加载看板娘：
+
+```php-template
+&lt;script src='https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js'&gt;&lt;/script&gt;
+&lt;script src='https://cdn.jsdelivr.net/npm/jquery-ui@1.14.1/dist/jquery-ui.min.js'&gt;&lt;/script&gt;
+&lt;script src='https://cdn.jsdelivr.net/gh/hst1189/live2d-widget/autoload.js'&gt;&lt;/script&gt;
+```
+
+autoload.js 会自动加载：`live2d.min.js` `waifu.min.css` `waifu-tips.min.js` `ModelDefine.js`  
+详细参考：[hst1189.github.io/live2d-widget](https://hst1189.github.io/live2d-widget)
+
+## 添加效果
+
+[https://www.grapehut.xyz/](https://www.grapehut.xyz/)  
+![](Vol.06%20%E3%80%8C%E5%BB%BA%E7%AB%99%E3%80%8D%E3%80%8Cjs%E6%8F%92%E4%BB%B6%E3%80%8D%E8%90%8C%E8%90%8C%E5%93%92%E7%9A%84%E7%9C%8B%E6%9D%BF%E5%A8%98%20(%E3%83%8E%E2%89%A7%E2%88%87%E2%89%A6)%E3%83%8E%20-%20Live2D%20widget/index-nizimalive-mainimg.png)
+。</description><guid isPermaLink="true">https://note.142588.xyz/post/30.html</guid><pubDate>Fri, 06 Mar 2026 13:39:48 +0000</pubDate></item><item><title>「建站」「js插件」APlayer &amp; DPlayer</title><link>https://note.142588.xyz/post/29.html</link><description>## 内容简介
 
 DIYGod 大神的2款插件
 
