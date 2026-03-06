@@ -154,9 +154,8 @@ Github的语法里面有5种警报强调信息，分别是`NOTE` `TIP` `IMPORTAN
 <details>
     <summary>展开</summary>
     <pre><code>
-    # 这里空一行，下面开始写代码
-    # 代码在这里
-    # 最后这两行结束标签一定要顶格写且不能接在代码后面！！！
+    
+    代码在这里
 </code></pre>
 </details>
 
