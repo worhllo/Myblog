@@ -122,4 +122,6 @@ Caution
 |     primerCSS     |           用于设置primer.css的CDN地址，默认使用南科大           |
 |    needComment    |              用于设置是否需要评论功能，1开启评论，0关闭              |
 
-❤️ 转载文章请注明出处，谢谢！❤️
+## 转载说明
+
+参考链接：[「建站」Gmeek使用手册（进阶篇）](https://grapehut.dpdns.org/post/2.html)
