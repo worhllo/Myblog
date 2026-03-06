@@ -1,45 +1,34 @@
 <!DOCTYPE html>
-<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light">
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://note.142588.xyz/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
-    <link href="https://note.142588.xyz/assets/highlight.css" rel="stylesheet" />
-    <link href="https://note.142588.xyz/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
-    <!-- <link href="https://note.142588.xyz/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://note.142588.xyz/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="../favicon.svg"><script src="https://note.142588.xyz/assets/vercount.js"></script>
-    <script>
-        if(localStorage.getItem("meek_theme")==null){}
-        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
-        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
-    </script>
-    
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="## 前言
+> **Hugo Stack** 是一款专为博主设计的卡片风格的 Hugo 主题。">
+<meta property="og:title" content="stack主题美化大杂烩">
+<meta property="og:description" content="## 前言
+> **Hugo Stack** 是一款专为博主设计的卡片风格的 Hugo 主题。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/11.html">
+<meta property="og:image" content="../avatar.png">
 <title>stack主题美化大杂烩</title>
-<link href="https://note.142588.xyz/assets/starry-night@3.6.0/style/tritanopia-dark.css" rel="stylesheet" />
+
+
 
 </head>
 <style>
-body{
-    box-sizing: border-box;
-    min-width: 200px;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 45px;
-    font-size: 16px;
-    font-family: sans-serif;
-    line-height: 1.25;
-}
-
-.avatar {transition: 0.8s;}
-.avatar:hover {transform: scale(1.15) rotate(360deg);}
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
 </style>
 
 <style>
-h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
 .title-right{display:flex;margin:auto 0 0 auto;}
 .title-right .circle{padding: 14px 16px;margin-right:8px;}
 #postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
@@ -47,49 +36,21 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 .g-emoji{font-size:24px;}
-@media (max-width: 767px) {body {padding: 8px;}}
-
-pre {
-    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
-    word-wrap: break-word; /* 允许长单词或 URL 换行 */
-    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
 }
-
-.new-post {
-    bottom: 20px; /* 距离底部 20px */
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
 }
-
-.edit-post {
-    bottom: 60px; /* 距离底部60px */
-}
-
-/* 悬浮按钮样式 */
-.floating-button {
-    position: fixed; /* 固定位置 */
-    right: 5%; /* 距离右侧 5% */
-    background-color: #007bff; /* 背景颜色 */
-    color: white; /* 文字颜色 */
-    border: none; /* 去掉边框 */
-    border-radius: 50%; /* 圆形按钮 */
-    width: 32px; /* 宽度 */
-    height: 32px; /* 高度 */
-    font-size: 16px; /* 字体大小 */
-    cursor: pointer; /* 鼠标指针样式 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-    z-index: 1000; /* 确保按钮在最上层 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease; /* 添加悬停效果 */
-}
-
-/* 按钮悬停效果 */
-.floating-button:hover {
-    background-color: #0056b3; /* 悬停时改变背景颜色 */
-}
-
-.previous_page {text-align: left;}
-.next_page {text-align: right;}
 </style>
 
 
@@ -97,1320 +58,1217 @@ pre {
 
 <body>
     <div id="header">
-<h1>
-    <a style="font-size:18px">stack主题美化大杂烩</a>
-</h1>
-
+<h1 class="postTitle">stack主题美化大杂烩</h1>
 <div class="title-right">
-
-    <a href="https://note.142588.xyz"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
         <svg class="octicon" width="16" height="16">
-            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+            <path id="pathHome" fill-rule="evenodd"></path>
         </svg>
-    </button></a>
-
-    <a href="https://github.com/worhllo/Myblog/issues/11" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/11" target="_blank" class="btn btn-invisible circle" title="Issue">
         <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+            <path id="pathIssue" fill-rule="evenodd"></path>
         </svg>
-    </button></a>
+    </a>
+    
 
-    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
-    </button>
+    </a>
 
 </div>
 </div>
     <div id="content">
-
-<div class="listLabels">
-    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#a25329">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://note.142588.xyz/tag.html#教程">教程</a></object>
-        </span>
-</div>
-<br>
-
-<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
-<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-24 21:01:23</time></span>
-
-<p>
-
-<div class="markdown-body" id="postBody">
-
-  <article class="markdown-body">
-    <h2 id="_1">前言</h2>
+<div class="markdown-body" id="postBody"><h2>前言</h2>
 <blockquote>
-<p><strong>Hugo Stack</strong> 是一款专为博主设计的卡片风格的 Hugo 主题。它提供了一套丰富的特性集合，包括自动生成目录、本地搜索、代码高亮、图片放大等功能。该主题遵循 MIT 许可证发布，且其标志性的简洁与易用性让它成为众多个人博客的优选方案。详细信息可以通过访问 <a href="https://github.com/CaiJimmy/hugo-theme-stack">GitHub</a> 来贡献代码或深入了解项目。  </p>
-<p>原生的stack主题虽然已经挺好看的了，但是仍然还美化的空间；还有进步的可能性；还有不断完善的潜力，因此，集多篇大佬优质的博客于一篇文章中，这篇博客就此诞生！  </p>
+<p><strong>Hugo Stack</strong> 是一款专为博主设计的卡片风格的 Hugo 主题。它提供了一套丰富的特性集合，包括自动生成目录、本地搜索、代码高亮、图片放大等功能。该主题遵循 MIT 许可证发布，且其标志性的简洁与易用性让它成为众多个人博客的优选方案。详细信息可以通过访问 <a href="https://github.com/CaiJimmy/hugo-theme-stack">GitHub</a> 来贡献代码或深入了解项目。</p>
+<p>原生的stack主题虽然已经挺好看的了，但是仍然还美化的空间；还有进步的可能性；还有不断完善的潜力，因此，集多篇大佬优质的博客于一篇文章中，这篇博客就此诞生！</p>
 </blockquote>
-<h2 id="_2">文件添加随机海报</h2>
-<p>{{&lt; details title="点击展开代码，推荐在模板中设置，修改 archetypes/default.md（如果没有则新建一个即可）" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>---  
-title: &quot;{{ replace .Name &quot;-&quot; &quot; &quot; | title }}&quot;  
-date: {{ .Date }}  
-image: https://picsum.photos/800/600.webp?random={{ substr (md5 (.Date)) 4 8 }}  
----  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_3">添加彩虹背景</h2>
-<p>{{&lt; details title="在layouts/partials/footer/custom.html 中增加以下内容" &gt;}}   </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;script  
-    src=&quot;https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/ribbon.min.js&quot;  
-    integrity=&quot;sha384-UEK8ZiP3VgFNP8KnKMKDmd4pAUAOJ59Y2Jo3ED2Z5qKQf6HLHovMxq7Beb9CLPUe&quot;  
-    crossorigin=&quot;anonymous&quot;  
-    size=&quot;300&quot;  
-    alpha=&quot;0.6&quot;  
-    zindex=&quot;-1&quot;  
-    defer  
-&gt;&lt;/script&gt;  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_4">滚动条美化</h2>
-<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}   </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>//将滚动条修改为圆角样式  
-//菜单滚动条美化  
-.menu::-webkit-scrollbar {  
-  display: none;  
-}  
-
-// 全局滚动条美化  
-html {  
-  ::-webkit-scrollbar {  
-    width: 20px;  
-  }  
-
-  ::-webkit-scrollbar-track {  
-    background-color: transparent;  
-  }  
-
-  ::-webkit-scrollbar-thumb {  
-    background-color: #d6dee1;  
-    border-radius: 20px;  
-    border: 6px solid transparent;  
-    background-clip: content-box;  
-  }  
-
-  ::-webkit-scrollbar-thumb:hover {  
-    background-color: #a8bbbf;  
-  }  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_5">选中文本样式美化</h2>
-<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>::selection {  
-    color: #ffff;  
-    background: #557697;  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_6">搜索菜单动画</h2>
-<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>.search-form.widget {  
-  transition: transform 0.6s ease;  
-}  
-
-.search-form.widget:hover {  
-  transform: scale(1.1, 1.1);  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_7">归档动画</h2>
-<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>.widget.archives .widget-archive--list {  
-  transition: transform .3s ease;  
-}  
-
-.widget.archives .widget-archive--list:hover {  
-  transform: scale(1.05, 1.05);  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_8">标签动画</h2>
-<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容 " &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>.tagCloud .tagCloud-tags a {  
-  border-radius: 10px;  
-  font-size: 1.4rem;  
-  transition: transform .3s ease;  
-}  
-
-.tagCloud .tagCloud-tags a:hover {  
-  transform: scale(1.1, 1.1);  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_9">归档页面双栏</h2>
-<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>@media (min-width: 1024px) {  
-  .article-list--compact {  
-    display: grid;  
-    grid-template-columns: 1fr 1fr;  
-    background: none;  
-    box-shadow: none;  
-    gap: 1rem;  
-
-    article {  
-      background: var(--card-background);  
-      border: none;  
-      box-shadow: var(--shadow-l2);  
-      margin-bottom: 8px;  
-      border-radius: 16px;  
-    }  
-  }  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_10">在文章中插入嵌入式音乐</h2>
-<p>{{&lt; details title="第一步，在layouts\shortcodes\netese.html中添加以下内容" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code> &lt;iframe   
-     frameborder=&quot;no&quot; border=&quot;0&quot;   
-     marginwidth=&quot;0&quot; marginheight=&quot;0&quot;   
-     width=330 height=86   
-     src=&quot;//music.163.com/outchain/player?type=2&amp;id=1304708603&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<p>{{&lt; details title="第二步，在markdown文章中添加以下代码（#号删掉），后面的数字即网易云ID，点击<a href="https://music.163.com/#/song?id=1304708603">网易云</a>，选择喜欢的歌曲，复制导航栏的ID即可" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code> {#{&lt; netese 1304708603 &gt;}#}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="1">添加返回顶部按钮（方法1）</h2>
-<p>{{&lt; details title="在 layouts/partials/footer/custom.html 内添加代码" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;!--返回顶部按钮 --&gt;  
-&lt;a href=&quot;#&quot; id=&quot;back-to-top&quot; title=&quot;返回顶部&quot;&gt;&lt;/a&gt;  
-
-&lt;!--返回顶部CSS --&gt;  
-&lt;style&gt;  
-  #back-to-top {  
-    display: none;  
-    position: fixed;  
-    bottom: 20px;  
-    right: 55px;  
-    width: 55px;  
-    height: 55px;  
-    border-radius: 7px;  
-    background-color: rgba(64, 158, 255, 0.5);  
-    box-shadow: var(--shadow-l2);  
-    font-size: 30px;  
-    text-align: center;  
-    line-height: 50px;  
-    cursor: pointer;  
-  }  
-
-  #back-to-top:before {  
-    content: &#39; &#39;;  
-    display: inline-block;  
-    position: relative;  
-    top: 0;  
-    transform: rotate(135deg);  
-    height: 10px;  
-    width: 10px;  
-    border-width: 0 0 2px 2px;  
-    border-color: var(--back-to-top-color);  
-    border-style: solid;  
-  }  
-
-  #back-to-top:hover:before {  
-    border-color: #2674e0;  
-  }  
-
-  /* 在屏幕宽度小于 768 像素时，钮位置调整 */  
-  @media screen and (max-width: 768px) {  
-    #back-to-top {  
-      bottom: 20px;  
-      right: 20px;  
-      width: 40px;  
-      height: 40px;  
-      font-size: 10px;  
-    }  
-  }  
-
-  /* 在屏幕宽度大于等于 1024 像素时，按钮位置调整 */  
-  @media screen and (min-width: 1024px) {  
-    #back-to-top {  
-      bottom: 20px;  
-      right: 40px;  
-    }  
-  }  
-
-  /* 在屏幕宽度大于等于 1280 像素时，按钮位置调整 */  
-  @media screen and (min-width: 1280px) {  
-    #back-to-top {  
-      bottom: 20px;  
-      right: 55px;  
-    }  
-  }  
-
-  /* 目录显示时，隐藏按钮 */  
-  @media screen and (min-width: 1536px) {  
-    #back-to-top {  
-      visibility: hidden;  
-    }  
-  }  
-&lt;/style&gt;  
-
-&lt;!--返回顶部JS --&gt;  
-&lt;script&gt;  
-  function backToTop() {  
-    document.documentElement.scrollIntoView({  
-      behavior: &#39;smooth&#39;,  
-    })  
-  }  
-
-  window.onload = function () {  
-    let scrollTop =  
-      this.document.documentElement.scrollTop || this.document.body.scrollTop  
-    let totopBtn = this.document.getElementById(&#39;back-to-top&#39;)  
-    if (scrollTop &gt; 0) {  
-      totopBtn.style.display = &#39;inline&#39;  
-    } else {  
-      totopBtn.style.display = &#39;none&#39;  
-    }  
-  }  
-
-  window.onscroll = function () {  
-    let scrollTop =  
-      this.document.documentElement.scrollTop || this.document.body.scrollTop  
-    let totopBtn = this.document.getElementById(&#39;back-to-top&#39;)  
-    if (scrollTop &lt; 200) {  
-      totopBtn.style.display = &#39;none&#39;  
-    } else {  
-      totopBtn.style.display = &#39;inline&#39;  
-      totopBtn.addEventListener(&#39;click&#39;, backToTop, false)  
-    }  
-  }  
-&lt;/script&gt;  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="2">添加返回顶部按钮（方法2）</h2>
-<p>{{&lt; details title="点击展开" &gt;}}  </p>
-<ol>
-<li>在<code>layouts/partials/backtop.html</code>中添加代码  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;style&gt;  
-    /* add BackTop */  
-    #backtop {  
-        color: #c2c0c0;  
-        position: fixed;  
-        right: 25px;  
-        bottom: 25px;  
-        width: 35px;  
-        height: 35px;  
-        z-index: 999998;  
-
-        /* cursor: pointer; */  
-    }  
-&lt;/style&gt;  
-&lt;div id=&quot;backtop&quot;&gt;  
-    &lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; data-prefix=&quot;fas&quot; data-icon=&quot;chevron-circle-up&quot; class=&quot;svg-inline--fa fa-chevron-circle-up fa-w-16&quot; role=&quot;img&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 512 512&quot;&gt;  
-        &lt;path fill=&quot;currentColor&quot; d=&quot;M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm231-113.9L103.5 277.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L256 226.9l101.6 101.6c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L273 142.1c-9.4-9.4-24.6-9.4-34 0z&quot;&gt;  
-        &lt;/path&gt;  
-    &lt;/svg&gt;  
-
-&lt;/div&gt;  
-&lt;script&gt;  
-    var timer = null;  
-    backtop.onclick = function () {  
-        cancelAnimationFrame(timer);  
-        //获取当前毫秒数  
-        var startTime = +new Date();  
-        //获取当前页面的滚动高度  
-        var b = document.body.scrollTop || document.documentElement.scrollTop;  
-        var d = 500;  
-        var c = b;  
-        timer = requestAnimationFrame(function func() {  
-            var t = d - Math.max(0, startTime - (+new Date()) + d);  
-            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;  
-            timer = requestAnimationFrame(func);  
-            if (t == d) {  
-                cancelAnimationFrame(timer);  
-            }  
-        });  
-    }  
-
-&lt;/script&gt;  
-</code></pre></div></div>
-<ol>
-<li>然后在 <code>layouts/_default/baseof.html</code>里面添加如下代码  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>{{ partial &quot;backtop.html&quot; . }}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_11">外部链接后面会显示图标</h2>
-<p>{{&lt; details title="在layouts/_default/_markup/render-link.html里<code>{{ .Text | safeHTML }}</code>之后增加如下代码，主目录里面没有该文件或者文件中是空的话，可以直接把<code>ender-link.html</code>从<code>theme</code>中复制过来" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code> {{ if strings.HasPrefix .Destination &quot;http&quot; }}  
-&lt;span style=&quot;white-space: nowrap;&quot;&gt;&lt;svg width=&quot;.7em&quot;  
-    height=&quot;.7em&quot; viewBox=&quot;0 0 21 21&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;  
-    &lt;path d=&quot;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&quot; fill=&quot;currentColor&quot; /&gt;  
-    &lt;path d=&quot;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&quot;  
-        fill=&quot;currentColor&quot;&gt;  
-&lt;/svg&gt;&lt;/span&gt;  
-{{ end }}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_12">引入动态背景</h2>
-<p>{{&lt; details title="点击展开" &gt;}}  </p>
-<ol>
-<li>
-<p>首先前往<a href="http://vincentgarreau.com/particles.js/">particles.js配置页面</a>配置参数，参数按自己喜好即可，唯一注意要修改的参数是 <code>detect_on</code>，要改成 <code>window</code>  </p>
-</li>
-<li>
-<p>其次下载2个文件，即配置文件，以及 <code>particles.js</code>所需要的js文件（如图）  </p>
-</li>
-</ol>
-<p><img alt="sfdsfv.png" src="https://imgbed.worhllo.us.kg/file/1731650692665_sfdsfv.png" />  </p>
-<ol>
-<li>接着把下载好的文件，解压并将以下两个文件放到<code>assets/background</code>文件夹下  </li>
-</ol>
-<p><img alt="qreewr.png" src="https://imgbed.worhllo.us.kg/file/1731650799570_qreewr.png" />  </p>
-<ol>
-<li>最后在<code>layouts/partials/footer/custom.html</code>中，引入以下代码  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;div id=&quot;particles-js&quot;&gt;&lt;/div&gt;  
-
-&lt;script src={{ (resources.Get &quot;background/particles.min.js&quot;).Permalink }}&gt;&lt;/script&gt;  
-&lt;script&gt;  
-  particlesJS.load(&#39;particles-js&#39;, {{ (resources.Get &quot;background/particlesjs-config.json&quot;).Permalink }}, function() {  
-    console.log(&#39;particles.js loaded - callback&#39;);  
-  });  
-&lt;/script&gt;  
-
-&lt;style&gt;  
-  #particles-js {  
-    position: fixed;  
-    top: 0;  
-    left: 0;  
-    width: 100%;  
-    z-index: -1;  
-  }  
-&lt;/style&gt;  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_13">显示文章更新时间</h2>
-<p>{{&lt; details title="点击展开" &gt;}}  </p>
-<ul>
-<li>在配置文件 <code>hugo.yaml</code> 中加入以下配置，这样文章的更新时间就会出现在文章底部  </li>
-</ul>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code># 更新时间：优先读取git时间 -&gt; git时间不存在，就读取本地文件修改时间  
-frontmatter:  
-  lastmod:  
-    - :git  
-    - :fileModTime  
-
-# 允许获取Git信息       
-enableGitInfo: true  
-</code></pre></div></div>
-<ul>
-<li>若想在文章开头就显示更新时间，则修改<code>layouts/partials/article/components/detail.html</code>，删掉原代码，复制粘贴以下代码  </li>
-</ul>
-<p><div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;div class=&quot;article-details&quot;&gt;  
-    {{ if .Params.categories }}  
-    &lt;header class=&quot;article-category&quot;&gt;  
-        {{ range (.GetTerms &quot;categories&quot;) }}  
-            &lt;a href=&quot;{{ .RelPermalink }}&quot; {{ with .Params.style }}style=&quot;background-color: {{ .background }}; color: {{ .color }};&quot;{{ end }}&gt;  
-                {{ .LinkTitle }}  
-            &lt;/a&gt;  
-        {{ end }}  
-    &lt;/header&gt;  
-    {{ end }}  
-
-    &lt;div class=&quot;article-title-wrapper&quot;&gt;  
-        &lt;h2 class=&quot;article-title&quot;&gt;  
-            &lt;a href=&quot;{{ .RelPermalink }}&quot;&gt;  
-                {{- .Title -}}  
-            &lt;/a&gt;  
-        &lt;/h2&gt;  
-
-        {{ with .Params.description }}  
-        &lt;h3 class=&quot;article-subtitle&quot;&gt;  
-            {{ . }}  
-        &lt;/h3&gt;  
-        {{ end }}  
-    &lt;/div&gt;  
-
-    {{ $showReadingTime := .Params.readingTime | default (.Site.Params.article.readingTime) }}  
-    {{ $showDate := not .Date.IsZero }}  
-    {{ $showFooter := or $showDate $showReadingTime }}  
-    {{ if $showFooter }}  
-    &lt;footer class=&quot;article-time&quot;&gt;  
-      &lt;!-- 更新时间 --&gt;  
-        {{- if ne .Lastmod .Date -}}  
-            &lt;div class=&quot;article-lastmod&quot;&gt;  
-                {{ partial &quot;helper/icon&quot; &quot;clock&quot; }}  
-                &lt;time&gt;  
-                    {{ .Lastmod.Format ( or .Site.Params.dateFormat.lastUpdated &quot;Jan 02, 2006 15:04 MST&quot; ) }}  
-                &lt;/time&gt;  
-            &lt;/div&gt;  
-        {{- end -}}  
-
-        {{ if $showDate }}  
-            &lt;div&gt;  
-                {{ partial &quot;helper/icon&quot; &quot;date&quot; }}  
-                &lt;time class=&quot;article-time--published&quot;&gt;  
-                    {{- .Date | time.Format (or .Site.Params.dateFormat.published &quot;Jan 02, 2006&quot;) -}}  
-                &lt;/time&gt;  
-            &lt;/div&gt;  
-        {{ end }}  
-
-        {{ if $showReadingTime }}  
-            &lt;div&gt;  
-                {{ partial &quot;helper/icon&quot; &quot;clock&quot; }}  
-                &lt;time class=&quot;article-time--reading&quot;&gt;  
-                    {{ T &quot;article.readingTime&quot; .ReadingTime }}  
-                &lt;/time&gt;  
-            &lt;/div&gt;  
-        {{ end }}  
-    &lt;/footer&gt;  
-    {{ end }}  
-
-
-
-    {{ if .IsTranslated }}  
-        &lt;footer class=&quot;article-translations&quot;&gt;  
-            {{ partial &quot;helper/icon&quot; &quot;language&quot; }}  
-            &lt;div&gt;  
-                {{ range .Translations }}  
-                    &lt;a href=&quot;{{ .Permalink }}&quot; class=&quot;link&quot;&gt;{{ .Language.LanguageName }}&lt;/a&gt;  
-                {{ end }}  
-            &lt;/div&gt;  
-        &lt;/footer&gt;  
-    {{ end }}  
-&lt;/div&gt;  
-</code></pre></div></div>
- {{&lt; /details &gt;}}  </p>
-<h2 id="_14">首页欢迎横幅</h2>
-<p>{{&lt; details title="点击展开" &gt;}}  </p>
-<ol>
-<li>"打开<code>layouts/index.html</code>，在<code>&lt;section class=article-list&gt;</code>前添加以下代码"  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;!-- 首页欢迎字幅 --&gt;  
-&lt;div class=&quot;welcome&quot;&gt;  
-  &lt;p style=&quot;font-size: 2rem; text-align: center; font-weight: bold&quot;&gt;  
-    &lt;span class=&quot;shake&quot;&gt;👋&lt;/span&gt;  
-    &lt;span class=&quot;jump-text1&quot; &gt; Welcome&lt;/span&gt;  
-    &lt;span class=&quot;jump-text2&quot;&gt; To &lt;/span&gt;  
-    &lt;span class=&quot;jump-text3&quot; style=&quot;color:#e99312&quot;&gt;Xa&lt;/span&gt;&lt;span class=&quot;jump-text4&quot; style=&quot;color:#e99312&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;jump-text5&quot; style=&quot;color:#e99312&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;jump-text6&quot; style=&quot;color:#e99312&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;jump-text7&quot; style=&quot;color:#e99312&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;jump-text8&quot; style=&quot;color:#e99312&quot;&gt;&#39;s&lt;/span&gt;  
-    &lt;span class=&quot;jump-text9&quot; style=&quot;color:#e99312&quot;&gt;Blog&lt;/span&gt;  
-  &lt;/p&gt;  
-&lt;/div&gt;  
-&lt;!-- 首页欢迎字幅 --&gt;  
-</code></pre></div></div>
-<ol>
-<li>在 <code>assets/scss/custom.scss</code> 中加入以下代码  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>//首页欢迎板块样式  
-.welcome {  
-  color: var(--card-text-color-main);  
-  background: var(--card-background);  
-  box-shadow: var(--shadow-l2);  
-  border-radius: 30px;  
-  display: inline-block;  
-}  
-
-// 👋emoji实现摆动效果  
-.shake {  
-  display: inline-block;  
-  animation: shake 1s;  
-  animation-duration: 1s;  
-  animation-timing-function: ease;  
-  animation-delay: 0s;  
-  animation-iteration-count: 1;  
-  animation-direction: normal;  
-  animation-fill-mode: none;  
-  animation-play-state: running;  
-  animation-name: shake;  
-  animation-timeline: auto;  
-  animation-range-start: normal;  
-  animation-range-end: normal;  
-  animation-delay: 2s;  
-  @keyframes shake {  
-    0% {  
-      transform: rotate(0);  
-    }  
-    25% {  
-      transform: rotate(45deg) scale(1.2);  
-    }  
-    50% {  
-      transform: rotate(0) scale(1.2);  
-    }  
-    75% {  
-      transform: rotate(45deg) scale(1.2);  
-    }  
-    100% {  
-      transform: rotate(0);  
-    }  
-  }  
-}  
-// 实现字符跳动动画  
-.jump-text1 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-}  
-
-.jump-text2 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-  animation-delay: 0.1s;  
-}  
-
-.jump-text3 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-  animation-delay: 0.2s;  
-}  
-
-.jump-text4 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-  animation-delay: 0.3s;  
-}  
-
-.jump-text5 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-  animation-delay: 0.4s;  
-}  
-
-.jump-text6 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-  animation-delay: 0.5s;  
-}  
-
-.jump-text7 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-  animation-delay: 0.6s;  
-}  
-
-.jump-text8 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-  animation-delay: 0.7s;  
-}  
-
-.jump-text9 {  
-  display: inline-block;  
-  animation: jump 0.5s 1;  
-  animation-delay: 0.9s;  
-}  
-
-@keyframes jump {  
-  0% {  
-    transform: translateY(0);  
-  }  
-  50% {  
-    transform: translateY(-20px);  
-  }  
-  100% {  
-    transform: translateY(0);  
-  }  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_15">修改总体布局</h2>
-<p>{{&lt; details title="对照原代码，在 <code>/assets/scss/grid.scss</code> 中修改 <code>left-sidebar</code> 和 <code>right-sidebar</code> 的描述" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>    .left-sidebar {  
-        order: -3;  
-        // max-width: var(--left-sidebar-max-width);  
-        max-width: 10%;  
-    }  
-
-    .right-sidebar {  
-        order: -1;  
-        // max-width: var(--right-sidebar-max-width);  
-        max-width: 20%;  
-
-        /// Display right sidebar when min-width: lg  
-        @include respond(lg) {  
-            display: flex;  
-        }  
-    }  
-    // 把正文的占比改到了 70%, 原来的只有 50% 左右  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_16">头像旋转</h2>
-<p>{{&lt; details title="在 <code>/assets/scss/custom.scss</code> 中加入以下代码" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>// 头像旋转动画  
-.sidebar header .site-avatar .site-logo {  
-  transition: transform 1.65s ease-in-out; // 旋转时间  
-}  
-
-.sidebar header .site-avatar .site-logo:hover {  
-  transform: rotate(360deg); // 旋转角度为360度  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_17">多图排版</h2>
-<p>{{&lt; details title="增添到 <code>assets/scss/partials/layout/article.scss</code>，文章里输入 md 图片语法换行但不空行即可" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>.article-content p:has(&gt; img:nth-child(2)){column-count:2;column-gap:8px;margin:6px 0;}  
-.article-content p:has(&gt; img:nth-child(3)){column-count:3;}  
-.article-content p:has(&gt; img:nth-child(4)){column-count:4;}  
-.article-content p:has(&gt; img:nth-child(5)){column-count:5;}  
-.article-content p:has(&gt; img:nth-child(6)){column-count:4;}  
-.article-content p:has(&gt; img:nth-child(2)) img{display:flex;}  
-.article-content p:has(&gt; img:nth-child(6)) img{margin-bottom:8px;}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="xxx">“博客已运行x天x小时x分钟”字样</h2>
-<p>{{&lt; details title="展开代码" &gt;}}  </p>
-<ol>
-<li>在<code>layouts/partials/footer/custom.html</code>里添加以下JS代码，其中<code>s1</code>是网站创建日期。代码参考自<a href="https://rwtx.cc/04/2260/uncategorized/">这里 </a>，我加上了小时和分钟的计算。  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;!-- Add blog running time --&gt;  
-&lt;script&gt;  
-    let s1 = &#39;2023-3-18&#39;; //website start date  
-    s1 = new Date(s1.replace(/-/g, &quot;/&quot;));  
-    let s2 = new Date();  
-    let timeDifference = s2.getTime() - s1.getTime();  
-
-    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));  
-    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
-    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));  
-
-    let result = days + &quot;天&quot; + hours + &quot;小时&quot; + minutes + &quot;分钟&quot;;  
-    document.getElementById(&#39;runningdays&#39;).innerHTML = result;  
-&lt;/script&gt;  
-</code></pre></div></div>
-<ol>
-<li>再在<code>layouts/partials/footer/footer.html</code>里添加以下代码：  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;!-- Add blog running time --&gt;  
-&lt;section class=&quot;running-time&quot;&gt;  
-本博客已稳定运行  
-&lt;span id=&quot;runningdays&quot; class=&quot;running-days&quot;&gt;&lt;/span&gt;  
-&lt;/section&gt;  
-</code></pre></div></div>
-<ol>
-<li>在<code>assets/scss/partials/footer.scss</code>里添加风格样式，这里我单独把计时的部分加粗，并改了颜色。  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>.running-time {  
-    color: var(--card-text-color-secondary);  
-    font-weight: normal;  
-
-    .running-days {  
-        font-weight:bold;  
-        color: var(--emphasize-text-color);  
-    }     
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="xx">总字数统计：“发表了x篇文章，共计x字”</h2>
-<p>{{&lt; details title="点击展开代码" &gt;}}  </p>
-<ol>
-<li>在<code>layouts/partials/footer/footer.html</code>里增加以下代码，其中文章篇数统计参考了<a href="https://immmmm.com/hugo-total-count/">这篇 </a>，字数统计的展示方式参考了<a href="https://mantyke.icu/posts/2022/stack-theme-furnish03/">小球飞鱼的博客 </a>。  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;!-- Add total page and word count time --&gt;  
-&lt;section class=&quot;totalcount&quot;&gt;  
-    {{$scratch := newScratch}}  
-    {{ range (where .Site.Pages &quot;Kind&quot; &quot;page&quot; )}}  
-        {{$scratch.Add &quot;total&quot; .WordCount}}  
-    {{ end }}  
-    发表了{{ len (where .Site.RegularPages &quot;Section&quot; &quot;post&quot;) }}篇文章 ·   
-    总计{{ div ($scratch.Get &quot;total&quot;) 1000.0 | lang.FormatNumber 2 }}k字  
-&lt;/section&gt;  
-</code></pre></div></div>
-<ol>
-<li>在<code>assets/scss/partials/footer.scss</code>里修改风格：  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>.totalcount {  
-    color: var(--card-text-color-secondary);  
-    font-weight: normal;  
-    margin-bottom: 5px;  
-    }  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="1_1">旅行者 1 号离地球距离</h2>
-<p>{{&lt; details title="点击展开代码" &gt;}}  </p>
-<ol>
-<li>在<code>layouts/partials/footer/footer.html</code>里增加以下代码  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;!-- 旅行者 1 号离地球距离 --&gt;  
-&lt;section class=&quot;voyager&quot;&gt;  
-&lt;span id=&quot;voyager&quot;&gt;载入旅行者一号离地球距离信息...&lt;/span&gt;  
-&lt;/section&gt;  
-</code></pre></div></div>
-<ol>
-<li>在<code>layouts/partials/footer/custom.html</code>里添加以下JS代码  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>&lt;script language=&quot;javascript&quot;&gt;   
-    var now = new Date();  
-    function createtime(){  
-        // 当前时间  
-        now.setTime(now.getTime()+250);  
-        var grt= new Date(&quot;20xx/xx/xx 00:00:00&quot;); //网站诞生时间  
-        days = (now - grt ) / 1000 / 60 / 60 / 24;  
-        dnum = Math.floor(days);  
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);  
-        hnum = Math.floor(hours);  
-        if(String(hnum).length ==1 ){hnum = &quot;0&quot; + hnum;}  
-        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);  
-        mnum = Math.floor(minutes);  
-        if(String(mnum).length ==1 ){mnum = &quot;0&quot; + mnum;}  
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);  
-        snum = Math.round(seconds);  
-        if(String(snum).length ==1 ){snum = &quot;0&quot; + snum;}  
-
-        document.getElementById(&quot;timeDate&quot;).innerHTML = &quot;本站已稳定运行&quot;+dnum+&quot; 天 &quot;;  
-        document.getElementById(&quot;times&quot;).innerHTML = hnum + &quot; 小时 &quot; + mnum + &quot; 分 &quot; + snum + &quot; 秒&quot;  
-    }  
-    setInterval(&quot;createtime()&quot;,250);   
-&lt;/script&gt;   
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_18">修改背景色</h2>
-<p>{{&lt; details title="点击展开代码，在<code>assets\scss\variables.scss</code>中对颜色代码进行修改，附<a href="https://www.coloraa.com/f5f5f5"> 颜色查询网站</a>" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>--body-background: #f5f5f5;  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_19">新增一个<code>随笔</code>页面并实现加密功能</h2>
-<p>{{&lt; details title="点击展开代码" &gt;}}  </p>
-<ol>
-<li>在<code>content/page/</code>目录下新建一个<code>musings</code>文件夹，然后在里面新建<code>index.md</code>文件，内容如下：  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>---  
-title: &quot;随笔&quot;  
-date: 2023-09-08  
-layout: &quot;musings&quot;  
-slug: &quot;musings&quot;  
-menu:  
-    main:  
-        weight: 4  
-        params:   
-            icon: note  
----  
-</code></pre></div></div>
-<ol>
-<li>在<code>layouts/_default</code>目录下新建一个<code>musings.html</code>文件，以实现查找并显示<code>tag</code>为<code>musings</code>的文章，内容如下：  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>{{ define &quot;body-class&quot; }}template-archives{{ end }}  
-
-{{ define &quot;main&quot; }}  
-&lt;h1 class=&quot;big-title&quot; style=&quot;color: white;&quot;&gt;随笔&lt;/h1&gt;  
-
-
-{{ $pages := where .Site.RegularPages &quot;Type&quot; &quot;in&quot; .Site.Params.mainSections }}  
-{{ $notHidden := where .Site.RegularPages &quot;Params.hidden&quot; &quot;!=&quot; true }}  
-{{ $filtered := ($pages | intersect $notHidden) }}  
-
-{{ range $filtered.GroupByDate &quot;2006&quot; }}  
-{{ $id := lower (replace .Key &quot; &quot; &quot;-&quot;) }}  
-&lt;div class=&quot;archives-group&quot; id=&quot;{{ $id }}&quot;&gt;  
-    &lt;h2 class=&quot;archives-date section-title&quot;&gt;&lt;a href=&quot;{{ $.RelPermalink }}#{{ $id }}&quot;&gt;{{ .Key }}&lt;/a&gt;&lt;/h2&gt;  
-    &lt;div class=&quot;article-list--compact&quot;&gt;  
-        {{ range .Pages }}  
-        {{ if in .Params.tags &quot;musings&quot; }}  
-        &lt;article&gt;  
-            &lt;a href=&quot;{{ .RelPermalink }}&quot;&gt;  
-                &lt;div class=&quot;article-details&quot;&gt;  
-                    &lt;h2 class=&quot;article-title&quot;&gt;  
-                        {{- .Title -}}  
-                    &lt;/h2&gt;  
-                    &lt;footer class=&quot;article-time&quot;&gt;  
-                        &lt;time datetime=&#39;{{ .Date.Format &quot;2006-01-02T15:04:05Z07:00&quot; }}&#39;&gt;  
-                            {{- .Date.Format (or .Site.Params.dateFormat.published &quot;Jan 02, 2006&quot;) -}}  
-                        &lt;/time&gt;  
-                    &lt;/footer&gt;  
-                &lt;/div&gt;  
-
-                {{- $image := partialCached &quot;helper/image&quot; (dict &quot;Context&quot; . &quot;Type&quot; &quot;articleList&quot;) .RelPermalink  
-                &quot;articleList&quot; -}}  
-                {{ if $image.exists }}  
-                &lt;div class=&quot;article-image&quot;&gt;  
-                    {{ if $image.resource }}  
-                    {{- $Permalink := $image.resource.RelPermalink -}}  
-                    {{- $Width := $image.resource.Width -}}  
-                    {{- $Height := $image.resource.Height -}}  
-
-                    {{- if (default true .Page.Site.Params.imageProcessing.cover.enabled) -}}  
-                    {{- $thumbnail := $image.resource.Fill &quot;120x120&quot; -}}  
-                    {{- $Permalink = $thumbnail.RelPermalink -}}  
-                    {{- $Width = $thumbnail.Width -}}  
-                    {{- $Height = $thumbnail.Height -}}  
-                    {{- end -}}  
-
-                    &lt;img src=&quot;{{ $Permalink }}&quot; width=&quot;{{ $Width }}&quot; height=&quot;{{ $Height }}&quot; alt=&quot;{{ .Title }}&quot;  
-                        loading=&quot;lazy&quot;&gt;  
-                    {{ else }}  
-                    &lt;img src=&quot;{{ $image.permalink }}&quot; loading=&quot;lazy&quot; alt=&quot;Featured image of post {{ .Title }}&quot; /&gt;  
-                    {{ end }}  
-                &lt;/div&gt;  
-                {{ end }}  
-            &lt;/a&gt;  
-        &lt;/article&gt;  
-        {{ end }}  
-        {{ end }}  
-    &lt;/div&gt;  
-&lt;/div&gt;  
-{{ end }}  
-
-{{ partialCached &quot;footer/footer&quot; . }}  
-{{ end }}  
-</code></pre></div></div>
-<ol>
-<li>在<code>layouts\partials\article\article.html</code>中添加以下代码，可能在原<code>.html</code>中会有部分已经存在的代码，记得删去  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>{{ if isset .Params &quot;password&quot; }}  
-&lt;div id=&quot;password-protected-content&quot;  
-    style=&quot;border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #f9f9f9; text-align: center;&quot;&gt;  
-    &lt;p style=&quot;font-size: 16px; margin-bottom: 10px;&quot;&gt;{{ with .Params.passwordPoint }}{{ . }}{{ else  
-        }}这是密码保护的内容，请输入密码访问：{{ end }}&lt;/p&gt;  
-    &lt;input type=&quot;password&quot; id=&quot;password-input&quot; style=&quot;padding: 5px; margin-bottom: 10px; width: 200px;&quot;&gt;  
-    &lt;button onclick=&quot;verifyPassword()&quot;  
-        style=&quot;padding: 5px 10px; background-color: #007bff; color: #fff; border: none; border-radius: 3px; cursor: pointer;&quot;&gt;提交&lt;/button&gt;  
-&lt;/div&gt;  
-&lt;div id=&quot;article-content&quot; style=&quot;display: none;&quot;&gt;  
-    &lt;article class=&quot;{{ if .Params.image }}has-image {{ end }}main-article&quot;&gt;  
-        {{ partial &quot;article/components/header&quot; . }}  
-        &lt;!-- 以下部分仅在密码验证通过后显示 --&gt;  
-        &lt;div id=&quot;content&quot;&gt;  
-            {{ partial &quot;article/components/content&quot; . }}  
-        &lt;/div&gt;  
-        &lt;!-- End of password-protected content --&gt;  
-        {{ partial &quot;article/components/footer&quot; . }}  
-        {{ if or .Params.math .Site.Params.article.math }}  
-        {{ partialCached &quot;article/components/math.html&quot; . }}  
-        {{ end }}  
-    &lt;/article&gt;  
-&lt;/div&gt;  
-{{ else }}  
-&lt;div id=&quot;article-content&quot;&gt;  
-    &lt;article class=&quot;{{ if .Params.image }}has-image {{ end }}main-article&quot;&gt;  
-        {{ partial &quot;article/components/header&quot; . }}  
-        {{ partial &quot;article/components/content&quot; . }}  
-        {{ partial &quot;article/components/footer&quot; . }}  
-        {{ if or .Params.math .Site.Params.article.math }}  
-        {{ partialCached &quot;article/components/math.html&quot; . }}  
-        {{ end }}  
-    &lt;/article&gt;  
-&lt;/div&gt;  
-{{ end }}  
-
-&lt;script&gt;  
-    function verifyPassword() {  
-        var inputPassword = document.getElementById(&#39;password-input&#39;).value;  
-        var correctPassword = &#39;{{ with .Params.password }}{{ . }}{{ else }}{{ &quot;&quot; }}{{ end }}&#39;; // 获取文章 Front Matter 中定义的密码  
-        if (inputPassword === correctPassword) {  
-            document.getElementById(&#39;password-protected-content&#39;).style.display = &#39;none&#39;; // 隐藏密码输入框  
-            document.getElementById(&#39;article-content&#39;).style.display = &#39;block&#39;; // 显示文章内容  
-        } else {  
-            alert(&#39;密码错误，请重新输入！&#39;);  
-        }  
-    }  
-&lt;/script&gt;  
-</code></pre></div></div>
-<ol>
-<li>要写<code>随笔</code>并要设置密码时，在.md文件的开头添加如下字段即可，将<code>您的安全密码</code>设置为想设置的实际密码，另一个不用动  </li>
-</ol>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>---  
-password: &quot;您的安全密码&quot;  
-passwordPoint: &quot;请正确输入密码！&quot;  
----  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_20">缩小归档页的分类卡片尺寸</h2>
-<p>{{&lt; details title="点击展开，对照原代码，加以修改" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>    .article-list--tile {  
-        display: flex;  
-        padding-bottom: 0px; // Narrow the spacing  
-
-        article {  
-            width: 150px; // Make category cards smaller  
-            height: 90px;  
-            margin-right: 5px; // Make cards spacing narrower  
-            flex-shrink: 0;  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_21">将友链设置为三栏</h2>
-<p>{{&lt; details title="在 assets/scss/custom.scss 里加上以下代码" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>@media (min-width: 1024px) {  
-    .article-list--extra-compact.links {  
-        display: grid;  
-        grid-template-columns: 1fr 1fr 1fr;  
-        background: none;  
-        box-shadow: none;  
-        gap: 1rem;  
-
-        article {  
-            background: var(--card-background);  
-            border: none;  
-            box-shadow: var(--shadow-l2);  
-            margin-bottom: 8px;  
-            border-radius: var(--card-border-radius);  
-            &amp;:nth-child(odd) {  
-                margin-right: 8px;  
-            }  
-        }  
-    }  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_22">固定块的高度</h2>
-<p>{{&lt; details title="过长的内容影响观感，所以把 block 的高度限制在 20em，并隐藏滚动条，在 <code>/assets/scss/partials/layout/article.scss</code>中进行如下修改" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>    .highlight {  
-        background-color: var(--pre-background-color);  
-        position: relative;  
-        &amp;:hover {  
-            .copyCodeButton {  
-                opacity: 1;  
-            }  
-        }  
-        // keep Codeblocks LTR  
-        [dir=&quot;rtl&quot;] &amp; {  
-            direction: ltr;  
-        }  
-        pre {  
-            margin: initial;  
-            padding: 0;  
-            margin: 0;  
-            width: auto;  
-            max-height: 20em;  
-            scrollbar-width: none;   
-            &amp;::-webkit-scrollbar {  
-            display: none;   
-        }  
-    }  
- }  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-<h2 id="_23">代码块基础样式修改</h2>
-<p>{{&lt; details title="在 <code>/assets/scss/custom.scss</code> 中加入以下代码" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>    // 代码块基础样式修改  
-.highlight {  
-  max-width: 102% !important;  
-  background-color: var(--pre-background-color);  
-  padding: var(--card-padding);  
-  position: relative;  
-  border-radius: 20px;  
-  margin-left: -7px !important;  
-  margin-right: -12px;  
-  box-shadow: var(--shadow-l1) !important;  
-
-  &amp;:hover {  
-    .copyCodeButton {  
-      opacity: 1;  
-    }  
-  }  
-
-  // keep Codeblocks LTR  
-  [dir=&quot;rtl&quot;] &amp; {  
-    direction: ltr;  
-  }  
-
-  pre {  
-    margin: initial;  
-    padding: 0;  
-    margin: 0;  
-    width: auto;  
-  }  
-}  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}    </p>
-<h2 id="_24">移动端目录按钮</h2>
-<p>{{&lt; details title="替换 <code>layouts/partials/widget/toc.html</code>" &gt;}}  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>{{ if (.Context.Scratch.Get &quot;TOCEnabled&quot;) }}  
-&lt;!-- 如果 .Context.Scratch 中包含名为 &quot;TOCEnabled&quot; 的值，则执行以下代码 --&gt;  
-&lt;button id=&quot;toggle-toc&quot;&gt;Toc&lt;/button&gt;  
-&lt;!-- 创建一个按钮，用于展开和收起目录 --&gt;  
-&lt;section class=&quot;widget archives&quot; id=&quot;toc-container&quot;&gt;  
-    &lt;!-- 创建一个带有 &quot;archives&quot; 类的区块，并添加一个唯一的 ID 用于操作 --&gt;  
-    &lt;h2 class=&quot;widget-title section-title&quot;&gt;{{ T &quot;article.tableOfContents&quot; }}&lt;/h2&gt;  
-    &lt;!-- 创建一个带有 &quot;widget-title&quot; 和 &quot;section-title&quot; 类的标题区块，并显示 &quot;article.tableOfContents&quot; 的本地化内容 --&gt;  
-
-    &lt;div class=&quot;widget--toc&quot;&gt;  
-        &lt;!-- 创建一个带有 &quot;widget--toc&quot; 类的目录区块 --&gt;  
-        {{ .Context.TableOfContents }}  
-        &lt;!-- 显示文章的目录内容 --&gt;  
-    &lt;/div&gt;  
-&lt;/section&gt;  
-{{ end }}  
-
-&lt;style&gt;  
-    #mulu {  
-        z-index: 9999;  
-    }  
-
-    #toc-container {  
-        display: none;  
-        /* 初始时隐藏目录 */  
-        position: fixed;  
-        /* 使用固定定位，使其固定在视口中 */  
-        bottom: 21%;  
-        /* 距离视口顶部的距离，可以根据需要进行调整 */  
-        right: 60px;  
-        /* 距离视口右侧的距离，可以根据需要进行调整 */  
-        background-color: var(--card-background);  
-        /* 可选：设置背景颜色 */  
-        padding: 10px;  
-        /* 可选：添加一些内边距 */  
-        border: 1px solid #96979a50;  
-        border-radius: var(--card-border-radius);  
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;  
-        /* 可选：添加边框样式 */  
-        z-index: 9998 !important;  
-        /* 可选：设置 z-index 以确保它显示在其他元素之上 */  
-        max-height: 80vh;  
-        /* 设置最大高度为视口高度的 80% */  
-        overflow-y: auto;  
-        /* 添加垂直滚动条，以便在内容溢出时滚动 */  
-        width: auto;  
-        /* 让容器的宽度自适应内容 */  
-        max-width: 290px;  
-    }  
-
-    #toggle-toc {  
-        position: fixed;  
-        bottom: 22%;  
-        right: 20px;  
-        padding: 10px 10px;  
-        z-index: 9998 !important;  
-        border: 0px solid #96979a50;  
-        border-radius: 7px;  
-        box-shadow: var(--shadow-l1);  
-        background-color: #00640010;  
-        color: #34495e;  
-        /* 确保按钮在其他元素之上 */  
-        /* 其他样式保持不变 */  
-        display: block;  
-        /* 显示按钮 */  
-        margin-bottom: 10px;  
-        cursor: pointer;  
-        font-size: 1.2rem;  
-        /* 可选：改变鼠标光标以指示按钮是可点击的 */  
-    }  
-
-    .widget--toc #TableOfContents {  
-        overflow-x: auto;  
-        max-height: 66vh;  
-        width: auto;  
-    }  
-
-    @media screen and (max-width: 768px) {  
-        #toggle-toc {  
-            bottom: 100px;  
-        }  
-    }  
-&lt;/style&gt;  
-
-&lt;script&gt;  
-    // 获取按钮和目录的元素  
-    var toggleButton = document.getElementById(&#39;toggle-toc&#39;);  
-    var tocContainer = document.getElementById(&#39;toc-container&#39;);  
-    var scrollThreshold = 200; // 设置滚动显示的阈值  
-
-    // 监听页面滚动事件  
-    window.addEventListener(&#39;scroll&#39;, function() {  
-        // 获取当前滚动位置  
-        var scrollY = window.scrollY || window.pageYOffset;  
-
-        // 检查滚动位置是否超过阈值  
-        if (scrollY &gt;= scrollThreshold) {  
-            // 显示按钮  
-            toggleButton.style.display = &#39;block&#39;;  
-        } else {  
-            // 隐藏按钮  
-            toggleButton.style.display = &#39;none&#39;;  
-        }  
-    });  
-
-    // 添加点击事件处理程序  
-    toggleButton.addEventListener(&#39;click&#39;, function() {  
-        // 切换目录的显示状态  
-        if (tocContainer.style.display === &#39;none&#39; || tocContainer.style.display === &#39;&#39;) {  
-            tocContainer.style.display = &#39;block&#39;;  
-        } else {  
-            tocContainer.style.display = &#39;none&#39;;  
-        }  
-    });  
-    // 当鼠标悬浮在按钮上时显示目录  
-    toggleButton.addEventListener(&#39;mouseover&#39;, function() {  
-        tocContainer.style.display = &#39;block&#39;;  
-    });  
-
-
-    // 添加点击页面空白处的事件处理程序  
-    document.addEventListener(&#39;click&#39;, function(event) {  
-        // 检查点击事件是否发生在目录容器之外，并且不是按钮本身  
-        if (!tocContainer.contains(event.target) &amp;&amp; event.target !== toggleButton) {  
-            // 点击发生在目录容器之外，隐藏目录容器  
-            tocContainer.style.display = &#39;none&#39;;  
-        }  
-    });  
-&lt;/script&gt;  
-</code></pre></div></div>
-<p>{{&lt; /details &gt;}}  </p>
-  </article>
-  
-<style>
-.code-block-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
+<h2>文件添加随机海报</h2>
+<p>{{&lt; details title="点击展开代码，推荐在模板中设置，修改 archetypes/default.md（如果没有则新建一个即可）" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+image: https://picsum.photos/800/600.webp?random={{ substr (md5 (.Date)) 4 8 }}
+---
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>添加彩虹背景</h2>
+<p>{{&lt; details title="在layouts/partials/footer/custom.html 中增加以下内容" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">&lt;script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/ribbon.min.js"
+    integrity="sha384-UEK8ZiP3VgFNP8KnKMKDmd4pAUAOJ59Y2Jo3ED2Z5qKQf6HLHovMxq7Beb9CLPUe"
+    crossorigin="anonymous"
+    size="300"
+    alpha="0.6"
+    zindex="-1"
+    defer
+&gt;&lt;/script&gt;
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>滚动条美化</h2>
+<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">//将滚动条修改为圆角样式
+//菜单滚动条美化
+.menu::-webkit-scrollbar {
+  display: none;
 }
-.code-block-controls {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  z-index: 2;
-  display: flex;
-  gap: 2px;
-}
-.fold-btn, .copy-btn {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 2px 6px;
-  font-size: 16px;
-  outline: none;
-  box-shadow: none;
-  transition: background 0.2s;
-}
-.fold-btn:hover, .copy-btn:hover {
-  background: #eee;
-}
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // 复制功能
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
-        setTimeout(() => {
-          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
-        }, 1500);
-      });
-    });
-  });
 
-  // 折叠功能
-  document.addEventListener('click', e => {
-    if (e.target.classList.contains('fold-btn')) {
-      const code = e.target.parentElement.parentElement.querySelector('pre code');
-      const collapsed = code.style.display === 'none';
-      code.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '▲' : '▼';
+// 全局滚动条美化
+html {
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
+}
+
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>选中文本样式美化</h2>
+<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">::selection {
+    color: #ffff;
+    background: #557697;
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>搜索菜单动画</h2>
+<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">.search-form.widget {
+  transition: transform 0.6s ease;
+}
+
+.search-form.widget:hover {
+  transform: scale(1.1, 1.1);
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>归档动画</h2>
+<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">.widget.archives .widget-archive--list {
+  transition: transform .3s ease;
+}
+
+.widget.archives .widget-archive--list:hover {
+  transform: scale(1.05, 1.05);
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>标签动画</h2>
+<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容 " &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">.tagCloud .tagCloud-tags a {
+  border-radius: 10px;
+  font-size: 1.4rem;
+  transition: transform .3s ease;
+}
+
+.tagCloud .tagCloud-tags a:hover {
+  transform: scale(1.1, 1.1);
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>归档页面双栏</h2>
+<p>{{&lt; details title="在assets/scss/custom.scss 添加以下内容" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">@media (min-width: 1024px) {
+  .article-list--compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: none;
+    box-shadow: none;
+    gap: 1rem;
+
+    article {
+      background: var(--card-background);
+      border: none;
+      box-shadow: var(--shadow-l2);
+      margin-bottom: 8px;
+      border-radius: 16px;
     }
+  }
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>在文章中插入嵌入式音乐</h2>
+<p>{{&lt; details title="第一步，在layouts\shortcodes\netese.html中添加以下内容" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate"> &lt;iframe 
+     frameborder="no" border="0" 
+     marginwidth="0" marginheight="0" 
+     width=330 height=86 
+     src="//music.163.com/outchain/player?type=2&amp;id=1304708603&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<p>{{&lt; details title="第二步，在markdown文章中添加以下代码（#号删掉），后面的数字即网易云ID，点击<a href="https://music.163.com/#/song?id=1304708603" rel="nofollow">网易云</a>，选择喜欢的歌曲，复制导航栏的ID即可" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate"> {#{&lt; netese 1304708603 &gt;}#}
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>添加返回顶部按钮（方法1）</h2>
+<p>{{&lt; details title="在 layouts/partials/footer/custom.html 内添加代码" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">&lt;!--返回顶部按钮 --&gt;
+&lt;a href="#" id="back-to-top" title="返回顶部"&gt;&lt;/a&gt;
+
+&lt;!--返回顶部CSS --&gt;
+&lt;style&gt;
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+  /* 在屏幕宽度小于 768 像素时，钮位置调整 */
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+  /* 在屏幕宽度大于等于 1024 像素时，按钮位置调整 */
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+  /* 在屏幕宽度大于等于 1280 像素时，按钮位置调整 */
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+  /* 目录显示时，隐藏按钮 */
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+&lt;/style&gt;
+
+&lt;!--返回顶部JS --&gt;
+&lt;script&gt;
+  function backToTop() {
+    document.documentElement.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop &gt; 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop &lt; 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+&lt;/script&gt;
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>添加返回顶部按钮（方法2）</h2>
+<p>{{&lt; details title="点击展开" &gt;}}</p>
+<ol>
+<li>
+<p>在<code class="notranslate">layouts/partials/backtop.html</code>中添加代码</p>
+<pre class="notranslate"><code class="notranslate">&lt;style&gt;
+    /* add BackTop */
+    #backtop {
+        color: #c2c0c0;
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        width: 35px;
+        height: 35px;
+        z-index: 999998;
+
+        /* cursor: pointer; */
+    }
+&lt;/style&gt;
+&lt;div id="backtop"&gt;
+    &lt;svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-circle-up" class="svg-inline--fa fa-chevron-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;
+        &lt;path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm231-113.9L103.5 277.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L256 226.9l101.6 101.6c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L273 142.1c-9.4-9.4-24.6-9.4-34 0z"&gt;
+        &lt;/path&gt;
+    &lt;/svg&gt;
+    
+&lt;/div&gt;
+&lt;script&gt;
+    var timer = null;
+    backtop.onclick = function () {
+        cancelAnimationFrame(timer);
+        //获取当前毫秒数
+        var startTime = +new Date();
+        //获取当前页面的滚动高度
+        var b = document.body.scrollTop || document.documentElement.scrollTop;
+        var d = 500;
+        var c = b;
+        timer = requestAnimationFrame(function func() {
+            var t = d - Math.max(0, startTime - (+new Date()) + d);
+            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+            timer = requestAnimationFrame(func);
+            if (t == d) {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+
+&lt;/script&gt;
+</code></pre>
+</li>
+<li>
+<p>然后在 <code class="notranslate">layouts/_default/baseof.html </code>里面添加如下代码</p>
+<pre class="notranslate"><code class="notranslate">{{ partial "backtop.html" . }}
+</code></pre>
+</li>
+</ol>
+<p>{{&lt; /details &gt;}}</p>
+<h2>外部链接后面会显示图标</h2>
+<p>{{&lt; details title="在layouts/_default/_markup/render-link.html里<code class="notranslate">{{ .Text | safeHTML }}</code>之后增加如下代码，主目录里面没有该文件或者文件中是空的话，可以直接把<code class="notranslate">ender-link.html</code>从<code class="notranslate">theme</code>中复制过来" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate"> {{ if strings.HasPrefix .Destination "http" }}
+&lt;span style="white-space: nowrap;"&gt;&lt;svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" /&gt;
+    &lt;path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor"&gt;
+&lt;/svg&gt;&lt;/span&gt;
+{{ end }}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>引入动态背景</h2>
+<p>{{&lt; details title="点击展开" &gt;}}</p>
+<ol>
+<li>
+<p>首先前往<a href="http://vincentgarreau.com/particles.js/" rel="nofollow">particles.js配置页面</a>配置参数，参数按自己喜好即可，唯一注意要修改的参数是 <code class="notranslate">detect_on</code>，要改成 <code class="notranslate">window</code></p>
+</li>
+<li>
+<p>其次下载2个文件，即配置文件，以及 <code class="notranslate">particles.js</code>所需要的js文件（如图）</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a28cc017ede4bed3e5fcaa9f43c81e3fa591202e69dced9344df8638c6724b8e/68747470733a2f2f696d676265642e776f72686c6c6f2e75732e6b672f66696c652f313733313635303639323636355f7366647366762e706e67"><img src="https://camo.githubusercontent.com/a28cc017ede4bed3e5fcaa9f43c81e3fa591202e69dced9344df8638c6724b8e/68747470733a2f2f696d676265642e776f72686c6c6f2e75732e6b672f66696c652f313733313635303639323636355f7366647366762e706e67" alt="sfdsfv.png" data-canonical-src="https://imgbed.worhllo.us.kg/file/1731650692665_sfdsfv.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>接着把下载好的文件，解压并将以下两个文件放到<code class="notranslate">assets/background</code>文件夹下</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c9e14504ac0fb37fe1b8923d91b007e50998ac59efdcab718ce513f80e01a3e7/68747470733a2f2f696d676265642e776f72686c6c6f2e75732e6b672f66696c652f313733313635303739393537305f7172656577722e706e67"><img src="https://camo.githubusercontent.com/c9e14504ac0fb37fe1b8923d91b007e50998ac59efdcab718ce513f80e01a3e7/68747470733a2f2f696d676265642e776f72686c6c6f2e75732e6b672f66696c652f313733313635303739393537305f7172656577722e706e67" alt="qreewr.png" data-canonical-src="https://imgbed.worhllo.us.kg/file/1731650799570_qreewr.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>最后在<code class="notranslate">layouts/partials/footer/custom.html</code>中，引入以下代码</p>
+<pre class="notranslate"><code class="notranslate">&lt;div id="particles-js"&gt;&lt;/div&gt;
+
+&lt;script src={{ (resources.Get "background/particles.min.js").Permalink }}&gt;&lt;/script&gt;
+&lt;script&gt;
+  particlesJS.load('particles-js', {{ (resources.Get "background/particlesjs-config.json").Permalink }}, function() {
+    console.log('particles.js loaded - callback');
   });
-});
-</script>
+&lt;/script&gt;
+
+&lt;style&gt;
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+&lt;/style&gt;
+
+</code></pre>
+</li>
+</ol>
+<p>{{&lt; /details &gt;}}</p>
+<h2>显示文章更新时间</h2>
+<p>{{&lt; details title="点击展开" &gt;}}</p>
+<ul>
+<li>在配置文件 <code class="notranslate">hugo.yaml</code> 中加入以下配置，这样文章的更新时间就会出现在文章底部</li>
+</ul>
+<pre class="notranslate"><code class="notranslate"># 更新时间：优先读取git时间 -&gt; git时间不存在，就读取本地文件修改时间
+frontmatter:
+  lastmod:
+    - :git
+    - :fileModTime
+
+# 允许获取Git信息		
+enableGitInfo: true
+
+</code></pre>
+<ul>
+<li>
+<p>若想在文章开头就显示更新时间，则修改<code class="notranslate">layouts/partials/article/components/detail.html</code>，删掉原代码，复制粘贴以下代码</p>
+<pre class="notranslate"><code class="notranslate">&lt;div class="article-details"&gt;
+    {{ if .Params.categories }}
+    &lt;header class="article-category"&gt;
+        {{ range (.GetTerms "categories") }}
+            &lt;a href="{{ .RelPermalink }}" {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}&gt;
+                {{ .LinkTitle }}
+            &lt;/a&gt;
+        {{ end }}
+    &lt;/header&gt;
+    {{ end }}
+
+    &lt;div class="article-title-wrapper"&gt;
+        &lt;h2 class="article-title"&gt;
+            &lt;a href="{{ .RelPermalink }}"&gt;
+                {{- .Title -}}
+            &lt;/a&gt;
+        &lt;/h2&gt;
+    
+        {{ with .Params.description }}
+        &lt;h3 class="article-subtitle"&gt;
+            {{ . }}
+        &lt;/h3&gt;
+        {{ end }}
+    &lt;/div&gt;
+
+    {{ $showReadingTime := .Params.readingTime | default (.Site.Params.article.readingTime) }}
+    {{ $showDate := not .Date.IsZero }}
+    {{ $showFooter := or $showDate $showReadingTime }}
+    {{ if $showFooter }}
+    &lt;footer class="article-time"&gt;
+	    &lt;!-- 更新时间 --&gt;
+        {{- if ne .Lastmod .Date -}}
+            &lt;div class="article-lastmod"&gt;
+                {{ partial "helper/icon" "clock" }}
+                &lt;time&gt;
+                    {{ .Lastmod.Format ( or .Site.Params.dateFormat.lastUpdated "Jan 02, 2006 15:04 MST" ) }}
+                &lt;/time&gt;
+            &lt;/div&gt;
+        {{- end -}}
+		
+        {{ if $showDate }}
+            &lt;div&gt;
+                {{ partial "helper/icon" "date" }}
+                &lt;time class="article-time--published"&gt;
+                    {{- .Date | time.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+                &lt;/time&gt;
+            &lt;/div&gt;
+        {{ end }}
+
+        {{ if $showReadingTime }}
+            &lt;div&gt;
+                {{ partial "helper/icon" "clock" }}
+                &lt;time class="article-time--reading"&gt;
+                    {{ T "article.readingTime" .ReadingTime }}
+                &lt;/time&gt;
+            &lt;/div&gt;
+        {{ end }}
+    &lt;/footer&gt;
+    {{ end }}
+	
+	
+
+    {{ if .IsTranslated }}
+        &lt;footer class="article-translations"&gt;
+            {{ partial "helper/icon" "language" }}
+            &lt;div&gt;
+                {{ range .Translations }}
+                    &lt;a href="{{ .Permalink }}" class="link"&gt;{{ .Language.LanguageName }}&lt;/a&gt;
+                {{ end }}
+            &lt;/div&gt;
+        &lt;/footer&gt;
+    {{ end }}
+&lt;/div&gt;
+
+</code></pre>
+</li>
+</ul>
+<p>{{&lt; /details &gt;}}</p>
+<h2>首页欢迎横幅</h2>
+<p>{{&lt; details title="点击展开" &gt;}}</p>
+<ol>
+<li>
+<p>"打开<code class="notranslate">layouts/index.html</code>，在<code class="notranslate">&lt;section class=article-list&gt;</code>前添加以下代码"</p>
+<pre class="notranslate"><code class="notranslate">&lt;!-- 首页欢迎字幅 --&gt;
+&lt;div class="welcome"&gt;
+  &lt;p style="font-size: 2rem; text-align: center; font-weight: bold"&gt;
+    &lt;span class="shake"&gt;👋&lt;/span&gt;
+    &lt;span class="jump-text1" &gt; Welcome&lt;/span&gt;
+    &lt;span class="jump-text2"&gt; To &lt;/span&gt;
+    &lt;span class="jump-text3" style="color:#e99312"&gt;Xa&lt;/span&gt;&lt;span class="jump-text4" style="color:#e99312"&gt;l&lt;/span&gt;&lt;span class="jump-text5" style="color:#e99312"&gt;a&lt;/span&gt;&lt;span class="jump-text6" style="color:#e99312"&gt;o&lt;/span&gt;&lt;span class="jump-text7" style="color:#e99312"&gt;k&lt;/span&gt;&lt;span class="jump-text8" style="color:#e99312"&gt;'s&lt;/span&gt;
+    &lt;span class="jump-text9" style="color:#e99312"&gt;Blog&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- 首页欢迎字幅 --&gt;
+
+</code></pre>
+</li>
+<li>
+<p>在 <code class="notranslate">assets/scss/custom.scss</code> 中加入以下代码</p>
+</li>
+</ol>
+<pre class="notranslate"><code class="notranslate">//首页欢迎板块样式
+.welcome {
+  color: var(--card-text-color-main);
+  background: var(--card-background);
+  box-shadow: var(--shadow-l2);
+  border-radius: 30px;
+  display: inline-block;
+}
+
+// 👋emoji实现摆动效果
+.shake {
+  display: inline-block;
+  animation: shake 1s;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: shake;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+  animation-delay: 2s;
+  @keyframes shake {
+    0% {
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(45deg) scale(1.2);
+    }
+    50% {
+      transform: rotate(0) scale(1.2);
+    }
+    75% {
+      transform: rotate(45deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+}
+// 实现字符跳动动画
+.jump-text1 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+}
+
+.jump-text2 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.1s;
+}
+
+.jump-text3 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.2s;
+}
+
+.jump-text4 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.3s;
+}
+
+.jump-text5 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.4s;
+}
+
+.jump-text6 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.5s;
+}
+
+.jump-text7 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.6s;
+}
+
+.jump-text8 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.7s;
+}
+
+.jump-text9 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.9s;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>修改总体布局</h2>
+<p>{{&lt; details title="对照原代码，在 <code class="notranslate">/assets/scss/grid.scss</code> 中修改 <code class="notranslate">left-sidebar</code> 和 <code class="notranslate">right-sidebar</code> 的描述" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">    .left-sidebar {
+        order: -3;
+        // max-width: var(--left-sidebar-max-width);
+        max-width: 10%;
+    }
+
+    .right-sidebar {
+        order: -1;
+        // max-width: var(--right-sidebar-max-width);
+        max-width: 20%;
+
+        /// Display right sidebar when min-width: lg
+        @include respond(lg) {
+            display: flex;
+        }
+    }
+    // 把正文的占比改到了 70%, 原来的只有 50% 左右
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>头像旋转</h2>
+<p>{{&lt; details title="在 <code class="notranslate">/assets/scss/custom.scss</code> 中加入以下代码" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">// 头像旋转动画
+.sidebar header .site-avatar .site-logo {
+  transition: transform 1.65s ease-in-out; // 旋转时间
+}
+
+.sidebar header .site-avatar .site-logo:hover {
+  transform: rotate(360deg); // 旋转角度为360度
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>多图排版</h2>
+<p>{{&lt; details title="增添到 <code class="notranslate">assets/scss/partials/layout/article.scss</code>，文章里输入 md 图片语法换行但不空行即可" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">.article-content p:has(&gt; img:nth-child(2)){column-count:2;column-gap:8px;margin:6px 0;}
+.article-content p:has(&gt; img:nth-child(3)){column-count:3;}
+.article-content p:has(&gt; img:nth-child(4)){column-count:4;}
+.article-content p:has(&gt; img:nth-child(5)){column-count:5;}
+.article-content p:has(&gt; img:nth-child(6)){column-count:4;}
+.article-content p:has(&gt; img:nth-child(2)) img{display:flex;}
+.article-content p:has(&gt; img:nth-child(6)) img{margin-bottom:8px;}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>“博客已运行x天x小时x分钟”字样</h2>
+<p>{{&lt; details title="展开代码" &gt;}}</p>
+<ol>
+<li>
+<p>在<code class="notranslate">layouts/partials/footer/custom.html</code>里添加以下JS代码，其中<code class="notranslate">s1</code>是网站创建日期。代码参考自<a href="https://rwtx.cc/04/2260/uncategorized/" rel="nofollow">这里 </a>，我加上了小时和分钟的计算。</p>
+<pre class="notranslate"><code class="notranslate">&lt;!-- Add blog running time --&gt;
+&lt;script&gt;
+    let s1 = '2023-3-18'; //website start date
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+&lt;/script&gt;
+
+</code></pre>
+</li>
+<li>
+<p>再在<code class="notranslate">layouts/partials/footer/footer.html</code>里添加以下代码：</p>
+<pre class="notranslate"><code class="notranslate">&lt;!-- Add blog running time --&gt;
+&lt;section class="running-time"&gt;
+本博客已稳定运行
+&lt;span id="runningdays" class="running-days"&gt;&lt;/span&gt;
+&lt;/section&gt;
+
+</code></pre>
+</li>
+<li>
+<p>在<code class="notranslate">assets/scss/partials/footer.scss</code>里添加风格样式，这里我单独把计时的部分加粗，并改了颜色。</p>
+<pre class="notranslate"><code class="notranslate">.running-time {
+    color: var(--card-text-color-secondary);
+    font-weight: normal;
+
+    .running-days {
+        font-weight:bold;
+        color: var(--emphasize-text-color);
+    }   
+}
+
+</code></pre>
+</li>
+</ol>
+<p>{{&lt; /details &gt;}}</p>
+<h2>总字数统计：“发表了x篇文章，共计x字”</h2>
+<p>{{&lt; details title="点击展开代码" &gt;}}</p>
+<ol>
+<li>
+<p>在<code class="notranslate">layouts/partials/footer/footer.html</code>里增加以下代码，其中文章篇数统计参考了<a href="https://immmmm.com/hugo-total-count/" rel="nofollow">这篇 </a>，字数统计的展示方式参考了<a href="https://mantyke.icu/posts/2022/stack-theme-furnish03/" rel="nofollow">小球飞鱼的博客 </a>。</p>
+<pre class="notranslate"><code class="notranslate">&lt;!-- Add total page and word count time --&gt;
+&lt;section class="totalcount"&gt;
+    {{$scratch := newScratch}}
+    {{ range (where .Site.Pages "Kind" "page" )}}
+        {{$scratch.Add "total" .WordCount}}
+    {{ end }}
+    发表了{{ len (where .Site.RegularPages "Section" "post") }}篇文章 · 
+    总计{{ div ($scratch.Get "total") 1000.0 | lang.FormatNumber 2 }}k字
+&lt;/section&gt;
+
+</code></pre>
+</li>
+<li>
+<p>在<code class="notranslate">assets/scss/partials/footer.scss</code>里修改风格：</p>
+<pre class="notranslate"><code class="notranslate">.totalcount {
+    color: var(--card-text-color-secondary);
+    font-weight: normal;
+    margin-bottom: 5px;
+    }
+
+</code></pre>
+</li>
+</ol>
+<p>{{&lt; /details &gt;}}</p>
+<h2>旅行者 1 号离地球距离</h2>
+<p>{{&lt; details title="点击展开代码" &gt;}}</p>
+<ol>
+<li>在<code class="notranslate">layouts/partials/footer/footer.html</code>里增加以下代码</li>
+</ol>
+<pre class="notranslate"><code class="notranslate">&lt;!-- 旅行者 1 号离地球距离 --&gt;
+&lt;section class="voyager"&gt;
+&lt;span id="voyager"&gt;载入旅行者一号离地球距离信息...&lt;/span&gt;
+&lt;/section&gt;
+</code></pre>
+<ol start="2">
+<li>
+<p>在<code class="notranslate">layouts/partials/footer/custom.html</code>里添加以下JS代码</p>
+<pre class="notranslate"><code class="notranslate">&lt;script language="javascript"&gt; 
+    var now = new Date();
+    function createtime(){
+        // 当前时间
+        now.setTime(now.getTime()+250);
+        var grt= new Date("20xx/xx/xx 00:00:00"); //网站诞生时间
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+
+        document.getElementById("timeDate").innerHTML = "本站已稳定运行"+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"
+    }
+    setInterval("createtime()",250); 
+&lt;/script&gt; 
+
+</code></pre>
+</li>
+</ol>
+<p>{{&lt; /details &gt;}}</p>
+<h2>修改背景色</h2>
+<p>{{&lt; details title="点击展开代码，在<code class="notranslate">assets\scss\variables.scss</code>中对颜色代码进行修改，附<a href="https://www.coloraa.com/f5f5f5" rel="nofollow"> 颜色查询网站</a>" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">--body-background: #f5f5f5;
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>新增一个<code class="notranslate">随笔</code>页面并实现加密功能</h2>
+<p>{{&lt; details title="点击展开代码" &gt;}}</p>
+<ol>
+<li>
+<p>在<code class="notranslate">content/page/</code>目录下新建一个<code class="notranslate">musings</code>文件夹，然后在里面新建<code class="notranslate">index.md</code>文件，内容如下：</p>
+<pre class="notranslate"><code class="notranslate">---
+title: "随笔"
+date: 2023-09-08
+layout: "musings"
+slug: "musings"
+menu:
+    main:
+        weight: 4
+        params: 
+            icon: note
+---
+
+</code></pre>
+</li>
+<li>
+<p>在<code class="notranslate">layouts/_default</code>目录下新建一个<code class="notranslate">musings.html</code>文件，以实现查找并显示<code class="notranslate">tag</code>为<code class="notranslate">musings</code>的文章，内容如下：</p>
+<pre class="notranslate"><code class="notranslate">{{ define "body-class" }}template-archives{{ end }}
+
+{{ define "main" }}
+&lt;h1 class="big-title" style="color: white;"&gt;随笔&lt;/h1&gt;
 
 
-</div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://note.142588.xyz/post/12.html" aria-label="Previous Page">Markdown语法</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://note.142588.xyz/post/10.html" aria-label="Next Page">Win+R自动化应用</a></div>
-</nav>
+{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+{{ $filtered := ($pages | intersect $notHidden) }}
 
-<!-- 编辑按钮 -->
-<a href="https://github.com/worhllo/Myblog/issues/11" target="_blank">
-    <button class="floating-button edit-post">🖋</button>
-</a>
+{{ range $filtered.GroupByDate "2006" }}
+{{ $id := lower (replace .Key " " "-") }}
+&lt;div class="archives-group" id="{{ $id }}"&gt;
+    &lt;h2 class="archives-date section-title"&gt;&lt;a href="{{ $.RelPermalink }}#{{ $id }}"&gt;{{ .Key }}&lt;/a&gt;&lt;/h2&gt;
+    &lt;div class="article-list--compact"&gt;
+        {{ range .Pages }}
+        {{ if in .Params.tags "musings" }}
+        &lt;article&gt;
+            &lt;a href="{{ .RelPermalink }}"&gt;
+                &lt;div class="article-details"&gt;
+                    &lt;h2 class="article-title"&gt;
+                        {{- .Title -}}
+                    &lt;/h2&gt;
+                    &lt;footer class="article-time"&gt;
+                        &lt;time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'&gt;
+                            {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+                        &lt;/time&gt;
+                    &lt;/footer&gt;
+                &lt;/div&gt;
 
-<!-- 新增按钮 -->
-<a href="https://github.com/worhllo/Myblog/issues/new" target="_blank">
-    <button class="floating-button new-post">+</button>
-</a>
+                {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink
+                "articleList" -}}
+                {{ if $image.exists }}
+                &lt;div class="article-image"&gt;
+                    {{ if $image.resource }}
+                    {{- $Permalink := $image.resource.RelPermalink -}}
+                    {{- $Width := $image.resource.Width -}}
+                    {{- $Height := $image.resource.Height -}}
+
+                    {{- if (default true .Page.Site.Params.imageProcessing.cover.enabled) -}}
+                    {{- $thumbnail := $image.resource.Fill "120x120" -}}
+                    {{- $Permalink = $thumbnail.RelPermalink -}}
+                    {{- $Width = $thumbnail.Width -}}
+                    {{- $Height = $thumbnail.Height -}}
+                    {{- end -}}
+
+                    &lt;img src="{{ $Permalink }}" width="{{ $Width }}" height="{{ $Height }}" alt="{{ .Title }}"
+                        loading="lazy"&gt;
+                    {{ else }}
+                    &lt;img src="{{ $image.permalink }}" loading="lazy" alt="Featured image of post {{ .Title }}" /&gt;
+                    {{ end }}
+                &lt;/div&gt;
+                {{ end }}
+            &lt;/a&gt;
+        &lt;/article&gt;
+        {{ end }}
+        {{ end }}
+    &lt;/div&gt;
+&lt;/div&gt;
+{{ end }}
+
+{{ partialCached "footer/footer" . }}
+{{ end }}
+
+</code></pre>
+</li>
+<li>
+<p>在<code class="notranslate">layouts\partials\article\article.html</code>中添加以下代码，可能在原<code class="notranslate">.html</code>中会有部分已经存在的代码，记得删去</p>
+<pre class="notranslate"><code class="notranslate">{{ if isset .Params "password" }}
+&lt;div id="password-protected-content"
+    style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #f9f9f9; text-align: center;"&gt;
+    &lt;p style="font-size: 16px; margin-bottom: 10px;"&gt;{{ with .Params.passwordPoint }}{{ . }}{{ else
+        }}这是密码保护的内容，请输入密码访问：{{ end }}&lt;/p&gt;
+    &lt;input type="password" id="password-input" style="padding: 5px; margin-bottom: 10px; width: 200px;"&gt;
+    &lt;button onclick="verifyPassword()"
+        style="padding: 5px 10px; background-color: #007bff; color: #fff; border: none; border-radius: 3px; cursor: pointer;"&gt;提交&lt;/button&gt;
+&lt;/div&gt;
+&lt;div id="article-content" style="display: none;"&gt;
+    &lt;article class="{{ if .Params.image }}has-image {{ end }}main-article"&gt;
+        {{ partial "article/components/header" . }}
+        &lt;!-- 以下部分仅在密码验证通过后显示 --&gt;
+        &lt;div id="content"&gt;
+            {{ partial "article/components/content" . }}
+        &lt;/div&gt;
+        &lt;!-- End of password-protected content --&gt;
+        {{ partial "article/components/footer" . }}
+        {{ if or .Params.math .Site.Params.article.math }}
+        {{ partialCached "article/components/math.html" . }}
+        {{ end }}
+    &lt;/article&gt;
+&lt;/div&gt;
+{{ else }}
+&lt;div id="article-content"&gt;
+    &lt;article class="{{ if .Params.image }}has-image {{ end }}main-article"&gt;
+        {{ partial "article/components/header" . }}
+        {{ partial "article/components/content" . }}
+        {{ partial "article/components/footer" . }}
+        {{ if or .Params.math .Site.Params.article.math }}
+        {{ partialCached "article/components/math.html" . }}
+        {{ end }}
+    &lt;/article&gt;
+&lt;/div&gt;
+{{ end }}
+
+&lt;script&gt;
+    function verifyPassword() {
+        var inputPassword = document.getElementById('password-input').value;
+        var correctPassword = '{{ with .Params.password }}{{ . }}{{ else }}{{ "" }}{{ end }}'; // 获取文章 Front Matter 中定义的密码
+        if (inputPassword === correctPassword) {
+            document.getElementById('password-protected-content').style.display = 'none'; // 隐藏密码输入框
+            document.getElementById('article-content').style.display = 'block'; // 显示文章内容
+        } else {
+            alert('密码错误，请重新输入！');
+        }
+    }
+&lt;/script&gt;
+
+</code></pre>
+</li>
+<li>
+<p>要写<code class="notranslate">随笔</code>并要设置密码时，在.md文件的开头添加如下字段即可，将<code class="notranslate">您的安全密码</code>设置为想设置的实际密码，另一个不用动</p>
+<pre class="notranslate"><code class="notranslate">---
+password: "您的安全密码"
+passwordPoint: "请正确输入密码！"
+---
+
+</code></pre>
+</li>
+</ol>
+<p>{{&lt; /details &gt;}}</p>
+<h2>缩小归档页的分类卡片尺寸</h2>
+<p>{{&lt; details title="点击展开，对照原代码，加以修改" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">    .article-list--tile {
+        display: flex;
+        padding-bottom: 0px; // Narrow the spacing
+
+        article {
+            width: 150px; // Make category cards smaller
+            height: 90px;
+            margin-right: 5px; // Make cards spacing narrower
+            flex-shrink: 0;
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>将友链设置为三栏</h2>
+<p>{{&lt; details title="在 assets/scss/custom.scss 里加上以下代码" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">@media (min-width: 1024px) {
+	.article-list--extra-compact.links {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		background: none;
+		box-shadow: none;
+		gap: 1rem;
+
+		article {
+			background: var(--card-background);
+			border: none;
+			box-shadow: var(--shadow-l2);
+			margin-bottom: 8px;
+			border-radius: var(--card-border-radius);
+			&amp;:nth-child(odd) {
+				margin-right: 8px;
+			}
+		}
+	}
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>固定块的高度</h2>
+<p>{{&lt; details title="过长的内容影响观感，所以把 block 的高度限制在 20em，并隐藏滚动条，在 <code class="notranslate">/assets/scss/partials/layout/article.scss </code>中进行如下修改" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">    .highlight {
+        background-color: var(--pre-background-color);
+        position: relative;
+        &amp;:hover {
+            .copyCodeButton {
+                opacity: 1;
+            }
+        }
+        // keep Codeblocks LTR
+        [dir="rtl"] &amp; {
+            direction: ltr;
+        }
+        pre {
+            margin: initial;
+            padding: 0;
+            margin: 0;
+            width: auto;
+            max-height: 20em;
+            scrollbar-width: none; 
+            &amp;::-webkit-scrollbar {
+            display: none; 
+        }
+    }
+ }
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>代码块基础样式修改</h2>
+<p>{{&lt; details title="在 <code class="notranslate">/assets/scss/custom.scss</code> 中加入以下代码" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">    // 代码块基础样式修改
+.highlight {
+  max-width: 102% !important;
+  background-color: var(--pre-background-color);
+  padding: var(--card-padding);
+  position: relative;
+  border-radius: 20px;
+  margin-left: -7px !important;
+  margin-right: -12px;
+  box-shadow: var(--shadow-l1) !important;
+
+  &amp;:hover {
+    .copyCodeButton {
+      opacity: 1;
+    }
+  }
+
+  // keep Codeblocks LTR
+  [dir="rtl"] &amp; {
+    direction: ltr;
+  }
+
+  pre {
+    margin: initial;
+    padding: 0;
+    margin: 0;
+    width: auto;
+  }
+}
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p>
+<h2>移动端目录按钮</h2>
+<p>{{&lt; details title="替换 <code class="notranslate">layouts/partials/widget/toc.html</code>" &gt;}}</p>
+<pre class="notranslate"><code class="notranslate">{{ if (.Context.Scratch.Get "TOCEnabled") }}
+&lt;!-- 如果 .Context.Scratch 中包含名为 "TOCEnabled" 的值，则执行以下代码 --&gt;
+&lt;button id="toggle-toc"&gt;Toc&lt;/button&gt;
+&lt;!-- 创建一个按钮，用于展开和收起目录 --&gt;
+&lt;section class="widget archives" id="toc-container"&gt;
+    &lt;!-- 创建一个带有 "archives" 类的区块，并添加一个唯一的 ID 用于操作 --&gt;
+    &lt;h2 class="widget-title section-title"&gt;{{ T "article.tableOfContents" }}&lt;/h2&gt;
+    &lt;!-- 创建一个带有 "widget-title" 和 "section-title" 类的标题区块，并显示 "article.tableOfContents" 的本地化内容 --&gt;
+
+    &lt;div class="widget--toc"&gt;
+        &lt;!-- 创建一个带有 "widget--toc" 类的目录区块 --&gt;
+        {{ .Context.TableOfContents }}
+        &lt;!-- 显示文章的目录内容 --&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+{{ end }}
+
+&lt;style&gt;
+    #mulu {
+        z-index: 9999;
+    }
+    
+    #toc-container {
+        display: none;
+        /* 初始时隐藏目录 */
+        position: fixed;
+        /* 使用固定定位，使其固定在视口中 */
+        bottom: 21%;
+        /* 距离视口顶部的距离，可以根据需要进行调整 */
+        right: 60px;
+        /* 距离视口右侧的距离，可以根据需要进行调整 */
+        background-color: var(--card-background);
+        /* 可选：设置背景颜色 */
+        padding: 10px;
+        /* 可选：添加一些内边距 */
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        /* 可选：添加边框样式 */
+        z-index: 9998 !important;
+        /* 可选：设置 z-index 以确保它显示在其他元素之上 */
+        max-height: 80vh;
+        /* 设置最大高度为视口高度的 80% */
+        overflow-y: auto;
+        /* 添加垂直滚动条，以便在内容溢出时滚动 */
+        width: auto;
+        /* 让容器的宽度自适应内容 */
+        max-width: 290px;
+    }
+    
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 0px solid #96979a50;
+        border-radius: 7px;
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: #34495e;
+        /* 确保按钮在其他元素之上 */
+        /* 其他样式保持不变 */
+        display: block;
+        /* 显示按钮 */
+        margin-bottom: 10px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        /* 可选：改变鼠标光标以指示按钮是可点击的 */
+    }
+    
+    .widget--toc #TableOfContents {
+        overflow-x: auto;
+        max-height: 66vh;
+        width: auto;
+    }
+    
+    @media screen and (max-width: 768px) {
+        #toggle-toc {
+            bottom: 100px;
+        }
+    }
+&lt;/style&gt;
+
+&lt;script&gt;
+    // 获取按钮和目录的元素
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+    var scrollThreshold = 200; // 设置滚动显示的阈值
+
+    // 监听页面滚动事件
+    window.addEventListener('scroll', function() {
+        // 获取当前滚动位置
+        var scrollY = window.scrollY || window.pageYOffset;
+
+        // 检查滚动位置是否超过阈值
+        if (scrollY &gt;= scrollThreshold) {
+            // 显示按钮
+            toggleButton.style.display = 'block';
+        } else {
+            // 隐藏按钮
+            toggleButton.style.display = 'none';
+        }
+    });
+
+    // 添加点击事件处理程序
+    toggleButton.addEventListener('click', function() {
+        // 切换目录的显示状态
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+    // 当鼠标悬浮在按钮上时显示目录
+    toggleButton.addEventListener('mouseover', function() {
+        tocContainer.style.display = 'block';
+    });
+
+
+    // 添加点击页面空白处的事件处理程序
+    document.addEventListener('click', function(event) {
+        // 检查点击事件是否发生在目录容器之外，并且不是按钮本身
+        if (!tocContainer.contains(event.target) &amp;&amp; event.target !== toggleButton) {
+            // 点击发生在目录容器之外，隐藏目录容器
+            tocContainer.style.display = 'none';
+        }
+    });
+&lt;/script&gt;
+
+</code></pre>
+<p>{{&lt; /details &gt;}}</p></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
-    <div id="footer">Copyright © <span id="year"></span> <a href="https://note.142588.xyz"> 留心笔记 </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
 
 <script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
 if("03/01/2025"!=""){
-    var now=new Date();
     var startSite=new Date("03/01/2025");
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
-    document.getElementById("year").innerHTML=now.getFullYear();
-    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
-    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
 }
 </script></div>
-
-    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
-    <script src="https://note.142588.xyz/assets/oneko.js/oneko.js"></script>
 </body>
 <script>
-var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
 var utterancesLoad=0;
-if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
-else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
-else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 
-function changeDark(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
-    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
-    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
-    if(utterancesLoad==1){utterancesTheme("dark-blue");}
-}
-function changeLight(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
-    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
-    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
-    if(utterancesLoad==1){utterancesTheme("github-light");}
-}
-function modeSwitch(){
-    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
-    else{changeLight();localStorage.setItem("meek_theme","light");}
-}
-function utterancesTheme(theme){
-    const message = {type: 'set-theme',theme: theme};
-    const iframe = document.getElementsByClassName('utterances-frame')[0];
-    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
-}
-
-console.log("\n %c Gmeek last %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
 </script>
 
-
 <script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 
 
 
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
     cmButton.innerHTML="loading";
     span=document.createElement("span");
     span.setAttribute("class","AnimatedEllipsis");
@@ -1420,11 +1278,9 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","worhllo/Myblog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){
-        script.setAttribute("theme","dark-blue");
-    }else{
-        script.setAttribute("theme","github-light");
-    }
+    
+    script.setAttribute("theme","dark-blue");
+    
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
@@ -1444,11 +1300,72 @@ function iFrameLoading(){
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
 </script>
-
-
-
-<script src="https://note.142588.xyz/assets/toc.js"></script>
-
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');}});</script>
 
 </html>

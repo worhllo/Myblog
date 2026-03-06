@@ -1,45 +1,36 @@
 <!DOCTYPE html>
-<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light">
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://note.142588.xyz/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
-    <link href="https://note.142588.xyz/assets/highlight.css" rel="stylesheet" />
-    <link href="https://note.142588.xyz/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
-    <!-- <link href="https://note.142588.xyz/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://note.142588.xyz/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="../favicon.svg"><script src="https://note.142588.xyz/assets/vercount.js"></script>
-    <script>
-        if(localStorage.getItem("meek_theme")==null){}
-        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
-        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
-    </script>
-    
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="## 1. 前言
+
+> 1. **代理（Proxy**） 是一种充当客户端和目标服务器之间中介的服务器或服务。">
+<meta property="og:title" content="利用Cloudflare搭建自己的免费代理节点">
+<meta property="og:description" content="## 1. 前言
+
+> 1. **代理（Proxy**） 是一种充当客户端和目标服务器之间中介的服务器或服务。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/8.html">
+<meta property="og:image" content="../avatar.png">
 <title>利用Cloudflare搭建自己的免费代理节点</title>
+
 
 
 </head>
 <style>
-body{
-    box-sizing: border-box;
-    min-width: 200px;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 45px;
-    font-size: 16px;
-    font-family: sans-serif;
-    line-height: 1.25;
-}
-
-.avatar {transition: 0.8s;}
-.avatar:hover {transform: scale(1.15) rotate(360deg);}
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
 </style>
 
 <style>
-h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
 .title-right{display:flex;margin:auto 0 0 auto;}
 .title-right .circle{padding: 14px 16px;margin-right:8px;}
 #postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
@@ -47,49 +38,11 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 .g-emoji{font-size:24px;}
-@media (max-width: 767px) {body {padding: 8px;}}
-
-pre {
-    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
-    word-wrap: break-word; /* 允许长单词或 URL 换行 */
-    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
 }
 
-.new-post {
-    bottom: 20px; /* 距离底部 20px */
-}
-
-.edit-post {
-    bottom: 60px; /* 距离底部60px */
-}
-
-/* 悬浮按钮样式 */
-.floating-button {
-    position: fixed; /* 固定位置 */
-    right: 5%; /* 距离右侧 5% */
-    background-color: #007bff; /* 背景颜色 */
-    color: white; /* 文字颜色 */
-    border: none; /* 去掉边框 */
-    border-radius: 50%; /* 圆形按钮 */
-    width: 32px; /* 宽度 */
-    height: 32px; /* 高度 */
-    font-size: 16px; /* 字体大小 */
-    cursor: pointer; /* 鼠标指针样式 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-    z-index: 1000; /* 确保按钮在最上层 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease; /* 添加悬停效果 */
-}
-
-/* 按钮悬停效果 */
-.floating-button:hover {
-    background-color: #0056b3; /* 悬停时改变背景颜色 */
-}
-
-.previous_page {text-align: left;}
-.next_page {text-align: right;}
 </style>
 
 
@@ -97,297 +50,188 @@ pre {
 
 <body>
     <div id="header">
-<h1>
-    <a style="font-size:18px">利用Cloudflare搭建自己的免费代理节点</a>
-</h1>
-
+<h1 class="postTitle">利用Cloudflare搭建自己的免费代理节点</h1>
 <div class="title-right">
-
-    <a href="https://note.142588.xyz"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
         <svg class="octicon" width="16" height="16">
-            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+            <path id="pathHome" fill-rule="evenodd"></path>
         </svg>
-    </button></a>
-
-    <a href="https://github.com/worhllo/Myblog/issues/8" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/8" target="_blank" class="btn btn-invisible circle" title="Issue">
         <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+            <path id="pathIssue" fill-rule="evenodd"></path>
         </svg>
-    </button></a>
+    </a>
+    
 
-    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
-    </button>
+    </a>
 
 </div>
 </div>
     <div id="content">
-
-<div class="listLabels">
-    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#a25329">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://note.142588.xyz/tag.html#教程">教程</a></object>
-        </span>
-</div>
-<br>
-
-<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
-<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-24 20:38:07</time></span>
-
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-25 17:40:06</time></span>
-
-<p>
-
-<div class="markdown-body" id="postBody">
-
-  <article class="markdown-body">
-    <h2 id="1">1. 前言</h2>
+<div class="markdown-body" id="postBody"><h2>1. 前言</h2>
 <blockquote>
 <ol>
 <li>
-<p><strong>代理（Proxy</strong>） 是一种充当客户端和目标服务器之间中介的服务器或服务。当你发送网络请求时，代理服务器会代表你向目标服务器请求数据，并将响应转发给你的设备。代理服务器充当了一个**中转站，处理你的请求并将数据传递给你，同时隐藏了你的真实IP地址。  </p>
+<p><strong>代理（Proxy</strong>） 是一种充当客户端和目标服务器之间中介的服务器或服务。当你发送网络请求时，代理服务器会代表你向目标服务器请求数据，并将响应转发给你的设备。代理服务器充当了一个**中转站，处理你的请求并将数据传递给你，同时隐藏了你的真实IP地址。</p>
 </li>
 <li>
-<p><strong>VPN（Virtual Private Network</strong>）是一种通过在公共网络上创建加密隧道来保护用户隐私和安全的技术。它通过在你的设备和VPN服务器之间建立安全的连接，将你的网络流量加密并传输到目标服务器，从而在互联网上创建了一个虚拟的私有网络。使用VPN时，你的所有网络流量都经过加密处理，以防止第三方截获或监视你的数据。VPN技术可以有效保护你的隐私和安全。  </p>
+<p><strong>VPN（Virtual Private Network</strong>）是一种通过在公共网络上创建加密隧道来保护用户隐私和安全的技术。它通过在你的设备和VPN服务器之间建立安全的连接，将你的网络流量加密并传输到目标服务器，从而在互联网上创建了一个虚拟的私有网络。使用VPN时，你的所有网络流量都经过加密处理，以防止第三方截获或监视你的数据。VPN技术可以有效保护你的隐私和安全。</p>
 </li>
 <li>
-<p><strong>代理服务器</strong>的主要功能是充当客户端和目标服务器之间的中介。它可以隐藏你的真实IP地址，帮助你绕过地理限制，实施访问控制和过滤，并提供缓存和加速功能。代理服务器通常在局部范围内使用，比如在公司内部网络中，用于管理和控制内部网络访问。  </p>
+<p><strong>代理服务器</strong>的主要功能是充当客户端和目标服务器之间的中介。它可以隐藏你的真实IP地址，帮助你绕过地理限制，实施访问控制和过滤，并提供缓存和加速功能。代理服务器通常在局部范围内使用，比如在公司内部网络中，用于管理和控制内部网络访问。</p>
 </li>
 <li>
-<p><strong>VPN</strong>是一种通过在公共网络上创建加密隧道来保护隐私和安全的技术。它的主要功能是加密你的数据流量、隐藏你的真实IP地址、绕过地理限制和提供安全的网络连接。VPN广泛应用于个人和商业领域，用于保护个人隐私、提供安全的远程访问和连接分布在不同地区的网络。  </p>
+<p><strong>VPN</strong>是一种通过在公共网络上创建加密隧道来保护隐私和安全的技术。它的主要功能是加密你的数据流量、隐藏你的真实IP地址、绕过地理限制和提供安全的网络连接。VPN广泛应用于个人和商业领域，用于保护个人隐私、提供安全的远程访问和连接分布在不同地区的网络。</p>
 </li>
 <li>
-<p>虽然代理服务器和VPN在某些方面有相似的功能，但VPN提供了更全面的隐私和安全保护，因为它加密了整个网络连接而不仅仅是浏览器或特定应用程序的流量。此外，VPN还可以在不同的网络中建立安全连接，使你能够访问远程资源和保护敏感数据。  </p>
+<p>虽然代理服务器和VPN在某些方面有相似的功能，但VPN提供了更全面的隐私和安全保护，因为它加密了整个网络连接而不仅仅是浏览器或特定应用程序的流量。此外，VPN还可以在不同的网络中建立安全连接，使你能够访问远程资源和保护敏感数据。</p>
 </li>
 <li>
-<p>共同的作用可以简单概括为以下五点：隐藏真实IP地址；访问控制和过滤；缓存和加速；绕过地理限制；加密通信  </p>
+<p>共同的作用可以简单概括为以下五点：隐藏真实IP地址；访问控制和过滤；缓存和加速；绕过地理限制；加密通信</p>
 </li>
 <li>
-<p><strong>Cloudflare</strong> 是一家全球性的云平台，提供广泛的网络服务，旨在提升各类企业的安全性和性能。具有VPN以下几大优点：加速网站速度；增强网站安全性：提高网站可用性；优化搜索引擎排名等，最重要的是，Cloudflare 提供了许多免费服务，因此，我们就能通Cloudflate搭建属于自己的免费代理节点，不用我们自己的服务器，甚至使用的可以是免费的域名，零成本完全免费。好，话不多说，正式开始.  </p>
+<p><strong>Cloudflare</strong> 是一家全球性的云平台，提供广泛的网络服务，旨在提升各类企业的安全性和性能。具有VPN以下几大优点：加速网站速度；增强网站安全性：提高网站可用性；优化搜索引擎排名等，最重要的是，Cloudflare 提供了许多免费服务，因此，我们就能通Cloudflate搭建属于自己的免费代理节点，不用我们自己的服务器，甚至使用的可以是免费的域名，零成本完全免费。好，话不多说，正式开始.</p>
 </li>
 </ol>
 </blockquote>
-<h2 id="2">2. 具体部署方法</h2>
-<h4 id="21-cloudflare">2.1 注册cloudflare账户</h4>
-<p>打开<a href="https://www.cloudflare.com/">cloudflare</a> 中文官网，点击注册。完成人机验证后点击注册。操作无误的话会直接进入cloudflare后台,会提示你先输入一个域名，没有域名的话可以暂时忽略。同样可以在右上角切换语言。<img alt="1.jpg" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911084204_1.jpg" />此时你的邮箱会受到一封验证邮件，点击邮件的链接地址进行验证，验证完成后重新登录到后台。 <img alt="2.jpg" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911151014_2.jpg" />  </p>
-<h4 id="22-pages">2.2 创建pages项目的前提准备</h4>
+<h2>2. 具体部署方法</h2>
+<h4>2.1 注册cloudflare账户</h4>
+<p>打开<a href="https://www.cloudflare.com/" rel="nofollow">cloudflare</a> 中文官网，点击注册。完成人机验证后点击注册。操作无误的话会直接进入cloudflare后台,会提示你先输入一个域名，没有域名的话可以暂时忽略。同样可以在右上角切换语言。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/47acddaa43395aaf5573c1114b5f96a0996f8c004229b7c29c0b3bf2fd2256bb/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313038343230345f312e6a7067"><img src="https://camo.githubusercontent.com/47acddaa43395aaf5573c1114b5f96a0996f8c004229b7c29c0b3bf2fd2256bb/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313038343230345f312e6a7067" alt="1.jpg" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911084204_1.jpg" style="max-width: 100%;"></a>此时你的邮箱会受到一封验证邮件，点击邮件的链接地址进行验证，验证完成后重新登录到后台。 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/639d3c7197fa11c74cdd900f7753529b07a5d60112b50fdde5244c591061c844/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313135313031345f322e6a7067"><img src="https://camo.githubusercontent.com/639d3c7197fa11c74cdd900f7753529b07a5d60112b50fdde5244c591061c844/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313135313031345f322e6a7067" alt="2.jpg" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911151014_2.jpg" style="max-width: 100%;"></a></p>
+<h4>2.2 创建pages项目的前提准备</h4>
 <ul>
 <li>
-<h5 id="221">2.2.1 构建应用程序</h5>
+<h5>2.2.1 构建应用程序</h5>
 </li>
 </ul>
-<p>如果是新注册账户，在后台中有个开发引导，点击<code>在我们的开发平台构建开始构建</code>，如果不是新账户则直接点击左侧的<code>works和pages导航栏</code>。  <img alt="3.jpg" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911208129_3.jpg" />接着选择<code>构建应用程序workers和pages(Creat)</code><img alt="4.jpg" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911278879_4.jpg" />跳转页面后点击<code>切换到pages选项卡</code>。可以看到，有两种途径可以部署pages,一个是使用git仓库（github或者gitlab），另外一个是直接上传文件。使用git仓库最为简单，当我们修改文件时候不需要一次次地重复上传，但是考虑可能有的朋友没有github账户，这里使用上传文件的方式来演示。<br />
-- ##### 2.2.2 下载文件  </p>
-<p>在github上面有很多使用cloudflare实现代理的仓库，你可以根据你自己的喜好选择，但是部署方式都是大同小异。这里我使用<a href="https://github.com/cmliu/edgetunnel">edgetunnel</a>，因为使用文件上传方式进行部署，所以首先<a href="https://github.com/cmliu/edgetunnel/archive/refs/heads/main.zip">下载文件</a> ，下载的文件名是<code>edgetunnel-main.zip</code>。<img alt="5" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911367839_5.jpg" title="5" />  </p>
-<h4 id="23-pages">2.3 创建pages项目</h4>
+<p>如果是新注册账户，在后台中有个开发引导，点击<code class="notranslate">在我们的开发平台构建开始构建</code>，如果不是新账户则直接点击左侧的<code class="notranslate">works和pages导航栏</code>。  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/63b7c43991650e762741923c7e70a77ab7677b91a00d72a8a9bb6392fd83e311/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313230383132395f332e6a7067"><img src="https://camo.githubusercontent.com/63b7c43991650e762741923c7e70a77ab7677b91a00d72a8a9bb6392fd83e311/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313230383132395f332e6a7067" alt="3.jpg" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911208129_3.jpg" style="max-width: 100%;"></a>接着选择<code class="notranslate">构建应用程序workers和pages(Creat)</code><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c8df9595b08a2d84b415e7e53af280a07baa4b7ff6176e96f9823a5ad08a9d15/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313237383837395f342e6a7067"><img src="https://camo.githubusercontent.com/c8df9595b08a2d84b415e7e53af280a07baa4b7ff6176e96f9823a5ad08a9d15/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313237383837395f342e6a7067" alt="4.jpg" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911278879_4.jpg" style="max-width: 100%;"></a>跳转页面后点击<code class="notranslate">切换到pages选项卡</code>。可以看到，有两种途径可以部署pages,一个是使用git仓库（github或者gitlab），另外一个是直接上传文件。使用git仓库最为简单，当我们修改文件时候不需要一次次地重复上传，但是考虑可能有的朋友没有github账户，这里使用上传文件的方式来演示。</p>
 <ul>
 <li>
-<h5 id="231">2.3.1 创建项目名称</h5>
+<h5>2.2.2 下载文件</h5>
 </li>
 </ul>
-<p>添加你的项目名称，名称任意。  </p>
-<p><img alt="7" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731912225850_7.jpg" />.jpg)  </p>
+<p>在github上面有很多使用cloudflare实现代理的仓库，你可以根据你自己的喜好选择，但是部署方式都是大同小异。这里我使用<a href="https://github.com/cmliu/edgetunnel">edgetunnel</a>，因为使用文件上传方式进行部署，所以首先<a href="https://github.com/cmliu/edgetunnel/archive/refs/heads/main.zip">下载文件</a> ，下载的文件名是<code class="notranslate">edgetunnel-main.zip</code>。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a4f3818a1058b34a585e69f85135a5ae66d630cdf3326e39ad6a800879a10c7d/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313336373833395f352e6a7067"><img src="https://camo.githubusercontent.com/a4f3818a1058b34a585e69f85135a5ae66d630cdf3326e39ad6a800879a10c7d/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313336373833395f352e6a7067" alt="5" title="5" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911367839_5.jpg" style="max-width: 100%;"></a></p>
+<h4>2.3 创建pages项目</h4>
 <ul>
 <li>
-<h5 id="232">2.3.2 上传文件</h5>
+<h5>2.3.1 创建项目名称</h5>
 </li>
 </ul>
-<p>选择刚才下载好的<code>edgetunnel-main.zip</code> 压缩包上传  </p>
-<p><img alt="6" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911636053_8.jpg" />  </p>
+<p>添加你的项目名称，名称任意。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c1c98958cdbb021397faea689032092708d80f764fe4d84c36fc70ef5e131234/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931323232353835305f372e6a7067"><img src="https://camo.githubusercontent.com/c1c98958cdbb021397faea689032092708d80f764fe4d84c36fc70ef5e131234/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931323232353835305f372e6a7067" alt="7" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731912225850_7.jpg" style="max-width: 100%;"></a>.jpg)</p>
 <ul>
 <li>
-<h5 id="233">2.3.3 部署站点</h5>
+<h5>2.3.2 上传文件</h5>
 </li>
 </ul>
-<p>上传完成后选择<code>部署站点</code>  </p>
-<p><img alt="9" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911680932_9.jpg" />  </p>
+<p>选择刚才下载好的<code class="notranslate">edgetunnel-main.zip</code> 压缩包上传</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/55167482dcba0859c12a81a869cd0293826bcd606bcf6d229a00a597a30123dd/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313633363035335f382e6a7067"><img src="https://camo.githubusercontent.com/55167482dcba0859c12a81a869cd0293826bcd606bcf6d229a00a597a30123dd/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313633363035335f382e6a7067" alt="6" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911636053_8.jpg" style="max-width: 100%;"></a></p>
 <ul>
 <li>
-<h5 id="234-uuid">2.3.4 生成UUID</h5>
+<h5>2.3.3 部署站点</h5>
 </li>
 </ul>
-<p>提示部署成功后，还需要添加一下环境变量，点击右下角的<code>继续处理项目</code>，我们还需要添加一个环境变量，即UUID。在设置选项中，选择<code>添加变量</code>，添加一个名称为<code>UUID</code>的变量，UUID/GGID可以在<a href="[https://www.guidgenerator.com/](https://www.guidgenerator.com/)">该网址 Online UUID Generator</a>生成。  </p>
+<p>上传完成后选择<code class="notranslate">部署站点</code></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/65a0ddfe658887d45d69120134875d363a8ffbc5e358f946c8b6b54a39f63ba1/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313638303933325f392e6a7067"><img src="https://camo.githubusercontent.com/65a0ddfe658887d45d69120134875d363a8ffbc5e358f946c8b6b54a39f63ba1/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313638303933325f392e6a7067" alt="9" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911680932_9.jpg" style="max-width: 100%;"></a></p>
 <ul>
 <li>
-<h5 id="235-uuid">2.3.5 添加UUID变量</h5>
+<h5>2.3.4 生成UUID</h5>
 </li>
 </ul>
-<p>将生成的UUID添加到环境变量，注意一下变量名称UUID是大写。记得点击保存。  </p>
-<p><img alt="10" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911709846_10.jpg" />  </p>
+<p>提示部署成功后，还需要添加一下环境变量，点击右下角的<code class="notranslate">继续处理项目</code>，我们还需要添加一个环境变量，即UUID。在设置选项中，选择<code class="notranslate">添加变量</code>，添加一个名称为<code class="notranslate">UUID</code>的变量，UUID/GGID可以在该网址 Online UUID Generator生成。</p>
 <ul>
 <li>
-<h5 id="236">2.3.6 重新部署</h5>
+<h5>2.3.5 添加UUID变量</h5>
 </li>
 </ul>
-<p>然后回到<code>部署</code>选项，选择<code>创建新部署</code>或者<code>创建部署</code>，再次上传刚才下载的<code>edgetunnel-main.zip</code>压缩包，然后点击保存并部署。这样就能达到重新触发部署的目的，如果是使用git仓库的话就不需要重复上传文件了。部署成功如下第二张图：<img alt="11" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911741815_11.jpg" />  </p>
-<p><img alt="12" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911774454_12.jpg" />  </p>
+<p>将生成的UUID添加到环境变量，注意一下变量名称UUID是大写。记得点击保存。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9bc97c42af777abfaebb1a03e4f15345fca613757aed93a35a5df1bcf2820c52/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313730393834365f31302e6a7067"><img src="https://camo.githubusercontent.com/9bc97c42af777abfaebb1a03e4f15345fca613757aed93a35a5df1bcf2820c52/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313730393834365f31302e6a7067" alt="10" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911709846_10.jpg" style="max-width: 100%;"></a></p>
 <ul>
 <li>
-<h5 id="237">2.3.7 自定义域名（可换可不换）</h5>
+<h5>2.3.6 重新部署</h5>
 </li>
 </ul>
-<p>进入到你的pages项目的<code>自定义域</code>选项，选择<code>设置自定义域</code>。设置自定义域名的格式是：{自定义的前缀}.{你的免费域名} 。输入后跳转页面点击<code>激活</code><img alt="13" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911798885_13%20(2).jpg" />  </p>
-<p>稍等一会查看自定义域选项,如果状态为绿色则证明激活有效，至此自定义域名已经完成。现在就可以使用自定义域名访问你的page项目了。  </p>
-<h4 id="24-v2rayn">2.4 客户端v2rayN设置</h4>
+<p>然后回到<code class="notranslate">部署</code>选项，选择<code class="notranslate">创建新部署</code>或者<code class="notranslate">创建部署</code>，再次上传刚才下载的<code class="notranslate">edgetunnel-main.zip</code>压缩包，然后点击保存并部署。这样就能达到重新触发部署的目的，如果是使用git仓库的话就不需要重复上传文件了。部署成功如下第二张图：<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d7cedd7421f6a7842e957ac494b5c6c06d90d31a852120317ce950e6384b10ae/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313734313831355f31312e6a7067"><img src="https://camo.githubusercontent.com/d7cedd7421f6a7842e957ac494b5c6c06d90d31a852120317ce950e6384b10ae/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313734313831355f31312e6a7067" alt="11" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911741815_11.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/dd0c8d0f44daa4543aefc32e43f5139ff36968fda3a3632535fd7a12a17f1fd1/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313737343435345f31322e6a7067"><img src="https://camo.githubusercontent.com/dd0c8d0f44daa4543aefc32e43f5139ff36968fda3a3632535fd7a12a17f1fd1/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313737343435345f31322e6a7067" alt="12" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911774454_12.jpg" style="max-width: 100%;"></a></p>
 <ul>
 <li>
-<h5 id="241">2.4.1 获取订阅地址</h5>
+<h5>2.3.7 自定义域名（可换可不换）</h5>
 </li>
 </ul>
-<p>上述必须的步骤完成后，如果你为进行自定义域名，那么回到你的pages项目的<code>部署</code>选项,  点击两个链接中的任意一个，就会看到一些json数据。如果你设置了自定义域名，那么使用自定义域名亦可访问。然后在链接地址后面添加<code>/你的uuid值</code>，点击回车后，就能看到几串订阅地址，订阅地址选择红框中的任意一个即可。<img alt="14" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911828008_14.jpg" /><img alt="15" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911867974_15.jpg" />  </p>
+<p>进入到你的pages项目的<code class="notranslate">自定义域</code>选项，选择<code class="notranslate">设置自定义域</code>。设置自定义域名的格式是：{自定义的前缀}.{你的免费域名} 。输入后跳转页面点击<code class="notranslate">激活</code><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bfe836cb8fbb01a6cee95fbfab726de8a1f522c5f8bc3b065b11af24316b6a15/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313739383838355f31332532302832292e6a7067"><img src="https://camo.githubusercontent.com/bfe836cb8fbb01a6cee95fbfab726de8a1f522c5f8bc3b065b11af24316b6a15/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313739383838355f31332532302832292e6a7067" alt="13" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911798885_13%20(2).jpg" style="max-width: 100%;"></a></p>
+<p>稍等一会查看自定义域选项,如果状态为绿色则证明激活有效，至此自定义域名已经完成。现在就可以使用自定义域名访问你的page项目了。</p>
+<h4>2.4 客户端v2rayN设置</h4>
 <ul>
 <li>
-<h5 id="242-v2rayn">2.4.2 下载v2rayN</h5>
+<h5>2.4.1 获取订阅地址</h5>
 </li>
 </ul>
-<p>点击跳转即可下载，下载完毕后，点击<code>添加订阅组</code>，把刚复制的订阅链接添加到地址中，接着在订阅分组中，选择<code>更新当前订阅分组</code>，可以使用<code>不通过代理方式</code>。<img alt="16" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911977252_16.jpg" />  </p>
+<p>上述必须的步骤完成后，如果你为进行自定义域名，那么回到你的pages项目的<code class="notranslate">部署</code>选项,  点击两个链接中的任意一个，就会看到一些json数据。如果你设置了自定义域名，那么使用自定义域名亦可访问。然后在链接地址后面添加<code class="notranslate">/你的uuid值</code>，点击回车后，就能看到几串订阅地址，订阅地址选择红框中的任意一个即可。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1d96e2fe4659ba963f42d7adb466b75fa76e86fe3bcf55a5f70953121391633b/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313832383030385f31342e6a7067"><img src="https://camo.githubusercontent.com/1d96e2fe4659ba963f42d7adb466b75fa76e86fe3bcf55a5f70953121391633b/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313832383030385f31342e6a7067" alt="14" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911828008_14.jpg" style="max-width: 100%;"></a><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a7afbd2efba163be4ecc3cd3cf9d085b7e50d1589f28697847c1646f863db8f6/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313836373937345f31352e6a7067"><img src="https://camo.githubusercontent.com/a7afbd2efba163be4ecc3cd3cf9d085b7e50d1589f28697847c1646f863db8f6/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313836373937345f31352e6a7067" alt="15" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911867974_15.jpg" style="max-width: 100%;"></a></p>
 <ul>
 <li>
-<h5 id="243">2.4.3 测试服务器真连接延迟</h5>
+<h5>2.4.2 下载v2rayN</h5>
 </li>
 </ul>
-<p>全选所有节点，右键点击<code>测试服务器真连接延迟</code>。选择一个合适的节点设置为活动服务器后，即可测试google，youtube等网站的连接情况。<img alt="17" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731912010201_17.jpg" />  </p>
+<p>点击跳转即可下载，下载完毕后，点击<code class="notranslate">添加订阅组</code>，把刚复制的订阅链接添加到地址中，接着在订阅分组中，选择<code class="notranslate">更新当前订阅分组</code>，可以使用<code class="notranslate">不通过代理方式</code>。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/244c7b2b6c312c21694829824a7b8197b1dc6d8051fb59521862749bee2e75c8/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313937373235325f31362e6a7067"><img src="https://camo.githubusercontent.com/244c7b2b6c312c21694829824a7b8197b1dc6d8051fb59521862749bee2e75c8/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931313937373235325f31362e6a7067" alt="16" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731911977252_16.jpg" style="max-width: 100%;"></a></p>
 <ul>
 <li>
-<h5 id="244">2.4.4 设置单一节点（非必选）</h5>
+<h5>2.4.3 测试服务器真连接延迟</h5>
 </li>
 </ul>
-<p>如果你使用的是v2rayN，使用单一节点，直接复制该内容粘贴到你的面板，即为单一节点 <img alt="18" src="https://cloudflare-imgbed-9xb.pages.dev/file/1731912036322_18.jpg" />  </p>
-<h2 id="3">3. 本文出处</h2>
-<p><a href="https://blog.eimoon.com/p/%E4%BD%BF%E7%94%A8cloudflate%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9/ [「GestureEVO」｜极简效率工具——“从屏幕边缘到万物入口，只需一次滑动](https://note.142588.xyz/post/4.html) %E8%AE%BE%E7%BD%AE%E5%8D%95%E4%B8%80%E8%8A%82%E7%82%B9">使用Cloudflate搭建自己的免费代理节点 (eimoon.com)</a>  </p>
-  </article>
-  
-<style>
-.code-block-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-.code-block-controls {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  z-index: 2;
-  display: flex;
-  gap: 2px;
-}
-.fold-btn, .copy-btn {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 2px 6px;
-  font-size: 16px;
-  outline: none;
-  box-shadow: none;
-  transition: background 0.2s;
-}
-.fold-btn:hover, .copy-btn:hover {
-  background: #eee;
-}
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // 复制功能
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
-        setTimeout(() => {
-          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
-        }, 1500);
-      });
-    });
-  });
-
-  // 折叠功能
-  document.addEventListener('click', e => {
-    if (e.target.classList.contains('fold-btn')) {
-      const code = e.target.parentElement.parentElement.querySelector('pre code');
-      const collapsed = code.style.display === 'none';
-      code.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '▲' : '▼';
-    }
-  });
-});
-</script>
-
-
-</div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://note.142588.xyz/post/9.html" aria-label="Previous Page">免费搭建无限空间＆支持身份认证的私人图床</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://note.142588.xyz/post/4.html" aria-label="Next Page">「GestureEVO」｜极简效率工具——“从屏幕边缘到万物入口，只需一次滑动</a></div>
-</nav>
-
-<!-- 编辑按钮 -->
-<a href="https://github.com/worhllo/Myblog/issues/8" target="_blank">
-    <button class="floating-button edit-post">🖋</button>
-</a>
-
-<!-- 新增按钮 -->
-<a href="https://github.com/worhllo/Myblog/issues/new" target="_blank">
-    <button class="floating-button new-post">+</button>
-</a>
+<p>全选所有节点，右键点击<code class="notranslate">测试服务器真连接延迟</code>。选择一个合适的节点设置为活动服务器后，即可测试google，youtube等网站的连接情况。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5efbcc2d4f26a2fc5489c2a6a804073ca52f01a25870e893d47244de94711b5d/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931323031303230315f31372e6a7067"><img src="https://camo.githubusercontent.com/5efbcc2d4f26a2fc5489c2a6a804073ca52f01a25870e893d47244de94711b5d/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931323031303230315f31372e6a7067" alt="17" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731912010201_17.jpg" style="max-width: 100%;"></a></p>
+<ul>
+<li>
+<h5>2.4.4 设置单一节点（非必选）</h5>
+</li>
+</ul>
+<p>如果你使用的是v2rayN，使用单一节点，直接复制该内容粘贴到你的面板，即为单一节点 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/aae7d67becf873a69a509de40f30e651009cfcff773eb547f7b72a960557dda1/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931323033363332325f31382e6a7067"><img src="https://camo.githubusercontent.com/aae7d67becf873a69a509de40f30e651009cfcff773eb547f7b72a960557dda1/68747470733a2f2f636c6f7564666c6172652d696d676265642d3978622e70616765732e6465762f66696c652f313733313931323033363332325f31382e6a7067" alt="18" data-canonical-src="https://cloudflare-imgbed-9xb.pages.dev/file/1731912036322_18.jpg" style="max-width: 100%;"></a></p>
+<h2>3. 本文出处</h2>
+<p><a href="https://blog.eimoon.com/p/%E4%BD%BF%E7%94%A8cloudflate%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E4%BB%A3%E7%90%86%E8%8A%82%E7%82%B9/#4%E8%AE%BE%E7%BD%AE%E5%8D%95%E4%B8%80%E8%8A%82%E7%82%B9" rel="nofollow">使用Cloudflate搭建自己的免费代理节点 (eimoon.com)</a></p></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
-    <div id="footer">Copyright © <span id="year"></span> <a href="https://note.142588.xyz"> 留心笔记 </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
 
 <script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
 if("03/01/2025"!=""){
-    var now=new Date();
     var startSite=new Date("03/01/2025");
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
-    document.getElementById("year").innerHTML=now.getFullYear();
-    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
-    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
 }
 </script></div>
-
-    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
-    <script src="https://note.142588.xyz/assets/oneko.js/oneko.js"></script>
 </body>
 <script>
-var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
 var utterancesLoad=0;
-if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
-else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
-else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 
-function changeDark(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
-    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
-    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
-    if(utterancesLoad==1){utterancesTheme("dark-blue");}
-}
-function changeLight(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
-    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
-    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
-    if(utterancesLoad==1){utterancesTheme("github-light");}
-}
-function modeSwitch(){
-    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
-    else{changeLight();localStorage.setItem("meek_theme","light");}
-}
-function utterancesTheme(theme){
-    const message = {type: 'set-theme',theme: theme};
-    const iframe = document.getElementsByClassName('utterances-frame')[0];
-    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
-}
-
-console.log("\n %c Gmeek last %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
 </script>
 
-
 <script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 
 
 
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
     cmButton.innerHTML="loading";
     span=document.createElement("span");
     span.setAttribute("class","AnimatedEllipsis");
@@ -397,11 +241,9 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","worhllo/Myblog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){
-        script.setAttribute("theme","dark-blue");
-    }else{
-        script.setAttribute("theme","github-light");
-    }
+    
+    script.setAttribute("theme","dark-blue");
+    
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
@@ -421,11 +263,9 @@ function iFrameLoading(){
     }
 }
 
+
+
 </script>
-
-
-
-<script src="https://note.142588.xyz/assets/toc.js"></script>
-
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');}});</script>
 
 </html>
