@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 14:15:07 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「建站」「js插件」萌萌哒的看板娘 (ノ≧∇≦)ノ - Live2D widget</title><link>https://note.142588.xyz/post/30.html</link><description>## 内容简介
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 14:17:05 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「建站」「js插件」萌萌哒的看板娘 (ノ≧∇≦)ノ - Live2D widget</title><link>https://note.142588.xyz/post/30.html</link><description>## 内容简介
 
 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform
 
@@ -359,14 +359,79 @@ img{
 &gt; ## “给你讲个笑话，你可别哭啊！”
 &gt; 民国时期，在一个远离喧嚣和战乱的偏远山区，伫立着一所简陋平凡的学校。</description><guid isPermaLink="true">https://note.142588.xyz/post/15.html</guid><pubDate>Mon, 24 Mar 2025 13:09:15 +0000</pubDate></item><item><title>什么叫你的BitWarden是跑在Cloudflare上的？教你薅干大善人！</title><link>https://note.142588.xyz/post/14.html</link><description>## 前言
 
-一直见有网友在纠结密码管理器应该跑在哪。</description><guid isPermaLink="true">https://note.142588.xyz/post/14.html</guid><pubDate>Mon, 24 Mar 2025 13:07:51 +0000</pubDate></item><item><title>Hugo+Github博客部署</title><link>https://note.142588.xyz/post/13.html</link><description>## 1. 环境准备
-### 1.1 下载Hugo
+一直见有网友在纠结密码管理器应该跑在哪。</description><guid isPermaLink="true">https://note.142588.xyz/post/14.html</guid><pubDate>Mon, 24 Mar 2025 13:07:51 +0000</pubDate></item><item><title>使用CloudFlare搭建临时邮箱服务</title><link>https://note.142588.xyz/post/13.html</link><description>## 1.项目地址
 
-- 网址：[Hugo官网](https://gohugo.io/)
+[https://github.com/dreamhunter2333/cloudflare\_temp\_email](https://github.com/dreamhunter2333/cloudflare_temp_email)
 
-- Github地址:[gohugoio/hugo](https://github.com/gohugoio/hugo)
+体验地址：[https://email.sanyue.site](https://email.sanyue.site/)
 
-- 选择合适的版本下载。</description><guid isPermaLink="true">https://note.142588.xyz/post/13.html</guid><pubDate>Mon, 24 Mar 2025 13:06:27 +0000</pubDate></item><item><title>Markdown语法</title><link>https://note.142588.xyz/post/12.html</link><description># Markdown语法介绍
+​![image\-20231205173443202](https://alist.sanyue.site/d/imgbed/202312051734505.png)​
+
+image\-20231205173443202
+
+## 2.环境
+
+一台Ubuntu22.04服务器
+
+安装nvm以安装指定的node版本：
+
+shell``` shell
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.profile
+nvm ls-remote```安装node：
+
+shell``` shell
+nvm install 18.16.0
+nvm use 18.16.0```安装wrangler
+
+shell``` shell
+npm install -g wrangler```## 3.搭建CloudFlare D1数据库
+
+克隆仓库到本地
+
+text``` text
+cd ~
+git clone https://github.com/dreamhunter2333/cloudflare_temp_email.git
+cd cloudflare_temp_email```创建D1数据库
+
+text``` text
+wrangler d1 create sanyue_email # 随便取个名字来替换sanyue_email```之后会弹出验证你的cf账户链接
+
+text``` text
+Opening a link in your default browser: ....```我们点击链接，同意授权
+
+注意授权成功后会跳转到localhost，我们需要把localhost修改为服务器的ip（​打不开的话记得放行对应端口​）
+
+之后创建数据表：
+
+shell``` shell
+wrangler d1 execute sanyue_email --file=db/schema.sql   # 按照上面的名字来替换sanyue_email```## 4.后端CloudFlare Worker搭建
+
+执行：
+
+shell``` shell
+cd worker
+npm install
+cp wrangler.toml.template wrangler.toml```修改配置文件：
+
+shell``` shell
+vim wrangler.toml```具体设置内容：
+
+none``` none
+[vars]
+PREFIX = 'tmp'
+DOMAIN = 'yourDomain.com' #修改为你自己的域名
+JWT_SECRET = 'anything' #随便写一个
+
+[[d1_databases]]
+binding = 'DB'
+database_name = 'sanyue_email' #数据库名称，和之前一样
+database_id = '去控制台看自己的数据库id'```部署Worker：
+
+none``` none
+wrangler deploy```## 5.前端页面部署
+
+首先为刚才的后端Worker加上自定义域名。</description><guid isPermaLink="true">https://note.142588.xyz/post/13.html</guid><pubDate>Mon, 24 Mar 2025 13:06:27 +0000</pubDate></item><item><title>Markdown语法</title><link>https://note.142588.xyz/post/12.html</link><description># Markdown语法介绍
 
 ## 一、标题
 
