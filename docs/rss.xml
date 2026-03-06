@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 13:32:22 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「建站」Gmeek使用手册（进阶篇）</title><link>https://note.142588.xyz/post/26.html</link><description>## 📑 自定义配置文件
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 13:33:31 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「建站」Gmeek使用手册（高级篇）</title><link>https://note.142588.xyz/post/27.html</link><description>## 一、主题配置 👀
+
+### 1\. 手动模式（默认）
+
+这种模式就是当访问者第一次打开博客页面时，呈现的是亮主题。</description><guid isPermaLink="true">https://note.142588.xyz/post/27.html</guid><pubDate>Fri, 06 Mar 2026 13:33:02 +0000</pubDate></item><item><title>「建站」Gmeek使用手册（进阶篇）</title><link>https://note.142588.xyz/post/26.html</link><description>## 📑 自定义配置文件
 
 Important
 
