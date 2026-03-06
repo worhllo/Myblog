@@ -333,3 +333,7 @@ III. 全局文章自定义参数，添加全局文章页面的`style`和`script`
 ### 3\. 删除文章
 
 只需要`Close issue`或者`Delete issue`后，再手动全局生成一次即可。
+
+## 转载说明
+
+参考链接：[「建站」Gmeek使用手册（高级篇）](https://grapehut.dpdns.org/post/3.html)
