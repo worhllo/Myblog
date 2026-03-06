@@ -1,5 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 14:17:05 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「建站」「js插件」萌萌哒的看板娘 (ノ≧∇≦)ノ - Live2D widget</title><link>https://note.142588.xyz/post/30.html</link><description>## 内容简介
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 14:24:37 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>dev-sidrcar一个好用神器</title><link>https://note.142588.xyz/post/31.html</link><description>## dev-sidecar
+开发者边车，命名取自service-mesh的service-sidecar，意为为开发者打辅助的边车工具（以下简称ds）
+通过本地代理的方式将https请求代理到一些国内的加速通道上
+
+
+
+## 重要提醒
+
+&gt; [!IMPORTANT]
+&gt; 注意：由于electron无法监听windows的关机事件，开着ds情况下直接重启电脑，会导致无法上网，你可以手动启动ds即可恢复网络，你也可以将ds设置为开机自启。</description><guid isPermaLink="true">https://note.142588.xyz/post/31.html</guid><pubDate>Fri, 06 Mar 2026 14:24:07 +0000</pubDate></item><item><title>「建站」「js插件」萌萌哒的看板娘 (ノ≧∇≦)ノ - Live2D widget</title><link>https://note.142588.xyz/post/30.html</link><description>## 内容简介
 
 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform
 

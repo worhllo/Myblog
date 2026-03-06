@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="## dev-sidecar
+开发者边车，命名取自service-mesh的service-sidecar，意为为开发者打辅助的边车工具（以下简称ds）
+通过本地代理的方式将https请求代理到一些国内的加速通道上
+
+
+
+## 重要提醒
+
+> [!IMPORTANT]
+> 注意：由于electron无法监听windows的关机事件，开着ds情况下直接重启电脑，会导致无法上网，你可以手动启动ds即可恢复网络，你也可以将ds设置为开机自启。">
+<meta property="og:title" content="dev-sidrcar一个好用神器">
+<meta property="og:description" content="## dev-sidecar
+开发者边车，命名取自service-mesh的service-sidecar，意为为开发者打辅助的边车工具（以下简称ds）
+通过本地代理的方式将https请求代理到一些国内的加速通道上
+
+
+
+## 重要提醒
+
+> [!IMPORTANT]
+> 注意：由于electron无法监听windows的关机事件，开着ds情况下直接重启电脑，会导致无法上网，你可以手动启动ds即可恢复网络，你也可以将ds设置为开机自启。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/31.html">
+<meta property="og:image" content="../avatar.png">
+<title>dev-sidrcar一个好用神器</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-important {border-left-color:var(--borderColor-done-emphasis, var(--color-done-emphasis));background-color:var(--color-done-subtle);}.markdown-alert.markdown-alert-important .markdown-alert-title {color: var(--fgColor-done,var(--color-done-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">dev-sidrcar一个好用神器</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/31" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h2>dev-sidecar</h2>
+<p>开发者边车，命名取自service-mesh的service-sidecar，意为为开发者打辅助的边车工具（以下简称ds）<br>
+通过本地代理的方式将https请求代理到一些国内的加速通道上</p>
+<h2>重要提醒</h2>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>注意：由于electron无法监听windows的关机事件，开着ds情况下直接重启电脑，会导致无法上网，你可以手动启动ds即可恢复网络，你也可以将ds设置为开机自启。</p>
+</div>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>注意：本应用启动会自动修改系统代理，所以会与其他代理软件有冲突，一起使用时请谨慎使用。与Watt Toolkit（原Steam++）共用时，请以hosts模式启动Watt Toolkit。与TUN网卡模式运行的游戏加速器可以共用。本应用主要目的在于直连访问github，如果你已经有飞机了，那建议还是不要用这个自行车（ds）了</p>
+</div>
+<h2>一、 特性</h2>
+<h3>1.1、 dns优选（解决***污染问题）</h3>
+<ul>
+<li>根据网络状况智能解析最佳域名ip地址，获取最佳网络速度</li>
+<li>解决一些网站和库无法访问或访问速度慢的问题</li>
+<li>建议遇到打开比较慢的国外网站，可以优先尝试将该域名添加到dns设置中（注意：被***封杀的无效）</li>
+</ul>
+<h3>1.2、 请求拦截</h3>
+<ul>
+<li>拦截打不开的网站，代理到加速镜像站点上去。</li>
+<li>可配置多个镜像站作为备份</li>
+<li>具备测速机制，当访问失败或超时之后，自动切换到备用站点，使得目标服务高可用</li>
+</ul>
+<h3>1.3、 github加速</h3>
+<ul>
+<li>github 直连加速 (通过修改sni实现，感谢 <a href="https://github.com/dotnetcore/FastGithub">fastGithub</a> 提供的思路)</li>
+<li>release、source、zip下载加速</li>
+<li>clone 加速</li>
+<li>头像加速</li>
+<li>解决readme中图片引用无法加载的问题</li>
+<li>gist.github.com 加速</li>
+<li>解决git push 偶尔失败需要输入账号密码的问题（fatal: TaskCanceledException encountered / fatal: HttpRequestException encountered）</li>
+<li>raw/blame加速</li>
+</ul>
+<blockquote>
+<p>以上部分功能通过 <code class="notranslate">X.I.U</code> 的油猴脚本实现， 以下是仓库和脚本下载链接，大家可以去支持一下。</p>
+<ul>
+<li>
+<p><a href="https://github.com/XIU2/UserScript">https://github.com/XIU2/UserScript</a></p>
+</li>
+<li>
+<p><a href="https://greasyfork.org/scripts/412245" rel="nofollow">https://greasyfork.org/scripts/412245</a></p>
+</li>
+</ul>
+<p>由于此脚本在ds中是打包在本地的，更新会不及时，你可以直接通过浏览器安装油猴插件使用此脚本，从而获得最新更新（ds本地的可以通过 <code class="notranslate">加速服务-&gt;基本设置-&gt;启用脚本</code> 进行关闭）。</p>
+</blockquote>
+<h3>1.4、 Stack Overflow 加速</h3>
+<ul>
+<li>将ajax.google.com代理到加速CDN上</li>
+<li>recaptcha 图片验证码加速</li>
+</ul>
+<h3>1.5、 npm加速</h3>
+<ul>
+<li>支持开启npm代理</li>
+<li>官方与淘宝npm registry一键切换</li>
+<li>某些npm install的时候，并且使用cnpm也无法安装时，可以尝试开启npm代理再试</li>
+</ul>
+<p><strong><em>安全警告</em></strong>：</p>
+<ul>
+<li>请勿使用来源不明的服务/远程配置地址，有隐私和账号泄露风险</li>
+<li>本应用及服务/默认远程配置端承诺不收集任何信息。介意者请使用安全模式。</li>
+</ul>
+<h2>二、快速开始</h2>
+<p>支持windows、Mac、Linux(Ubuntu)</p>
+<h3>2.1、DevSidecar桌面应用</h3>
+<h4>1）下载安装包</h4>
+<ul>
+<li>release下载<br>
+<a href="https://github.com/docmirror/dev-sidecar/releases">Github Release</a></li>
+</ul>
+<blockquote>
+<p>Windows: 请选择DevSidecar-x.x.x-windows-universal.exe</p>
+<p>Mac: 请选择DevSidecar-x.x.x-macos-universal.dmg</p>
+<p>Debian系及其他支持deb安装包的Linux: 请选择DevSidecar-x.x.x-linux-[架构].deb</p>
+<p>其他Linux: 请选择DevSidecar-x.x.x-linux-[架构].AppImage (未做测试，不保证能用)</p>
+</blockquote>
+<blockquote>
+<p>linux安装说明请参考 <a href="./doc/linux.md">linux安装文档</a></p>
+</blockquote>
+<blockquote>
+<p>注意：由于没有买应用证书，所以应用在下载安装时会有“未知发行者”等安全提示，选择保留即可。</p>
+</blockquote>
+<h4>2）安装后打开</h4>
+<p>界面应大致如下图所示：</p>
+<blockquote>
+<p>注意：mac版安装需要在“系统偏好设置-&gt;安全性与隐私-&gt;通用”中解锁并允许应用安装</p>
+</blockquote>
+<p><a target="_blank" rel="noopener noreferrer" href="./doc/index.png"><img src="./doc/index.png" alt="" style="max-width: 100%;"></a></p>
+<h4>3）安装根证书</h4>
+<p>第一次打开会提示安装证书，根据提示操作即可</p>
+<p>更多有关根证书的说明，请参考 <a href="./doc/caroot.md">为什么要安装根证书?</a></p>
+<blockquote>
+<p>根证书是本地随机生成的，所以不用担心根证书的安全问题（本应用不收集任何用户信息）</p>
+<p>你也可以在加速服务设置中自定义根证书（PEM格式的证书与私钥）</p>
+</blockquote>
+<blockquote>
+<p>火狐浏览器需要<a href="#3%E7%81%AB%E7%8B%90%E6%B5%8F%E8%A7%88%E5%99%A8%E7%81%AB%E7%8B%90%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8D%E8%B5%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A0%B9%E8%AF%81%E4%B9%A6%E9%9C%80%E8%A6%81%E5%9C%A8%E9%80%89%E9%A1%B9%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%A0%B9%E8%AF%81%E4%B9%A6">手动安装证书</a></p>
+</blockquote>
+<h4>4）开始加速吧</h4>
+<p>去试试打开github、huggingface、docker hub吧</p>
+<h3>2.2、开启前 vs 开启后</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th></th>
+<th>开启前</th>
+<th>开启后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>头像</td>
+<td><a target="_blank" rel="noopener noreferrer" href="./doc/avatar2.png"><img src="./doc/avatar2.png" alt="" style="max-width: 100%;"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="./doc/avatar1.png"><img src="./doc/avatar1.png" alt="" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td>clone</td>
+<td><a target="_blank" rel="noopener noreferrer" href="./doc/clone-before.png"><img src="./doc/clone-before.png" alt="" style="max-width: 100%;"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="./doc/clone.png"><img src="./doc/clone.png" alt="" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td>zip 下载</td>
+<td><a target="_blank" rel="noopener noreferrer" href="./doc/download-before.png"><img src="./doc/download-before.png" alt="" style="max-width: 100%;"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="./doc/download.png"><img src="./doc/download.png" alt="" style="max-width: 100%;"></a>秒下的，实在截不到速度的图</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h2>三、模式说明</h2>
+<h3>3.1、安全模式</h3>
+<ul>
+<li>此模式：关闭拦截、关闭增强、不使用远程配置、开启dns优选、开启测速</li>
+<li>最安全，无需安装证书，可以在浏览器地址栏左侧查看域名证书</li>
+<li>功能也最弱，只有特性1，相当于查询github的国外ip，手动改hosts一个意思。</li>
+<li>github的可访问性不稳定，取决于IP测速，如果有绿色ip存在，就 <code class="notranslate">有可能</code> 可以直连访问。<br>
+<a target="_blank" rel="noopener noreferrer" href="./doc/speed.png"><img src="./doc/speed.png" alt="" style="max-width: 100%;"></a></li>
+</ul>
+<h3>3.2、默认模式</h3>
+<ul>
+<li>此模式：开启拦截、关闭增强、使用远程配置、开启dns优选、开启测速</li>
+<li>需要安装证书，通过修改sni直连访问github</li>
+<li>功能上包含特性1/2/3/4。</li>
+</ul>
+<h3>3.3、增强模式（彩蛋）</h3>
+<ul>
+<li>一个简单的梯子（敏感原因，默认隐藏，更多信息请点击左侧增强功能菜单）</li>
+<li>提示在软件首页左下角，即去dev-sidecar项目源码里面搜索“//TODO”，最终分会到达packages/core/index.js这个文件中，看到以下提示</li>
+</ul>
+<blockquote>
+<p>module.exports = require('./src')<br>
+// TODO  这是一个解谜游戏 ↓ ↓ ↓ ↓ ↓ ↓ ，如果你破解了它，请不要公开，好好用它来学习和查资料吧（特别注意：为了你的人身安全，请不要用它来查看和发表不当言论，你懂得）。<br>
+/**<br>
+\u0061\u0048\u0052\u0030\u0063\u0044\u006f\u0076\u004c\u0032\u0052\u006c\u0064\u0069\u0031\u007a\u0061\u0057\u0052\u006c\u0059\u0032\u0046\u0079\u004c\u006d\u0052\u0076\u0059\u0032\u0031\u0070\u0063\u006e\u004a\u0076\u0063\u0069\u0035\u006a\u0062\u0069\u0039\u0035\u0062\u0033\u0056\u006d\u0061\u0057\u0035\u006b\u0061\u0058\u0051\u0076\u0061\u0057\u0035\u006b\u005a\u0058\u0067\u0075\u0061\u0048\u0052\u0074\u0062\u0041\u003d\u003d<br>
+*/<br>
+// 这个项目里有一点点解谜提示： <a href="https://github.com/fast-crud/fast-crud">https://github.com/fast-crud/fast-crud</a>  （DevSidecar解谜提示<br>
+谜题共三层，前两层是两种不同的编码方式，第三层这里就不剧透了，留一点小乐趣。）</p>
+</blockquote>
+<ul>
+<li>复制文中的编码，进行<a href="https://www.toolhelper.cn/EncodeDecode/UnicodeChinese" rel="nofollow">Unicode与中文 编码/解码</a>，会得到<strong>aHR0cDovL2Rldi1zaWRlY2FyLmRvY21pcnJvci5jbi95b3VmaW5kaXQvaW5kZXguaHRtbA==</strong></li>
+<li>再对得到的字符进行<a href="https://www.toolhelper.cn/EncodeDecode/Base64" rel="nofollow">Base64 编码/解码</a>，会得到<strong><a href="http://dev-sidecar.docmirror.cn/youfindit/index.html" rel="nofollow">http://dev-sidecar.docmirror.cn/youfindit/index.html</a></strong></li>
+<li>在搜索框输入得到的链接，下拉点击左下角，会发现有一张透明图片，将该图片保存<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bf36d7735ee4d794a0e6a7d7d7b2fd020f1cc68a351de36a1c799c7beb135727/68747470733a2f2f696d676265642e3134323538382e78797a2f66696c652f313736363931313239303639335f2545342542382538422545382542442542442e706e67"><img src="https://camo.githubusercontent.com/bf36d7735ee4d794a0e6a7d7d7b2fd020f1cc68a351de36a1c799c7beb135727/68747470733a2f2f696d676265642e3134323538382e78797a2f66696c652f313736363931313239303639335f2545342542382538422545382542442542442e706e67" alt="下载.png" data-canonical-src="https://imgbed.142588.xyz/file/1766911290693_%E4%B8%8B%E8%BD%BD.png" style="max-width: 100%;"></a></li>
+<li>在图片浏览器打开就会出现二维码，手机扫描后就会得到最终答案</li>
+</ul>
+<blockquote>
+<p>windows下打开 【C:\Users\Administrator.dev-sidecar\setting.json5】， 或mac下打开 【~/.dev-sidecar/setting.json5】， 将【overwall: false】修改为【overwall: true】即可开启增强功能</p>
+</blockquote></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
