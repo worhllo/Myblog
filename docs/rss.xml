@@ -1,5 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:25:06 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」 Serverless 文件管理与 Markdown 分享工具</title><link>https://note.142588.xyz/post/64.html</link><description>&lt;div align='center'&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:29:03 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」 优雅地阅读实时热门新闻</title><link>https://note.142588.xyz/post/65.html</link><description>&gt; [!NOTE]
+&gt; 优雅地阅读实时热门新闻
+源仓库：[ourongxingnewsnow Elegant reading of real-time and hottest news](https://github.com/ourongxing/newsnow)
+
+
+## 功能特性
+- 优雅的阅读界面设计，实时获取最新热点新闻
+- 支持 GitHub 登录及数据同步
+- 默认缓存时长为 30 分钟，登录用户可强制刷新获取最新数据
+- 根据内容源更新频率动态调整抓取间隔（最快每 2 分钟），避免频繁抓取导致 IP 被封禁
+- 支持 MCP server
+
+```json
+{
+  'mcpServers': {
+    'newsnow': {
+      'command': 'npx',
+      'args': [
+        '-y',
+        'newsnow-mcp-server'
+      ],
+      'env': {
+        'BASE_URL': 'https://newsnow.busiyi.world'
+      }
+    }
+  }
+}
+```
+
+你可以将 `BASE_URL` 修改为你的域名。</description><guid isPermaLink="true">https://note.142588.xyz/post/65.html</guid><pubDate>Sat, 07 Mar 2026 07:28:36 +0000</pubDate></item><item><title>「CF项目」 Serverless 文件管理与 Markdown 分享工具</title><link>https://note.142588.xyz/post/64.html</link><description>&lt;div align='center'&gt;
     &lt;p&gt;
     &lt;a href='README_CN.md'&gt;中文&lt;/a&gt; | &lt;a href='README.md'&gt;English&lt;/a&gt; |
     &lt;a href='https://www.readme-i18n.com/ling-drag0n/CloudPaste?lang=es'&gt;Español&lt;/a&gt; |
