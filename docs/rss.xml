@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 05:33:03 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」搭建私有微信公众号代理节点</title><link>https://note.142588.xyz/post/42.html</link><description>&gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 05:46:46 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」「CF项目」</title><link>https://note.142588.xyz/post/43.html</link><description>&gt; [!NOTE]
+&gt;基于 Cloudflare Workers 的全功能 HTTP/HTTPS 代理服务
+源仓库：[cloudflare-proxy-master](https://github.com/Yrobot/cloudflare-proxy)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://sink.proddig.com/cloudflare-proxy-github)
+
+## 特性
+
+- 🌐 **多种访问方式** - Web 界面、查询参数、路径方式、标准 HTTP 代理
+- 🔒 **HTTPS 支持** - 完整支持 HTTPS 网站代理
+- 🔄 **智能重定向** - 自动处理 301/302 等重定向
+- 🛠️ **路径修复** - 自动修复 HTML 中的相对路径
+- 🌍 **CORS 支持** - 完整的跨域资源共享支持
+- 📱 **响应式设计** - 完美适配移动端和桌面端
+- ⚡ **零成本运行** - Cloudflare Workers 免费版每天 10 万次请求
+
+## 页面展示
+
+![screenshot](./screenshot.png)
+
+## 安装方式
+
+### 方式一：一键部署（推荐）
+
+点击上方 'Deploy to Cloudflare Workers' 按钮，按照提示完成部署。</description><guid isPermaLink="true">https://note.142588.xyz/post/43.html</guid><pubDate>Sat, 07 Mar 2026 05:46:18 +0000</pubDate></item><item><title>「CF项目」搭建私有微信公众号代理节点</title><link>https://note.142588.xyz/post/42.html</link><description>&gt; [!NOTE]
 &gt; .私有代理节点部署在各种 serverless 环境（**都是国外的平台，所以在使用时最好配合翻墙软件**），可以加速资源的下载进度。</description><guid isPermaLink="true">https://note.142588.xyz/post/42.html</guid><pubDate>Sat, 07 Mar 2026 05:32:38 +0000</pubDate></item><item><title>「CF项目」Clash 订阅合并工具</title><link>https://note.142588.xyz/post/41.html</link><description>&gt; [!NOTE]
 &gt; 这是 Clash 订阅合并工具的 Cloudflare Worker 版本，使用 KV 数据库存储配置。</description><guid isPermaLink="true">https://note.142588.xyz/post/41.html</guid><pubDate>Sat, 07 Mar 2026 05:29:38 +0000</pubDate></item><item><title>「Vercel项目」优雅的在线封面生成工具</title><link>https://note.142588.xyz/post/40.html</link><description>&lt;p align='center'&gt;
   &lt;img src='public/favicon.svg' width='100' height='100' alt='Mini-Cover Logo'&gt;
