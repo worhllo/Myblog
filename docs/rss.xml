@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 06:38:08 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」Serverless Cloud Notepad 云笔记</title><link>https://note.142588.xyz/post/54.html</link><description>&gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 06:42:03 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」基于 Next.js 15 构建的现代化导航管理平台</title><link>https://note.142588.xyz/post/55.html</link><description>
+&lt;p align='center'&gt;
+  &lt;strong&gt;现代化导航管理平台 | Modern Navigation Management Platform&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p align='center'&gt;
+  &lt;a href='https://github.com/tianyaxiang/NavSphere/stargazers'&gt;&lt;img alt='GitHub stars' src='https://img.shields.io/github/stars/tianyaxiang/NavSphere?style=flat-square'&gt;&lt;/a&gt;
+  &lt;a href='https://github.com/tianyaxiang/NavSphere/network'&gt;&lt;img alt='GitHub forks' src='https://img.shields.io/github/forks/tianyaxiang/NavSphere?style=flat-square'&gt;&lt;/a&gt;
+  &lt;a href='https://github.com/tianyaxiang/NavSphere/issues'&gt;&lt;img alt='GitHub issues' src='https://img.shields.io/github/issues/tianyaxiang/NavSphere?style=flat-square'&gt;&lt;/a&gt;
+  &lt;a href='https://github.com/tianyaxiang/NavSphere/blob/main/LICENSE'&gt;&lt;img alt='GitHub license' src='https://img.shields.io/github/license/tianyaxiang/NavSphere?style=flat-square'&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p align='center'&gt;
+  &lt;a href='https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftianyaxiang%2FNavSphere&amp;env=GITHUB_CLIENT_ID,GITHUB_CLIENT_SECRET,GITHUB_OWNER,GITHUB_REPO,GITHUB_BRANCH,NEXTAUTH_URL,NEXT_PUBLIC_API_URL&amp;envDescription=GitHub%20OAuth%20%E5%92%8C%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE&amp;envLink=https%3A%2F%2Fgithub.com%2Ftianyaxiang%2FNavSphere%23%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE&amp;project-name=navsphere&amp;repository-name=navsphere'&gt;
+    &lt;img src='https://vercel.com/button' alt='Deploy with Vercel'/&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&gt; [!NOTE]
+&gt; NavSphere 是一个基于 Next.js 15 构建的现代化导航管理平台，专为个人和团队打造的书签管理和导航门户解决方案。</description><guid isPermaLink="true">https://note.142588.xyz/post/55.html</guid><pubDate>Sat, 07 Mar 2026 06:41:39 +0000</pubDate></item><item><title>「CF项目」Serverless Cloud Notepad 云笔记</title><link>https://note.142588.xyz/post/54.html</link><description>&gt; [!NOTE]
 &gt; ☁ Serverless Cloud Notepad 云笔记（无服务）
 你可以记录文字，与朋友们分享，或者跨设备同步。</description><guid isPermaLink="true">https://note.142588.xyz/post/54.html</guid><pubDate>Sat, 07 Mar 2026 06:37:40 +0000</pubDate></item><item><title>「CF项目」简单的网络分析跟踪器和仪表板</title><link>https://note.142588.xyz/post/53.html</link><description>&gt; [!NOTE]
 &gt; Han-Analytics
