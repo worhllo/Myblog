@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="> [!NOTE]
+> 🎮 Epic Games Free Notifier | Epic 喜加一通知机器人
+这是一个基于 GitHub Actions 的全自动化脚本，**每天自动检测** Epic Games Store 的免费游戏，并通过 Telegram Bot 发送精美的图文通知。">
+<meta property="og:title" content="「Action项目」Epic 喜加一通知机器人">
+<meta property="og:description" content="> [!NOTE]
+> 🎮 Epic Games Free Notifier | Epic 喜加一通知机器人
+这是一个基于 GitHub Actions 的全自动化脚本，**每天自动检测** Epic Games Store 的免费游戏，并通过 Telegram Bot 发送精美的图文通知。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/68.html">
+<meta property="og:image" content="../avatar.png">
+<title>「Action项目」Epic 喜加一通知机器人</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「Action项目」Epic 喜加一通知机器人</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/68" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>🎮 Epic Games Free Notifier | Epic 喜加一通知机器人<br>
+这是一个基于 GitHub Actions 的全自动化脚本，<strong>每天自动检测</strong> Epic Games Store 的免费游戏，并通过 Telegram Bot 发送精美的图文通知。<br>
+你不需要服务器，不需要懂代码，只要拥有一个 GitHub 账号，就能免费部署属于你自己的通知机器人！<br>
+源仓库：<a href="https://github.com/wwxseo/epic-">wwxseoepic- 🎮 Epic 喜加一自动通知机器人  每天自动检测 Epic 免费游戏并推送到 Telegram (零成本GitHub Actions)  Epic Games Free Games Notifier via Telegram Bot</a></p>
+</div>
+<h2>✨ 核心功能</h2>
+<ul>
+<li><strong>☁️ 零成本 (Serverless)</strong>：直接利用 GitHub Actions 免费运行，不需要购买云服务器。</li>
+<li><strong>⏰ 全天候监测</strong>：每天北京时间 10:00 自动检查。完美支持<strong>每周四的常规免费</strong>以及<strong>圣诞节/春节期间的每日免费活动</strong>。</li>
+<li><strong>🧠 智能防打扰</strong>：内置去重逻辑。脚本会自动计算游戏上架时间，<strong>只推送 24 小时内新上架的游戏</strong>。如果是旧游戏，机器人会保持安静，不会重复骚扰。</li>
+<li><strong>📸 精美排版</strong>：消息包含游戏<strong>封面大图</strong>、<strong>中文/英文标题</strong>、<strong>简介</strong>、<strong>截止时间</strong>以及<strong>直达领取链接</strong>。</li>
+<li><strong>🛡️ 永久运行</strong>：内置 Keepalive 防暂停机制，防止 GitHub 因为仓库长期无活跃提交而暂停定时任务。</li>
+</ul>
+<h2>🚀 新手部署教程 (只需 3 步)</h2>
+<h3>第一步：准备 Telegram 机器人</h3>
+<p><em>(如果你已经有机器人和 Chat ID，请跳过此步)</em></p>
+<ol>
+<li><strong>获取 Bot Token</strong>:
+<ul>
+<li>在 Telegram 搜索 <code class="notranslate">@BotFather</code>。</li>
+<li>发送指令 <code class="notranslate">/newbot</code>。</li>
+<li>按照提示给机器人起个名字。</li>
+<li>你将获得一串 Token（例如：<code class="notranslate">123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11</code>），<strong>复制并保存好</strong>。</li>
+</ul>
+</li>
+<li><strong>获取 Chat ID</strong>:
+<ul>
+<li>在 Telegram 搜索 <code class="notranslate">@userinfobot</code>。</li>
+<li>点击 <code class="notranslate">Start</code>，它会回复一串数字（例如：<code class="notranslate">123456789</code>），这就是你的 Chat ID，<strong>复制并保存好</strong>。</li>
+</ul>
+</li>
+</ol>
+<h3>第二步：Fork 本仓库</h3>
+<ol>
+<li>点击页面右上角的 <strong>Fork</strong> 按钮。</li>
+<li>点击 <strong>Create fork</strong>，将这个项目复制到你自己的 GitHub 账号下。</li>
+</ol>
+<h3>第三步：配置密钥 (Secrets)</h3>
+<ol>
+<li>进入你 Fork 后的仓库页面。</li>
+<li>点击上方的 <strong>Settings</strong> (设置) ⚙️。</li>
+<li>在左侧栏找到 <strong>Secrets and variables</strong> -&gt; 点击 <strong>Actions</strong>。</li>
+<li>点击绿色的 <strong>New repository secret</strong> 按钮，依次添加以下两个变量：</li>
+</ol>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th align="left">Name (变量名)</th>
+<th align="left">Secret (值)</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code class="notranslate">TG_BOT_TOKEN</code></td>
+<td align="left"><code class="notranslate">你的机器人Token</code></td>
+<td align="left">刚才找 BotFather 申请的那串字符</td>
+</tr>
+<tr>
+<td align="left"><code class="notranslate">TG_CHAT_ID</code></td>
+<td align="left"><code class="notranslate">你的数字ID</code></td>
+<td align="left">刚才找 userinfobot 获取的那串数字</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>第四步：开启权限 (重要！)</h3>
+<p>为了防止 GitHub 60天后自动停止任务，我们需要开启写权限：</p>
+<ol>
+<li>点击仓库上方的 <strong>Settings</strong>。</li>
+<li>左侧点击 <strong>Actions</strong> -&gt; <strong>General</strong>。</li>
+<li>向下滚动到 <strong>Workflow permissions</strong> 区域。</li>
+<li>勾选 <strong>Read and write permissions</strong>。</li>
+<li>点击 <strong>Save</strong> 保存。</li>
+</ol>
+<h3>第五步：启动！</h3>
+<ol>
+<li>点击仓库上方的 <strong>Actions</strong> 标签。</li>
+<li>你会看到左侧有一个警告或提示，点击绿色的 <strong>I understand my workflows, go ahead and enable them</strong> 按钮。</li>
+<li>点击左侧的 <strong>Epic Free Game Notifier</strong>。</li>
+<li>点击右侧的 <strong>Run workflow</strong> -&gt; <strong>Run workflow</strong> 按钮进行首次测试。</li>
+</ol>
+<hr>
+<h2>❓ 常见问题 (FAQ)</h2>
+<p><strong>Q: 我手动运行了，为什么没收到消息？</strong><br>
+A: 这是正常的！脚本有<strong>去重机制</strong>。如果当前 Epic 的免费游戏是几天前上架的（比如《霍格沃茨之遗》已经送了3天了），脚本会自动跳过，避免重复发消息。<br>
+<strong>只有当 Epic 上架了新游戏（上架时间 &lt; 28小时），你才会收到推送。</strong></p>
+<p><strong>Q: 什么时候会自动运行？</strong><br>
+A: 每天北京时间 <strong>上午 10:00</strong> (UTC 02:00)。</p>
+<p><strong>Q: 我能改运行时间吗？</strong><br>
+A: 可以。修改 <code class="notranslate">.github/workflows/main.yml</code> 文件中的 <code class="notranslate">- cron: '0 2 * * *'</code> 即可（注意是 UTC 时间）。</p>
+<ul>
+<li></li>
+</ul></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
