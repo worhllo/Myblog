@@ -1,6 +1,5 @@
-## cmliu/CF-Workers-SpeedTestURL: 使用 CloudFlare Workers 搭建专属CloudFlareSpeedTest测速地址
 
-> ## Excerpt
+> ## cmliu/CF-Workers-SpeedTestURL
 > 使用 CloudFlare Workers 搭建专属CloudFlareSpeedTest测速地址. Contribute to cmliu/CF-Workers-SpeedTestURL development by creating an account on GitHub.
 
 ---

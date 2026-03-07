@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 04:18:01 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」使用 CloudFlare Workers 搭建专属CloudFlareSpeedTest测速地址</title><link>https://note.142588.xyz/post/32.html</link><description>## cmliu/CF-Workers-SpeedTestURL: 使用 CloudFlare Workers 搭建专属CloudFlareSpeedTest测速地址
-
-&gt; ## Excerpt
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 04:19:17 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」使用 CloudFlare Workers 搭建专属CloudFlareSpeedTest测速地址</title><link>https://note.142588.xyz/post/32.html</link><description>
+&gt; ## cmliu/CF-Workers-SpeedTestURL
 &gt; 使用 CloudFlare Workers 搭建专属CloudFlareSpeedTest测速地址. Contribute to cmliu/CF-Workers-SpeedTestURL development by creating an account on GitHub.
 
 ---
