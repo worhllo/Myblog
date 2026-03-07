@@ -2,6 +2,7 @@
 > ☁ Serverless Cloud Notepad 云笔记（无服务）
 你可以记录文字，与朋友们分享，或者跨设备同步。
 基于 Cloudflare Worker、KV 和 Github Actions 实现，一键实现私有化部署。
+源仓库：[s0urcelabserverless-cloud-notepad ☁ Yet Another Cloud Notepad.](https://github.com/s0urcelab/serverless-cloud-notepad)
 
 ## ✨ 功能
 
