@@ -1,5 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:15:07 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」属于您自己的Telegram ChatGPT机器人</title><link>https://note.142588.xyz/post/61.html</link><description>&gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:18:04 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」基于 Cloudflare Workers 的聚合搜索 API 服务</title><link>https://note.142588.xyz/post/62.html</link><description>&gt; [!NOTE]
+&gt;Cloudflare Search
+基于 Cloudflare Workers 的聚合搜索 API 服务
+源仓库：[Yrobotcloudflare-search A Powerful Search Server based on Cloudflare Worker, Enhance Your AI Tool with MCP](https://github.com/Yrobot/cloudflare-search)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://sink.proddig.com/cloudflare-search-github)
+
+## 特性
+
+- 🔍 **多引擎聚合** - 同时使用多个搜索引擎（Google、Brave、DuckDuckGo、Bing）
+- ⚡ **并行搜索** - 所有搜索引擎同时请求，快速返回结果
+- 🛡️ **容错机制** - 单个引擎失败不影响其他引擎，自动标记无响应引擎
+- ⏱️ **超时控制** - 可配置请求超时时间，避免长时间等待
+- 🔒 **Token 鉴权** - 支持 Token 认证，保护服务不被滥用
+- 🌍 **CORS 支持** - 完整的跨域资源共享支持
+- 🎨 **Web 界面** - 提供简洁的搜索界面，方便测试
+- ⚡ **零成本运行** - Cloudflare Workers 免费版每天 10 万次请求
+
+
+## 安装方式
+
+### 方式一：一键部署（推荐）
+
+点击上方 'Deploy to Cloudflare Workers' 按钮，按照提示完成部署。</description><guid isPermaLink="true">https://note.142588.xyz/post/62.html</guid><pubDate>Sat, 07 Mar 2026 07:17:36 +0000</pubDate></item><item><title>「CF项目」属于您自己的Telegram ChatGPT机器人</title><link>https://note.142588.xyz/post/61.html</link><description>&gt; [!NOTE]
 &gt; 轻松在Cloudflare Workers上部署您自己的Telegram ChatGPT机器人。</description><guid isPermaLink="true">https://note.142588.xyz/post/61.html</guid><pubDate>Sat, 07 Mar 2026 07:14:45 +0000</pubDate></item><item><title>「Vercel项目」强大的浏览器 AI 助手扩展</title><link>https://note.142588.xyz/post/60.html</link><description>&gt; [!NOTE]
 &gt;🧠 Cerebr - 智能 AI 助手
 Cerebr 是一款强大的浏览器 AI 助手扩展，现已支持 Chrome、Firefox 和 Edge，专注于提升您的工作效率和学习体验。</description><guid isPermaLink="true">https://note.142588.xyz/post/60.html</guid><pubDate>Sat, 07 Mar 2026 07:12:10 +0000</pubDate></item><item><title>「CF项目」你的 AI 舆情监控助手与热点筛选工具</title><link>https://note.142588.xyz/post/59.html</link><description>&gt; [!NOTE]
