@@ -18,6 +18,7 @@
 
 > [!NOTE]
 > NavSphere 是一个基于 Next.js 15 构建的现代化导航管理平台，专为个人和团队打造的书签管理和导航门户解决方案。通过 GitHub 作为数据存储后端，提供安全、可靠的导航数据管理体验。
+源仓库：[tianyaxiangNavSphere NavSphere： 一个基于 Github 存储的网址导航程序支持部署至cloudflare，一键部署至 Vercel，数据存储在 Github，零成本搭建一个网站导航！](https://github.com/tianyaxiang/NavSphere)
 
 ## ✨ 核心特性
 
