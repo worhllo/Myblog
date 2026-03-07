@@ -1,41 +1,5 @@
-<p align="center">
-  <a href="https://text-to-image-template.templates.workers.dev/" target="_blank" rel="noopener">
-    <img alt="text-to-image" src="public/cat0.png" width="120" height="120" />
-  </a>
-</p>
-
-<div align="center"></br></div>
-
-<div align="center">
-  <h1>
-    ✨ 基于 Cloudflare AI & Workers 的免费在线文生图服务 </br>
-  </h1>
-</div>
-
-<div align="center">
-
-[项目简介](#📚-项目简介) |
-[主要特性](#✨-主要特性) |
-[快速开始](#🚀-快速开始) |
-[使用指南](#📝-使用指南) |
-[配置选项](#⚙️-配置选项) |
-[模型限制](#📊-模型限制) |
-[项目示例](https://text2img.huarzone.com/)
-
-</div>
-
-<div align="center"></br></div>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/top-dark.png">
-  <img alt="应用截图" src="public/top.png">
-</picture>
-
-<div align="center"></br></div>
-
-## 
-
-Text2img-Cloudflare-Workers 是基于 Cloudflare Workers AI 服务搭建的在线文本生成图像可视化网页，完全构建在 Cloudflare Workers 上。该项目为通过简单调用 Cloudflare 官方提供的 [文生图 - Text-to-Image](https://developers.cloudflare.com/workers-ai/models/) 模型，可以快速实现随时随地无需登录的图像生成需求。
+> [!NOTE]
+> Text2img-Cloudflare-Workers 是基于 Cloudflare Workers AI 服务搭建的在线文本生成图像可视化网页，完全构建在 Cloudflare Workers 上。该项目为通过简单调用 Cloudflare 官方提供的 [文生图 - Text-to-Image](https://developers.cloudflare.com/workers-ai/models/) 模型，可以快速实现随时随地无需登录的图像生成需求。
 
 
 ## ✨ 主要特性
