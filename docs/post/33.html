@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="
+> [!TIP]
+> 基于 Astro 构建的超轻量个人导航站项目，支持纯静态部署，无需数据库 / 后端，仅编辑数据文件即可更新页面。">
+<meta property="og:title" content="「CF项目」基于 Astro 构建的超轻量个人导航站项">
+<meta property="og:description" content="
+> [!TIP]
+> 基于 Astro 构建的超轻量个人导航站项目，支持纯静态部署，无需数据库 / 后端，仅编辑数据文件即可更新页面。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/33.html">
+<meta property="og:image" content="../avatar.png">
+<title>「CF项目」基于 Astro 构建的超轻量个人导航站项</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-tip {border-left-color:var(--borderColor-success-emphasis, var(--color-success-emphasis));background-color:var(--color-success-subtle);}.markdown-alert.markdown-alert-tip .markdown-alert-title {color: var(--fgColor-success,var(--color-success-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「CF项目」基于 Astro 构建的超轻量个人导航站项</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/33" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>基于 Astro 构建的超轻量个人导航站项目，支持纯静态部署，无需数据库 / 后端，仅编辑数据文件即可更新页面。主打新手友好 &amp; 极速上线，适配Vercel、Cloudflare Pages 等平台 - zywe03/astro-xwnav</p>
+</div>
+<hr>
+<ul>
+<li>Astro-xwnav:不仅仅是简单的链接集合，更是智能化的导航平台，让您只需专注内容管理而非技术细节,<strong>只需编辑一个数据文件，所有功能都会自动更新，极大简化维护工作</strong>,是低配甚至无服务器,个人用户或新手搭建导航站的首选</li>
+</ul>
+<p><a href="https://camo.githubusercontent.com/1100462786f795d0bb3e94bd7af857a7fc8b56ee4870d6cdcf2278d3372e1979/68747470733a2f2f692e6d696a692e6269642f323032352f30362f32312f38636566363931666163663237623537303566363932393632303532613135622e706e67" rel="nofollow"><img src="zywe03astro-xwnav%20%F0%9F%9A%80%E5%9F%BA%E4%BA%8E%20Astro%20%E6%9E%84%E5%BB%BA%E7%9A%84%E8%B6%85%E8%BD%BB%E9%87%8F%E4%B8%AA%E4%BA%BA%E5%AF%BC%E8%88%AA%E7%AB%99%E9%A1%B9%E7%9B%AE%EF%BC%8C%E6%94%AF%E6%8C%81%E7%BA%AF%E9%9D%99%E6%80%81%E9%83%A8%E7%BD%B2%EF%BC%8C%E6%97%A0%E9%9C%80%E6%95%B0%E6%8D%AE%E5%BA%93%20%20%E5%90%8E%E7%AB%AF%EF%BC%8C%E4%BB%85%E7%BC%96%E8%BE%91%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%8D%B3%E5%8F%AF%E6%9B%B4%E6%96%B0%E9%A1%B5%E9%9D%A2%E3%80%82%E4%B8%BB%E6%89%93%E6%96%B0%E6%89%8B%E5%8F%8B%E5%A5%BD%20&amp;%20%E6%9E%81%E9%80%9F%E4%B8%8A%E7%BA%BF%EF%BC%8C%E9%80%82%E9%85%8DVercel%E3%80%81Cloudflare%20Pages%20%E7%AD%89%E5%B9%B3%E5%8F%B0/68747470733a2f2f692e6d696a692e6269642f323032352f30362f32312f38636566363931666163663237623537303566363932393632303532613135622e706e67.png" alt="8cef691facf27b5705f692962052a15b.png" style="max-width: 100%;"></a></p>
+<ul>
+<li>
+<p>🚀 <strong>Astro快速加载</strong>：优化清晰，超轻量，性能卓越</p>
+</li>
+<li>
+<p>🚫 <strong>无需后端、无需数据库</strong>：纯静态，无任何运行依赖</p>
+</li>
+<li>
+<p>🕶️ <strong>隐藏链接地址</strong>：悬停在卡片，不显示链接地址</p>
+</li>
+<li>
+<p>🏷 <strong>简洁直观的界面</strong>：分类清晰，操作便捷</p>
+</li>
+<li>
+<p>🔍 <strong>智能搜索功能</strong>：curl+k快捷唤出,快速查找您需要的网站</p>
+</li>
+<li>
+<p>👆 <strong>手势交互支持</strong>：40%屏幕区域左滑打开侧边栏，支持触摸和鼠标拖拽</p>
+</li>
+<li>
+<p>📎 <strong>双分类导航栏</strong>：主页横向导航+侧边导航</p>
+</li>
+<li>
+<p>📃 <strong>卡片式网站展示</strong>：直观美观，一目了然</p>
+</li>
+<li>
+<p>🔄 <strong>自动化工作流</strong>：减少手动操作，提高效率</p>
+</li>
+<li>
+<p>🌓 <strong>暗色模式</strong>：智能切换暗色/亮色模式</p>
+</li>
+<li>
+<p>⏱️ <strong>快速返回顶部</strong>：一键回到顶部的便捷按钮</p>
+</li>
+<li>
+<p>📸 <strong>图片懒加载</strong>：提升加载速度和用户体验</p>
+</li>
+<li>
+<p>🔊 <strong>流畅的动画过渡</strong>：提升用户界面交互体验</p>
+</li>
+<li>
+<p>💻 <strong>智能顶部栏</strong>：上滑展出，下滑收缩不挡视野</p>
+</li>
+<li>
+<p>🙌 <strong>人性化设计</strong>：搜索框，侧边栏可点空白处退出</p>
+</li>
+<li>
+<p>🌤️ <strong>实时天气显示</strong>：集成API实时获取当地天气</p>
+</li>
+<li>
+<p>📊 <strong>侧边栏统计功能</strong>：显示网站总数和分类统计信息</p>
+</li>
+<li>
+<p>🎨 <strong>404页面</strong>：精美的像素风格404错误页面</p>
+</li>
+<li>
+<p>📱 <strong>响应式布局</strong>：适配所有设备屏幕</p>
+</li>
+<li>
+<p>🔑 <strong>智能提示</strong>：左滑箭头提示，引导用户发现隐藏功能</p>
+</li>
+<li>
+<p>💾 <strong>Island岛屿架构</strong>：</p>
+<ul>
+<li><strong>按需加载</strong>：动态组件独立渲染，提升加载速度</li>
+<li><strong>静态首屏</strong>：首屏纯静态生成，并行加载交互组件</li>
+<li><strong>延迟水合</strong>：交互元素延迟水合，减少首屏阻塞</li>
+<li><strong>查询优先</strong>：搜索和导航操作优先渲染</li>
+<li><strong>浏览器缓存</strong>：利用存储机制优化重复访问</li>
+</ul>
+</li>
+<li>
+<p>🤖 自动化功能，让您只需专注于内容管理而非技术细节,只需修改一个数据文件<code class="notranslate">src/data/navLinks.js</code>，所有功能都会自动更新，极大简化了维护工作</p>
+</li>
+<li>
+<p><strong>🖼️ 自动图标获取</strong>：添加新网站和新分类时无需手动下载图标，脚本自动获取并优化图标引用图标一条龙</p>
+</li>
+<li>
+<p><strong>📑 自动分类导航</strong>：侧边栏分类导航会根据数据文件自动更新，无需手动修改HTML</p>
+</li>
+<li>
+<p><strong>🔎 自动搜索索引</strong>：搜索功能会自动检测新增网站和分类，无需额外配置</p>
+</li>
+<li>
+<p><strong>🃏 自动卡片生成</strong>：网站卡片布局会自动适应新增内容，保持一致的视觉效果</p>
+</li>
+<li>
+<p><strong>🎨 自动主题切换</strong>：根据用户系统配置自动切换暗色/亮色主题</p>
+</li>
+<li>
+<p><strong>🧹 自动清理图标</strong>：图标管理脚本会自动清理未使用的图标文件，保持项目整洁</p>
+</li>
+<li>
+<p><strong>📱 自动响应式适配</strong>：无需编写额外代码，完美适配各种设备屏幕</p>
+</li>
+<li>
+<p><strong>📊 自动统计计算</strong>：侧边栏自动统计网站总数和各分类网站数量</p>
+</li>
+<li>
+<p><strong>🗺️ 自动生成站点地图</strong>：每次构建项目自动生成robots.txt和sitemap.xml</p>
+</li>
+<li>
+<p><strong>📝 自动SEO元数据</strong>：每次构建项目自动生成和管理SEO相关的元标签等等代码</p>
+</li>
+<li>
+<p><code class="notranslate">git clone https://github.com/zywe03/astro-xwnav.git</code>(或者下载压缩包源码解压)</p>
+</li>
+<li>
+<p>安装 <strong>Node.js 18.0+</strong> (推荐LTS版本)<a href="https://nodejs.org/zh-cn" rel="nofollow">官网</a></p>
+</li>
+<li>
+<p>Windows用户：直接从官网下载安装包</p>
+</li>
+<li>
+<p><strong>启用 pnpm</strong>（轻量、高效）</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">corepack <span class="pl-c1">enable</span>
+corepack prepare pnpm@latest --activate</pre></div>
+</li>
+</ul>
+<div class="highlight highlight-source-perl"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 安装依赖</span>
+pnpm i
+<span class="pl-c"><span class="pl-c">#</span> 浏览器实时看效果</span>
+pnpm dev
+<span class="pl-c"><span class="pl-c">#</span> 自动下载图标</span>
+npx tsx .\icon-<span class="pl-c1">system</span>\0icon.ts
+<span class="pl-c"><span class="pl-c">#</span> 打包构建生成/dist目录</span>
+pnpm build</pre></div>
+<p><a href="https://vercel.com/new/clone?repository-url=https://github.com/zywe03/astro-xwnav-theme" rel="nofollow"><img src="zywe03astro-xwnav%20%F0%9F%9A%80%E5%9F%BA%E4%BA%8E%20Astro%20%E6%9E%84%E5%BB%BA%E7%9A%84%E8%B6%85%E8%BD%BB%E9%87%8F%E4%B8%AA%E4%BA%BA%E5%AF%BC%E8%88%AA%E7%AB%99%E9%A1%B9%E7%9B%AE%EF%BC%8C%E6%94%AF%E6%8C%81%E7%BA%AF%E9%9D%99%E6%80%81%E9%83%A8%E7%BD%B2%EF%BC%8C%E6%97%A0%E9%9C%80%E6%95%B0%E6%8D%AE%E5%BA%93%20%20%E5%90%8E%E7%AB%AF%EF%BC%8C%E4%BB%85%E7%BC%96%E8%BE%91%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%8D%B3%E5%8F%AF%E6%9B%B4%E6%96%B0%E9%A1%B5%E9%9D%A2%E3%80%82%E4%B8%BB%E6%89%93%E6%96%B0%E6%89%8B%E5%8F%8B%E5%A5%BD%20&amp;%20%E6%9E%81%E9%80%9F%E4%B8%8A%E7%BA%BF%EF%BC%8C%E9%80%82%E9%85%8DVercel%E3%80%81Cloudflare%20Pages%20%E7%AD%89%E5%B9%B3%E5%8F%B0/68747470733a2f2f76657263656c2e636f6d2f627574746f6e.svg" alt="zywe vercel" style="max-width: 100%;"></a></p>
+<p><a href="https://dash.cloudflare.com/?to=/:account/workers-and-pages/create/deploy-to-workers&amp;repository=https://github.com/zywe03/astro-xwnav-theme" rel="nofollow"><img src="zywe03astro-xwnav%20%F0%9F%9A%80%E5%9F%BA%E4%BA%8E%20Astro%20%E6%9E%84%E5%BB%BA%E7%9A%84%E8%B6%85%E8%BD%BB%E9%87%8F%E4%B8%AA%E4%BA%BA%E5%AF%BC%E8%88%AA%E7%AB%99%E9%A1%B9%E7%9B%AE%EF%BC%8C%E6%94%AF%E6%8C%81%E7%BA%AF%E9%9D%99%E6%80%81%E9%83%A8%E7%BD%B2%EF%BC%8C%E6%97%A0%E9%9C%80%E6%95%B0%E6%8D%AE%E5%BA%93%20%20%E5%90%8E%E7%AB%AF%EF%BC%8C%E4%BB%85%E7%BC%96%E8%BE%91%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%8D%B3%E5%8F%AF%E6%9B%B4%E6%96%B0%E9%A1%B5%E9%9D%A2%E3%80%82%E4%B8%BB%E6%89%93%E6%96%B0%E6%89%8B%E5%8F%8B%E5%A5%BD%20&amp;%20%E6%9E%81%E9%80%9F%E4%B8%8A%E7%BA%BF%EF%BC%8C%E9%80%82%E9%85%8DVercel%E3%80%81Cloudflare%20Pages%20%E7%AD%89%E5%B9%B3%E5%8F%B0/68747470733a2f2f6465706c6f792e776f726b6572732e636c6f7564666c6172652e636f6d2f627574746f6e.svg" alt="zywe Cloudflare pages" style="max-width: 100%;"></a></p>
+<p><strong>列出想要生成的网站所属分类,名称或网站</strong>,短和长描述让AI生成，节省工作量</p>
+<p>AI提示词:</p>
+<div class="highlight highlight-source-css"><pre class="notranslate">统一分类opensource
+网站：
+github
+baidu.<span class="pl-c1">com</span>
+谷歌
+具体按照以下样式生成，使用“JavaScript风格格式<span class="pl-c1">+</span>单引号”，不要添加<span class="pl-s">"icon字段"</span>和<span class="pl-s">"[]"</span>"      
+      {
+      id: 'github',
+      title: 'GitHub', 
+      description: '全球最大的开源代码托管平台，支持 Git 版本控制，适用于协作开发、项目管理和自动化工作流，是开发者共享与协作的核心工具。'
+      shortDesc: '代码托管平台。',
+      url: 'https://github.com/',
+      category: 'opensource',
+      },
+
+描述根据网站实际内容,专业,准确,介绍背景独特优势等等,不要太刻板,臃肿,重复</pre></div>
+<p>插入数据文件<code class="notranslate">navLinks.js</code>后 执行<code class="notranslate">npx tsx .\icon-system\0icon.ts</code>自动下载图标,即可完成大量导航网站的导入工作</p>
+<ol>
+<li>➡️使用Cloudflare Pages或Vercel作为服务器</li>
+</ol>
+<p>vscode更新数据文件，执行图标下载脚本，同步更新到仓库即可</p>
+<ol start="2">
+<li>➡️使用vps作为服务器</li>
+</ol>
+<p>2.1:使用<code class="notranslate">rsync</code>，配置一键脚本上传</p>
+<p>2.2:更新文件，执行脚本，构建，设置好nginx，压缩dist目录，上传后解压，每次更新删除服务器的dist，再传新的压缩包</p>
+<p>Astro-xwnav 会不定期发布 新功能,修复BUG,维护功能</p>
+<ul>
+<li>添加一次上游<code class="notranslate">git remote add upstream https://github.com/zywe03/astro-xwnav.git</code></li>
+<li>之后执行<code class="notranslate">git pull upstream main</code>即可更新(<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 注意写好<code class="notranslate">.gitignore文件</code>避免覆盖数据)</li>
+</ul>
+<div class="highlight highlight-source-cs"><pre class="notranslate"><span class="pl-s1">dh_web</span><span class="pl-c1">/</span>
+├── <span class="pl-s1">icon</span><span class="pl-c1">-</span><span class="pl-s1">system</span><span class="pl-c1">/</span>       # <span class="pl-s1">图标管理系统</span>
+├── public<span class="pl-c1">/</span>            # <span class="pl-s1">静态资源目录</span>
+│   ├── <span class="pl-s1">icons</span><span class="pl-c1">/</span>         # <span class="pl-s1">导航网站和分类图标目录</span>
+│   └── images<span class="pl-c1">/</span>        # 网站图标
+├── src<span class="pl-c1">/</span>               # 源代码目录
+│   ├── components<span class="pl-c1">/</span>    # 组件目录
+│   │   ├── Card<span class="pl-kos">.</span>astro     # 网站卡片组件
+│   │   ├── Footer<span class="pl-kos">.</span>astro   # 页脚组件
+│   │   ├── Header<span class="pl-kos">.</span>astro   # 页眉组件
+│   │   ├── LogoName<span class="pl-kos">.</span>astro  # <span class="pl-s1">Logo和网站名称组件</span>
+│   │   └── Sidebar<span class="pl-kos">.</span>astro   # 侧边栏组件
+│   ├── Island<span class="pl-c1">/</span>        # React岛屿组件目录
+│   │   ├── ThemeIsland<span class="pl-kos">.</span>jsx # 主题切换岛屿
+│   │   ├── WeatherIsland<span class="pl-kos">.</span>jsx # 天气显示岛屿
+│   │   ├── quicklyup<span class="pl-kos">.</span>jsx   # 快速回到顶部岛屿
+│   │   └── searchlsland<span class="pl-kos">.</span>jsx # 搜索功能岛屿
+│   ├── data<span class="pl-c1">/</span>          # 数据目录
+│   │   └── navLinks<span class="pl-kos">.</span>js    # 导航网站核心数据
+│   ├── layouts<span class="pl-c1">/</span>       # 布局目录
+│   │   └── MainLayout<span class="pl-kos">.</span>astro # 主布局
+│   └── pages<span class="pl-c1">/</span>         # 页面目录
+│       ├── index<span class="pl-kos">.</span>astro   # 首页
+│       ├── <span class="pl-c1">404</span><span class="pl-kos">.</span>astro     # <span class="pl-c1">404</span>错误页面
+│       └── robots<span class="pl-kos">.</span>txt<span class="pl-kos">.</span>ts # 生成robots<span class="pl-kos">.</span>txt文件
+├── astro<span class="pl-kos">.</span>config<span class="pl-kos">.</span>mjs   # Astro配置文件
+└── package<span class="pl-kos">.</span>json       # 项目依赖配置</pre></div>
+<ul>
+<li>
+<p><strong>src/data/navLinks.js</strong>: 存储所有网站数据和分类信息，是最常修改的文件，包含网站信息和分类定义</p>
+</li>
+<li>
+<p><strong>public/icons/</strong>: 存储所有网站图标</p>
+</li>
+<li>
+<p><strong>public/icons/category/</strong>: 存储分类图标</p>
+</li>
+<li>
+<p><strong>public/icons/downloaded_sites/</strong>: 临时下载目录（自动清理）</p>
+</li>
+<li>
+<p><strong>public/icons/downloaded_categories/</strong>: 临时下载目录（自动清理）</p>
+</li>
+</ul>
+<p>修改 <code class="notranslate">src/data/navLinks.js</code> 文件即可管理所有网站和分类</p>
+<ul>
+<li>✅建议统一用一种格式<strong>JavaScript风格格式+单引号</strong>,避免脚本错误识别</li>
+</ul>
+<p>在 <code class="notranslate">categories</code> 数组中添加新分类：</p>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 注意：不要手动添加icon字段，不要icon""字段留空,会导致无法自动下载添加icon字段,<strong>手动自定义图标除外</strong></p>
+<p>最好直接不写icon省心,简单</p>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-k">export</span> <span class="pl-k">const</span> <span class="pl-s1">categories</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span>
+  <span class="pl-kos">{</span>
+    <span class="pl-c1">id</span>: <span class="pl-k">new</span><span class="pl-s1"></span><span class="pl-kos">,</span>  <span class="pl-c">//分类ID</span>
+    <span class="pl-c1">name</span>: <span class="pl-s">'新分类名称'</span><span class="pl-kos">,</span><span class="pl-c1">icon</span>: <span class="pl-s">'/icons/category/new-category.svg'</span>
+    <span class="pl-c">// 分类图标也支持自动生成,基于模糊搜索分类名字和ID,找到合适的图标</span>
+  <span class="pl-kos">}</span>
+<span class="pl-kos">]</span><span class="pl-kos">;</span></pre></div>
+<p>在 <code class="notranslate">sites</code> 数组中添加新网站：</p>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-k">export</span> <span class="pl-k">const</span> <span class="pl-s1">sites</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span>
+      <span class="pl-kos">{</span>
+      <span class="pl-c1">id</span>: <span class="pl-s">'github'</span><span class="pl-kos">,</span>                           <span class="pl-c">// 网站ID</span>
+      <span class="pl-c1">title</span>: <span class="pl-s">'GitHub'</span><span class="pl-kos">,</span>                       <span class="pl-c">// 网站名称</span>
+      <span class="pl-c1">description</span>: <span class="pl-s">'全球最大代码托管平台。'</span><span class="pl-kos">,</span> <span class="pl-c">// 长描述</span>
+      <span class="pl-c1">shortDesc</span>: <span class="pl-s">'代码托管平台。'</span><span class="pl-kos">,</span>      <span class="pl-c">// 短描述</span>
+      <span class="pl-c1">url</span>: <span class="pl-s">'https://github.com/'</span><span class="pl-kos">,</span>     <span class="pl-c">// 网站链接（包含完整协议（`http://`或`https://`））</span>
+      <span class="pl-c1">category</span>: <span class="pl-s">'opensource'</span><span class="pl-kos">,</span>        <span class="pl-c">// 所属分类 ID（必须对应分类中的id）</span>
+        <span class="pl-c">// 注意：不需要添加icon字段，脚本会自动处理</span>
+      <span class="pl-kos">}</span><span class="pl-kos">,</span>
+    <span class="pl-kos">]</span><span class="pl-kos">;</span></pre></div>
+<ul>
+<li>➡️一句话就是调顺序即可排序</li>
+<li><strong>分类排序</strong>: 调整 <code class="notranslate">categories</code> 数组中分类的顺序即可改变分类的显示顺序</li>
+<li><strong>网站排序</strong>: 调整 <code class="notranslate">sites</code> 数组中网站的顺序即可改变网站的显示顺序</li>
+</ul>
+<hr>
+<p>✅ <code class="notranslate">navLinks.js</code>使用“JavaScript风格格式+单引号”，不要添加"icon字段"</p>
+<p>由于是静态网站，建议全部图标在构建时下载图标引用</p>
+<ol>
+<li>首先在 <code class="notranslate">src/data/navLinks.js</code> 中添加好新网站或分类</li>
+<li>一键执行：</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 终端复制粘贴回车</span>
+npx tsx .<span class="pl-cce">\i</span>con-system<span class="pl-cce">\0</span>icon.ts</pre></div>
+<p>位于页脚组件中，修改 <code class="notranslate">src/components/Footer.astro</code> 文件：</p>
+<ul>
+<li>点开文件一目了然</li>
+</ul>
+<p>修改<code class="notranslate">src\components\LogoName.astro</code></p>
+<ul>
+<li>
+<p>独立出来方便修改,点开文件一目了然</p>
+</li>
+<li>
+<p><code class="notranslate">default.svg</code>导航网站三级回退机制保底图标</p>
+</li>
+<li>
+<p><code class="notranslate">logo.png</code>网站社交媒体分享图片</p>
+</li>
+<li>
+<p><code class="notranslate">logo.svg</code>网站主图标</p>
+</li>
+</ul>
+<ol>
+<li>准备您的图标文件(修改图片,但使用固定命名)</li>
+<li>替换图标文件放入 <code class="notranslate">public\images</code> 目录即可</li>
+</ol>
+<p>只需要向搜索引擎提交 <code class="notranslate">https://xxx.com/sitemap-index.xml</code> 这一个文件</p>
+<hr>
+<p><a href="https://www.star-history.com/#zywe03/astro-xwnav&amp;Date" rel="nofollow"><img src="zywe03astro-xwnav%20%F0%9F%9A%80%E5%9F%BA%E4%BA%8E%20Astro%20%E6%9E%84%E5%BB%BA%E7%9A%84%E8%B6%85%E8%BD%BB%E9%87%8F%E4%B8%AA%E4%BA%BA%E5%AF%BC%E8%88%AA%E7%AB%99%E9%A1%B9%E7%9B%AE%EF%BC%8C%E6%94%AF%E6%8C%81%E7%BA%AF%E9%9D%99%E6%80%81%E9%83%A8%E7%BD%B2%EF%BC%8C%E6%97%A0%E9%9C%80%E6%95%B0%E6%8D%AE%E5%BA%93%20%20%E5%90%8E%E7%AB%AF%EF%BC%8C%E4%BB%85%E7%BC%96%E8%BE%91%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%8D%B3%E5%8F%AF%E6%9B%B4%E6%96%B0%E9%A1%B5%E9%9D%A2%E3%80%82%E4%B8%BB%E6%89%93%E6%96%B0%E6%89%8B%E5%8F%8B%E5%A5%BD%20&amp;%20%E6%9E%81%E9%80%9F%E4%B8%8A%E7%BA%BF%EF%BC%8C%E9%80%82%E9%85%8DVercel%E3%80%81Cloudflare%20Pages%20%E7%AD%89%E5%B9%B3%E5%8F%B0/68747470733a2f2f6170692e737461722d686973746f72792e636f6d2f7376673f7265706f733d7a79776530332f617374726f2d78776e617626747970653d44617465.svg" alt="Star History Chart" style="max-width: 100%;"></a></p>
+<pre class="notranslate"><code class="notranslate">感谢项目使用的全部API
+Feather,Simple,Iconify,DuckDuckGo,Unavatar,myip.la,openweathermap.org,Clearbit,Logo
+</code></pre></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
