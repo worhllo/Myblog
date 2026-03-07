@@ -1,4 +1,5 @@
-真实地址生成器
+> [!NOTE]
+> 真实地址生成器
 这是一个基于 Cloudflare Workers 的真实地址生成器。您可以生成不同国家地图上真实的随机地址。
 源仓库：[Adonis142857Real-Address-Generator An address generator for populating real addresses for China, USA, UK, Germany, France and 22 other countries.一个用于填充真实地址的地址生成器，可以生成中国，美国，英国，德国，法国等22个国家的真实地址](https://github.com/Adonis142857/Real-Address-Generator)
 
