@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Fri, 06 Mar 2026 14:24:37 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>dev-sidrcar一个好用神器</title><link>https://note.142588.xyz/post/31.html</link><description>## dev-sidecar
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 04:17:02 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>dev-sidrcar一个好用神器</title><link>https://note.142588.xyz/post/31.html</link><description>## dev-sidecar
 开发者边车，命名取自service-mesh的service-sidecar，意为为开发者打辅助的边车工具（以下简称ds）
 通过本地代理的方式将https请求代理到一些国内的加速通道上
 
@@ -366,7 +366,7 @@ img{
 1. 首先，打开文档，点击顶部菜单栏的【插入】选项卡，在 “页眉和页脚” 功能区找到【页码】按钮（图标是一个小书本加数字）。</description><guid isPermaLink="true">https://note.142588.xyz/post/16.html</guid><pubDate>Sat, 10 May 2025 14:21:24 +0000</pubDate></item><item><title>浅谈《驴得水》</title><link>https://note.142588.xyz/post/15.html</link><description># 有感
 ![dsgfds.jpg](https://cloudflare-imgbed-9xb.pages.dev/file/1732362718234_dsgfds.jpg)
 &gt; ## “给你讲个笑话，你可别哭啊！”
-&gt; 民国时期，在一个远离喧嚣和战乱的偏远山区，伫立着一所简陋平凡的学校。</description><guid isPermaLink="true">https://note.142588.xyz/post/15.html</guid><pubDate>Mon, 24 Mar 2025 13:09:15 +0000</pubDate></item><item><title>什么叫你的BitWarden是跑在Cloudflare上的？教你薅干大善人！</title><link>https://note.142588.xyz/post/14.html</link><description>## 前言
+&gt; 民国时期，在一个远离喧嚣和战乱的偏远山区，伫立着一所简陋平凡的学校。</description><guid isPermaLink="true">https://note.142588.xyz/post/15.html</guid><pubDate>Mon, 24 Mar 2025 13:09:15 +0000</pubDate></item><item><title>「CF项目」你的BitWarden是跑在Cloudflare上的？</title><link>https://note.142588.xyz/post/14.html</link><description>## 前言
 
 一直见有网友在纠结密码管理器应该跑在哪。</description><guid isPermaLink="true">https://note.142588.xyz/post/14.html</guid><pubDate>Mon, 24 Mar 2025 13:07:51 +0000</pubDate></item><item><title>使用CloudFlare搭建临时邮箱服务</title><link>https://note.142588.xyz/post/13.html</link><description>## 1.项目地址
 
