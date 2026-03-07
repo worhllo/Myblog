@@ -32,26 +32,6 @@
 
 ---
 
-## 📸 项目展示
-
-> 以下为 CloudNav 的实际运行界面预览。
-
-### 🖥️ 桌面端概览
-| 浅色模式 (Light Mode) | 深色模式 (Dark Mode) |
-| :---: | :---: |
-| ![Light Mode](screenshots/overview-light.svg) | ![Dark Mode](screenshots/overview-dark.svg) |
-| *清爽明亮的日间视图* | *护眼沉浸的夜间视图* |
-
-### 🛠️ 核心功能演示
-| AI 智能设置 | 分类加密锁 | 移动端适配 |
-| :---: | :---: | :---: |
-| ![AI Settings](screenshots/overview-light.svg) | ![Security](screenshots/overview-dark.svg) | ![Mobile](screenshots/mobile-view.svg) |
-| *一键批量生成描述* | *私密目录密码保护* | *完美适配手机浏览器* |
-
-*(注：上方使用了项目生成的 SVG 矢量预览图，代表实际 UI 布局)*
-
----
-
 ## 🚀 部署教程 (免费)
 
 本应用完全基于 **Cloudflare Pages** + **KV** 构建，无需服务器，永久免费。
