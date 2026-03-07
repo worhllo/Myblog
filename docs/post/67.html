@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="> [!NOTE]
+>CloudNav (云航) - 智能私有导航站
+一个现代化、基于 AI 辅助的全栈个人导航站。">
+<meta property="og:title" content="「CF项目」一个现代化、基于 AI 辅助的全栈个人导航站">
+<meta property="og:description" content="> [!NOTE]
+>CloudNav (云航) - 智能私有导航站
+一个现代化、基于 AI 辅助的全栈个人导航站。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/67.html">
+<meta property="og:image" content="../avatar.png">
+<title>「CF项目」一个现代化、基于 AI 辅助的全栈个人导航站</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「CF项目」一个现代化、基于 AI 辅助的全栈个人导航站</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/67" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>CloudNav (云航) - 智能私有导航站<br>
+一个现代化、基于 AI 辅助的全栈个人导航站。<br>
+无需购买服务器，依托 Cloudflare 免费托管，实现多端数据实时同步。<br>
+源仓库：<a href="https://github.com/sese972010/CloudNav-">sese972010CloudNav- 托管在cloudflare上的轻量化导航，可以同步谷歌书签</a></p>
+</div>
+<hr>
+<h2>✨ 核心功能</h2>
+<h3>🧠 AI 深度集成</h3>
+<ul>
+<li><strong>多模型支持</strong>: 完美支持 <strong>Google Gemini</strong>、<strong>OpenAI</strong>、<strong>DeepSeek</strong>、<strong>Claude</strong> 等任何兼容 OpenAI 接口的模型。</li>
+<li><strong>一键智能补全</strong>: 在设置面板一键扫描，自动为成百上千个书签生成精准的中文简介。</li>
+<li><strong>智能分类</strong>: 添加链接时，AI 自动分析网页内容并推荐最合适的分类目录。</li>
+</ul>
+<h3>☁️ 数据同步与安全</h3>
+<ul>
+<li><strong>Cloudflare KV 同步</strong>: 利用边缘存储技术，公司、家里、手机三端数据秒级同步。</li>
+<li><strong>WebDAV 双重备份</strong>: 支持坚果云、Nextcloud 等 WebDAV 网盘备份，数据自主掌控。</li>
+<li><strong>隐私加密体系</strong>:
+<ul>
+<li><strong>全局锁</strong>: 部署时设置访问密码，防止他人查看。</li>
+<li><strong>目录锁</strong>: 支持对“私有资源”等特定分类单独设置密码，隐藏敏感内容。</li>
+</ul>
+</li>
+</ul>
+<h3>🎨 极致体验</h3>
+<ul>
+<li><strong>Chrome 扩展插件 (Pro)</strong>:
+<ul>
+<li><strong>一键保存</strong>: 点击浏览器图标即可弹出侧边栏，快速将当前网页保存到指定分类。</li>
+<li><strong>侧边栏导航</strong>: 按下快捷键 (如 Ctrl+Shift+E) 呼出侧边栏，在任意网页直接浏览、搜索和管理您的书签，无需离开当前页面。</li>
+</ul>
+</li>
+<li><strong>置顶专区</strong>: 常用网站一键置顶，在首页顶部常驻显示。</li>
+<li><strong>无缝迁移</strong>: 支持导入 Chrome/Edge 书签 HTML 文件（智能去重）。</li>
+</ul>
+<blockquote>
+<p>💡 部分功能创意参考自 <a href="https://github.com/aabacada/CloudNav-abcd">CloudNav-abcd</a>，该分支的导航项目同样优秀，特此致谢。</p>
+</blockquote>
+<hr>
+<h2>📸 项目展示</h2>
+<blockquote>
+<p>以下为 CloudNav 的实际运行界面预览。</p>
+</blockquote>
+<h3>🖥️ 桌面端概览</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th align="center">浅色模式 (Light Mode)</th>
+<th align="center">深色模式 (Dark Mode)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a target="_blank" rel="noopener noreferrer" href="screenshots/overview-light.svg"><img src="screenshots/overview-light.svg" alt="Light Mode" style="max-width: 100%;"></a></td>
+<td align="center"><a target="_blank" rel="noopener noreferrer" href="screenshots/overview-dark.svg"><img src="screenshots/overview-dark.svg" alt="Dark Mode" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>清爽明亮的日间视图</em></td>
+<td align="center"><em>护眼沉浸的夜间视图</em></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>🛠️ 核心功能演示</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th align="center">AI 智能设置</th>
+<th align="center">分类加密锁</th>
+<th align="center">移动端适配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a target="_blank" rel="noopener noreferrer" href="screenshots/overview-light.svg"><img src="screenshots/overview-light.svg" alt="AI Settings" style="max-width: 100%;"></a></td>
+<td align="center"><a target="_blank" rel="noopener noreferrer" href="screenshots/overview-dark.svg"><img src="screenshots/overview-dark.svg" alt="Security" style="max-width: 100%;"></a></td>
+<td align="center"><a target="_blank" rel="noopener noreferrer" href="screenshots/mobile-view.svg"><img src="screenshots/mobile-view.svg" alt="Mobile" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="center"><em>一键批量生成描述</em></td>
+<td align="center"><em>私密目录密码保护</em></td>
+<td align="center"><em>完美适配手机浏览器</em></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><em>(注：上方使用了项目生成的 SVG 矢量预览图，代表实际 UI 布局)</em></p>
+<hr>
+<h2>🚀 部署教程 (免费)</h2>
+<p>本应用完全基于 <strong>Cloudflare Pages</strong> + <strong>KV</strong> 构建，无需服务器，永久免费。</p>
+<blockquote>
+<p><strong>📥 <a href="%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B.docx">点击下载完整图文教程 (.docx)</a></strong></p>
+</blockquote>
+<h3>📋 简明部署步骤 (适合有经验用户)</h3>
+<ol>
+<li><strong>Fork 项目</strong>: 点击右上角 Fork 按钮，将本项目克隆到您的 GitHub 账号。</li>
+<li><strong>创建 Pages 应用</strong>: 登录 Cloudflare Dashboard -&gt; Workers &amp; Pages -&gt; 创建应用程序 -&gt; Pages -&gt; 连接到 Git -&gt; 选择 <code class="notranslate">CloudNav-</code>。</li>
+<li><strong>配置构建</strong>:
+<ul>
+<li>框架预设: <strong>无 (None)</strong></li>
+<li>构建命令: <code class="notranslate">npm run build</code></li>
+<li>输出目录: <code class="notranslate">dist</code></li>
+</ul>
+</li>
+<li><strong>创建数据库</strong>: 在 Workers &amp; Pages -&gt; KV 中创建一个新的命名空间，命名为 <code class="notranslate">CLOUDNAV_DB</code>。</li>
+<li><strong>绑定变量</strong>:
+<ul>
+<li>进入 Pages 项目设置 -&gt; 绑定 (Bindings) -&gt; 添加 KV 命名空间 -&gt; 变量名填 <code class="notranslate">CLOUDNAV_KV</code>，值选择刚才创建的 <code class="notranslate">CLOUDNAV_DB</code>。</li>
+<li>进入 环境变量 (Environment variables) -&gt; 添加变量 <code class="notranslate">PASSWORD</code>，值为您的访问密码。</li>
+</ul>
+</li>
+<li><strong>部署</strong>: 重新部署项目即可。</li>
+</ol>
+<hr>
+<h3>📖 保姆级图文教程 (适合新手)</h3>
+<blockquote>
+<p>如果您是第一次使用 Cloudflare，请严格按照以下步骤操作。</p>
+</blockquote>
+<h4>第一步：点击创建应用程序</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="1.png"><img src="1.png" alt="第一步" style="max-width: 100%;"></a></p>
+<h4>第二步：点击右下角 Get started</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="2.png"><img src="2.png" alt="第二步" style="max-width: 100%;"></a></p>
+<h4>第三步：导入现有你已经 fork 的仓库</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="3.png"><img src="3.png" alt="第三步" style="max-width: 100%;"></a></p>
+<h4>第四步：这里选你自己 fork 的仓库名称</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="4.png"><img src="4.png" alt="第四步" style="max-width: 100%;"></a></p>
+<h4>第五步：按图中填写，其他默认</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="5.png"><img src="5.png" alt="第五步" style="max-width: 100%;"></a></p>
+<h4>第六步：左侧找到 Workers KV 点击右侧新建</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="6.png"><img src="6.png" alt="第六步" style="max-width: 100%;"></a></p>
+<h4>第七步：空间名称填写 <code class="notranslate">CLOUDNAV_DB</code>（建议复制）</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="7.png"><img src="7.png" alt="第七步" style="max-width: 100%;"></a></p>
+<h4>第八步：绑定 KV 数据库</h4>
+<p>回到刚才的 pages 设置页面找到绑定-右侧下滑找到 kv 命名空间，变量名称填写 <code class="notranslate">CLOUDNAV_KV</code>（建议复制）<br>
+<a target="_blank" rel="noopener noreferrer" href="8.png"><img src="8.png" alt="第八步" style="max-width: 100%;"></a></p>
+<h4>第九步：设置访问密码</h4>
+<p>设置中找到变量和机密-填入 <code class="notranslate">PASSWORD</code>（建议复制）下面的值填入你自己要设置的密码，这一步是你登录导航页需要的登录密码<br>
+<a target="_blank" rel="noopener noreferrer" href="9.png"><img src="9.png" alt="第九步" style="max-width: 100%;"></a></p>
+<h4>第十步：添加自定义域名（可选项）</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="10.png"><img src="10.png" alt="第十步" style="max-width: 100%;"></a></p>
+<p><strong>🎉 所有设置结束后，请务必到部署页面点击“重新部署” (Create New Deployment)，项目即可正常使用！</strong></p>
+<hr>
+<h2>⚙️ 使用指南</h2>
+<h3>1. Chrome 扩展程序 (推荐)</h3>
+<p>点击侧边栏左下角的 <strong>“设置”</strong> -&gt; <strong>“扩展工具”</strong>。<br>
+系统会自动根据您的域名生成 3 个文件代码 (<code class="notranslate">manifest.json</code>, <code class="notranslate">popup.html</code>, <code class="notranslate">popup.js</code>)。</p>
+<ol>
+<li>在电脑新建文件夹，保存这 3 个文件。</li>
+<li>打开 Chrome 扩展管理页 (<code class="notranslate">chrome://extensions</code>)。</li>
+<li>开启右上角 <strong>“开发者模式”</strong>。</li>
+<li>点击 <strong>“加载已解压的扩展程序”</strong>，选择刚才的文件夹。</li>
+<li>以后浏览网页时，点击插件图标即可弹出窗口，<strong>选择分类并保存</strong>。</li>
+</ol>
+<h3>2. 配置 AI 服务</h3>
+<p>点击侧边栏底部的 <strong>“设置”</strong> -&gt; <strong>“AI 设置”</strong>：</p>
+<ul>
+<li><strong>提供商</strong>: Google Gemini 或 OpenAI 兼容 (DeepSeek等)。</li>
+<li><strong>Key &amp; Model</strong>: 输入 API Key 和模型名称。</li>
+<li><strong>一键补全</strong>: 点击底部的 <strong>“一键补全所有描述”</strong>，AI 将自动扫描所有无描述的链接并后台生成。</li>
+</ul>
+<h3>3. WebDAV 备份</h3>
+<p>点击侧边栏的 <strong>“备份”</strong> 图标，配置 WebDAV 信息 (如坚果云)，即可一键上传备份到云端。</p>
+<h3>4. 本地数据导出 (Local Data Export)</h3>
+<p>点击侧边栏的 <strong>“备份”</strong> 图标 -&gt; <strong>“导出 HTML”</strong>。</p>
+<ul>
+<li>生成的 HTML 文件完全兼容 <strong>Chrome</strong>、<strong>Edge</strong>、<strong>Firefox</strong> 等主流浏览器的导入格式。</li>
+<li>完整保留您在云航中整理的分类目录结构。</li>
+</ul>
+<p><strong>如何导入到浏览器 (以 Chrome 为例):</strong></p>
+<ol>
+<li>打开 Chrome 浏览器，点击右上角菜单 -&gt; <strong>书签与清单</strong> -&gt; <strong>书签管理器</strong>。</li>
+<li>点击页面右上角的三个点图标 -&gt; <strong>导入书签</strong>。</li>
+<li>选择刚才从云航下载的 HTML 文件即可恢复所有书签。</li>
+</ol></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
