@@ -310,3 +310,7 @@ export default {
 保存成功后，右侧会出现`URL not found`提示，表示代理搭建完成。
 
 复制右侧地址栏中的地址( https://deep-boa-76.deno.dev )，配置进页面中即可使用。
+
+## 转载说明
+
+参考链接：[搭建私有代理节点  公众号文章下载](https://docs.mptext.top/get-started/private-proxy.html)
