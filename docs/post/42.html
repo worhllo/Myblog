@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="> [!NOTE]
+> .私有代理节点部署在各种 serverless 环境（**都是国外的平台，所以在使用时最好配合翻墙软件**），可以加速资源的下载进度。">
+<meta property="og:title" content="「CF项目」搭建私有微信公众号代理节点">
+<meta property="og:description" content="> [!NOTE]
+> .私有代理节点部署在各种 serverless 环境（**都是国外的平台，所以在使用时最好配合翻墙软件**），可以加速资源的下载进度。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/42.html">
+<meta property="og:image" content="../avatar.png">
+<title>「CF项目」搭建私有微信公众号代理节点</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「CF项目」搭建私有微信公众号代理节点</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/42" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>.私有代理节点部署在各种 serverless 环境（<strong>都是国外的平台，所以在使用时最好配合翻墙软件</strong>），可以加速资源的下载进度。但由于目前节点代码并没有进行身份验证，所以请避免部署后的节点地址遭到泄露。如若发现节点流量异常，请销毁节点重新进行搭建(即更换节点地址)。如果使用的 Cloudflare 部署的节点，也可以使用自定义规则限制可访问的域名，详情见下面的安全设置。</p>
+</div>
+<p>::: details 点我查看节点代码</p>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-k">const</span> <span class="pl-c1">UA</span> <span class="pl-c1">=</span>
+    <span class="pl-s">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.0.0 Safari/537.36"</span><span class="pl-kos">;</span>
+
+<span class="pl-k">const</span> <span class="pl-c1">PRESETS</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+    <span class="pl-c1">mp</span>: <span class="pl-kos">{</span>
+        <span class="pl-c1">Referer</span>: <span class="pl-s">"https://mp.weixin.qq.com"</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span>
+
+
+<span class="pl-k">function</span> <span class="pl-en">error</span><span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">,</span> <span class="pl-s1">status</span> <span class="pl-c1">=</span> <span class="pl-c1">400</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-v">Response</span><span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">,</span> <span class="pl-kos">{</span>
+        <span class="pl-c1">status</span>: <span class="pl-s1">status</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * 解析请求</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">parseRequest</span><span class="pl-kos">(</span><span class="pl-s1">req</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">origin</span> <span class="pl-c1">=</span> <span class="pl-s1">req</span><span class="pl-kos">.</span><span class="pl-c1">headers</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"origin"</span><span class="pl-kos">)</span> <span class="pl-c1">||</span> <span class="pl-s">'*'</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// 代理目标的请求参数</span>
+    <span class="pl-k">let</span> <span class="pl-s1">targetURL</span> <span class="pl-c1">=</span> <span class="pl-s">''</span><span class="pl-kos">;</span>
+    <span class="pl-k">let</span> <span class="pl-s1">targetMethod</span> <span class="pl-c1">=</span> <span class="pl-s">"GET"</span><span class="pl-kos">;</span>
+    <span class="pl-k">let</span> <span class="pl-s1">targetBody</span> <span class="pl-c1">=</span> <span class="pl-s">''</span><span class="pl-kos">;</span>
+    <span class="pl-k">let</span> <span class="pl-s1">targetHeaders</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-kos">}</span><span class="pl-kos">;</span>
+    <span class="pl-k">let</span> <span class="pl-s1">preset</span> <span class="pl-c1">=</span> <span class="pl-s">''</span><span class="pl-kos">;</span>
+
+    <span class="pl-k">const</span> <span class="pl-s1">method</span> <span class="pl-c1">=</span> <span class="pl-s1">req</span><span class="pl-kos">.</span><span class="pl-c1">method</span><span class="pl-kos">.</span><span class="pl-en">toLowerCase</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">method</span> <span class="pl-c1">===</span> <span class="pl-s">"get"</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-c">// GET</span>
+        <span class="pl-c">// ?url=${encodeURIComponent(https://example.com?a=b)}&amp;method=GET&amp;headers=${encodeURIComponent(JSON.stringify(headers))}</span>
+        <span class="pl-k">const</span> <span class="pl-kos">{</span>searchParams<span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">URL</span><span class="pl-kos">(</span><span class="pl-s1">req</span><span class="pl-kos">.</span><span class="pl-c1">url</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">has</span><span class="pl-kos">(</span><span class="pl-s">"url"</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">targetURL</span> <span class="pl-c1">=</span> <span class="pl-en">decodeURIComponent</span><span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"url"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">has</span><span class="pl-kos">(</span><span class="pl-s">"method"</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">targetMethod</span> <span class="pl-c1">=</span> <span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"method"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">has</span><span class="pl-kos">(</span><span class="pl-s">"body"</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">targetBody</span> <span class="pl-c1">=</span> <span class="pl-en">decodeURIComponent</span><span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"body"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">has</span><span class="pl-kos">(</span><span class="pl-s">"headers"</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-k">try</span> <span class="pl-kos">{</span>
+                <span class="pl-s1">targetHeaders</span> <span class="pl-c1">=</span> <span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">parse</span><span class="pl-kos">(</span>
+                    <span class="pl-en">decodeURIComponent</span><span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"headers"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+                <span class="pl-kos">)</span><span class="pl-kos">;</span>
+            <span class="pl-kos">}</span> <span class="pl-k">catch</span> <span class="pl-kos">(</span><span class="pl-s1">_</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+                <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-v">Error</span><span class="pl-kos">(</span><span class="pl-s">"headers not valid"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+            <span class="pl-kos">}</span>
+        <span class="pl-kos">}</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">has</span><span class="pl-kos">(</span><span class="pl-s">"preset"</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">preset</span> <span class="pl-c1">=</span> <span class="pl-en">decodeURIComponent</span><span class="pl-kos">(</span><span class="pl-s1">searchParams</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"preset"</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">method</span> <span class="pl-c1">===</span> <span class="pl-s">"post"</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-c">// POST</span>
+        <span class="pl-c">/**</span>
+<span class="pl-c">         * payload(json):</span>
+<span class="pl-c">         * {</span>
+<span class="pl-c">         *   url: 'https://example.com',</span>
+<span class="pl-c">         *   method: 'PUT',</span>
+<span class="pl-c">         *   body: 'a=1&amp;b=2',</span>
+<span class="pl-c">         *   headers: {</span>
+<span class="pl-c">         *     Cookie: 'name=root'</span>
+<span class="pl-c">         *   },</span>
+<span class="pl-c">         *   preset: '',</span>
+<span class="pl-c">         * }</span>
+<span class="pl-c">         */</span>
+        <span class="pl-k">const</span> <span class="pl-s1">payload</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">req</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">url</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">targetURL</span> <span class="pl-c1">=</span> <span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">url</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">method</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">targetMethod</span> <span class="pl-c1">=</span> <span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">method</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">targetBody</span> <span class="pl-c1">=</span> <span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">headers</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">targetHeaders</span> <span class="pl-c1">=</span> <span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">headers</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">preset</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-s1">preset</span> <span class="pl-c1">=</span> <span class="pl-s1">payload</span><span class="pl-kos">.</span><span class="pl-c1">preset</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+        <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-v">Error</span><span class="pl-kos">(</span><span class="pl-s">"Method not implemented"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-c1">!</span><span class="pl-s1">targetURL</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-v">Error</span><span class="pl-kos">(</span><span class="pl-s">"URL not found"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-c1">!</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-cce">^</span><span class="pl-s">h</span><span class="pl-s">t</span><span class="pl-s">t</span><span class="pl-s">p</span><span class="pl-s">s</span><span class="pl-c1">?</span><span class="pl-s">:</span><span class="pl-cce">\/</span><span class="pl-cce">\/</span><span class="pl-c1">/</span></span><span class="pl-kos">.</span><span class="pl-en">test</span><span class="pl-kos">(</span><span class="pl-s1">targetURL</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-v">Error</span><span class="pl-kos">(</span><span class="pl-s">"URL not valid"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">targetMethod</span> <span class="pl-c1">===</span> <span class="pl-s">"GET"</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">targetBody</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-v">Error</span><span class="pl-kos">(</span><span class="pl-s">"GET method can't has body"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-v">Object</span><span class="pl-kos">.</span><span class="pl-c1">prototype</span><span class="pl-kos">.</span><span class="pl-c1">toString</span><span class="pl-kos">.</span><span class="pl-en">call</span><span class="pl-kos">(</span><span class="pl-s1">targetHeaders</span><span class="pl-kos">)</span> <span class="pl-c1">!==</span> <span class="pl-s">"[object Object]"</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-v">Error</span><span class="pl-kos">(</span><span class="pl-s">"Headers not valid"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-c1">!</span><span class="pl-s1">targetHeaders</span><span class="pl-kos">[</span><span class="pl-s">"User-Agent"</span><span class="pl-kos">]</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-s1">targetHeaders</span><span class="pl-kos">[</span><span class="pl-s">"User-Agent"</span><span class="pl-kos">]</span> <span class="pl-c1">=</span> <span class="pl-c1">UA</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-c">// 增加预设</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">preset</span> <span class="pl-k">in</span> <span class="pl-c1">PRESETS</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-v">Object</span><span class="pl-kos">.</span><span class="pl-en">assign</span><span class="pl-kos">(</span><span class="pl-s1">targetHeaders</span><span class="pl-kos">,</span> <span class="pl-c1">PRESETS</span><span class="pl-kos">[</span><span class="pl-s1">preset</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-k">return</span> <span class="pl-kos">{</span>
+        origin<span class="pl-kos">,</span>
+        targetURL<span class="pl-kos">,</span>
+        targetMethod<span class="pl-kos">,</span>
+        targetBody<span class="pl-kos">,</span>
+        targetHeaders<span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * 代理请求</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">function</span> <span class="pl-en">wfetch</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s1">method</span><span class="pl-kos">,</span> <span class="pl-s1">body</span><span class="pl-kos">,</span> <span class="pl-s1">headers</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-kos">}</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-k">return</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-kos">{</span>
+        <span class="pl-c1">method</span>: <span class="pl-s1">method</span><span class="pl-kos">,</span>
+        <span class="pl-c1">body</span>: <span class="pl-s1">body</span> <span class="pl-c1">||</span> <span class="pl-c1">undefined</span><span class="pl-kos">,</span>
+        <span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
+            ...<span class="pl-s1">headers</span><span class="pl-kos">,</span>
+        <span class="pl-kos">}</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-k">export</span> <span class="pl-k">default</span> <span class="pl-kos">{</span>
+    <span class="pl-k">async</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span><span class="pl-s1">request</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-k">try</span> <span class="pl-kos">{</span>
+            <span class="pl-k">const</span> <span class="pl-kos">{</span>
+                origin<span class="pl-kos">,</span>
+                targetURL<span class="pl-kos">,</span>
+                targetMethod<span class="pl-kos">,</span>
+                targetBody<span class="pl-kos">,</span>
+                targetHeaders<span class="pl-kos">,</span>
+            <span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">parseRequest</span><span class="pl-kos">(</span><span class="pl-s1">request</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+            <span class="pl-c">// 代理请求</span>
+            <span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">wfetch</span><span class="pl-kos">(</span>
+                <span class="pl-s1">targetURL</span><span class="pl-kos">,</span>
+                <span class="pl-s1">targetMethod</span><span class="pl-kos">,</span>
+                <span class="pl-s1">targetBody</span><span class="pl-kos">,</span>
+                <span class="pl-s1">targetHeaders</span><span class="pl-kos">,</span>
+            <span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+            <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-v">Response</span><span class="pl-kos">(</span><span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">,</span> <span class="pl-kos">{</span>
+                <span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
+                    <span class="pl-s">"Access-Control-Allow-Origin"</span>: <span class="pl-s1">origin</span><span class="pl-kos">,</span>
+                    <span class="pl-s">"Access-Control-Max-Age"</span>: <span class="pl-s">"86400"</span><span class="pl-kos">,</span>
+                    <span class="pl-s">"Content-Type"</span>: <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-c1">headers</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"Content-Type"</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+                <span class="pl-kos">}</span><span class="pl-kos">,</span>
+            <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span> <span class="pl-k">catch</span> <span class="pl-kos">(</span><span class="pl-s1">err</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-k">return</span> <span class="pl-en">error</span><span class="pl-kos">(</span><span class="pl-s1">err</span><span class="pl-kos">.</span><span class="pl-c1">message</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span>
+<span class="pl-kos">}</span></pre></div>
+<p>:::</p>
+<p>目前该节点代码可部署在以下平台：</p>
+<ul>
+<li><a href="https://workers.cloudflare.com/" rel="nofollow">Cloudflare Worker</a></li>
+<li><a href="https://deno.com/deploy" rel="nofollow">Deno Deploy</a></li>
+</ul>
+<blockquote>
+<p>注意：<br>
+Deno Deploy 改版后要求 <strong>绑定信用卡</strong> 才可使用之前的免费额度，所以 <strong>推荐使用 Cloudflare 平台搭建节点</strong>。<br>
+<a target="_blank" rel="noopener noreferrer" href="/assets/deno_img.DQXZP8jF.png"><img src="/assets/deno_img.DQXZP8jF.png" alt="" style="max-width: 100%;"></a></p>
+</blockquote>
+<h2>部署到 Cloudflare Workers</h2>
+<p>打开控制台的左侧【计算和AI】下面的【Workers 和 Pages】菜单，点击【创建应用程序】，创建一个新的 worker，如下所示：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/cf_img_6.DNdZWnT3.png"><img src="/assets/cf_img_6.DNdZWnT3.png" alt="" style="max-width: 100%;"></a></p>
+<p>选择【从 Hello World! 开始】</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/cf_img_5.B5QV7TPS.png"><img src="/assets/cf_img_5.B5QV7TPS.png" alt="" style="max-width: 100%;"></a><br>
+<a target="_blank" rel="noopener noreferrer" href="/assets/cf_img_4.WiaC-Q66.png"><img src="/assets/cf_img_4.WiaC-Q66.png" alt="" style="max-width: 100%;"></a></p>
+<p>部署之后，点击【编辑代码】，将节点的代码替换为我们自己的代码（节点代码从本文档上面拷贝）：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/cf_img_7.Co_qebSX.png"><img src="/assets/cf_img_7.Co_qebSX.png" alt="" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/cf_img_8.oGZ7Lf0v.png"><img src="/assets/cf_img_8.oGZ7Lf0v.png" alt="" style="max-width: 100%;"></a></p>
+<p>返回【URL not found】就表示节点部署成功了，我们的节点地址(url)就可以配置到网站中进行使用了。</p>
+<h3>绑定自定义域名</h3>
+<blockquote>
+<p>worker 自动生成的域名(比如上面例子中的<code class="notranslate">https://gentle-firefly-af03.markortese3.workers.dev</code>)通常需要翻墙才能访问，通过配置自定义域名，可缓解 cloudflare 域名被墙的问题。</p>
+<p>实测下来，虽然用自定义域名不需要翻墙即可访问，但速度会有一些下降。如果有条件的话，还是开启翻墙软件进行使用。</p>
+</blockquote>
+<h4>1. 购买域名</h4>
+<p>若手里还没有自己的域名，则推荐从 <a href="https://www.spaceship.com/zh/domain-search/?tab=domains&amp;query=" rel="nofollow">SpaceShip</a> 处购买，支持支付宝支付。<br>
+可以选择<code class="notranslate">.site</code>或者<code class="notranslate">.online</code>等后缀的域名，首年价格较低。</p>
+<h4>2. 将域名添加到 Cloudflare</h4>
+<p>在【账户主页】点击【加入域】，如下所示：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img.CFUCGkBi.png"><img src="/assets/img.CFUCGkBi.png" alt="" style="max-width: 100%;"></a></p>
+<p>将域名填入，其他保留默认设置，点【继续】：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_1.DAX5ivYG.png"><img src="/assets/img_1.DAX5ivYG.png" alt="" style="max-width: 100%;"></a></p>
+<p>选择免费计划：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_2.CVI7PODy.png"><img src="/assets/img_2.CVI7PODy.png" alt="" style="max-width: 100%;"></a></p>
+<p>最后，需要修改 SpaceShip 上面的设置，如下：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_3.NKWomf7c.png"><img src="/assets/img_3.NKWomf7c.png" alt="" style="max-width: 100%;"></a></p>
+<p>打开 SpaceShip 上面你刚购买的那个域名的高级DNS设置页面，如下：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_4.uJ4FgUkR.png"><img src="/assets/img_4.uJ4FgUkR.png" alt="" style="max-width: 100%;"></a></p>
+<p>这两处设置对应 Cloudflare 上面要求修改的两处。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_5.DZwjTTxu.png"><img src="/assets/img_5.DZwjTTxu.png" alt="" style="max-width: 100%;"></a></p>
+<p>这两处设置完之后，需要等待一段时间，等 Cloudflare 更新就可以了。</p>
+<p>之后如果想重新启用域名的 DNSSEC，可以在 Cloudflare 中点下面这里，如下所示：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_6.C6hU7WaC.png"><img src="/assets/img_6.C6hU7WaC.png" alt="" style="max-width: 100%;"></a></p>
+<p>会得到一些配置值，如下：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_7.DEegUrBL.png"><img src="/assets/img_7.DEegUrBL.png" alt="" style="max-width: 100%;"></a></p>
+<p>回到 SpaceShip，在【高级DNS】中添加一条DS记录，如下所示：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_8.DNlKldp-.png"><img src="/assets/img_8.DNlKldp-.png" alt="" style="max-width: 100%;"></a></p>
+<blockquote>
+<p>【关键标签】对应【密钥标记】</p>
+</blockquote>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_9.Dt0YEfwE.png"><img src="/assets/img_9.Dt0YEfwE.png" alt="" style="max-width: 100%;"></a></p>
+<p>设置完之后等待就可以了。</p>
+<p>到此，我们已成功的将我们的域名托管给 Cloudflare 进行管理了。</p>
+<h4>3. 给 worker 添加自定义域</h4>
+<p>在 worker 的设置里，添加【自定义域】，如下：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_10.nLcpwWGC.png"><img src="/assets/img_10.nLcpwWGC.png" alt="" style="max-width: 100%;"></a></p>
+<p>这里可以输入任意的二级域名，比如<code class="notranslate">1235566.space</code>是我刚注册的域名，我可以在前面添加<code class="notranslate">00.</code>表示一条访问节点地址，如下所示：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_11.DWsJVjVh.png"><img src="/assets/img_11.DWsJVjVh.png" alt="" style="max-width: 100%;"></a></p>
+<p>添加完之后，我就可以通过<code class="notranslate">00.1235566.space</code>访问这个代理节点了，如下：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_12.a7HLpFeW.png"><img src="/assets/img_12.a7HLpFeW.png" alt="" style="max-width: 100%;"></a></p>
+<p>你可以在同一个 worker 上面添加多个这样的【自定义域】，这样就会得到多个节点地址。<br>
+比如，公共代理节点的配置如下：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_13.DmqmTsBc.png"><img src="/assets/img_13.DmqmTsBc.png" alt="" style="max-width: 100%;"></a></p>
+<h3>安全设置</h3>
+<blockquote>
+<p>针对绑定了自定义域名的账户</p>
+</blockquote>
+<p>如果想限制你的私有节点只能被特定域名使用，可以在 Cloudflare 控制台添加过滤规则，如下所示：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/cf_img_1.D_3patIV.png"><img src="/assets/cf_img_1.D_3patIV.png" alt="" style="max-width: 100%;"></a></p>
+<p>通过限制【引用方】，也就是 HTTP 请求中的<code class="notranslate">referer</code>必须为特定域名才可访问。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/cf_img_2.CYUABodO.png"><img src="/assets/cf_img_2.CYUABodO.png" alt="" style="max-width: 100%;"></a><br>
+上面这个示例配置表示，只有<code class="notranslate">https://www.example.com</code>网站可以使用该节点，其他网站使用时会自动被阻止，一般会返回下面这样的错误：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/cf_img_3.BLX_pVr2.png"><img src="/assets/cf_img_3.BLX_pVr2.png" alt="" style="max-width: 100%;"></a></p>
+<h2>部署到 Deno Deploy</h2>
+<h3>视频版</h3>
+<h3>文字版</h3>
+<p>在 Deno Deploy 控制台点击<code class="notranslate">New Playground</code>，创建一个项目，如下：<br>
+<a target="_blank" rel="noopener noreferrer" href="/assets/img.CFUCGkBi.png"><img src="/assets/img.CFUCGkBi.png" alt="img.png" style="max-width: 100%;"></a><br>
+<a target="_blank" rel="noopener noreferrer" href="/assets/img_1.DAX5ivYG.png"><img src="/assets/img_1.DAX5ivYG.png" alt="img_1.png" style="max-width: 100%;"></a></p>
+<p>将上面的节点代码拷贝到左侧代码编辑区，并点击<code class="notranslate">Save &amp; Deploy</code>按钮：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/assets/img_2.CVI7PODy.png"><img src="/assets/img_2.CVI7PODy.png" alt="img_2.png" style="max-width: 100%;"></a></p>
+<p>保存成功后，右侧会出现<code class="notranslate">URL not found</code>提示，表示代理搭建完成。</p>
+<p>复制右侧地址栏中的地址( <a href="https://deep-boa-76.deno.dev" rel="nofollow">https://deep-boa-76.deno.dev</a> )，配置进页面中即可使用。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
