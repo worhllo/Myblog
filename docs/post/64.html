@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="<div align='center'>
+
+    <img width='100' height='100' src='https://img.icons8.com/dusk/100/paste.png' alt='paste'/>
+    <h3>🌩️ Serverless 文件管理与 Markdown 分享工具，支持多种存储聚合、30+文件格式在线预览 与 WebDAV挂载</h3>
+</div>
+
+<div align='center'>
+    <a href='https://deepwiki.com/ling-drag0n/CloudPaste'><img src='https://deepwiki.com/badge.svg' alt='Ask DeepWiki'></a>
+    <a href='./LICENSE'><img src='https://img.shields.io/badge/license-Apache%202.0-blue.svg' alt='License'></a>
+    <a href='https://github.com/ling-drag0n/CloudPaste/stargazers'><img src='https://img.shields.io/github/stars/ling-drag0n/CloudPaste.svg' alt='GitHub Stars'></a>
+    <a href='https://www.cloudflare.com/'><img src='https://img.shields.io/badge/Powered%20by-Cloudflare-F38020?logo=cloudflare' alt='Powered by Cloudflare'></a>
+    <a href='https://hub.docker.com/r/dragon730/cloudpaste-backend'><img src='https://img.shields.io/docker/pulls/dragon730/cloudpaste-backend.svg' alt='Docker Pulls'></a>
+</div>
+
+## ✨ 核心特性
+
+### Cloudflare 原生架构
+
+- **边缘计算**：基于 Cloudflare Workers 、WorkFlow 和 D1 数据库，全球 300+ 节点就近响应
+- **零运维**：无需管理服务器，自动扩缩容，按请求计费
+- **一体化部署**：前后端打包在同一个 Worker，省心省力
+- **分离部署**：可选前后端分离，灵活适配个人需求
+
+### 多存储支持
+
+- **S3 兼容**：Cloudflare R2、Backblaze B2、AWS S3、阿里云 OSS、腾讯云 COS、MinIO 等
+- **网盘集成**：WebDAV、OneDrive、Google Drive、Telegram、Discord Bot、HuggingFace Database、GitHub API/Releases（只读）等等
+- **本地存储**：Docker 部署支持本地文件系统
+- **智能上传**：前端预签名直传 + 流式上传 +分片断点续传，进度实时显示，最大限度摆脱cf限制
+- **文件预览**：支持30+种格式直接预览（图片、视频、音频、PDF、Office、代码、电子书等），其余可通过外部IFrame嵌入[KKFileview](https://github.com/kekingcn/kkFileView)预览
+- **定时任务**：支持定时清理上传会话、存储同步、搜索索引重建等自动化任务
+- **统一管理**：可视化配置多存储，灵活切换默认存储源
+
+### 强大的 Markdown 编辑器
+
+- **Vditor 集成**：支持 GitHub 风格 Markdown、数学公式、流程图、思维导图
+- **实时预览**：所见即所得编辑体验
+- **多格式导出**：PDF、HTML、PNG、Word 一键导出
+- **安全分享**：密码保护、过期时间、访问次数限制
+- **Raw 直链**：类似 GitHub Raw，适合配置文件托管
+
+### WebDAV 协议支持
+
+- **标准协议**：支持任意 WebDAV 客户端挂载为网络驱动器
+- **完整操作**：目录创建、文件上传、删除、重命名、移动
+- **权限控制**：API 密钥授权，细粒度访问控制
+- **缓存优化**：可配置 TTL，减少上游请求
+
+### 灵活的权限管理
+
+- **API 密钥**：创建多权限只读/读写密钥，绑定特定存储路径
+- **时效控制**：自定义有效期，自动失效与手动撤销
+- **JWT 认证**：安全的管理员认证系统
+- **PWA 支持**：可安装为桌面应用，离线使用
+
+### 多种部署方式
+
+- **自动部署**：GitHub Actions 一键部署，支持自动触发
+- **手动部署**：Wrangler CLI 部署，灵活可控
+- **Docker 部署**：前后端镜像 + Docker Compose 一键启动
+- **多平台**：支持 Cloudflare、Vercel、ClawCloud、HuggingFace 等
+
+## 🚀 部署教程
+
+### 前期准备
+
+在开始部署前，请确保您已准备以下内容：
+
+- [ ] [Cloudflare](https://dash.cloudflare.com) 账号（必需）
+- [ ] 如使用 R2：开通 **Cloudflare R2** 服务并创建存储桶（需绑定支付方式）
+- [ ] 如使用 Vercel：注册 [Vercel](https://vercel.com) 账号
+- [ ] 其他 S3 存储服务的配置信息：
+    - `S3_ACCESS_KEY_ID`
+    - `S3_SECRET_ACCESS_KEY`
+    - `S3_BUCKET_NAME`
+    - `S3_ENDPOINT`
+
+**以下教程可能过时 具体参考： [Cloudpaste 在线部署文档](https://doc.cloudpaste.qzz.io)**
+
+<details>
+<summary><b>👉 查看完整部署教程</b></summary>
+
+### 📑 目录
+
+- [Action 自动部署](#Action自动部署)
+    - [部署架构选择](#部署架构选择)
+    - [配置 GitHub 仓库](#配置-GitHub-仓库)
+    - [一体化部署教程（推荐）](#一体化部署教程推荐)
+    - [前后端分离部署教程](#前后端分离部署教程)
+- [手动部署](#手动部署)
+    - [一体化手动部署（推荐）](#一体化手动部署推荐)
+    - [前后端分离手动部署](#前后端分离手动部署)
+- [ClawCloud 部署 CloudPaste 教程](#ClawCloud部署CloudPaste教程)
+
+---
+
+## Action 自动部署
+
+使用 GitHub Actions 可以实现代码推送后自动部署应用。">
+<meta property="og:title" content="「CF项目」 Serverless 文件管理与 Markdown 分享工具">
+<meta property="og:description" content="<div align='center'>
+
+    <img width='100' height='100' src='https://img.icons8.com/dusk/100/paste.png' alt='paste'/>
+    <h3>🌩️ Serverless 文件管理与 Markdown 分享工具，支持多种存储聚合、30+文件格式在线预览 与 WebDAV挂载</h3>
+</div>
+
+<div align='center'>
+    <a href='https://deepwiki.com/ling-drag0n/CloudPaste'><img src='https://deepwiki.com/badge.svg' alt='Ask DeepWiki'></a>
+    <a href='./LICENSE'><img src='https://img.shields.io/badge/license-Apache%202.0-blue.svg' alt='License'></a>
+    <a href='https://github.com/ling-drag0n/CloudPaste/stargazers'><img src='https://img.shields.io/github/stars/ling-drag0n/CloudPaste.svg' alt='GitHub Stars'></a>
+    <a href='https://www.cloudflare.com/'><img src='https://img.shields.io/badge/Powered%20by-Cloudflare-F38020?logo=cloudflare' alt='Powered by Cloudflare'></a>
+    <a href='https://hub.docker.com/r/dragon730/cloudpaste-backend'><img src='https://img.shields.io/docker/pulls/dragon730/cloudpaste-backend.svg' alt='Docker Pulls'></a>
+</div>
+
+## ✨ 核心特性
+
+### Cloudflare 原生架构
+
+- **边缘计算**：基于 Cloudflare Workers 、WorkFlow 和 D1 数据库，全球 300+ 节点就近响应
+- **零运维**：无需管理服务器，自动扩缩容，按请求计费
+- **一体化部署**：前后端打包在同一个 Worker，省心省力
+- **分离部署**：可选前后端分离，灵活适配个人需求
+
+### 多存储支持
+
+- **S3 兼容**：Cloudflare R2、Backblaze B2、AWS S3、阿里云 OSS、腾讯云 COS、MinIO 等
+- **网盘集成**：WebDAV、OneDrive、Google Drive、Telegram、Discord Bot、HuggingFace Database、GitHub API/Releases（只读）等等
+- **本地存储**：Docker 部署支持本地文件系统
+- **智能上传**：前端预签名直传 + 流式上传 +分片断点续传，进度实时显示，最大限度摆脱cf限制
+- **文件预览**：支持30+种格式直接预览（图片、视频、音频、PDF、Office、代码、电子书等），其余可通过外部IFrame嵌入[KKFileview](https://github.com/kekingcn/kkFileView)预览
+- **定时任务**：支持定时清理上传会话、存储同步、搜索索引重建等自动化任务
+- **统一管理**：可视化配置多存储，灵活切换默认存储源
+
+### 强大的 Markdown 编辑器
+
+- **Vditor 集成**：支持 GitHub 风格 Markdown、数学公式、流程图、思维导图
+- **实时预览**：所见即所得编辑体验
+- **多格式导出**：PDF、HTML、PNG、Word 一键导出
+- **安全分享**：密码保护、过期时间、访问次数限制
+- **Raw 直链**：类似 GitHub Raw，适合配置文件托管
+
+### WebDAV 协议支持
+
+- **标准协议**：支持任意 WebDAV 客户端挂载为网络驱动器
+- **完整操作**：目录创建、文件上传、删除、重命名、移动
+- **权限控制**：API 密钥授权，细粒度访问控制
+- **缓存优化**：可配置 TTL，减少上游请求
+
+### 灵活的权限管理
+
+- **API 密钥**：创建多权限只读/读写密钥，绑定特定存储路径
+- **时效控制**：自定义有效期，自动失效与手动撤销
+- **JWT 认证**：安全的管理员认证系统
+- **PWA 支持**：可安装为桌面应用，离线使用
+
+### 多种部署方式
+
+- **自动部署**：GitHub Actions 一键部署，支持自动触发
+- **手动部署**：Wrangler CLI 部署，灵活可控
+- **Docker 部署**：前后端镜像 + Docker Compose 一键启动
+- **多平台**：支持 Cloudflare、Vercel、ClawCloud、HuggingFace 等
+
+## 🚀 部署教程
+
+### 前期准备
+
+在开始部署前，请确保您已准备以下内容：
+
+- [ ] [Cloudflare](https://dash.cloudflare.com) 账号（必需）
+- [ ] 如使用 R2：开通 **Cloudflare R2** 服务并创建存储桶（需绑定支付方式）
+- [ ] 如使用 Vercel：注册 [Vercel](https://vercel.com) 账号
+- [ ] 其他 S3 存储服务的配置信息：
+    - `S3_ACCESS_KEY_ID`
+    - `S3_SECRET_ACCESS_KEY`
+    - `S3_BUCKET_NAME`
+    - `S3_ENDPOINT`
+
+**以下教程可能过时 具体参考： [Cloudpaste 在线部署文档](https://doc.cloudpaste.qzz.io)**
+
+<details>
+<summary><b>👉 查看完整部署教程</b></summary>
+
+### 📑 目录
+
+- [Action 自动部署](#Action自动部署)
+    - [部署架构选择](#部署架构选择)
+    - [配置 GitHub 仓库](#配置-GitHub-仓库)
+    - [一体化部署教程（推荐）](#一体化部署教程推荐)
+    - [前后端分离部署教程](#前后端分离部署教程)
+- [手动部署](#手动部署)
+    - [一体化手动部署（推荐）](#一体化手动部署推荐)
+    - [前后端分离手动部署](#前后端分离手动部署)
+- [ClawCloud 部署 CloudPaste 教程](#ClawCloud部署CloudPaste教程)
+
+---
+
+## Action 自动部署
+
+使用 GitHub Actions 可以实现代码推送后自动部署应用。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/64.html">
+<meta property="og:image" content="../avatar.png">
+<title>「CF项目」 Serverless 文件管理与 Markdown 分享工具</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「CF项目」 Serverless 文件管理与 Markdown 分享工具</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/64" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><div align="center">
+<pre class="notranslate"><code class="notranslate">&lt;img width="100" height="100" src="https://img.icons8.com/dusk/100/paste.png" alt="paste"/&gt;
+&lt;h3&gt;🌩️ Serverless 文件管理与 Markdown 分享工具，支持多种存储聚合、30+文件格式在线预览 与 WebDAV挂载&lt;/h3&gt;
+</code></pre>
+</div>
+<div align="center">
+    <a href="https://deepwiki.com/ling-drag0n/CloudPaste" rel="nofollow"><img src="https://camo.githubusercontent.com/0f5ae213ac378635adeb5d7f13cef055ad2f7d9a47b36de7b1c67dbe09f609ca/68747470733a2f2f6465657077696b692e636f6d2f62616467652e737667" alt="Ask DeepWiki" data-canonical-src="https://deepwiki.com/badge.svg" style="max-width: 100%;"></a>
+    <a href="./LICENSE"><img src="https://camo.githubusercontent.com/b29de0acdfd19013f1f02689b15c933e4a6c145be9efa718288f88ba3280b1c5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d417061636865253230322e302d626c75652e737667" alt="License" data-canonical-src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" style="max-width: 100%;"></a>
+    <a href="https://github.com/ling-drag0n/CloudPaste/stargazers"><img src="https://camo.githubusercontent.com/52d35596adc9aa4f407ede5c33f49275066a62bda442ac0130343c0069304cfc/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f6c696e672d64726167306e2f436c6f756450617374652e737667" alt="GitHub Stars" data-canonical-src="https://img.shields.io/github/stars/ling-drag0n/CloudPaste.svg" style="max-width: 100%;"></a>
+    <a href="https://www.cloudflare.com/" rel="nofollow"><img src="https://camo.githubusercontent.com/3b97410a801bca76f46b52889577a1d6180bcd30718e39739fc0ad2d15052865/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f776572656425323062792d436c6f7564666c6172652d4633383032303f6c6f676f3d636c6f7564666c617265" alt="Powered by Cloudflare" data-canonical-src="https://img.shields.io/badge/Powered%20by-Cloudflare-F38020?logo=cloudflare" style="max-width: 100%;"></a>
+    <a href="https://hub.docker.com/r/dragon730/cloudpaste-backend" rel="nofollow"><img src="https://camo.githubusercontent.com/390c23291d29c25ead68c44954e57c967a2b39747d2268d4ea15b2e095a0f11d/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f647261676f6e3733302f636c6f756470617374652d6261636b656e642e737667" alt="Docker Pulls" data-canonical-src="https://img.shields.io/docker/pulls/dragon730/cloudpaste-backend.svg" style="max-width: 100%;"></a>
+</div>
+<h2>✨ 核心特性</h2>
+<h3>Cloudflare 原生架构</h3>
+<ul>
+<li><strong>边缘计算</strong>：基于 Cloudflare Workers 、WorkFlow 和 D1 数据库，全球 300+ 节点就近响应</li>
+<li><strong>零运维</strong>：无需管理服务器，自动扩缩容，按请求计费</li>
+<li><strong>一体化部署</strong>：前后端打包在同一个 Worker，省心省力</li>
+<li><strong>分离部署</strong>：可选前后端分离，灵活适配个人需求</li>
+</ul>
+<h3>多存储支持</h3>
+<ul>
+<li><strong>S3 兼容</strong>：Cloudflare R2、Backblaze B2、AWS S3、阿里云 OSS、腾讯云 COS、MinIO 等</li>
+<li><strong>网盘集成</strong>：WebDAV、OneDrive、Google Drive、Telegram、Discord Bot、HuggingFace Database、GitHub API/Releases（只读）等等</li>
+<li><strong>本地存储</strong>：Docker 部署支持本地文件系统</li>
+<li><strong>智能上传</strong>：前端预签名直传 + 流式上传 +分片断点续传，进度实时显示，最大限度摆脱cf限制</li>
+<li><strong>文件预览</strong>：支持30+种格式直接预览（图片、视频、音频、PDF、Office、代码、电子书等），其余可通过外部IFrame嵌入<a href="https://github.com/kekingcn/kkFileView">KKFileview</a>预览</li>
+<li><strong>定时任务</strong>：支持定时清理上传会话、存储同步、搜索索引重建等自动化任务</li>
+<li><strong>统一管理</strong>：可视化配置多存储，灵活切换默认存储源</li>
+</ul>
+<h3>强大的 Markdown 编辑器</h3>
+<ul>
+<li><strong>Vditor 集成</strong>：支持 GitHub 风格 Markdown、数学公式、流程图、思维导图</li>
+<li><strong>实时预览</strong>：所见即所得编辑体验</li>
+<li><strong>多格式导出</strong>：PDF、HTML、PNG、Word 一键导出</li>
+<li><strong>安全分享</strong>：密码保护、过期时间、访问次数限制</li>
+<li><strong>Raw 直链</strong>：类似 GitHub Raw，适合配置文件托管</li>
+</ul>
+<h3>WebDAV 协议支持</h3>
+<ul>
+<li><strong>标准协议</strong>：支持任意 WebDAV 客户端挂载为网络驱动器</li>
+<li><strong>完整操作</strong>：目录创建、文件上传、删除、重命名、移动</li>
+<li><strong>权限控制</strong>：API 密钥授权，细粒度访问控制</li>
+<li><strong>缓存优化</strong>：可配置 TTL，减少上游请求</li>
+</ul>
+<h3>灵活的权限管理</h3>
+<ul>
+<li><strong>API 密钥</strong>：创建多权限只读/读写密钥，绑定特定存储路径</li>
+<li><strong>时效控制</strong>：自定义有效期，自动失效与手动撤销</li>
+<li><strong>JWT 认证</strong>：安全的管理员认证系统</li>
+<li><strong>PWA 支持</strong>：可安装为桌面应用，离线使用</li>
+</ul>
+<h3>多种部署方式</h3>
+<ul>
+<li><strong>自动部署</strong>：GitHub Actions 一键部署，支持自动触发</li>
+<li><strong>手动部署</strong>：Wrangler CLI 部署，灵活可控</li>
+<li><strong>Docker 部署</strong>：前后端镜像 + Docker Compose 一键启动</li>
+<li><strong>多平台</strong>：支持 Cloudflare、Vercel、ClawCloud、HuggingFace 等</li>
+</ul>
+<h2>🚀 部署教程</h2>
+<h3>前期准备</h3>
+<p>在开始部署前，请确保您已准备以下内容：</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> <a href="https://dash.cloudflare.com" rel="nofollow">Cloudflare</a> 账号（必需）</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 如使用 R2：开通 <strong>Cloudflare R2</strong> 服务并创建存储桶（需绑定支付方式）</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 如使用 Vercel：注册 <a href="https://vercel.com" rel="nofollow">Vercel</a> 账号</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 其他 S3 存储服务的配置信息：
+<ul>
+<li><code class="notranslate">S3_ACCESS_KEY_ID</code></li>
+<li><code class="notranslate">S3_SECRET_ACCESS_KEY</code></li>
+<li><code class="notranslate">S3_BUCKET_NAME</code></li>
+<li><code class="notranslate">S3_ENDPOINT</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>以下教程可能过时 具体参考： <a href="https://doc.cloudpaste.qzz.io" rel="nofollow">Cloudpaste 在线部署文档</a></strong></p>
+<details>
+<summary><b>👉 查看完整部署教程</b></summary>
+<h3>📑 目录</h3>
+<ul>
+<li><a href="#Action%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2">Action 自动部署</a>
+<ul>
+<li><a href="#%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84%E9%80%89%E6%8B%A9">部署架构选择</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE-GitHub-%E4%BB%93%E5%BA%93">配置 GitHub 仓库</a></li>
+<li><a href="#%E4%B8%80%E4%BD%93%E5%8C%96%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B%E6%8E%A8%E8%8D%90">一体化部署教程（推荐）</a></li>
+<li><a href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B">前后端分离部署教程</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%8B%E5%8A%A8%E9%83%A8%E7%BD%B2">手动部署</a>
+<ul>
+<li><a href="#%E4%B8%80%E4%BD%93%E5%8C%96%E6%89%8B%E5%8A%A8%E9%83%A8%E7%BD%B2%E6%8E%A8%E8%8D%90">一体化手动部署（推荐）</a></li>
+<li><a href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%89%8B%E5%8A%A8%E9%83%A8%E7%BD%B2">前后端分离手动部署</a></li>
+</ul>
+</li>
+<li><a href="#ClawCloud%E9%83%A8%E7%BD%B2CloudPaste%E6%95%99%E7%A8%8B">ClawCloud 部署 CloudPaste 教程</a></li>
+</ul>
+<hr>
+<h2>Action 自动部署</h2>
+<p>使用 GitHub Actions 可以实现代码推送后自动部署应用。CloudPaste 提供两种部署架构供您选择。</p>
+<h3>部署架构选择</h3>
+<h4>🔄 一体化部署（推荐）</h4>
+<p><strong>前后端部署在同一个 Cloudflare Worker 上</strong></p>
+<p>✨ <strong>优势：</strong></p>
+<ul>
+<li><strong>前后端同源</strong> - 无跨域问题，配置更简单</li>
+<li><strong>成本更低</strong> - 导航请求不计费，相比分离部署节省 60%+ 成本</li>
+<li><strong>部署更简单</strong> - 一次部署完成前后端，无需管理多个服务</li>
+<li><strong>性能更好</strong> - 前后端在同一 Worker，响应速度更快</li>
+</ul>
+<h4>🔀 前后端分离部署</h4>
+<p><strong>后端部署到 Cloudflare Workers，前端部署到 Cloudflare Pages</strong></p>
+<p>✨ <strong>优势：</strong></p>
+<ul>
+<li><strong>灵活管理</strong> - 前后端独立部署，互不影响</li>
+<li><strong>团队协作</strong> - 前后端可由不同团队维护</li>
+<li><strong>扩展性强</strong> - 前端可轻松切换到其他平台（如 Vercel）</li>
+</ul>
+<hr>
+<h3>配置 GitHub 仓库</h3>
+<h4>1️⃣ Fork 或克隆仓库</h4>
+<p>访问并 Fork 仓库：<a href="https://github.com/ling-drag0n/CloudPaste">https://github.com/ling-drag0n/CloudPaste</a></p>
+<h4>2️⃣ 配置 GitHub Secrets</h4>
+<p>进入您的 GitHub 仓库设置：<strong>Settings</strong> → <strong>Secrets and variables</strong> → <strong>Actions</strong> → <strong>New repository secret</strong></p>
+<p>添加以下 Secrets：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Secret 名称</th>
+<th>必需</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">CLOUDFLARE_API_TOKEN</code></td>
+<td>✅</td>
+<td>Cloudflare API 令牌（需要 Workers、D1 和 Pages 权限）</td>
+</tr>
+<tr>
+<td><code class="notranslate">CLOUDFLARE_ACCOUNT_ID</code></td>
+<td>✅</td>
+<td>Cloudflare 账户 ID</td>
+</tr>
+<tr>
+<td><code class="notranslate">ENCRYPTION_SECRET</code></td>
+<td>❌</td>
+<td>用于加密敏感数据的密钥（如不提供，将自动生成）</td>
+</tr>
+<tr>
+<td><code class="notranslate">ACTIONS_VAR_TOKEN</code></td>
+<td>✅</td>
+<td>用于部署控制面板的 GitHub Token（使用控制面板时需要，如不使用这不需要）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>3️⃣ 获取 Cloudflare API 令牌</h4>
+<p><strong>获取 API Token：</strong></p>
+<ol>
+<li>访问 <a href="https://dash.cloudflare.com/profile/api-tokens" rel="nofollow">Cloudflare API Tokens</a></li>
+<li>点击 <strong>Create Token</strong></li>
+<li>选择 <strong>Edit Cloudflare Workers</strong> 模板</li>
+<li><strong>添加额外权限</strong>：
+<ul>
+<li>Account → <strong>D1</strong> → <strong>Edit</strong></li>
+<li>Account → <strong>Cloudflare Pages</strong> → <strong>Edit</strong> (如使用分离部署)</li>
+</ul>
+</li>
+<li>点击 <strong>Continue to summary</strong> → <strong>Create Token</strong></li>
+<li><strong>复制 Token</strong> 并保存到 GitHub Secrets</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="./images/D1.png"><img src="./images/D1.png" alt="D1 Permission" style="max-width: 100%;"></a></p>
+<p><strong>获取 Account ID：</strong></p>
+<ol>
+<li>访问 <a href="https://dash.cloudflare.com" rel="nofollow">Cloudflare Dashboard</a></li>
+<li>在右侧栏找到 <strong>Account ID</strong></li>
+<li>点击复制并保存到 GitHub Secrets</li>
+</ol>
+<h4>4️⃣ （可选）配置部署控制面板</h4>
+<p>如果您想使用可视化控制面板管理自动部署开关，需要额外配置：</p>
+<p><strong>创建 GitHub Personal Access Token：</strong></p>
+<ol>
+<li>访问 <a href="https://github.com/settings/tokens">GitHub Token 设置</a></li>
+<li>点击 <strong>Generate new token</strong> → <strong>Generate new token (classic)</strong></li>
+<li>设置 Token 名称（如 <code class="notranslate">CloudPaste Deployment Control</code>）</li>
+<li>选择权限：
+<ul>
+<li>✅ <strong>repo</strong> (完整仓库访问权限)</li>
+<li>✅ <strong>workflow</strong> (工作流权限)</li>
+</ul>
+</li>
+<li>点击 <strong>Generate token</strong></li>
+<li>复制 Token 并保存为 Secret <code class="notranslate">ACTIONS_VAR_TOKEN</code></li>
+</ol>
+<p><strong>使用控制面板：</strong></p>
+<ol>
+<li>进入仓库 <strong>Actions</strong> 标签页</li>
+<li>在左侧工作流列表中，点击 <strong>🎛️ 部署控制面板</strong></li>
+<li>点击右侧 <strong>Run workflow</strong> → <strong>Run workflow</strong></li>
+<li>在弹出界面中选择要开启/关闭的部署方式</li>
+<li>点击 <strong>Run workflow</strong> 应用配置</li>
+<li>控制面板会在写入开关状态后，自动触发对应的部署工作流一次（是否真正部署由当前开关状态决定）</li>
+</ol>
+<hr>
+<h3>🔄 一体化部署教程（推荐）</h3>
+<h4>部署步骤</h4>
+<p>1️⃣ <strong>配置完成 GitHub Secrets</strong>（参考上方配置章节）</p>
+<p>2️⃣ <strong>触发部署工作流</strong></p>
+<p>方式一：手动触发（首次部署推荐）</p>
+<ul>
+<li>进入仓库 <strong>Actions</strong> 标签页</li>
+<li>点击左侧 <strong>Deploy SPA CF Workers[一体化部署]</strong></li>
+<li>点击右侧 <strong>Run workflow</strong> → 选择 <code class="notranslate">main</code> 分支 → <strong>Run workflow</strong></li>
+</ul>
+<p>方式二：自动触发</p>
+<ul>
+<li>使用部署控制面板开启 <strong>SPA 一体化自动部署</strong></li>
+<li>之后每次推送 <code class="notranslate">frontend/</code> 或 <code class="notranslate">backend/</code> 目录的代码到 <code class="notranslate">main</code> 分支时自动部署</li>
+</ul>
+<blockquote>
+<p>提示：在 Actions 页面手动运行 <strong>Deploy SPA CF Workers[一体化部署]</strong> 工作流时，会强制部署一次，不受自动部署开关影响；自动部署行为（push 或控制面板触发）始终由 <code class="notranslate">SPA_DEPLOY</code> 开关控制。</p>
+</blockquote>
+<p>3️⃣ <strong>等待部署完成</strong></p>
+<p>部署过程约 3-5 分钟，工作流会自动完成以下步骤：</p>
+<ul>
+<li>✅ 构建前端静态资源</li>
+<li>✅ 安装后端依赖</li>
+<li>✅ 创建/验证 D1 数据库</li>
+<li>✅ 初始化数据库表结构</li>
+<li>✅ 设置加密密钥</li>
+<li>✅ 部署到 Cloudflare Workers</li>
+</ul>
+<h4>部署完成</h4>
+<p><strong>访问您的应用：</strong> <code class="notranslate">https://cloudpaste-spa.your-account.workers.dev</code></p>
+<p><strong>后续配置：</strong></p>
+<ol>
+<li>首次访问会自动初始化数据库</li>
+<li>使用默认管理员账户登录：
+<ul>
+<li>用户名：<code class="notranslate">admin</code></li>
+<li>密码：<code class="notranslate">admin123</code></li>
+</ul>
+</li>
+<li><strong><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 重要：立即修改默认管理员密码！</strong></li>
+<li>在管理员面板中配置您的 S3/WEBDAV 兼容存储服务</li>
+<li>（可选）在 Cloudflare Dashboard 中绑定自定义域名</li>
+</ol>
+<hr>
+<h3>🔀 前后端分离部署教程</h3>
+<p>如果您选择前后端分离部署，请按以下步骤操作：</p>
+<h4>后端部署</h4>
+<p>1️⃣ <strong>配置完成 GitHub Secrets</strong>（参考上方配置章节）</p>
+<p>2️⃣ <strong>触发后端部署</strong></p>
+<p>方式一：手动触发</p>
+<ul>
+<li>进入仓库 <strong>Actions</strong> 标签页</li>
+<li>点击左侧 <strong>Deploy Backend CF Workers[Worker后端分离部署]</strong></li>
+<li>点击 <strong>Run workflow</strong> → <strong>Run workflow</strong></li>
+</ul>
+<p>方式二：自动触发</p>
+<ul>
+<li>使用部署控制面板开启 <strong>后端分离自动部署</strong></li>
+<li>推送 <code class="notranslate">backend/</code> 目录代码时自动部署</li>
+</ul>
+<p>3️⃣ <strong>等待部署完成</strong></p>
+<p>工作流会自动完成：</p>
+<ul>
+<li>✅ 创建/验证 D1 数据库</li>
+<li>✅ 初始化数据库表结构</li>
+<li>✅ 设置加密密钥</li>
+<li>✅ 部署 Worker 到 Cloudflare</li>
+</ul>
+<p>4️⃣ <strong>记录后端地址</strong></p>
+<p>部署成功后记下您的后端 Worker URL：<br>
+<code class="notranslate">https://cloudpaste-backend.your-account.workers.dev</code></p>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 重要：记住您的后端域名，前端部署时需要使用！</span></strong></p>
+<h4>前端部署</h4>
+<h5>Cloudflare Pages</h5>
+<p>1️⃣ <strong>触发前端部署</strong></p>
+<p>方式一：手动触发</p>
+<ul>
+<li>进入仓库 <strong>Actions</strong> 标签页</li>
+<li>点击左侧 <strong>Deploy Frontend CF Pages[Pages前端分离部署]</strong></li>
+<li>点击 <strong>Run workflow</strong> → <strong>Run workflow</strong></li>
+</ul>
+<p>方式二：自动触发</p>
+<ul>
+<li>使用部署控制面板开启 <strong>前端分离自动部署</strong></li>
+<li>推送 <code class="notranslate">frontend/</code> 目录代码时自动部署</li>
+</ul>
+<blockquote>
+<p>提示：在 Actions 页面手动运行「后端」「前端」部署工作流时，同样会强制部署一次，不受自动部署开关影响；自动部署行为由 <code class="notranslate">BACKEND_DEPLOY</code> / <code class="notranslate">FRONTEND_DEPLOY</code> 开关控制。</p>
+</blockquote>
+<p>2️⃣ <strong>配置环境变量</strong></p>
+<p><strong>必须步骤：前端部署完成后，需要手动配置后端地址！</strong></p>
+<ol>
+<li>登录 <a href="https://dash.cloudflare.com/" rel="nofollow">Cloudflare Dashboard</a></li>
+<li>导航到 <strong>Pages</strong> → <strong>cloudpaste-frontend</strong></li>
+<li>点击 <strong>Settings</strong> → <strong>Environment variables</strong></li>
+<li>添加环境变量：
+<ul>
+<li><strong>名称</strong>：<code class="notranslate">VITE_BACKEND_URL</code></li>
+<li><strong>值</strong>：您的后端 Worker URL（如 <code class="notranslate">https://cloudpaste-backend.your-account.workers.dev</code>）</li>
+<li><strong>注意</strong>：末尾不带 <code class="notranslate">/</code>，建议使用自定义域名</li>
+</ul>
+</li>
+</ol>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 必须填写完整的后端域名，格式：<a href="https://xxxx.com" rel="nofollow">https://xxxx.com</a></span></strong></p>
+<p>3️⃣ <strong>重新部署前端</strong></p>
+<p><strong>重要：配置环境变量后，必须再次运行前端工作流！</strong></p>
+<ul>
+<li>返回 GitHub Actions</li>
+<li>再次手动触发 <strong>Deploy Frontend CF Pages</strong> 工作流</li>
+<li>这样才能加载后端域名配置</li>
+</ul>
+<p><a target="_blank" rel="noopener noreferrer" href="./images/test-1.png"><img src="./images/test-1.png" alt="Frontend Redeploy" style="max-width: 100%;"></a></p>
+<p>4️⃣ <strong>访问应用</strong></p>
+<p>前端部署地址：<code class="notranslate">https://cloudpaste-frontend.pages.dev</code></p>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 务必严格按照步骤操作，否则会出现后端域名加载失败！</span></strong></p>
+<h5>Vercel（备选方案）</h5>
+<p>Vercel 部署步骤：</p>
+<ol>
+<li>Fork 后在 Vercel 中导入 GitHub 项目</li>
+<li>配置部署参数：</li>
+</ol>
+<pre class="notranslate"><code class="notranslate">Framework Preset（框架预设）: Vite
+Build Command（构建命令）: npm run build
+Output Directory（输出目录）: dist
+Install Command（安装命令）: npm install
+</code></pre>
+<ol start="3">
+<li>配置环境变量：
+<ul>
+<li>名称：<code class="notranslate">VITE_BACKEND_URL</code></li>
+<li>值：您的后端 Worker URL</li>
+</ul>
+</li>
+<li>点击 <strong>Deploy</strong> 按钮进行部署</li>
+</ol>
+<p><strong>☝️ Cloudflare Pages 和 Vercel 二选一即可</strong></p>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 安全提示：请在系统初始化后立即修改默认管理员密码（用户名: admin, 密码: admin123）。</span></strong></p>
+<hr>
+<h2>手动部署</h2>
+<p>CloudPaste 支持两种手动部署方式：一体化部署（推荐）和前后端分离部署。</p>
+<h3>🔄 一体化手动部署（推荐）</h3>
+<p>一体化部署将前后端部署到同一个 Cloudflare Worker，配置更简单，成本更低。</p>
+<h4>步骤 1：克隆仓库</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git clone https://github.com/ling-drag0n/CloudPaste.git
+<span class="pl-c1">cd</span> CloudPaste</pre></div>
+<h4>步骤 2：构建前端</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c1">cd</span> frontend
+npm install
+npm run build
+<span class="pl-c"><span class="pl-c">#</span> 或者使用 pnpm（同样支持）</span>
+<span class="pl-c"><span class="pl-c">#</span> pnpm install</span>
+<span class="pl-c"><span class="pl-c">#</span> pnpm run build</span>
+<span class="pl-c1">cd</span> ..</pre></div>
+<p><strong>验证构建产物：</strong> 确保 <code class="notranslate">frontend/dist</code> 目录存在且包含 <code class="notranslate">index.html</code></p>
+<h4>步骤 3：配置后端</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c1">cd</span> backend
+npm install
+<span class="pl-c"><span class="pl-c">#</span> 或者使用 pnpm（同样支持）</span>
+<span class="pl-c"><span class="pl-c">#</span> pnpm install</span>
+npx wrangler login</pre></div>
+<h4>步骤 4：创建 D1 数据库</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npx wrangler d1 create cloudpaste-db</pre></div>
+<p>记下输出的 <code class="notranslate">database_id</code>（例如：<code class="notranslate">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>）</p>
+<h4>步骤 5：初始化数据库</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npx wrangler d1 execute cloudpaste-db --file=./schema.sql</pre></div>
+<h4>步骤 6：配置 wrangler.spa.toml</h4>
+<p>编辑 <code class="notranslate">backend/wrangler.spa.toml</code> 文件，修改数据库 ID：</p>
+<div class="highlight highlight-source-toml"><pre class="notranslate">[[<span class="pl-en">d1_databases</span>]]
+<span class="pl-smi">binding</span> = <span class="pl-s"><span class="pl-pds">"</span>DB<span class="pl-pds">"</span></span>
+<span class="pl-smi">database_name</span> = <span class="pl-s"><span class="pl-pds">"</span>cloudpaste-db<span class="pl-pds">"</span></span>
+<span class="pl-smi">database_id</span> = <span class="pl-s"><span class="pl-pds">"</span>您的数据库ID<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> 替换为步骤4获取的ID</span></pre></div>
+<h4>步骤 7：部署到 Cloudflare Workers</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npx wrangler deploy --config wrangler.spa.toml</pre></div>
+<p>部署成功后，会显示您的应用 URL：</p>
+<pre class="notranslate"><code class="notranslate">Published cloudpaste-spa (X.XX sec)
+  https://cloudpaste-spa.your-account.workers.dev
+</code></pre>
+<h4>部署完成！</h4>
+<p><strong>访问您的应用：</strong> 打开上述 URL 即可使用 CloudPaste</p>
+<p><strong>后续配置：</strong></p>
+<ol>
+<li>首次访问会自动初始化数据库</li>
+<li>使用默认管理员账户登录（用户名：<code class="notranslate">admin</code>，密码：<code class="notranslate">admin123</code>）</li>
+<li><strong><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 立即修改默认管理员密码！</strong></li>
+<li>在管理员面板中配置 S3 兼容存储服务</li>
+<li>（可选）在 Cloudflare Dashboard 中绑定自定义域名</li>
+</ol>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 安全提示：请在系统初始化后立即修改默认管理员密码。</span></strong></p>
+<hr>
+<h3>🔀 前后端分离手动部署</h3>
+<p>如果您需要前后端独立部署和管理，可以选择分离部署方式。</p>
+<h4>后端手动部署</h4>
+<ol>
+<li>克隆仓库</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git clone https://github.com/ling-drag0n/CloudPaste.git
+<span class="pl-c1">cd</span> CloudPaste/backend</pre></div>
+<ol start="2">
+<li>
+<p>安装依赖</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npm install</pre></div>
+</li>
+<li>
+<p>登录 Cloudflare</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npx wrangler login</pre></div>
+</li>
+<li>
+<p>创建 D1 数据库</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npx wrangler d1 create cloudpaste-db</pre></div>
+<p>记下输出的数据库 ID。</p>
+</li>
+<li>
+<p>修改 wrangler.toml 配置</p>
+<div class="highlight highlight-source-toml"><pre class="notranslate">[[<span class="pl-en">d1_databases</span>]]
+<span class="pl-smi">binding</span> = <span class="pl-s"><span class="pl-pds">"</span>DB<span class="pl-pds">"</span></span>
+<span class="pl-smi">database_name</span> = <span class="pl-s"><span class="pl-pds">"</span>cloudpaste-db<span class="pl-pds">"</span></span>
+<span class="pl-smi">database_id</span> = <span class="pl-s"><span class="pl-pds">"</span>您的数据库ID<span class="pl-pds">"</span></span></pre></div>
+</li>
+<li>
+<p>部署 Worker</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npx wrangler deploy</pre></div>
+<p>记下输出的 URL，这是您的后端 API 地址。</p>
+</li>
+<li>
+<p>初始化数据库（自动）<br>
+访问您的 Worker URL 触发初始化：</p>
+<pre class="notranslate"><code class="notranslate">https://cloudpaste-backend.your-username.workers.dev
+</code></pre>
+</li>
+</ol>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 重要：记住您的后端域名，前端部署时需要使用！</span></strong></p>
+<h4>前端手动部署</h4>
+<h4>Cloudflare Pages</h4>
+<ol>
+<li>
+<p>准备前端代码</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c1">cd</span> CloudPaste/frontend
+npm install</pre></div>
+</li>
+<li>
+<p>配置环境变量<br>
+创建或修改 <code class="notranslate">.env.production</code> 文件：</p>
+<pre class="notranslate"><code class="notranslate">VITE_BACKEND_URL=https://cloudpaste-backend.your-username.workers.dev
+VITE_APP_ENV=production
+VITE_ENABLE_DEVTOOLS=false
+</code></pre>
+</li>
+<li>
+<p>构建前端项目</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npm run build</pre></div>
+<p><a href="https://github.com/ling-drag0n/CloudPaste/issues/6#issuecomment-2818746354" data-hovercard-type="issue" data-hovercard-url="/ling-drag0n/CloudPaste/issues/6/hovercard">构建时需注意！！</a></p>
+</li>
+<li>
+<p>部署到 Cloudflare Pages</p>
+<p><strong>方法一</strong>：通过 Wrangler CLI</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npx wrangler pages deploy dist --project-name=cloudpaste-frontend</pre></div>
+<p><strong>方法二</strong>：通过 Cloudflare Dashboard</p>
+<ol>
+<li>登录 <a href="https://dash.cloudflare.com/" rel="nofollow">Cloudflare Dashboard</a></li>
+<li>选择 "Pages"</li>
+<li>点击 "Create a project" → "Direct Upload"</li>
+<li>上传 <code class="notranslate">dist</code> 目录内的文件</li>
+<li>设置项目名称（如 "cloudpaste-frontend"）</li>
+<li>点击 "Save and Deploy"</li>
+</ol>
+</li>
+</ol>
+<h4>Vercel</h4>
+<ol>
+<li>
+<p>准备前端代码</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c1">cd</span> CloudPaste/frontend
+npm install</pre></div>
+</li>
+<li>
+<p>安装并登录 Vercel CLI</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npm install -g vercel
+vercel login</pre></div>
+</li>
+<li>
+<p>配置环境变量，与 Cloudflare Pages 相同</p>
+</li>
+<li>
+<p>构建并部署</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">vercel --prod</pre></div>
+<p>根据提示配置项目。</p>
+</li>
+</ol>
+<hr>
+<h2>ClawCloud 部署 CloudPaste 教程</h2>
+<h4>每月 10G 免费流量，只适合轻度使用</h4>
+<h6>Step 1:</h6>
+<p>注册链接：<a href="https://ap-northeast-1.run.claw.cloud/signin" rel="nofollow">Claw Cloud</a> （不带#AFF）<br>
+不需要信用卡，只要 GitHub 注册日期大于 180 天，每个月都送 5 美金额度。</p>
+<h6>Step 2:</h6>
+<p>注册后，在首页点击 APP Launchpad 进入，然后点击右上角的 create app</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/648c928d786d2be13302dc1479282285f1e9d98ee69217ab939b8ccc2c98d2f3/68747470733a2f2f73322e6c6f6c692e6e65742f323032352f30342f32312f736f6a3565574d68785467315646742e706e67"><img src="https://camo.githubusercontent.com/648c928d786d2be13302dc1479282285f1e9d98ee69217ab939b8ccc2c98d2f3/68747470733a2f2f73322e6c6f6c692e6e65742f323032352f30342f32312f736f6a3565574d68785467315646742e706e67" alt="image.png" data-canonical-src="https://s2.loli.net/2025/04/21/soj5eWMhxTg1VFt.png" style="max-width: 100%;"></a></p>
+<h6>Step 3:</h6>
+<p>先是部署后端，如图所示（仅供参考）：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4d12313bd9b04efd0151edbfe9fa0eb856680f098edd54296ec3ff2f1f9e3134/68747470733a2f2f73322e6c6f6c692e6e65742f323032352f30342f32312f4148724d6e7556794e684b3665556b2e706e67"><img src="https://camo.githubusercontent.com/4d12313bd9b04efd0151edbfe9fa0eb856680f098edd54296ec3ff2f1f9e3134/68747470733a2f2f73322e6c6f6c692e6e65742f323032352f30342f32312f4148724d6e7556794e684b3665556b2e706e67" alt="image.png" data-canonical-src="https://s2.loli.net/2025/04/21/AHrMnuVyNhK6eUk.png" style="max-width: 100%;"></a></p>
+<p>后端的数据存储就是这里：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8e20d40469ae4180eed2fbaf561aab0f0ce9f0b5a281c5feb0af1671ac09bfb2/68747470733a2f2f73322e6c6f6c692e6e65742f323032352f30342f32312f414e616f553559366378504f5666772e706e67"><img src="https://camo.githubusercontent.com/8e20d40469ae4180eed2fbaf561aab0f0ce9f0b5a281c5feb0af1671ac09bfb2/68747470733a2f2f73322e6c6f6c692e6e65742f323032352f30342f32312f414e616f553559366378504f5666772e706e67" alt="image.png" data-canonical-src="https://s2.loli.net/2025/04/21/ANaoU5Y6cxPOVfw.png" style="max-width: 100%;"></a></p>
+<h6>Step 4:</h6>
+<p>然后是前端，如图所示（仅供参考）：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d53263b7a43c114e5c5a2b5820216b43b09ff61dff7cc51ca57f1cc792cc2c57/68747470733a2f2f73322e6c6f6c692e6e65742f323032352f30342f32312f6b61543551753863746f76466455702e706e67"><img src="https://camo.githubusercontent.com/d53263b7a43c114e5c5a2b5820216b43b09ff61dff7cc51ca57f1cc792cc2c57/68747470733a2f2f73322e6c6f6c692e6e65742f323032352f30342f32312f6b61543551753863746f76466455702e706e67" alt="image.png" data-canonical-src="https://s2.loli.net/2025/04/21/kaT5Qu8ctovFdUp.png" style="max-width: 100%;"></a></p>
+<h5>部署完成即可使用，可根据需要自定义域名</h5>
+</details>
+<details>
+<summary><b>👉 Docker部署教程</b></summary>
+<h3>📑 目录</h3>
+<ul>
+<li>Docker 命令行部署
+<ul>
+<li><a href="#%E5%90%8E%E7%AB%AFDocker%E9%83%A8%E7%BD%B2">后端 Docker 部署</a></li>
+<li><a href="#%E5%89%8D%E7%AB%AFDocker%E9%83%A8%E7%BD%B2">前端 Docker 部署</a></li>
+</ul>
+</li>
+<li>Docker Compose 一键部署</li>
+</ul>
+<hr>
+<h2>Docker 命令行部署:</h2>
+<h3>后端 Docker 部署</h3>
+<p>CloudPaste 后端支持通过官方 Docker 镜像快速部署。</p>
+<ol>
+<li>
+<p>创建数据存储目录</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">mkdir -p sql_data</pre></div>
+</li>
+<li>
+<p>运行后端容器</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker run -d --name cloudpaste-backend \
+  -p 8787:8787 \
+  -v <span class="pl-s"><span class="pl-pds">$(</span>pwd<span class="pl-pds">)</span></span>/sql_data:/data \
+  -e ENCRYPTION_SECRET=您的加密密钥 \
+  -e NODE_ENV=production \
+  dragon730/cloudpaste-backend:latest</pre></div>
+<p>记下部署的 URL（如 <code class="notranslate">http://your-server-ip:8787</code>），后续前端部署需要用到。</p>
+</li>
+</ol>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 安全提示：请务必自定义 ENCRYPTION_SECRET 并保存好，此密钥用于加密敏感数据。</span></strong></p>
+<h3>前端 Docker 部署</h3>
+<p>前端使用 Nginx 提供服务，并在启动时配置后端 API 地址。</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker run -d --name cloudpaste-frontend \
+  -p 80:80 \
+  -e BACKEND_URL=http://your-server-ip:8787 \
+  dragon730/cloudpaste-frontend:latest</pre></div>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 注意：BACKEND_URL 必须包含完整 URL（包括协议 http:// 或 https://）</span></strong><br>
+<strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 安全提示：请在系统初始化后立即修改默认管理员密码（用户名: admin, 密码: admin123）。</span></strong></p>
+<h3>Docker 镜像更新</h3>
+<p>当项目发布新版本时，您可以按以下步骤更新 Docker 部署：</p>
+<ol>
+<li>
+<p>拉取最新镜像</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker pull dragon730/cloudpaste-backend:latest
+docker pull dragon730/cloudpaste-frontend:latest</pre></div>
+</li>
+<li>
+<p>停止并移除旧容器</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker stop cloudpaste-backend cloudpaste-frontend
+docker rm cloudpaste-backend cloudpaste-frontend</pre></div>
+</li>
+<li>
+<p>使用上述相同的运行命令启动新容器（保留数据目录和配置）</p>
+</li>
+</ol>
+<h2>Docker-Compose 一键部署:</h2>
+<p>使用 Docker Compose 可以一键部署前后端服务，是最简单推荐的方式。</p>
+<ol>
+<li>创建 <code class="notranslate">docker-compose.yml</code> 文件</li>
+</ol>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">version</span>: <span class="pl-s"><span class="pl-pds">"</span>3.8<span class="pl-pds">"</span></span>
+
+<span class="pl-ent">services</span>:
+  <span class="pl-ent">frontend</span>:
+    <span class="pl-ent">image</span>: <span class="pl-s">dragon730/cloudpaste-frontend:latest</span>
+    <span class="pl-ent">environment</span>:
+      - <span class="pl-s">BACKEND_URL=https://xxx.com </span><span class="pl-c"><span class="pl-c">#</span> 填写后端服务地址</span>
+    <span class="pl-ent">ports</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>8080:80<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span>"127.0.0.1:8080:80"</span>
+    <span class="pl-ent">depends_on</span>:
+      - <span class="pl-s">backend </span><span class="pl-c"><span class="pl-c">#</span> 依赖backend服务</span>
+    <span class="pl-ent">networks</span>:
+      - <span class="pl-s">cloudpaste-network</span>
+    <span class="pl-ent">restart</span>: <span class="pl-s">unless-stopped</span>
+
+  <span class="pl-ent">backend</span>:
+    <span class="pl-ent">image</span>: <span class="pl-s">dragon730/cloudpaste-backend:latest</span>
+    <span class="pl-ent">environment</span>:
+      - <span class="pl-s">NODE_ENV=production</span>
+      - <span class="pl-s">PORT=8787</span>
+      - <span class="pl-s">ENCRYPTION_SECRET=自定义密钥 </span><span class="pl-c"><span class="pl-c">#</span> 请修改为您自己的安全密钥</span>
+      - <span class="pl-s">TASK_WORKER_POOL_SIZE=2 </span><span class="pl-c"><span class="pl-c">#</span> 任务工作池大小</span>
+    <span class="pl-ent">volumes</span>:
+      - <span class="pl-s">./sql_data:/data </span><span class="pl-c"><span class="pl-c">#</span> 数据持久化</span>
+    <span class="pl-ent">ports</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>8787:8787<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span>"127.0.0.1:8787:8787"</span>
+    <span class="pl-ent">networks</span>:
+      - <span class="pl-s">cloudpaste-network</span>
+    <span class="pl-ent">restart</span>: <span class="pl-s">unless-stopped</span>
+
+<span class="pl-ent">networks</span>:
+  <span class="pl-ent">cloudpaste-network</span>:
+    <span class="pl-ent">driver</span>: <span class="pl-s">bridge</span></pre></div>
+<ol start="2">
+<li>启动服务</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker-compose up -d</pre></div>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 安全提示：请在系统初始化后立即修改默认管理员密码（用户名: admin, 密码: admin123）。</span></strong></p>
+<ol start="3">
+<li>访问服务</li>
+</ol>
+<p>前端: <code class="notranslate">http://your-server-ip:80</code><br>
+后端: <code class="notranslate">http://your-server-ip:8787</code></p>
+<h3>Docker Compose 更新</h3>
+<p>当需要更新到新版本时：</p>
+<ol>
+<li>
+<p>拉取最新镜像</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker-compose pull</pre></div>
+</li>
+<li>
+<p>使用新镜像重新创建容器（保留数据卷）</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker-compose up -d --force-recreate</pre></div>
+</li>
+</ol>
+<p><strong><span>💡 提示：如果遇到配置变更，可能需要备份数据后修改 docker-compose.yml 文件</span></strong></p>
+<h3>Nginx 反代示例（仅供参考）</h3>
+<div class="highlight highlight-source-nginx"><pre class="notranslate"><span class="pl-c1">server</span> <span class="pl-c1">{</span>
+    <span class="pl-c1">listen</span> <span class="pl-c1">443</span> <span class="pl-c1">ssl</span><span class="pl-c1">;</span>
+    <span class="pl-c1">server_name</span> paste.yourdomain.com<span class="pl-c1">;</span>  # 替换为您的域名
+
+<span class="pl-c">    # SSL 证书配置</span>
+    <span class="pl-c1">ssl_certificate</span>     /path/to/cert.pem<span class="pl-c1">;</span>  # 替换为证书路径
+    <span class="pl-c1">ssl_certificate_key</span> /path/to/key.pem<span class="pl-c1">;</span>   # 替换为密钥路径
+
+<span class="pl-c">    # 前端代理配置</span>
+    <span class="pl-c1">location</span> / <span class="pl-c1">{</span>
+        <span class="pl-c1">proxy_pass</span> <span class="pl-c1">http</span>://localhost:<span class="pl-c1">80</span><span class="pl-c1">;</span>  # Docker前端服务地址
+        <span class="pl-c1">proxy_set_header</span> Host <span class="pl-v">$host</span><span class="pl-c1">;</span>
+        <span class="pl-c1">proxy_set_header</span> X-Real-IP <span class="pl-v">$remote_addr</span><span class="pl-c1">;</span>
+    <span class="pl-c1">}</span>
+
+<span class="pl-c">    # 后端API代理配置</span>
+    <span class="pl-c1">location</span> /api <span class="pl-c1">{</span>
+        <span class="pl-c1">proxy_pass</span> <span class="pl-c1">http</span>://localhost:<span class="pl-c1">8787</span><span class="pl-c1">;</span>  # Docker后端服务地址
+        <span class="pl-c1">proxy_set_header</span> Host <span class="pl-v">$host</span><span class="pl-c1">;</span>
+        <span class="pl-c1">proxy_set_header</span> X-Real-IP <span class="pl-v">$remote_addr</span><span class="pl-c1">;</span>
+        <span class="pl-c1">client_max_body_size</span> 0<span class="pl-c1">;</span>
+
+<span class="pl-c">        # WebSocket支持 (如果需要)</span>
+        <span class="pl-c1">proxy_http_version</span> 1.1<span class="pl-c1">;</span>
+        <span class="pl-c1">proxy_set_header</span> Upgrade <span class="pl-v">$http_upgrade</span><span class="pl-c1">;</span>
+        <span class="pl-c1">proxy_set_header</span> Connection <span class="pl-s">"upgrade"</span><span class="pl-c1">;</span>
+    <span class="pl-c1">}</span>
+
+<span class="pl-c">    # WebDav 配置</span>
+    <span class="pl-c1">location</span> /dav/ <span class="pl-c1">{</span>
+        <span class="pl-c1">proxy_pass</span> <span class="pl-c1">http</span>://localhost:<span class="pl-c1">8787</span>/dav/<span class="pl-c1">;</span>  # 指向您的后端服务
+
+<span class="pl-c">        # WebDAV 必要头信息</span>
+        <span class="pl-c1">proxy_set_header</span> Host <span class="pl-v">$host</span><span class="pl-c1">;</span>
+        <span class="pl-c1">proxy_set_header</span> X-Real-IP <span class="pl-v">$remote_addr</span><span class="pl-c1">;</span>
+        <span class="pl-c1">proxy_set_header</span> X-Forwarded-For <span class="pl-v">$proxy_add_x_forwarded_for</span><span class="pl-c1">;</span>
+
+<span class="pl-c">        # WebDAV 方法支持</span>
+        <span class="pl-c1">proxy_pass_request_headers</span> on<span class="pl-c1">;</span>
+
+<span class="pl-c">        # 支持所有WebDAV方法</span>
+        <span class="pl-c1">proxy_method</span> <span class="pl-v">$request_method</span><span class="pl-c1">;</span>
+
+<span class="pl-c">        # 必要的头信息处理</span>
+        <span class="pl-c1">proxy_set_header</span> Destination <span class="pl-v">$http_destination</span><span class="pl-c1">;</span>
+        <span class="pl-c1">proxy_set_header</span> Overwrite <span class="pl-v">$http_overwrite</span><span class="pl-c1">;</span>
+
+<span class="pl-c">        # 处理大文件</span>
+        <span class="pl-c1">client_max_body_size</span> 0<span class="pl-c1">;</span>
+        <span class="pl-c1">client_body_buffer_size</span> <span class="pl-c1">128k</span><span class="pl-c1">;</span>
+
+<span class="pl-c">        # WebDAV 上传/下载优化</span>
+        <span class="pl-c1">proxy_buffering</span> off<span class="pl-c1">;</span>           # 关闭代理缓冲，减少延迟
+        <span class="pl-c1">proxy_request_buffering</span> off<span class="pl-c1">;</span>   # 关闭请求缓冲，让数据流式传输
+        <span class="pl-c1">proxy_max_temp_file_size</span> 0<span class="pl-c1">;</span>    # 不生成临时文件
+        <span class="pl-c1">send_timeout</span> <span class="pl-c1">3600</span><span class="pl-c1">;</span>             # 上传超时时间
+        <span class="pl-c1">proxy_read_timeout</span> <span class="pl-c1">3600</span><span class="pl-c1">;</span>       # 读取超时
+        <span class="pl-c1">proxy_send_timeout</span> <span class="pl-c1">3600</span><span class="pl-c1">;</span>       # 发送超时
+        <span class="pl-c1">proxy_connect_timeout</span> <span class="pl-c1">300</span><span class="pl-c1">;</span>     # 连接超时
+    <span class="pl-c1">}</span>
+<span class="pl-c1">}</span></pre></div>
+<p><strong><span><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 安全提示：建议配置 HTTPS 和反向代理（如 Nginx）以提升安全性。</span></strong></p>
+</details>
+<details>
+<summary><b>👉 S3相关跨域配置教程</b></summary>
+<h2>R2 API 相关获取及跨域配置</h2>
+<ol>
+<li>
+<p>登录 Cloudflare Dashboard</p>
+</li>
+<li>
+<p>点击 R2 存储，创建一个存储桶。</p>
+</li>
+<li>
+<p>创建 API 令牌<br>
+<a target="_blank" rel="noopener noreferrer" href="./images/R2/R2-api.png"><img src="./images/R2/R2-api.png" alt="R2api" style="max-width: 100%;"></a><br>
+<a target="_blank" rel="noopener noreferrer" href="./images/R2/R2-rw.png"><img src="./images/R2/R2-rw.png" alt="R2rw" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>创建后把全部数据都保存好，后续要用</p>
+</li>
+<li>
+<p>配置跨域规则，点击对应存储桶，点击设置，编辑 CORS 策略，如下所示：</p>
+</li>
+</ol>
+<div class="highlight highlight-source-json"><pre class="notranslate">[
+  {
+    <span class="pl-ent">"AllowedOrigins"</span>: [<span class="pl-s"><span class="pl-pds">"</span>http://localhost:3000<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>https://根据自己的前端域名来替代<span class="pl-pds">"</span></span>],
+    <span class="pl-ent">"AllowedMethods"</span>: [<span class="pl-s"><span class="pl-pds">"</span>GET<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>PUT<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>POST<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>DELETE<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>HEAD<span class="pl-pds">"</span></span>],
+    <span class="pl-ent">"AllowedHeaders"</span>: [<span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>],
+    <span class="pl-ent">"ExposeHeaders"</span>: [<span class="pl-s"><span class="pl-pds">"</span>ETag<span class="pl-pds">"</span></span>],
+    <span class="pl-ent">"MaxAgeSeconds"</span>: <span class="pl-c1">3600</span>
+  }
+]</pre></div>
+<h2>B2 API 相关获取及跨域配置</h2>
+<ol>
+<li>
+<p>若没有 B2 账号，可以先<a href="https://www.backblaze.com/sign-up/cloud-storage?referrer=getstarted" rel="nofollow">注册</a>一个，然后创建一个存储桶。<br>
+<a target="_blank" rel="noopener noreferrer" href="./images/B2/B2-1.png"><img src="./images/B2/B2-1.png" alt="B2账号注册" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>点击侧边栏的 Application Key，点击 Create Key，然后如图所示。<br>
+<a target="_blank" rel="noopener noreferrer" href="./images/B2/B2-2.png"><img src="./images/B2/B2-2.png" alt="B2key" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>配置 B2 的跨域，B2 跨域配置比较麻烦，需注意<br>
+<a target="_blank" rel="noopener noreferrer" href="./images/B2/B2-3.png"><img src="./images/B2/B2-3.png" alt="B2cors" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p>可以先尝试一下 1 或 2，去到上传页面看看是否能上传，F12 打开控制台若显示跨域错误，则使用 3。要一劳永逸就直接使用 3。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="./images/B2/B2-4.png"><img src="./images/B2/B2-4.png" alt="B21" style="max-width: 100%;"></a></p>
+</li>
+</ol>
+<p>关于 3 的配置由于面板无法配置，只能手动配置，需<a href="https://www.backblaze.com/docs/cloud-storage-command-line-tools" rel="nofollow">下载 B2 CLI</a>对应工具。具体可以参考："<a href="https://docs.cloudreve.org/zh/usage/storage/b2" rel="nofollow">https://docs.cloudreve.org/zh/usage/storage/b2</a> " 。</p>
+<p>下载后，在对应下载目录 cmd，在命令行输入以下命令：</p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">b2-windows.exe account authorize   //进行账号登录，根据提示填入之前的 keyID 和 applicationKey
+b2-windows.exe bucket get &lt;bucketName&gt; //你可以执行获取bucket信息，&lt;bucketName&gt;换成桶名字</pre></div>
+<p>windows 配置，采用“.\b2-windows.exe xxx”，<br>
+所以在对应 cli 的 exe 文件夹中 cmd 输入，python 的 cli 也同理：</p>
+<div class="highlight highlight-source-batchfile"><pre class="notranslate">b2-windows.exe bucket update <span class="pl-k">&lt;</span>bucketName<span class="pl-k">&gt;</span> allPrivate --cors-rules <span class="pl-s"><span class="pl-pds">"</span>[{\<span class="pl-pds">"</span></span>corsRuleName\<span class="pl-s"><span class="pl-pds">"</span>:\<span class="pl-pds">"</span></span>CloudPaste\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>allowedOrigins\<span class="pl-s"><span class="pl-pds">"</span>:[\<span class="pl-pds">"</span></span>*\<span class="pl-s"><span class="pl-pds">"</span>],\<span class="pl-pds">"</span></span>allowedHeaders\<span class="pl-s"><span class="pl-pds">"</span>:[\<span class="pl-pds">"</span></span>*\<span class="pl-s"><span class="pl-pds">"</span>],\<span class="pl-pds">"</span></span>allowedOperations\<span class="pl-s"><span class="pl-pds">"</span>:[\<span class="pl-pds">"</span></span>b2_upload_file\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>b2_download_file_by_name\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>b2_download_file_by_id\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>s3_head\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>s3_get\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>s3_put\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>s3_post\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>s3_delete\<span class="pl-s"><span class="pl-pds">"</span>],\<span class="pl-pds">"</span></span>exposeHeaders\<span class="pl-s"><span class="pl-pds">"</span>:[\<span class="pl-pds">"</span></span>Etag\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>content-length\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>content-type\<span class="pl-s"><span class="pl-pds">"</span>,\<span class="pl-pds">"</span></span>x-bz-content-sha1\<span class="pl-s"><span class="pl-pds">"</span>],\<span class="pl-pds">"</span></span>maxAgeSeconds\<span class="pl-s"><span class="pl-pds">"</span>:3600}]<span class="pl-pds">"</span></span></pre></div>
+<p>其中换成你的存储桶名字，关于允许跨域的域名 allowedOrigins 可以根据个人配置，这里是允许所有。</p>
+<ol start="5">
+<li>已完成跨域配置</li>
+</ol>
+<h2>MinIO API 相关获取及跨域配置</h2>
+<ol>
+<li>
+<p><strong>部署 MinIO 服务器</strong></p>
+<p>使用以下 Docker Compose 配置（参考）快速部署 MinIO 服务：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">version</span>: <span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>
+
+<span class="pl-ent">services</span>:
+  <span class="pl-ent">minio</span>:
+    <span class="pl-ent">image</span>: <span class="pl-s">minio/minio:RELEASE.2025-02-18T16-25-55Z</span>
+    <span class="pl-ent">container_name</span>: <span class="pl-s">minio-server</span>
+    <span class="pl-ent">command</span>: <span class="pl-s">server /data --console-address :9001 --address :9000</span>
+    <span class="pl-ent">environment</span>:
+      - <span class="pl-s">MINIO_ROOT_USER=minioadmin </span><span class="pl-c"><span class="pl-c">#</span> 设置管理员用户名</span>
+      - <span class="pl-s">MINIO_ROOT_PASSWORD=minioadmin </span><span class="pl-c"><span class="pl-c">#</span> 设置管理员密码</span>
+      - <span class="pl-s">MINIO_BROWSER=on</span>
+      - <span class="pl-s">MINIO_SERVER_URL=https://minio.example.com </span><span class="pl-c"><span class="pl-c">#</span> S3 API 访问地址</span>
+      - <span class="pl-s">MINIO_BROWSER_REDIRECT_URL=https://console.example.com </span><span class="pl-c"><span class="pl-c">#</span> 控制台访问地址</span>
+    <span class="pl-ent">ports</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>9000:9000<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> S3 API 端口</span>
+      - <span class="pl-s"><span class="pl-pds">"</span>9001:9001<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> 控制台端口</span>
+    <span class="pl-ent">volumes</span>:
+      - <span class="pl-s">./data:/data</span>
+      - <span class="pl-s">./certs:/root/.minio/certs </span><span class="pl-c"><span class="pl-c">#</span> 如需配置SSL证书</span>
+    <span class="pl-ent">restart</span>: <span class="pl-s">always</span></pre></div>
+<p>运行 <code class="notranslate">docker-compose up -d</code> 启动服务。</p>
+</li>
+<li>
+<p><strong>配置反向代理（参考）</strong></p>
+<p>为确保 MinIO 服务正常工作，特别是文件预览功能，需要正确配置反向代理。以下是 OpenResty/Nginx 的推荐配置：</p>
+<p><strong>MinIO S3 API 反向代理 (minio.example.com)</strong>:</p>
+<div class="highlight highlight-source-nginx"><pre class="notranslate"><span class="pl-c1">location</span> / <span class="pl-c1">{</span>
+    <span class="pl-c1">proxy_pass</span> <span class="pl-c1">http</span>://<span class="pl-c1">127.0.0.1:9000</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> Host <span class="pl-v">$host</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> X-Real-IP <span class="pl-v">$remote_addr</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> X-Forwarded-For <span class="pl-v">$proxy_add_x_forwarded_for</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> X-Forwarded-Proto <span class="pl-v">$scheme</span><span class="pl-c1">;</span>
+
+<span class="pl-c">    # HTTP 连接优化</span>
+    <span class="pl-c1">proxy_http_version</span> 1.1<span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> Connection <span class="pl-s">""</span><span class="pl-c1">;</span>  # 启用HTTP/1.1的<span class="pl-c1">keepalive</span>
+
+<span class="pl-c">    # 关键配置：解决403错误和预览问题</span>
+    <span class="pl-c1">proxy_cache</span> off<span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_buffering</span> off<span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_request_buffering</span> off<span class="pl-c1">;</span>
+
+<span class="pl-c">    # 无文件大小限制</span>
+    <span class="pl-c1">client_max_body_size</span> 0<span class="pl-c1">;</span>
+<span class="pl-c1">}</span></pre></div>
+<p><strong>MinIO 控制台反向代理 (console.example.com)</strong>:</p>
+<div class="highlight highlight-source-nginx"><pre class="notranslate"><span class="pl-c1">location</span> / <span class="pl-c1">{</span>
+    <span class="pl-c1">proxy_pass</span> <span class="pl-c1">http</span>://<span class="pl-c1">127.0.0.1:9001</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> Host <span class="pl-v">$host</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> X-Real-IP <span class="pl-v">$remote_addr</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> X-Forwarded-For <span class="pl-v">$proxy_add_x_forwarded_for</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> X-Forwarded-Proto <span class="pl-v">$scheme</span><span class="pl-c1">;</span>
+
+<span class="pl-c">    # WebSocket 支持</span>
+    <span class="pl-c1">proxy_http_version</span> 1.1<span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> Upgrade <span class="pl-v">$http_upgrade</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> Connection <span class="pl-s">"upgrade"</span><span class="pl-c1">;</span>
+
+<span class="pl-c">    # 关键配置</span>
+    <span class="pl-c1">proxy_cache</span> off<span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_buffering</span> off<span class="pl-c1">;</span>
+
+<span class="pl-c">    # 无文件大小限制</span>
+    <span class="pl-c1">client_max_body_size</span> 0<span class="pl-c1">;</span>
+<span class="pl-c1">}</span></pre></div>
+</li>
+<li>
+<p><strong>访问控制台创建存储桶和创建访问密钥</strong></p>
+<p>如有详细配置需求，可参考官方文档：<a href="https://min.io/docs/minio/container/index.html" rel="nofollow">https://min.io/docs/minio/container/index.html</a></p>
+<p>CN: <a href="https://min-io.cn/docs/minio/container/index.html" rel="nofollow">https://min-io.cn/docs/minio/container/index.html</a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="./images/minio-1.png"><img src="./images/minio-1.png" alt="minio-1" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p><strong>相关配置（可选）</strong></p>
+<p>允许的源包含您的前端域名<br>
+<a target="_blank" rel="noopener noreferrer" href="./images/minio-2.png"><img src="./images/minio-2.png" alt="minio-2" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p><strong>在 CloudPaste 中配置 MinIO</strong></p>
+<ul>
+<li>登录 CloudPaste 管理界面</li>
+<li>进入 "S3 存储配置" → "添加存储配置"</li>
+<li>选择 "其他兼容 S3 服务" 作为提供商类型</li>
+<li>填入以下信息：
+<ul>
+<li>名称：自定义名称</li>
+<li>端点 URL：您的 MinIO 服务地址（如 <code class="notranslate">https://minio.example.com</code>）</li>
+<li>存储桶名称：之前创建的存储桶名称</li>
+<li>访问密钥 ID：您的 Access Key</li>
+<li>访问密钥：您的 Secret Key</li>
+<li>区域：可留空</li>
+<li>路径风格访问：必须启用！！！！</li>
+</ul>
+</li>
+<li>点击 "测试连接" 确认配置正确</li>
+<li>保存配置</li>
+</ul>
+</li>
+<li>
+<p><strong>注意与故障排查</strong></p>
+<ul>
+<li><strong>注意事项</strong>：如使用 Cloudfare 开启 cdn 可能需要加上 proxy_set_header Accept-Encoding "identity"，同时存在缓存问题，最好仅用 DNS 解析</li>
+<li><strong>403 错误</strong>：确保反向代理配置中包含 <code class="notranslate">proxy_cache off</code> 和 <code class="notranslate">proxy_buffering off</code></li>
+<li><strong>预览问题</strong>：确保 MinIO 服务器正确配置了 <code class="notranslate">MINIO_SERVER_URL</code> 和 <code class="notranslate">MINIO_BROWSER_REDIRECT_URL</code></li>
+<li><strong>上传失败</strong>：检查 CORS 配置是否正确，确保允许的源包含您的前端域名</li>
+<li><strong>控制台无法访问</strong>：检查 WebSocket 配置是否正确，特别是 <code class="notranslate">Connection "upgrade"</code> 设置</li>
+</ul>
+</li>
+</ol>
+<h2>更多 S3 相关配置待续......</h2>
+</details>
+<details>
+<summary><b>👉 WebDAV配置详细指南</b></summary>
+<h2>WebDAV 配置与使用详解</h2>
+<p>CloudPaste 提供简易的 WebDAV 协议支持，允许您将存储空间挂载为网络驱动器，便于直接通过文件管理器访问和管理文件。</p>
+<h3>WebDAV 服务基本信息</h3>
+<ul>
+<li><strong>WebDAV 基础 URL</strong>: <code class="notranslate">https://你的后端域名/dav</code></li>
+<li><strong>支持的认证方式</strong>:
+<ul>
+<li>Basic 认证（用户名+密码）</li>
+</ul>
+</li>
+<li><strong>支持的权限类型</strong>:
+<ul>
+<li>管理员账户 - 拥有完整操作权限</li>
+<li>API 密钥 - 按需启用</li>
+</ul>
+</li>
+</ul>
+<h3>权限配置</h3>
+<h4>1. 管理员账户访问</h4>
+<p>使用管理员账户和密码直接访问 WebDAV 服务：</p>
+<ul>
+<li><strong>用户名</strong>: 管理员用户名</li>
+<li><strong>密码</strong>: 管理员密码</li>
+</ul>
+<h4>2. API 密钥访问（推荐）</h4>
+<p>为更安全的访问方式，建议创建专用 API 密钥：</p>
+<ol>
+<li>登录管理界面</li>
+<li>导航至"API 密钥管理"</li>
+<li>创建新 API 密钥，<strong>确保启用"挂载权限"</strong></li>
+<li>使用方式：
+<ul>
+<li><strong>用户名</strong>: API 密钥值</li>
+<li><strong>密码</strong>: 与用户名相同的 API 密钥值</li>
+</ul>
+</li>
+</ol>
+<h3>NGINX 反向代理配置</h3>
+<p>如果使用 NGINX 作为反向代理，需要添加特定的 WebDAV 配置以确保所有 WebDAV 方法正常工作：</p>
+<div class="highlight highlight-source-nginx"><pre class="notranslate"><span class="pl-c"># WebDAV 配置</span>
+<span class="pl-c1">location</span> /dav <span class="pl-c1">{</span>
+    <span class="pl-c1">proxy_pass</span> <span class="pl-c1">http</span>://localhost:<span class="pl-c1">8787</span><span class="pl-c1">;</span>  # 指向您的后端服务
+
+<span class="pl-c">    # WebDAV 必要头信息</span>
+    <span class="pl-c1">proxy_set_header</span> Host <span class="pl-v">$host</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> X-Real-IP <span class="pl-v">$remote_addr</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> X-Forwarded-For <span class="pl-v">$proxy_add_x_forwarded_for</span><span class="pl-c1">;</span>
+
+<span class="pl-c">    # WebDAV 方法支持</span>
+    <span class="pl-c1">proxy_pass_request_headers</span> on<span class="pl-c1">;</span>
+
+<span class="pl-c">    # 支持所有WebDAV方法</span>
+    <span class="pl-c1">proxy_method</span> <span class="pl-v">$request_method</span><span class="pl-c1">;</span>
+
+<span class="pl-c">    # 必要的头信息处理</span>
+    <span class="pl-c1">proxy_set_header</span> Destination <span class="pl-v">$http_destination</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_set_header</span> Overwrite <span class="pl-v">$http_overwrite</span><span class="pl-c1">;</span>
+
+<span class="pl-c">    # 处理大文件</span>
+    <span class="pl-c1">client_max_body_size</span> 0<span class="pl-c1">;</span>
+
+<span class="pl-c">    # 超时设置</span>
+    <span class="pl-c1">proxy_connect_timeout</span> <span class="pl-c1">3600s</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_send_timeout</span> <span class="pl-c1">3600s</span><span class="pl-c1">;</span>
+    <span class="pl-c1">proxy_read_timeout</span> <span class="pl-c1">3600s</span><span class="pl-c1">;</span>
+<span class="pl-c1">}</span></pre></div>
+<h3>常见问题解决</h3>
+<ol>
+<li>
+<p><strong>连接问题</strong>:</p>
+<ul>
+<li>确认 WebDAV URL 格式正确</li>
+<li>验证认证凭据是否有效</li>
+<li>检查 API 密钥是否具有挂载权限</li>
+</ul>
+</li>
+<li>
+<p><strong>权限错误</strong>:</p>
+<ul>
+<li>确认账户具有所需的权限</li>
+<li>管理员账户应有完整权限</li>
+<li>API 密钥需特别启用挂载权限</li>
+</ul>
+</li>
+<li>
+<p><strong><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Webdav 上传问题</strong>:</p>
+<ul>
+<li>Worker 部署的 webdav 上传大小可能受限于 CF 的 CDN 限制 100MB 左右，导致报错 413</li>
+<li>对于 Docker 部署，只需注意 nginx 代理配置，上传模式任意。</li>
+</ul>
+</li>
+</ol>
+</details>
+<h2>🔧 技术栈</h2>
+<h3>前端</h3>
+<ul>
+<li><strong>框架</strong>: Vue.js 3 + Vite</li>
+<li><strong>样式</strong>: TailwindCSS</li>
+<li><strong>编辑器</strong>: Vditor</li>
+<li><strong>国际化</strong>: Vue-i18n</li>
+<li><strong>图表</strong>: Chart.js + Vue-chartjs</li>
+</ul>
+<h3>后端</h3>
+<ul>
+<li><strong>运行时</strong>: Cloudflare Workers</li>
+<li><strong>框架</strong>: Hono</li>
+<li><strong>数据库</strong>: Cloudflare D1 (SQLite)</li>
+<li><strong>存储</strong>: 多 S3 兼容服务 (支持 R2, B2, AWS S3)</li>
+<li><strong>认证</strong>: JWT 令牌 + API 密钥</li>
+</ul>
+<h2>💻 开发</h2>
+<h3>API 文档</h3>
+<p><a href="Api-doc.md">API 文档</a></p>
+<p><a href="Api-s3_direct.md">服务器 文件直传 API 文档</a> - 服务器 文件直传接口详细说明</p>
+<h3>本地开发设置</h3>
+<ol>
+<li>
+<p><strong>克隆项目仓库</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git clone https://github.com/ling-drag0n/cloudpaste.git
+<span class="pl-c1">cd</span> cloudpaste</pre></div>
+</li>
+<li>
+<p><strong>后端设置</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c1">cd</span> backend
+npm install
+<span class="pl-c"><span class="pl-c">#</span> 初始化 D1 数据库</span>
+wrangler d1 create cloudpaste-db
+wrangler d1 execute cloudpaste-db --file=./schema.sql</pre></div>
+</li>
+<li>
+<p><strong>前端设置</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c1">cd</span> frontend
+npm install</pre></div>
+</li>
+<li>
+<p><strong>配置环境变量</strong></p>
+<ul>
+<li>在 <code class="notranslate">backend</code> 目录下，创建 <code class="notranslate">wrangler.toml</code> 文件设置开发环境变量</li>
+<li>在 <code class="notranslate">frontend</code> 目录下，配置 <code class="notranslate">.env.development</code> 文件设置前端环境变量</li>
+</ul>
+</li>
+<li>
+<p><strong>启动开发服务器</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 后端</span>
+<span class="pl-c1">cd</span> backend
+npm run dev
+
+<span class="pl-c"><span class="pl-c">#</span> 前端 (另一个终端)</span>
+<span class="pl-c1">cd</span> frontend
+npm run dev</pre></div>
+</li>
+</ol>
+<h3>项目结构</h3>
+<pre class="notranslate"><code class="notranslate">CloudPaste/
+├── frontend/                         # 前端 Vite + Vue 3 SPA
+│   ├── src/
+│   │   ├── api/                      # HTTP 客户端与 API service（无领域语义）
+│   │   ├── modules/                  # 领域模块层（按业务拆分）
+│   │   │   ├── paste/                # 文本分享（编辑器 / 公共查看 / 管理）
+│   │   │   ├── fileshare/            # 文件分享（公共页 / 管理）
+│   │   │   ├── fs/                   # 挂载文件系统浏览器（MountExplorer）
+│   │   │   ├── upload/               # 上传控制器与上传视图
+│   │   │   ├── storage-core/         # 存储驱动与 Uppy 集成（底层抽象）
+│   │   │   ├── security/             # 前端认证桥接 / 请求头构造
+│   │   │   ├── pwa-offline/          # PWA 离线与队列
+│   │   │   └── admin/                # 管理后台（仪表盘 / 设置 / 密钥管理等）
+│   │   ├── components/               # 可复用通用组件（对模块无依赖）
+│   │   ├── composables/              # 共享组合式 API（file-system / preview 等）
+│   │   ├── stores/                   # Pinia Store（auth / fileSystem / siteConfig 等）
+│   │   ├── router/                   # Vue Router 配置（所有页面路由入口）
+│   │   ├── pwa/                      # PWA 状态与安装提示
+│   │   ├── utils/                    # 通用工具函数（clipboard / time / icons 等）
+│   │   ├── styles/                   # 全局样式与 Tailwind 配置入口
+│   │   └── assets/                   # 静态资源
+│   ├── eslint.config.cjs             # 前端 ESLint 配置（含 import 限制）
+│   ├── vite.config.js                # Vite 构建配置
+│   └── package.json
+├── backend/                          # 后端（Cloudflare Workers / Docker 双运行模式）
+│   ├── src/
+│   │   ├── routes/                   # HTTP 路由层（fs / files / pastes / admin / system 等）
+│   │   │   ├── fs/                   # 挂载文件系统 API（list / read / write / search / share）
+│   │   │   ├── files/                # 文件分享 API（公开 / 管理）
+│   │   │   ├── pastes/               # 文本分享 API（公开 / 管理）
+│   │   │   ├── adminRoutes.js        # 管理端通用路由
+│   │   │   ├── apiKeyRoutes.js       # API 密钥管理路由
+│   │   │   ├── mountRoutes.js        # 挂载点配置路由
+│   │   │   ├── systemRoutes.js       # 系统设置与仪表盘统计
+│   │   │   └── fsRoutes.js           # 统一 FS 入口聚合
+│   │   ├── services/                 # 领域服务（pastes / files / system / apiKey 等）
+│   │   ├── security/                 # 认证 + 授权层（AuthService / securityContext / authorize / policies）
+│   │   ├── webdav/                   # WebDAV 协议实现与路径处理
+│   │   ├── storage/                  # 存储抽象（S3 驱动、挂载管理、文件系统操作）
+│   │   ├── repositories/             # 数据访问层（D1 + SQLite Repository）
+│   │   ├── cache/                    # 缓存与失效（主要用于 FS）
+│   │   ├── constants/                # 常量定义（ApiStatus / Permission / DbTables / UserType 等）
+│   │   ├── http/                     # 统一错误类型与响应封装
+│   │   └── utils/                    # 通用工具（common / crypto / environment 等）
+│   ├── schema.sql                    # D1 / SQLite 数据库初始化脚本
+│   ├── wrangler.toml                 # Cloudflare Workers / D1 配置
+│   └── package.json
+├── docker/                           # Docker 与 Compose 部署配置
+├── images/                           # README 中使用的截图资源
+├── Api-doc.md                        # API 总览文档
+├── Api-s3_direct.md                  # S3 直传相关 API 文档
+└── README.md                         # 当前项目说明文档
+</code></pre>
+<h3>自定义 Docker 构建</h3>
+<p>如果您希望自定义 Docker 镜像或进行开发调试，可以按照以下步骤手动构建：</p>
+<ol>
+<li>
+<p><strong>构建后端镜像</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 在项目根目录执行</span>
+docker build -t cloudpaste-backend:custom -f docker/backend/Dockerfile <span class="pl-c1">.</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 运行自定义构建的镜像</span>
+docker run -d --name cloudpaste-backend \
+  -p 8787:8787 \
+  -v <span class="pl-s"><span class="pl-pds">$(</span>pwd<span class="pl-pds">)</span></span>/sql_data:/data \
+  -e ENCRYPTION_SECRET=开发测试密钥 \
+  cloudpaste-backend:custom</pre></div>
+</li>
+<li>
+<p><strong>构建前端镜像</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 在项目根目录执行</span>
+docker build -t cloudpaste-frontend:custom -f docker/frontend/Dockerfile <span class="pl-c1">.</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 运行自定义构建的镜像</span>
+docker run -d --name cloudpaste-frontend \
+  -p 80:80 \
+  -e BACKEND_URL=http://localhost:8787 \
+  cloudpaste-frontend:custom</pre></div>
+</li>
+<li>
+<p><strong>开发环境 Docker Compose</strong></p>
+<p>创建 <code class="notranslate">docker-compose.dev.yml</code> 文件：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">version</span>: <span class="pl-s"><span class="pl-pds">"</span>3.8<span class="pl-pds">"</span></span>
+
+<span class="pl-ent">services</span>:
+  <span class="pl-ent">frontend</span>:
+    <span class="pl-ent">build</span>:
+      <span class="pl-ent">context</span>: <span class="pl-s">.</span>
+      <span class="pl-ent">dockerfile</span>: <span class="pl-s">docker/frontend/Dockerfile</span>
+    <span class="pl-ent">environment</span>:
+      - <span class="pl-s">BACKEND_URL=http://backend:8787</span>
+    <span class="pl-ent">ports</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>80:80<span class="pl-pds">"</span></span>
+    <span class="pl-ent">depends_on</span>:
+      - <span class="pl-s">backend</span>
+
+  <span class="pl-ent">backend</span>:
+    <span class="pl-ent">build</span>:
+      <span class="pl-ent">context</span>: <span class="pl-s">.</span>
+      <span class="pl-ent">dockerfile</span>: <span class="pl-s">docker/backend/Dockerfile</span>
+    <span class="pl-ent">environment</span>:
+      - <span class="pl-s">NODE_ENV=development</span>
+      - <span class="pl-s">RUNTIME_ENV=docker</span>
+      - <span class="pl-s">PORT=8787</span>
+      - <span class="pl-s">ENCRYPTION_SECRET=dev_secret_key</span>
+    <span class="pl-ent">volumes</span>:
+      - <span class="pl-s">./sql_data:/data</span>
+    <span class="pl-ent">ports</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>8787:8787<span class="pl-pds">"</span></span></pre></div>
+<p>启动开发环境：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker-compose -f docker-compose.yml up --build</pre></div>
+</li>
+</ol></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
