@@ -1,5 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 08:01:34 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」一个优雅、快速、易于部署的书签收藏与分享平台</title><link>https://note.142588.xyz/post/72.html</link><description> &gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 08:04:02 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」网页端到端加密聊天系统</title><link>https://note.142588.xyz/post/73.html</link><description>&gt; [!NOTE]
+&gt; NodeCrypt
+🔒真正的网页端到端加密聊天系统，'在数字时代，加密是保护隐私的最后一道防线'
+源仓库：[shuaiplusNodeCrypt 🔒True end-to-end encrypted (E2EE) chat system in web. 🔒真正的网页端到端加密聊天系统](https://github.com/shuaiplus/NodeCrypt)
+
+## 🚀 部署说明
+
+### 方法一：一键部署到 Cloudflare Workers
+
+点击下方按钮即可一键部署到 Cloudflare Workers：
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button?projectName=NodeCrypt)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuaiplus/NodeCrypt)
+
+- 构建命令：npm run build
+- 部署命令：npm run deploy
+
+&gt; 注意：此方式会基于主仓库创建新项目，后续主仓库更新不会自动同步（项目已成型，很少更新，可以直接使用方法一）。</description><guid isPermaLink="true">https://note.142588.xyz/post/73.html</guid><pubDate>Sat, 07 Mar 2026 08:03:37 +0000</pubDate></item><item><title>「CF项目」一个优雅、快速、易于部署的书签收藏与分享平台</title><link>https://note.142588.xyz/post/72.html</link><description> &gt; [!NOTE]
 &gt; 拾光集 - 精品网址导航站
   一个优雅、快速、易于部署的书签（网址）收藏与分享平台，完全基于 Cloudflare 全家桶构建。</description><guid isPermaLink="true">https://note.142588.xyz/post/72.html</guid><pubDate>Sat, 07 Mar 2026 08:01:06 +0000</pubDate></item><item><title>「CF项目」基于Cloudflare Worker 的文生视频代理服务</title><link>https://note.142588.xyz/post/71.html</link><description>&gt; [!NOTE]
 &gt; 🧠 MindVideo-2API (Cloudflare Worker Edition)
