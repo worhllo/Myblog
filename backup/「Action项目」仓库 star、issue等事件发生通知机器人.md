@@ -1,6 +1,7 @@
 > [!NOTE]
 > Notifier
 通过 GitHub Webhooks、Cloudflare Worker 和 Telegram Bot 实现当 Github 仓库 star、issue、pull request 和 fork 事件发生时，将通知发送到 Telegram。
+源仓库：[byodiannotifier Automate GitHub Star Notifications to Telegram Using Cloudflare Workers – No More Missed Stars! 使用 Cloudflare Workers 自动将 GitHub Stars 通知发送到 Telegram](https://github.com/byodian/notifier)
 
 ## 原理
 核心思路：Star 事件发生 → GitHub Webhooks → Cloudflare Workers → Telegram Bot API → 发送消息到 Telegram 频道/个人

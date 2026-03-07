@@ -85,7 +85,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>Notifier<br>
-通过 GitHub Webhooks、Cloudflare Worker 和 Telegram Bot 实现当 Github 仓库 star、issue、pull request 和 fork 事件发生时，将通知发送到 Telegram。</p>
+通过 GitHub Webhooks、Cloudflare Worker 和 Telegram Bot 实现当 Github 仓库 star、issue、pull request 和 fork 事件发生时，将通知发送到 Telegram。<br>
+源仓库：<a href="https://github.com/byodian/notifier">byodiannotifier Automate GitHub Star Notifications to Telegram Using Cloudflare Workers – No More Missed Stars! 使用 Cloudflare Workers 自动将 GitHub Stars 通知发送到 Telegram</a></p>
 </div>
 <h2>原理</h2>
 <p>核心思路：Star 事件发生 → GitHub Webhooks → Cloudflare Workers → Telegram Bot API → 发送消息到 Telegram 频道/个人</p>
