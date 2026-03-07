@@ -1,0 +1,3753 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="> [!NOTE]
+> 🎯 告别信息过载，你的 AI 舆情监控助手与热点筛选工具！聚合多平台热点 + RSS 订阅，支持关键词精准筛选。">
+<meta property="og:title" content="「CF项目」你的 AI 舆情监控助手与热点筛选工具">
+<meta property="og:description" content="> [!NOTE]
+> 🎯 告别信息过载，你的 AI 舆情监控助手与热点筛选工具！聚合多平台热点 + RSS 订阅，支持关键词精准筛选。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/59.html">
+<meta property="og:image" content="../avatar.png">
+<title>「CF项目」你的 AI 舆情监控助手与热点筛选工具</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「CF项目」你的 AI 舆情监控助手与热点筛选工具</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/59" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>🎯 告别信息过载，你的 AI 舆情监控助手与热点筛选工具！聚合多平台热点 + RSS 订阅，支持关键词精准筛选。 AI 分析简报直推手机，也支持接入 MCP 架构，赋能 AI 自然语言对话分析、情感洞察与趋势预测。支持 Docker 一键部署，数据本地/云端自持。集成微信/飞书/钉钉/Telegram/邮件/ntfy/bark/slack 等渠道智能推送。<br>
+最快30秒部署的热点助手 —— 告别无效刷屏，只看真正关心的新闻资讯</p>
+</div>
+<h2>🚀 快速开始</h2>
+<h3>请选择适合你的部署方式</h3>
+<h4><g-emoji class="g-emoji" alias="a">🅰️</g-emoji> 方案一：Docker 部署（推荐 🔥）</h4>
+<ul>
+<li><strong>特点</strong>：比 GitHub Actions 更稳定，数据本地存储（无需配置云存储）</li>
+<li><strong>适用</strong>：有自己的服务器、NAS 或长期运行的电脑</li>
+<li><strong>注意</strong>：你需要阅读了解下方的基础配置流程，然后跳转到 Docker 教程进行部署。</li>
+</ul>
+<h4><g-emoji class="g-emoji" alias="b">🅱️</g-emoji> 方案二：GitHub Actions 部署（本章节内容 ⬇️）</h4>
+<ul>
+<li><strong>特点</strong>：无服务器，数据存储在 <strong>远程云存储</strong>（推荐配置）</li>
+<li><strong>适用</strong>：没有服务器的用户，利用 GitHub 免费资源</li>
+<li><strong>注意</strong>：需配置云存储以获得完整体验，且需定期签到续期</li>
+</ul>
+<h3>1️⃣ 第一步：获取项目代码</h3>
+<p>点击本仓库页面右上角的绿色 <strong>[Use this template]</strong> 按钮 → 选择 "Create a new repository"。</p>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 提醒：</p>
+<ul>
+<li>后续文档中提到的 "Fork" 均可理解为 "Use this template"</li>
+<li>使用 Fork 可能导致运行异常，详见 <a href="https://github.com/sansan0/TrendRadar/issues/606" data-hovercard-type="issue" data-hovercard-url="/sansan0/TrendRadar/issues/606/hovercard">Issue #606</a></li>
+</ul>
+</blockquote>
+   <br>
+<h3>2️⃣ 第二步：设置 GitHub Secrets</h3>
+<p>在你 Fork 后的仓库中，进入 <code class="notranslate">Settings</code> &gt; <code class="notranslate">Secrets and variables</code> &gt; <code class="notranslate">Actions</code> &gt; <code class="notranslate">New repository secret</code></p>
+<p><strong>📌 重要说明（请务必仔细阅读）：</strong></p>
+<ul>
+<li><strong>一个 Name 对应一个 Secret</strong>：每添加一个配置项，点击一次"New repository secret"按钮，填写一对"Name"和"Secret"</li>
+<li><strong>保存后看不到值是正常的</strong>：出于安全考虑，保存后重新编辑时，只能看到 Name（名称），看不到 Secret（值）的内容</li>
+<li><strong>严禁自创名称</strong>：Secret 的 Name（名称）必须<strong>严格使用</strong>下方列出的名称（如 <code class="notranslate">WEWORK_WEBHOOK_URL</code>、<code class="notranslate">FEISHU_WEBHOOK_URL</code> 等），不能自己随意修改或创造新名称，否则系统无法识别</li>
+<li><strong>可以同时配置多个平台</strong>：系统会向所有配置的平台发送通知</li>
+</ul>
+<p><strong>配置示例：</strong></p>
+   <p><a target="_blank" rel="noopener noreferrer" href="_image/secrets.png"><img src="_image/secrets.png" alt="GitHub Secrets 配置示例" style="max-width: 100%;"></a></p>
+<p>如上图所示，每一行是一个配置项：</p>
+<ul>
+<li><strong>Name（名称）</strong>：必须使用下方展开内容中列出的固定名称（如 <code class="notranslate">WEWORK_WEBHOOK_URL</code>）</li>
+<li><strong>Secret（值）</strong>：填写你从对应平台获取的实际内容（如 Webhook 地址、Token 等）</li>
+</ul>
+   <br>
+   <details>
+   <summary>👉 点击展开：<strong>企业微信机器人</strong>（配置最简单最迅速）</summary>
+   <br>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li><strong>Name（名称）</strong>：<code class="notranslate">WEWORK_WEBHOOK_URL</code>（请复制粘贴此名称，不要手打，避免打错）</li>
+<li><strong>Secret（值）</strong>：你的企业微信机器人 Webhook 地址</li>
+</ul>
+   <br>
+<p><strong>机器人设置步骤：</strong></p>
+<h4>手机端设置：</h4>
+<ol>
+<li>打开企业微信 App → 进入目标内部群聊</li>
+<li>点击右上角"…"按钮 → 选择"消息推送"</li>
+<li>点击"添加" → 名称输入"TrendRadar"</li>
+<li>复制 Webhook 地址，点击保存，复制的内容配置到上方的 GitHub Secret 中</li>
+</ol>
+<h4>PC 端设置流程类似</h4>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>个人微信推送</strong>（基于企业微信应用，推送到个人微信）</summary>
+   <br>
+<blockquote>
+<p>由于该方案是基于企业微信的插件机制，推送样式为纯文本（无 markdown 格式），但可以直接推送到个人微信，无需安装企业微信 App。</p>
+</blockquote>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">WEWORK_WEBHOOK_URL</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：你的企业微信应用 Webhook 地址</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">WEWORK_MSG_TYPE</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：<code class="notranslate">text</code></p>
+</li>
+</ul>
+   <br>
+<p><strong>设置步骤：</strong></p>
+<ol>
+<li>完成上方的企业微信机器人 Webhook 设置</li>
+<li>添加 <code class="notranslate">WEWORK_MSG_TYPE</code> Secret，值设为 <code class="notranslate">text</code></li>
+<li>按照下面图片操作，关联个人微信</li>
+<li>配置好后，手机上的企业微信 App 可以删除</li>
+</ol>
+   <a target="_blank" rel="noopener noreferrer" href="_image/wework.png"><img src="_image/wework.png" title="个人微信推送配置" style="max-width: 100%;"></a>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>与企业微信机器人使用相同的 Webhook 地址</li>
+<li>区别在于消息格式：<code class="notranslate">text</code> 为纯文本，<code class="notranslate">markdown</code> 为富文本（默认）</li>
+<li>纯文本格式会自动去除所有 markdown 语法（粗体、链接等）</li>
+</ul>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>飞书机器人</strong>（消息显示最友好）</summary>
+   <br>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li><strong>Name（名称）</strong>：<code class="notranslate">FEISHU_WEBHOOK_URL</code>（请复制粘贴此名称，不要手打）</li>
+<li><strong>Secret（值）</strong>：你的飞书机器人 Webhook 地址（该链接开头类似 <a href="https://www.feishu.cn/flow/api/trigger-webhook/********%EF%BC%89" rel="nofollow">https://www.feishu.cn/flow/api/trigger-webhook/********）</a></li>
+</ul>
+   <br>
+<p>有两个方案，<strong>方案一</strong>配置简单，<strong>方案二</strong>配置复杂(但是稳定推送)</p>
+<p>其中方案一，由 <strong>ziventian</strong>发现并提供建议，在这里感谢他，默认是个人推送，也可以配置群组推送操作<a href="https://github.com/sansan0/TrendRadar/issues/97" data-hovercard-type="issue" data-hovercard-url="/sansan0/TrendRadar/issues/97/hovercard">#97</a> ，</p>
+<p><strong>方案一：</strong></p>
+<blockquote>
+<p>对部分人存在额外操作，否则会报"系统错误"。需要手机端搜索下机器人，然后开启飞书机器人应用(该建议来自于网友，可参考)</p>
+</blockquote>
+<ol>
+<li>
+<p>电脑浏览器打开 <a href="https://botbuilder.feishu.cn/home/my-command" rel="nofollow">https://botbuilder.feishu.cn/home/my-command</a></p>
+</li>
+<li>
+<p>点击"新建机器人指令"</p>
+</li>
+<li>
+<p>点击"选择触发器"，往下滑动，点击"Webhook 触发"</p>
+</li>
+<li>
+<p>此时你会看到"Webhook 地址"，把这个链接先复制到本地记事本暂存，继续接下来的操作</p>
+</li>
+<li>
+<p>"参数"里面放上下面的内容，然后点击"完成"</p>
+</li>
+</ol>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"message_type"</span>: <span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"content"</span>: {
+    <span class="pl-ent">"text"</span>: <span class="pl-s"><span class="pl-pds">"</span>{{内容}}<span class="pl-pds">"</span></span>
+  }
+}</pre></div>
+<ol start="6">
+<li>
+<p>点击"选择操作" &gt; "通过官方机器人发消息"</p>
+</li>
+<li>
+<p>消息标题填写"TrendRadar 热点监控"</p>
+</li>
+<li>
+<p>最关键的部分来了，点击 + 按钮，选择"Webhook 触发"，然后按照下面的图片摆放</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="_image/feishu.png"><img src="_image/feishu.png" alt="飞书机器人配置示例" style="max-width: 100%;"></a></p>
+<ol start="9">
+<li>配置完成后，将第 4 步复制的 Webhook 地址配置到 GitHub Secrets 中的 <code class="notranslate">FEISHU_WEBHOOK_URL</code></li>
+</ol>
+   <br>
+<p><strong>方案二：</strong></p>
+<ol>
+<li>
+<p>电脑浏览器打开 <a href="https://botbuilder.feishu.cn/home/my-app" rel="nofollow">https://botbuilder.feishu.cn/home/my-app</a></p>
+</li>
+<li>
+<p>点击"新建机器人应用"</p>
+</li>
+<li>
+<p>进入创建的应用后，点击"流程涉及" &gt; "创建流程" &gt; "选择触发器"</p>
+</li>
+<li>
+<p>往下滑动，点击"Webhook 触发"</p>
+</li>
+<li>
+<p>此时你会看到"Webhook 地址"，把这个链接先复制到本地记事本暂存，继续接下来的操作</p>
+</li>
+<li>
+<p>"参数"里面放上下面的内容，然后点击"完成"</p>
+</li>
+</ol>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"message_type"</span>: <span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"content"</span>: {
+    <span class="pl-ent">"text"</span>: <span class="pl-s"><span class="pl-pds">"</span>{{内容}}<span class="pl-pds">"</span></span>
+  }
+}</pre></div>
+<ol start="7">
+<li>
+<p>点击"选择操作" &gt; "发送飞书消息"，勾选 "群消息"，然后点击下面的输入框，点击"我管理的群组"（如果没有群组，你可以在飞书 app 上创建群组）</p>
+</li>
+<li>
+<p>消息标题填写"TrendRadar 热点监控"</p>
+</li>
+<li>
+<p>最关键的部分来了，点击 + 按钮，选择"Webhook 触发"，然后按照下面的图片摆放</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="_image/feishu.png"><img src="_image/feishu.png" alt="飞书机器人配置示例" style="max-width: 100%;"></a></p>
+<ol start="10">
+<li>配置完成后，将第 5 步复制的 Webhook 地址配置到 GitHub Secrets 中的 <code class="notranslate">FEISHU_WEBHOOK_URL</code></li>
+</ol>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>钉钉机器人</strong></summary>
+   <br>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li><strong>Name（名称）</strong>：<code class="notranslate">DINGTALK_WEBHOOK_URL</code>（请复制粘贴此名称，不要手打）</li>
+<li><strong>Secret（值）</strong>：你的钉钉机器人 Webhook 地址</li>
+</ul>
+   <br>
+<p><strong>机器人设置步骤：</strong></p>
+<ol>
+<li>
+<p><strong>创建机器人（仅 PC 端支持）</strong>：</p>
+<ul>
+<li>打开钉钉 PC 客户端，进入目标群聊</li>
+<li>点击群设置图标（⚙️）→ 往下翻找到"机器人"点开</li>
+<li>选择"添加机器人" → "自定义"</li>
+</ul>
+</li>
+<li>
+<p><strong>配置机器人</strong>：</p>
+<ul>
+<li>设置机器人名称</li>
+<li><strong>安全设置</strong>：
+<ul>
+<li><strong>自定义关键词</strong>：设置 "热点"</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>完成设置</strong>：</p>
+<ul>
+<li>勾选服务条款协议 → 点击"完成"</li>
+<li>复制获得的 Webhook URL</li>
+<li>将 URL 配置到 GitHub Secrets 中的 <code class="notranslate">DINGTALK_WEBHOOK_URL</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>注意</strong>：移动端只能接收消息，无法创建新机器人。</p>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>Telegram Bot</strong></summary>
+   <br>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">TELEGRAM_BOT_TOKEN</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：你的 Telegram Bot Token</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">TELEGRAM_CHAT_ID</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：你的 Telegram Chat ID</p>
+</li>
+</ul>
+<p><strong>说明</strong>：Telegram 需要配置<strong>两个</strong> Secret，请分别点击两次"New repository secret"按钮添加</p>
+   <br>
+<p><strong>机器人设置步骤：</strong></p>
+<ol>
+<li>
+<p><strong>创建机器人</strong>：</p>
+<ul>
+<li>在 Telegram 中搜索 <code class="notranslate">@BotFather</code>（大小写注意，有蓝色徽章勾勾，有类似 37849827 monthly users，这个才是官方的，有一些仿官方的账号注意辨别）</li>
+<li>发送 <code class="notranslate">/newbot</code> 命令创建新机器人</li>
+<li>设置机器人名称（必须以"bot"结尾，很容易遇到重复名字，所以你要绞尽脑汁想不同的名字）</li>
+<li>获取 Bot Token（格式如：<code class="notranslate">123456789:AAHfiqksKZ8WmR2zSjiQ7_v4TMAKdiHm9T0</code>）</li>
+</ul>
+</li>
+<li>
+<p><strong>获取 Chat ID</strong>：</p>
+<p><strong>方法一：通过官方 API 获取</strong></p>
+<ul>
+<li>先向你的机器人发送一条消息</li>
+<li>访问：<code class="notranslate">https://api.telegram.org/bot&lt;你的Bot Token&gt;/getUpdates</code></li>
+<li>在返回的 JSON 中找到 <code class="notranslate">"chat":{"id":数字}</code> 中的数字</li>
+</ul>
+<p><strong>方法二：使用第三方工具</strong></p>
+<ul>
+<li>搜索 <code class="notranslate">@userinfobot</code> 并发送 <code class="notranslate">/start</code></li>
+<li>获取你的用户 ID 作为 Chat ID</li>
+</ul>
+</li>
+<li>
+<p><strong>配置到 GitHub</strong>：</p>
+<ul>
+<li><code class="notranslate">TELEGRAM_BOT_TOKEN</code>：填入第 1 步获得的 Bot Token</li>
+<li><code class="notranslate">TELEGRAM_CHAT_ID</code>：填入第 2 步获得的 Chat ID</li>
+</ul>
+</li>
+</ol>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>邮件推送</strong>（支持所有主流邮箱）</summary>
+   <br>
+<ul>
+<li>注意事项：为防止邮件群发功能被<strong>滥用</strong>，当前的群发是所有收件人都能看到彼此的邮箱地址。</li>
+<li>如果你没有过配置下面这种邮箱发送的经历，不建议尝试</li>
+</ul>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>重要配置依赖</strong>：邮件推送需要 HTML 报告文件。请确保 <code class="notranslate">config/config.yaml</code> 中的 <code class="notranslate">storage.formats.html</code> 设置为 <code class="notranslate">true</code>：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">storage</span>:
+  <span class="pl-ent">formats</span>:
+    <span class="pl-ent">sqlite</span>: <span class="pl-c1">true</span>
+    <span class="pl-ent">txt</span>: <span class="pl-c1">false</span>
+    <span class="pl-ent">html</span>: <span class="pl-s">true   </span><span class="pl-c"><span class="pl-c">#</span> 必须启用，否则邮件推送会失败</span></pre></div>
+<p>如果设置为 <code class="notranslate">false</code>，邮件推送时会报错：<code class="notranslate">错误：HTML文件不存在或未提供: None</code></p>
+</blockquote>
+   <br>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">EMAIL_FROM</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：发件人邮箱地址</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">EMAIL_PASSWORD</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：邮箱密码或授权码</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">EMAIL_TO</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：收件人邮箱地址（多个收件人用英文逗号分隔，也可以和 EMAIL_FROM 一样，自己发送给自己）</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">EMAIL_SMTP_SERVER</code>（可选配置，请复制粘贴此名称）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：SMTP服务器地址（可留空，系统会自动识别）</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">EMAIL_SMTP_PORT</code>（可选配置，请复制粘贴此名称）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：SMTP端口（可留空，系统会自动识别）</p>
+</li>
+</ul>
+<p><strong>说明</strong>：邮件推送需要配置至少<strong>3个必需</strong> Secret（EMAIL_FROM、EMAIL_PASSWORD、EMAIL_TO），后两个为可选配置</p>
+   <br>
+<p><strong>支持的邮箱服务商</strong>（自动识别 SMTP 配置）：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>邮箱服务商</th>
+<th>域名</th>
+<th>SMTP 服务器</th>
+<th>端口</th>
+<th>加密方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gmail</strong></td>
+<td>gmail.com</td>
+<td>smtp.gmail.com</td>
+<td>587</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td><strong>QQ邮箱</strong></td>
+<td>qq.com</td>
+<td>smtp.qq.com</td>
+<td>465</td>
+<td>SSL</td>
+</tr>
+<tr>
+<td><strong>Outlook</strong></td>
+<td>outlook.com</td>
+<td>smtp-mail.outlook.com</td>
+<td>587</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td><strong>Hotmail</strong></td>
+<td>hotmail.com</td>
+<td>smtp-mail.outlook.com</td>
+<td>587</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td><strong>Live</strong></td>
+<td>live.com</td>
+<td>smtp-mail.outlook.com</td>
+<td>587</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td><strong>163邮箱</strong></td>
+<td>163.com</td>
+<td>smtp.163.com</td>
+<td>465</td>
+<td>SSL</td>
+</tr>
+<tr>
+<td><strong>126邮箱</strong></td>
+<td>126.com</td>
+<td>smtp.126.com</td>
+<td>465</td>
+<td>SSL</td>
+</tr>
+<tr>
+<td><strong>新浪邮箱</strong></td>
+<td>sina.com</td>
+<td>smtp.sina.com</td>
+<td>465</td>
+<td>SSL</td>
+</tr>
+<tr>
+<td><strong>搜狐邮箱</strong></td>
+<td>sohu.com</td>
+<td>smtp.sohu.com</td>
+<td>465</td>
+<td>SSL</td>
+</tr>
+<tr>
+<td><strong>天翼邮箱</strong></td>
+<td>189.cn</td>
+<td>smtp.189.cn</td>
+<td>465</td>
+<td>SSL</td>
+</tr>
+<tr>
+<td><strong>阿里云邮箱</strong></td>
+<td>aliyun.com</td>
+<td>smtp.aliyun.com</td>
+<td>465</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td><strong>Yandex邮箱</strong></td>
+<td>yandex.com</td>
+<td>smtp.yandex.com</td>
+<td>465</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td><strong>iCloud邮箱</strong></td>
+<td>icloud.com</td>
+<td>smtp.mail.me.com</td>
+<td>587</td>
+<td>SSL</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<blockquote>
+<p><strong>自动识别</strong>：使用以上邮箱时，无需手动配置 <code class="notranslate">EMAIL_SMTP_SERVER</code> 和 <code class="notranslate">EMAIL_SMTP_PORT</code>，系统会自动识别。</p>
+<p><strong>反馈说明</strong>：</p>
+<ul>
+<li>如果你使用<strong>其他邮箱</strong>测试成功，欢迎开 <a href="https://github.com/sansan0/TrendRadar/issues">Issues</a> 告知，我会添加到支持列表</li>
+<li>如果上述邮箱配置有误或无法使用，也请开 <a href="https://github.com/sansan0/TrendRadar/issues">Issues</a> 反馈，帮助改进项目</li>
+</ul>
+<p><strong>特别感谢</strong>：</p>
+<ul>
+<li>感谢 <a href="https://github.com/DYZYD">@DYZYD</a> 贡献天翼邮箱（189.cn）配置并完成自发自收测试 (<a href="https://github.com/sansan0/TrendRadar/issues/291" data-hovercard-type="issue" data-hovercard-url="/sansan0/TrendRadar/issues/291/hovercard">#291</a>)</li>
+<li>感谢 <a href="https://github.com/longzhenren">@longzhenren</a> 贡献阿里云邮箱（aliyun.com）配置并完成测试 (<a href="https://github.com/sansan0/TrendRadar/issues/344" data-hovercard-type="issue" data-hovercard-url="/sansan0/TrendRadar/issues/344/hovercard">#344</a>)</li>
+<li>感谢 <a href="https://github.com/ACANX">@ACANX</a> 贡献 Yandex 邮箱（yandex.com）配置并完成测试 (<a href="https://github.com/sansan0/TrendRadar/issues/663" data-hovercard-type="issue" data-hovercard-url="/sansan0/TrendRadar/issues/663/hovercard">#663</a>)</li>
+<li>感谢 <a href="https://github.com/Sleepy-Tianhao">@Sleepy-Tianhao</a> 贡献 iCloud 邮箱（icloud.com）配置并完成测试 (<a href="https://github.com/sansan0/TrendRadar/issues/728" data-hovercard-type="issue" data-hovercard-url="/sansan0/TrendRadar/issues/728/hovercard">#728</a>)</li>
+</ul>
+</blockquote>
+<p><strong>常见邮箱设置：</strong></p>
+<h4>QQ邮箱：</h4>
+<ol>
+<li>登录 QQ邮箱网页版 → 设置 → 账户</li>
+<li>开启 POP3/SMTP 服务</li>
+<li>生成授权码（16位字母）</li>
+<li><code class="notranslate">EMAIL_PASSWORD</code> 填写授权码，而非 QQ 密码</li>
+</ol>
+<h4>Gmail：</h4>
+<ol>
+<li>开启两步验证</li>
+<li>生成应用专用密码</li>
+<li><code class="notranslate">EMAIL_PASSWORD</code> 填写应用专用密码</li>
+</ol>
+<h4>163/126邮箱：</h4>
+<ol>
+<li>登录网页版 → 设置 → POP3/SMTP/IMAP</li>
+<li>开启 SMTP 服务</li>
+<li>设置客户端授权码</li>
+<li><code class="notranslate">EMAIL_PASSWORD</code> 填写授权码</li>
+</ol>
+   <br>
+<p><strong>高级配置</strong>：<br>
+如果自动识别失败，可手动配置 SMTP：</p>
+<ul>
+<li><code class="notranslate">EMAIL_SMTP_SERVER</code>：如 smtp.gmail.com</li>
+<li><code class="notranslate">EMAIL_SMTP_PORT</code>：如 587（TLS）或 465（SSL）</li>
+</ul>
+   <br>
+<p><strong>如果有多个收件人(注意是英文逗号分隔)</strong>：</p>
+<ul>
+<li>EMAIL_TO="<a href="mailto:user1@example.com">user1@example.com</a>,<a href="mailto:user2@example.com">user2@example.com</a>,<a href="mailto:user3@example.com">user3@example.com</a>"</li>
+</ul>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>ntfy 推送</strong>（开源免费，支持自托管）</summary>
+   <br>
+<p><strong>两种使用方式：</strong></p>
+<h3>方式一：免费使用（推荐新手） 🆓</h3>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>✅ 无需注册账号，立即使用</li>
+<li>✅ 每天 250 条消息（足够 90% 用户）</li>
+<li>✅ Topic 名称即"密码"（需选择不易猜测的名称）</li>
+<li><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 消息未加密，不适合敏感信息, 但适合我们这个项目的不敏感信息</li>
+</ul>
+<p><strong>快速开始：</strong></p>
+<ol>
+<li>
+<p><strong>下载 ntfy 应用</strong>：</p>
+<ul>
+<li>Android：<a href="https://play.google.com/store/apps/details?id=io.heckel.ntfy" rel="nofollow">Google Play</a> / <a href="https://f-droid.org/en/packages/io.heckel.ntfy/" rel="nofollow">F-Droid</a></li>
+<li>iOS：<a href="https://apps.apple.com/us/app/ntfy/id1625396347" rel="nofollow">App Store</a></li>
+<li>桌面：访问 <a href="https://ntfy.sh" rel="nofollow">ntfy.sh</a></li>
+</ul>
+</li>
+<li>
+<p><strong>订阅主题</strong>（选择一个难猜的名称）：</p>
+<pre class="notranslate"><code class="notranslate">建议格式：trendradar-{你的名字缩写}-{随机数字}
+
+不能使用中文
+
+✅ 好例子：trendradar-zs-8492
+❌ 坏例子：news、alerts（太容易被猜到）
+</code></pre>
+</li>
+<li>
+<p><strong>配置 GitHub Secret（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）</strong>：</p>
+<ul>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">NTFY_TOPIC</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：填写你刚才订阅的主题名称</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">NTFY_SERVER_URL</code>（可选配置，请复制粘贴此名称）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：留空（默认使用 ntfy.sh）</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">NTFY_TOKEN</code>（可选配置，请复制粘贴此名称）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：留空</p>
+</li>
+</ul>
+<p><strong>说明</strong>：ntfy 至少需要配置 1 个必需 Secret (NTFY_TOPIC)，后两个为可选配置</p>
+</li>
+<li>
+<p><strong>测试</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">curl -d <span class="pl-s"><span class="pl-pds">"</span>测试消息<span class="pl-pds">"</span></span> ntfy.sh/你的主题名称</pre></div>
+</li>
+</ol>
+<hr>
+<h3>方式二：自托管（完全隐私控制） 🔒</h3>
+<p><strong>适合人群</strong>：有服务器、追求完全隐私、技术能力强</p>
+<p><strong>优势</strong>：</p>
+<ul>
+<li>✅ 完全开源（Apache 2.0 + GPLv2）</li>
+<li>✅ 数据完全自主控制</li>
+<li>✅ 无任何限制</li>
+<li>✅ 零费用</li>
+</ul>
+<p><strong>Docker 一键部署</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker run -d \
+  --name ntfy \
+  -p 80:80 \
+  -v /var/cache/ntfy:/var/cache/ntfy \
+  binwiederhier/ntfy \
+  serve --cache-file /var/cache/ntfy/cache.db</pre></div>
+<p><strong>配置 TrendRadar</strong>：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">NTFY_SERVER_URL</span>: <span class="pl-s">https://ntfy.yourdomain.com</span>
+<span class="pl-ent">NTFY_TOPIC</span>: <span class="pl-s">trendradar-alerts  </span><span class="pl-c"><span class="pl-c">#</span> 自托管可用简单名称</span>
+<span class="pl-ent">NTFY_TOKEN</span>: <span class="pl-s">tk_your_token  </span><span class="pl-c"><span class="pl-c">#</span> 可选：启用访问控制</span></pre></div>
+<p><strong>在应用中订阅</strong>：</p>
+<ul>
+<li>点击"Use another server"</li>
+<li>输入你的服务器地址</li>
+<li>输入主题名称</li>
+<li>（可选）输入登录凭据</li>
+</ul>
+<hr>
+<p><strong>常见问题：</strong></p>
+   <details>
+   <summary><strong>Q1: 免费版够用吗？</strong></summary>
+<p>每天 250 条消息对大多数用户足够。按 30 分钟抓取一次计算，每天约 48 次推送，完全够用。</p>
+   </details>
+   <details>
+   <summary><strong>Q2: Topic 名称真的安全吗？</strong></summary>
+<p>如果你选择随机的、足够长的名称（如 <code class="notranslate">trendradar-zs-8492-news</code>），暴力破解几乎不可能：</p>
+<ul>
+<li>ntfy 有严格的速率限制（1 秒 1 次请求）</li>
+<li>64 个字符选择（A-Z, a-z, 0-9, _, -）</li>
+<li>10 位随机字符串有 64^10 种可能性（需要数年才能破解）</li>
+</ul>
+   </details>
+<hr>
+<p><strong>推荐选择：</strong></p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>用户类型</th>
+<th>推荐方案</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通用户</td>
+<td>方式一（免费）</td>
+<td>简单快速，够用</td>
+</tr>
+<tr>
+<td>技术用户</td>
+<td>方式二（自托管）</td>
+<td>完全控制，无限制</td>
+</tr>
+<tr>
+<td>高频用户</td>
+<td>方式三（付费）</td>
+<td>这个自己去官网看吧</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>相关链接：</strong></p>
+<ul>
+<li><a href="https://docs.ntfy.sh/" rel="nofollow">ntfy 官方文档</a></li>
+<li><a href="https://docs.ntfy.sh/install/" rel="nofollow">自托管教程</a></li>
+<li><a href="https://github.com/binwiederhier/ntfy">GitHub 仓库</a></li>
+</ul>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>Bark 推送</strong>（iOS 专属，简洁高效）</summary>
+   <br>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li><strong>Name（名称）</strong>：<code class="notranslate">BARK_URL</code>（请复制粘贴此名称，不要手打）</li>
+<li><strong>Secret（值）</strong>：你的 Bark 推送 URL</li>
+</ul>
+   <br>
+<p><strong>Bark 简介：</strong></p>
+<p>Bark 是一款 iOS 平台的免费开源推送工具，特点是简单、快速、无广告。</p>
+<p><strong>使用方式：</strong></p>
+<h3>方式一：使用官方服务器（推荐新手） 🆓</h3>
+<ol>
+<li>
+<p><strong>下载 Bark App</strong>：</p>
+<ul>
+<li>iOS：<a href="https://apps.apple.com/cn/app/bark-%E7%BB%99%E4%BD%A0%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%91%E6%8E%A8%E9%80%81/id1403753865" rel="nofollow">App Store</a></li>
+</ul>
+</li>
+<li>
+<p><strong>获取推送 URL</strong>：</p>
+<ul>
+<li>打开 Bark App</li>
+<li>复制首页显示的推送 URL（格式如：<code class="notranslate">https://api.day.app/your_device_key</code>）</li>
+<li>将 URL 配置到 GitHub Secrets 中的 <code class="notranslate">BARK_URL</code></li>
+</ul>
+</li>
+</ol>
+<h3>方式二：自建服务器（完全隐私控制） 🔒</h3>
+<p><strong>适合人群</strong>：有服务器、追求完全隐私、技术能力强</p>
+<p><strong>Docker 一键部署</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker run -d \
+  --name bark-server \
+  -p 8080:8080 \
+  finab/bark-server</pre></div>
+<p><strong>配置 TrendRadar</strong>：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">BARK_URL</span>: <span class="pl-s">http://your-server-ip:8080/your_device_key</span></pre></div>
+<hr>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>✅ Bark 使用 APNs 推送，单条消息最大 4KB</li>
+<li>✅ 支持自动分批推送，无需担心消息过长</li>
+<li>✅ 推送格式为纯文本（自动去除 Markdown 语法）</li>
+<li><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 仅支持 iOS 平台</li>
+</ul>
+<p><strong>相关链接：</strong></p>
+<ul>
+<li><a href="https://bark.day.app/" rel="nofollow">Bark 官方网站</a></li>
+<li><a href="https://github.com/Finb/Bark">Bark GitHub 仓库</a></li>
+<li><a href="https://github.com/Finb/bark-server">Bark Server 自建教程</a></li>
+</ul>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>Slack 推送</strong></summary>
+   <br>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li><strong>Name（名称）</strong>：<code class="notranslate">SLACK_WEBHOOK_URL</code>（请复制粘贴此名称，不要手打）</li>
+<li><strong>Secret（值）</strong>：你的 Slack Incoming Webhook URL</li>
+</ul>
+   <br>
+<p><strong>Slack 简介：</strong></p>
+<p>Slack 是团队协作工具，Incoming Webhooks 可以将消息推送到 Slack 频道。</p>
+<p><strong>设置步骤：</strong></p>
+<h3>步骤 1：创建 Slack App</h3>
+<ol>
+<li>
+<p><strong>访问 Slack API 页面</strong>：</p>
+<ul>
+<li>打开 <a href="https://api.slack.com/apps?new_app=1" rel="nofollow">https://api.slack.com/apps?new_app=1</a></li>
+<li>如果未登录，先登录你的 Slack 工作空间</li>
+</ul>
+</li>
+<li>
+<p><strong>选择创建方式</strong>：</p>
+<ul>
+<li>点击 <strong>"From scratch"</strong>（从头开始创建）</li>
+</ul>
+</li>
+<li>
+<p><strong>填写 App 信息</strong>：</p>
+<ul>
+<li><strong>App Name</strong>：填写应用名称（如 <code class="notranslate">TrendRadar</code> 或 <code class="notranslate">热点新闻监控</code>）</li>
+<li><strong>Workspace</strong>：从下拉列表选择你的工作空间</li>
+<li>点击 <strong>"Create App"</strong> 按钮</li>
+</ul>
+</li>
+</ol>
+<h3>步骤 2：启用 Incoming Webhooks</h3>
+<ol>
+<li>
+<p><strong>导航到 Incoming Webhooks</strong>：</p>
+<ul>
+<li>在左侧菜单中找到并点击 <strong>"Incoming Webhooks"</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>启用功能</strong>：</p>
+<ul>
+<li>找到 <strong>"Activate Incoming Webhooks"</strong> 开关</li>
+<li>将开关从 <code class="notranslate">OFF</code> 切换到 <code class="notranslate">ON</code></li>
+<li>页面会自动刷新显示新的配置选项</li>
+</ul>
+</li>
+</ol>
+<h3>步骤 3：生成 Webhook URL</h3>
+<ol>
+<li>
+<p><strong>添加新的 Webhook</strong>：</p>
+<ul>
+<li>滚动到页面底部</li>
+<li>点击 <strong>"Add New Webhook to Workspace"</strong> 按钮</li>
+</ul>
+</li>
+<li>
+<p><strong>选择目标频道</strong>：</p>
+<ul>
+<li>系统会弹出授权页面</li>
+<li>从下拉列表中选择要接收消息的频道（如 <code class="notranslate">#热点新闻</code>）</li>
+<li><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 如果要选择私有频道，必须先加入该频道</li>
+</ul>
+</li>
+<li>
+<p><strong>授权应用</strong>：</p>
+<ul>
+<li>点击 <strong>"Allow"</strong> 按钮完成授权</li>
+<li>系统会自动跳转回配置页面</li>
+</ul>
+</li>
+</ol>
+<h3>步骤 4：复制并保存 Webhook URL</h3>
+<ol>
+<li>
+<p><strong>查看生成的 URL</strong>：</p>
+<ul>
+<li>在 "Webhook URLs for Your Workspace" 区域</li>
+<li>会看到刚刚生成的 Webhook URL</li>
+<li>格式如：<code class="notranslate">https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</code></li>
+</ul>
+</li>
+<li>
+<p><strong>复制 URL</strong>：</p>
+<ul>
+<li>点击 URL 右侧的 <strong>"Copy"</strong> 按钮</li>
+<li>或手动选中 URL 并复制</li>
+</ul>
+</li>
+<li>
+<p><strong>配置到 TrendRadar</strong>：</p>
+<ul>
+<li><strong>GitHub Actions</strong>：将 URL 添加到 GitHub Secrets 中的 <code class="notranslate">SLACK_WEBHOOK_URL</code></li>
+<li><strong>本地测试</strong>：将 URL 填入 <code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">slack_webhook_url</code> 字段</li>
+<li><strong>Docker 部署</strong>：将 URL 添加到 <code class="notranslate">docker/.env</code> 文件的 <code class="notranslate">SLACK_WEBHOOK_URL</code> 变量</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>✅ 支持 Markdown 格式（自动转换为 Slack mrkdwn）</li>
+<li>✅ 支持自动分批推送（每批 4KB）</li>
+<li>✅ 适合团队协作，消息集中管理</li>
+<li><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Webhook URL 包含密钥，切勿公开</li>
+</ul>
+<p><strong>消息格式预览：</strong></p>
+<pre class="notranslate"><code class="notranslate">*[第 1/2 批次]*
+
+📊 *热点词汇统计*
+
+🔥 *[1/3] AI ChatGPT* : 2 条
+
+  1. [百度热搜] 🆕 ChatGPT-5正式发布 *[1]* - 09时15分 (1次)
+
+  2. [今日头条] AI芯片概念股暴涨 *[3]* - [08时30分 ~ 10时45分] (3次)
+</code></pre>
+<p><strong>相关链接：</strong></p>
+<ul>
+<li><a href="https://api.slack.com/messaging/webhooks" rel="nofollow">Slack Incoming Webhooks 官方文档</a></li>
+<li><a href="https://api.slack.com/apps" rel="nofollow">Slack API 应用管理</a></li>
+</ul>
+   </details>
+   <details>
+   <summary>👉 点击展开：<strong>通用 Webhook 推送</strong>（支持 Discord、Matrix、IFTTT 等）</summary>
+   <br>
+<p><strong>GitHub Secret 配置（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Name 名称必须严格一致）：</strong></p>
+<ul>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">GENERIC_WEBHOOK_URL</code>（请复制粘贴此名称，不要手打）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：你的 Webhook URL</p>
+</li>
+<li>
+<p><strong>Name（名称）</strong>：<code class="notranslate">GENERIC_WEBHOOK_TEMPLATE</code>（可选配置，请复制粘贴此名称）</p>
+</li>
+<li>
+<p><strong>Secret（值）</strong>：JSON 模板字符串，支持 <code class="notranslate">{title}</code> 和 <code class="notranslate">{content}</code> 占位符</p>
+</li>
+</ul>
+   <br>
+<p><strong>通用 Webhook 简介：</strong></p>
+<p>通用 Webhook 支持任意接受 HTTP POST 请求的平台，包括但不限于：</p>
+<ul>
+<li><strong>Discord</strong>：通过 Webhook 推送到频道</li>
+<li><strong>Matrix</strong>：通过 Webhook 桥接推送</li>
+<li><strong>IFTTT</strong>：触发自动化流程</li>
+<li><strong>自建服务</strong>：任何支持 Webhook 的自定义服务</li>
+</ul>
+<p><strong>配置示例：</strong></p>
+<h3>Discord 配置</h3>
+<ol>
+<li>
+<p><strong>获取 Webhook URL</strong>：</p>
+<ul>
+<li>进入 Discord 服务器设置 → 整合 → Webhooks</li>
+<li>创建新 Webhook，复制 URL</li>
+</ul>
+</li>
+<li>
+<p><strong>配置模板</strong>：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{<span class="pl-ent">"content"</span>: <span class="pl-s"><span class="pl-pds">"</span>{content}<span class="pl-pds">"</span></span>}</pre></div>
+</li>
+<li>
+<p><strong>GitHub Secret 配置</strong>：</p>
+<ul>
+<li><code class="notranslate">GENERIC_WEBHOOK_URL</code>：Discord Webhook URL</li>
+<li><code class="notranslate">GENERIC_WEBHOOK_TEMPLATE</code>：<code class="notranslate">{"content": "{content}"}</code></li>
+</ul>
+</li>
+</ol>
+<h3>自定义模板</h3>
+<p>模板支持两个占位符：</p>
+<ul>
+<li><code class="notranslate">{title}</code> - 消息标题</li>
+<li><code class="notranslate">{content}</code> - 消息内容</li>
+</ul>
+<p><strong>模板示例</strong>：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate"><span class="pl-ii"># 默认格式（留空时使用）</span>
+{<span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>{title}<span class="pl-pds">"</span></span>, <span class="pl-ent">"content"</span>: <span class="pl-s"><span class="pl-pds">"</span>{content}<span class="pl-pds">"</span></span>}
+
+<span class="pl-ii"># Discord 格式</span>
+{<span class="pl-ent">"content"</span>: <span class="pl-s"><span class="pl-pds">"</span>{content}<span class="pl-pds">"</span></span>}
+
+<span class="pl-ii"># 自定义格式</span>
+{<span class="pl-ent">"text"</span>: <span class="pl-s"><span class="pl-pds">"</span>{content}<span class="pl-pds">"</span></span>, <span class="pl-ent">"username"</span>: <span class="pl-s"><span class="pl-pds">"</span>TrendRadar<span class="pl-pds">"</span></span>}</pre></div>
+<hr>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>✅ 支持 Markdown 格式（与企业微信格式一致）</li>
+<li>✅ 支持自动分批推送</li>
+<li>✅ 支持多账号配置（用 <code class="notranslate">;</code> 分隔）</li>
+<li><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 模板必须是有效的 JSON 格式</li>
+<li><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 不同平台对消息格式要求不同，请参考目标平台文档</li>
+</ul>
+   </details>
+   <br>
+<h3>3️⃣ 第三步：手动测试新闻推送</h3>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 提醒：</p>
+<ul>
+<li>完成第 1-2 步后，请立即测试！测试成功后再根据需要调整配置（第 4 步）</li>
+<li>请进入你自己的项目，不是本项目！</li>
+</ul>
+</blockquote>
+<p><strong>如何找到你的 Actions 页面</strong>：</p>
+<ul>
+<li><strong>方法一</strong>：打开你 fork 的项目主页，点击顶部的 <strong>Actions</strong> 标签</li>
+<li><strong>方法二</strong>：直接访问 <code class="notranslate">https://github.com/你的用户名/TrendRadar/actions</code></li>
+</ul>
+<p><strong>示例对比</strong>：</p>
+<ul>
+<li>❌ 作者的项目：<code class="notranslate">https://github.com/sansan0/TrendRadar/actions</code></li>
+<li>✅ 你的项目：<code class="notranslate">https://github.com/你的用户名/TrendRadar/actions</code></li>
+</ul>
+<p><strong>测试步骤</strong>：</p>
+<ol>
+<li>进入你项目的 Actions 页面</li>
+<li>找到 <strong>"Get Hot News"</strong>(必须得是这个字)点进去，点击右侧的 <strong>"Run workflow"</strong> 按钮运行
+<ul>
+<li>如果看不到该字样，参照 <a href="https://github.com/sansan0/TrendRadar/issues/109" data-hovercard-type="issue" data-hovercard-url="/sansan0/TrendRadar/issues/109/hovercard">#109</a> 解决</li>
+</ul>
+</li>
+<li>3 分钟左右，消息会推送到你配置的平台</li>
+</ol>
+   <br>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 提醒：</p>
+<ul>
+<li>手动测试不要太频繁，避免触发 GitHub Actions 限制</li>
+<li>点击 Run workflow 后需要刷新浏览器页面才能看到新的运行记录</li>
+</ul>
+</blockquote>
+   <br>
+<h3>4️⃣ 第四步：配置说明（可选）</h3>
+<p>默认配置已可正常使用，如需个性化调整，了解以下文件即可：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>文件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">config/config.yaml</code></td>
+<td>主配置文件：推送模式、时间窗口、平台列表、热点权重等</td>
+</tr>
+<tr>
+<td><code class="notranslate">config/frequency_words.txt</code></td>
+<td>关键词文件：设置你关心的词汇，筛选推送内容</td>
+</tr>
+<tr>
+<td><code class="notranslate">config/ai_analysis_prompt.txt</code></td>
+<td>AI 提示词模板：自定义 AI 分析师的角色和分析维度</td>
+</tr>
+<tr>
+<td><code class="notranslate">.github/workflows/crawler.yml</code></td>
+<td>执行频率：控制多久运行一次（<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 谨慎修改）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>👉 <strong>详细配置教程</strong>：<a href="#%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3">配置详解</a></p>
+   <br>
+<h3>5️⃣ 第五步：远程云存储 &amp; 签到配置</h3>
+<p><strong>v4.0.0 重要变更</strong>：引入「活跃度检测」机制，GitHub Actions 需定期签到以维持运行。</p>
+<ul>
+<li><strong>运行周期</strong>：有效期为 <strong>7 天</strong>，倒计时结束后服务将自动挂起。</li>
+<li><strong>续期方式</strong>：在 Actions 页面手动触发 "Check In" workflow，即可重置 7 天有效期。</li>
+<li><strong>操作路径</strong>：<code class="notranslate">Actions</code> → <code class="notranslate">Check In</code> → <code class="notranslate">Run workflow</code></li>
+<li><strong>设计理念</strong>：
+<ul>
+<li>如果 7 天都忘了签到，或许这些资讯对你来说并非刚需。适时的暂停，能帮你从信息流中抽离，给大脑留出喘息的空间。</li>
+<li>GitHub Actions 是宝贵的公共计算资源。引入签到机制旨在避免算力的无效空转，确保资源能分配给真正活跃且需要的用户。感谢你的理解与支持。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>关于远程云存储配置（请根据部署方式选择）：</strong></p>
+<ul>
+<li>
+<p><strong>GitHub Actions 用户</strong>：</p>
+<ul>
+<li><strong>现状</strong>：Actions 每次运行都是全新环境，不保存文件。如果不配置云存储，项目将运行在<strong>轻量模式</strong>（无增量推送、无历史追踪）。</li>
+<li><strong>建议</strong>：配置远程云存储以获得完整体验。</li>
+</ul>
+</li>
+<li>
+<p><strong>Docker / 本地用户</strong>：</p>
+<ul>
+<li><strong>现状</strong>：数据默认保存在本地硬盘。</li>
+<li><strong>建议</strong>：云存储为可选项，可作为异地备份。</li>
+</ul>
+</li>
+</ul>
+   <details>
+   <summary>👉 点击展开：<strong>远程云存储配置教程（以 Cloudflare R2 为例）</strong></summary>
+   <br>
+<p><strong><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 前置条件（重要）：</strong></p>
+<p>根据 Cloudflare 平台规则，开通 R2 需绑定支付方式。</p>
+<ul>
+<li><strong>目的</strong>：仅作身份验证（Verify Only），<strong>不产生扣费</strong>。</li>
+<li><strong>支付</strong>：支持双币信用卡或国区 PayPal。</li>
+<li><strong>用量</strong>：R2 的免费额度（10GB存储/月）足以覆盖本项目日常运行，无需担心付费。</li>
+</ul>
+<hr>
+<p><strong>GitHub Secret 配置（需添加 4 项）：</strong></p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Name（名称）</th>
+<th>Secret（值）说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">S3_BUCKET_NAME</code></td>
+<td>存储桶名称（如 <code class="notranslate">trendradar-data</code>）</td>
+</tr>
+<tr>
+<td><code class="notranslate">S3_ACCESS_KEY_ID</code></td>
+<td>访问密钥 ID（Access Key ID）</td>
+</tr>
+<tr>
+<td><code class="notranslate">S3_SECRET_ACCESS_KEY</code></td>
+<td>访问密钥（Secret Access Key）</td>
+</tr>
+<tr>
+<td><code class="notranslate">S3_ENDPOINT_URL</code></td>
+<td>S3 API 端点（如 R2：<code class="notranslate">https://&lt;account-id&gt;.r2.cloudflarestorage.com</code>）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>可选配置：</strong></p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Name（名称）</th>
+<th>Secret（值）说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">S3_REGION</code></td>
+<td>区域（默认 <code class="notranslate">auto</code>，部分服务商可能需要指定）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<blockquote>
+<p>💡 <strong>更多存储配置选项</strong>：参见 <a href="#11-%E5%AD%98%E5%82%A8%E9%85%8D%E7%BD%AE">存储配置详解</a></p>
+</blockquote>
+   <br>
+<p><strong>详细操作步骤（获取凭据）：</strong></p>
+<ol>
+<li>
+<p><strong>进入 R2 概览</strong>：</p>
+<ul>
+<li>登录 <a href="https://dash.cloudflare.com/" rel="nofollow">Cloudflare Dashboard</a>。</li>
+<li>在左侧侧边栏找到并点击 <code class="notranslate">R2对象存储</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建存储桶</strong>：</p>
+<ul>
+<li>点击<code class="notranslate">概述</code></li>
+<li>点击右上角的 <code class="notranslate">创建存储桶</code> (Create bucket)。</li>
+<li>输入名称（例如 <code class="notranslate">trendradar-data</code>），点击 <code class="notranslate">创建存储桶</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建 API 令牌</strong>：</p>
+<ul>
+<li>回到 <strong>概述</strong>页面。</li>
+<li>点击<strong>右下角</strong> <code class="notranslate">Account Details </code>找到并点击 <code class="notranslate">Manage</code> (Manage R2 API Tokens)。</li>
+<li>同时你会看到 <code class="notranslate">S3 API</code>：<code class="notranslate">https://&lt;account-id&gt;.r2.cloudflarestorage.com</code>(这就是 S3_ENDPOINT_URL)</li>
+<li>点击 <code class="notranslate">创建 Account APl 令牌</code> 。</li>
+<li><strong><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 关键设置</strong>：
+<ul>
+<li><strong>令牌名称</strong>：随意填写（如 <code class="notranslate">github-action-write</code>）。</li>
+<li><strong>权限</strong>：选择 <code class="notranslate">管理员读和写</code> 。</li>
+<li><strong>指定存储桶</strong>：为了安全，建议选择 <code class="notranslate">仅适用于指定存储桶</code> 并选中你的桶（如 <code class="notranslate">trendradar-data</code>）。</li>
+</ul>
+</li>
+<li>点击 <code class="notranslate">创建 API 令牌</code>，<strong>立即复制</strong> 显示的 <code class="notranslate">Access Key ID</code> 和 <code class="notranslate">Secret Access Key</code>（只显示一次！）。</li>
+</ul>
+</li>
+</ol>
+   </details>
+   <br>
+<h3>6️⃣ 第六步：开启 AI 分析推送</h3>
+<p>这是 v5.0.0 的核心功能，让 AI 帮你总结和分析新闻，建议尝试。</p>
+<p><strong>配置方法：</strong><br>
+在 GitHub Secrets (或 <code class="notranslate">.env</code> / <code class="notranslate">config.yaml</code>) 中添加：</p>
+<ul>
+<li><code class="notranslate">AI_API_KEY</code>: 你的 API Key（支持 DeepSeek、OpenAI 等）</li>
+<li><code class="notranslate">AI_PROVIDER</code>: 服务商名称（如 <code class="notranslate">deepseek</code>, <code class="notranslate">openai</code>）</li>
+</ul>
+<p>就这样，无需复杂部署，下次推送时你就会看到智能分析报告了。</p>
+   <br>
+<h3>7️⃣ 第七步：🎉 部署成功！</h3>
+<p>恭喜！现在你可以开始享受 TrendRadar 带来的高效信息流了。</p>
+<p>💬 <strong>加入社区</strong>：欢迎关注公众号「<strong><a href="#%E9%97%AE%E9%A2%98%E7%AD%94%E7%96%91%E4%B8%8E%E4%BA%A4%E6%B5%81">硅基茶水间</a></strong>」，分享你的使用心得和高级玩法。</p>
+   <br>
+<h3>8️⃣ 第八步：进阶：选择你的 AI 助手</h3>
+<p>TrendRadar 提供了两种 AI 使用方式，满足不同需求：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">✨ AI 分析推送</th>
+<th align="left">🧠 AI 智能分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>模式</strong></td>
+<td align="left"><strong>被动接收</strong> (每日日报)</td>
+<td align="left"><strong>主动对话</strong> (深度调研)</td>
+</tr>
+<tr>
+<td align="left"><strong>场景</strong></td>
+<td align="left">"今天有什么大事？"</td>
+<td align="left">"分析一下过去一周 AI 行业的变化"</td>
+</tr>
+<tr>
+<td align="left"><strong>部署</strong></td>
+<td align="left">极简 (填 Key 即可)</td>
+<td align="left">进阶 (需本地运行/Docker)</td>
+</tr>
+<tr>
+<td align="left"><strong>客户端</strong></td>
+<td align="left">手机</td>
+<td align="left">电脑</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>👉 <strong>结论</strong>：先用 <strong>AI 分析推送</strong> 满足日常需求；如果你是数据分析师或需要深度挖掘，再尝试 <strong><a href="#-ai-%E6%99%BA%E8%83%BD%E5%88%86%E6%9E%90">AI 智能分析</a></strong>。</p>
+<br>
+<p><a name="user-content-配置详解"></a></p>
+<h2>⚙️ 配置详解</h2>
+<blockquote>
+<p><strong>📖 提醒</strong>：本章节提供详细的配置说明，建议先完成 <a href="#-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</a> 的基础配置，再根据需要回来查看详细选项。</p>
+</blockquote>
+<h3>1. 平台配置</h3>
+<details id="user-content-自定义监控平台">
+<summary>👉 点击展开：<strong>自定义监控平台</strong></summary>
+<br>
+<p><strong>配置位置：</strong> <code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">platforms</code> 部分</p>
+<p>本项目的资讯数据来源于 <a href="https://github.com/ourongxing/newsnow">newsnow</a> ，你可以点击<a href="https://newsnow.busiyi.world/" rel="nofollow">网站</a>，点击[更多]，查看是否有你想要的平台。</p>
+<p>具体添加可访问 <a href="https://github.com/ourongxing/newsnow/tree/main/server/sources">项目源代码</a>，根据里面的文件名，在 <code class="notranslate">config/config.yaml</code> 文件中修改 <code class="notranslate">platforms</code> 配置：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">platforms</span>:
+  - <span class="pl-ent">id</span>: <span class="pl-s"><span class="pl-pds">"</span>toutiao<span class="pl-pds">"</span></span>
+    <span class="pl-ent">name</span>: <span class="pl-s"><span class="pl-pds">"</span>今日头条<span class="pl-pds">"</span></span>
+  - <span class="pl-ent">id</span>: <span class="pl-s"><span class="pl-pds">"</span>baidu<span class="pl-pds">"</span></span>
+    <span class="pl-ent">name</span>: <span class="pl-s"><span class="pl-pds">"</span>百度热搜<span class="pl-pds">"</span></span>
+  - <span class="pl-ent">id</span>: <span class="pl-s"><span class="pl-pds">"</span>wallstreetcn-hot<span class="pl-pds">"</span></span>
+    <span class="pl-ent">name</span>: <span class="pl-s"><span class="pl-pds">"</span>华尔街见闻<span class="pl-pds">"</span></span>
+  <span class="pl-c"><span class="pl-c">#</span> 添加更多平台...</span></pre></div>
+<blockquote>
+<p>💡 <strong>快捷方式</strong>：如果不会看源代码，可以复制他人整理好的 <a href="https://github.com/sansan0/TrendRadar/issues/95" data-hovercard-type="issue" data-hovercard-url="/sansan0/TrendRadar/issues/95/hovercard">平台配置汇总</a></p>
+</blockquote>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>注意</strong>：平台不是越多越好，建议选择 10-15 个核心平台。过多平台会导致信息过载，反而降低使用体验。</p>
+</blockquote>
+</details>
+<h3>2. 关键词配置</h3>
+<p>在 <code class="notranslate">frequency_words.txt</code> 文件中配置监控的关键词，支持七种语法、区域标记和词组功能。</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>语法类型</th>
+<th>符号</th>
+<th>作用</th>
+<th>示例</th>
+<th>匹配逻辑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>普通词</strong></td>
+<td>无</td>
+<td>基础匹配</td>
+<td><code class="notranslate">华为</code></td>
+<td>包含任意一个即可</td>
+</tr>
+<tr>
+<td><strong>必须词</strong></td>
+<td><code class="notranslate">+</code></td>
+<td>限定范围</td>
+<td><code class="notranslate">+手机</code></td>
+<td>必须同时包含</td>
+</tr>
+<tr>
+<td><strong>过滤词</strong></td>
+<td><code class="notranslate">!</code></td>
+<td>排除干扰</td>
+<td><code class="notranslate">!广告</code></td>
+<td>包含则直接排除</td>
+</tr>
+<tr>
+<td><strong>数量限制</strong></td>
+<td><code class="notranslate">@</code></td>
+<td>控制显示数量</td>
+<td><code class="notranslate">@10</code></td>
+<td>最多显示10条新闻（v3.2.0新增）</td>
+</tr>
+<tr>
+<td><strong>全局过滤</strong></td>
+<td><code class="notranslate">[GLOBAL_FILTER]</code></td>
+<td>全局排除指定内容</td>
+<td>见下方示例</td>
+<td>任何情况下都过滤（v3.5.0新增）</td>
+</tr>
+<tr>
+<td><strong>正则表达式</strong></td>
+<td><code class="notranslate">/pattern/</code></td>
+<td>精确匹配模式</td>
+<td><code class="notranslate">/\bai\b/</code></td>
+<td>使用正则表达式匹配（v4.7.0新增）</td>
+</tr>
+<tr>
+<td><strong>显示名称</strong></td>
+<td><code class="notranslate">=&gt; 备注</code></td>
+<td>自定义显示文本</td>
+<td><code class="notranslate">/\bai\b/ =&gt; AI相关</code></td>
+<td>推送和HTML显示备注名称（v4.7.0新增）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>2.1 基础语法</h4>
+<p><a name="user-content-关键词基础语法"></a></p>
+<details>
+<summary>👉 点击展开：<strong>基础语法教程</strong></summary>
+<br>
+<p><strong>配置位置：</strong> <code class="notranslate">config/frequency_words.txt</code></p>
+<h5>1. <strong>普通关键词</strong> - 基础匹配</h5>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">华为
+OPPO
+苹果</pre></div>
+<p><strong>作用：</strong> 新闻标题包含其中<strong>任意一个词</strong>就会被捕获</p>
+<h5>2. <strong>必须词</strong> <code class="notranslate">+词汇</code> - 限定范围</h5>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">华为
+OPPO
++手机</pre></div>
+<p><strong>作用：</strong> 必须同时包含普通词<strong>和</strong>必须词才会被捕获</p>
+<h5>3. <strong>过滤词</strong> <code class="notranslate">!词汇</code> - 排除干扰</h5>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">苹果
+华为
+<span class="pl-c">!水果</span>
+<span class="pl-c">!价格</span></pre></div>
+<p><strong>作用：</strong> 包含过滤词的新闻会被<strong>直接排除</strong>，即使包含关键词</p>
+<h5>4. <strong>数量限制</strong> <code class="notranslate">@数字</code> - 控制显示数量（v3.2.0 新增）</h5>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">特斯拉
+马斯克
+@5</pre></div>
+<p><strong>作用：</strong> 限制该关键词组最多显示的新闻条数</p>
+<p><strong>配置优先级：</strong> <code class="notranslate">@数字</code> &gt; 全局配置 &gt; 不限制</p>
+<h5>5. <strong>全局过滤</strong> <code class="notranslate">[GLOBAL_FILTER]</code> - 全局排除指定内容（v3.5.0 新增）</h5>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">[<span class="pl-ii">GLOBAL_FILTER</span>]
+广告
+推广
+营销
+震惊
+标题党
+
+[<span class="pl-ii">WORD_GROUPS</span>]
+科技
+AI
+
+华为
+鸿蒙
+<span class="pl-c">!车</span></pre></div>
+<p><strong>作用：</strong> 在任何情况下过滤包含指定词的新闻，<strong>优先级最高</strong></p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>过滤低质内容：震惊、标题党、爆料等</li>
+<li>过滤营销内容：广告、推广、赞助等</li>
+<li>过滤特定主题：娱乐、八卦（根据需求）</li>
+</ul>
+<p><strong>过滤优先级：</strong> 全局过滤 &gt; 词组内过滤(<code class="notranslate">!</code>) &gt; 词组匹配</p>
+<p><strong>区域说明：</strong></p>
+<ul>
+<li><code class="notranslate">[GLOBAL_FILTER]</code>：全局过滤区，包含的词在任何情况下都会被过滤</li>
+<li><code class="notranslate">[WORD_GROUPS]</code>：词组区，保持现有语法（<code class="notranslate">!</code>、<code class="notranslate">+</code>、<code class="notranslate">@</code>）</li>
+<li>如果不使用区域标记，默认全部作为词组处理（向后兼容）</li>
+</ul>
+<p><strong>匹配示例：</strong></p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">[<span class="pl-ii">GLOBAL_FILTER</span>]
+广告
+
+[<span class="pl-ii">WORD_GROUPS</span>]
+科技
+AI</pre></div>
+<ul>
+<li>❌ "广告：最新科技产品发布" ← 包含全局过滤词"广告"，直接拒绝</li>
+<li>✅ "科技公司发布AI新产品" ← 不包含全局过滤词，匹配"科技"词组</li>
+<li>✅ "AI技术突破引发关注" ← 不包含全局过滤词，匹配"科技"词组中的"AI"</li>
+</ul>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>全局过滤词应谨慎使用，避免过度过滤导致遗漏有价值内容</li>
+<li>建议全局过滤词控制在 5-15 个以内</li>
+<li>对于特定词组的过滤，优先使用词组内过滤词（<code class="notranslate">!</code> 前缀）</li>
+</ul>
+<h5>6. <strong>正则表达式</strong> <code class="notranslate">/pattern/</code> - 精确匹配模式（v4.7.0 新增）</h5>
+<p>普通关键词使用子字符串匹配，这在中文环境下很方便，但在英文环境可能会产生误匹配。例如 <code class="notranslate">ai</code> 会匹配到 <code class="notranslate">training</code> 中的 <code class="notranslate">ai</code>。</p>
+<p>使用正则表达式语法 <code class="notranslate">/pattern/</code> 可以实现精确匹配：</p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate"><span class="pl-k">/</span><span class="pl-sr">(?&lt;![a-z])ai(?![a-z])</span><span class="pl-k">/</span>
+人工智能</pre></div>
+<p><strong>作用：</strong> 使用正则表达式进行匹配，支持所有 Python 正则语法</p>
+<p><strong>常用正则模式：</strong></p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>需求</th>
+<th>正则写法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>英文单词边界</td>
+<td><code class="notranslate">/\bword\b/</code></td>
+<td>匹配独立单词，如 <code class="notranslate">/\bai\b/</code> 匹配 "AI" 但不匹配 "training"</td>
+</tr>
+<tr>
+<td>前后非字母</td>
+<td><code class="notranslate">/(?&lt;![a-z])ai(?![a-z])/</code></td>
+<td>更宽松的边界，适合中英混合场景</td>
+</tr>
+<tr>
+<td>开头匹配</td>
+<td><code class="notranslate">/^breaking/</code></td>
+<td>只匹配以 "breaking" 开头的标题</td>
+</tr>
+<tr>
+<td>结尾匹配</td>
+<td><code class="notranslate">/发布$/</code></td>
+<td>只匹配以 "发布" 结尾的标题</td>
+</tr>
+<tr>
+<td>多选一</td>
+<td><code class="notranslate">/苹果|华为|小米/</code></td>
+<td>匹配其中任意一个（注意转义 <code class="notranslate">|</code>）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>匹配示例：</strong></p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate"><span class="pl-c"># 配置</span>
+<span class="pl-k">/</span><span class="pl-sr">(?&lt;![a-z])ai(?![a-z])</span><span class="pl-k">/</span>
+人工智能</pre></div>
+<ul>
+<li>✅ "AI is the future" ← 匹配独立的 "AI"</li>
+<li>✅ "你好ai这里" ← 前后是中文，匹配 "ai"</li>
+<li>✅ "人工智能发展迅速" ← 匹配 "人工智能"</li>
+<li>❌ "Resistance training is important" ← "training" 中的 "ai" 不匹配</li>
+<li>❌ "The maid cleaned the room" ← "maid" 中的 "ai" 不匹配</li>
+</ul>
+<p><strong>组合使用：</strong></p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate"><span class="pl-c"># 正则 + 普通词 + 过滤词</span>
+<span class="pl-k">/</span><span class="pl-sr">\bai\b</span><span class="pl-k">/</span>
+人工智能
+机器学习
+<span class="pl-c">!广告</span></pre></div>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>正则表达式自动启用大小写不敏感匹配（<code class="notranslate">re.IGNORECASE</code>）</li>
+<li>支持 <code class="notranslate">/pattern/i</code> 等 JavaScript 风格写法（flags 会被忽略，因为默认已启用忽略大小写）</li>
+<li>无效的正则语法会被当作普通词处理</li>
+<li>正则可用于普通词、必须词(<code class="notranslate">+</code>)、过滤词(<code class="notranslate">!</code>)</li>
+</ul>
+<p><strong>💡 不会写正则？让 AI 帮你生成！</strong></p>
+<p>如果你不熟悉正则表达式，可以直接让 ChatGPT / Gemini / DeepSeek 帮你生成。只需告诉 AI：</p>
+<blockquote>
+<p>我需要一个 Python 正则表达式，用于匹配英文单词 "ai"，但不匹配 "training" 中的 "ai"。<br>
+请直接给出正则表达式，格式为 <code class="notranslate">/pattern/</code>，不需要额外解释。</p>
+</blockquote>
+<p>AI 会给你类似这样的结果：<code class="notranslate">/(?&lt;![a-zA-Z])ai(?![a-zA-Z])/</code></p>
+<h5>7. <strong>显示名称</strong> <code class="notranslate">=&gt; 备注</code> - 自定义显示文本（v4.7.0 新增）</h5>
+<p>正则表达式在推送消息和 HTML 页面显示时可能不太友好。使用 <code class="notranslate">=&gt; 备注</code> 语法可以设置显示名称：</p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">/(?&lt;![a-zA-Z])ai(?![a-zA-Z])/ =&gt; AI 相关
+人工智能</pre></div>
+<p><strong>作用：</strong> 推送消息和 HTML 页面显示 "AI 相关" 而不是复杂的正则表达式</p>
+<p><strong>语法格式：</strong></p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate"><span class="pl-c"># 正则 + 显示名称</span>
+/pattern/ =&gt; 显示名称
+/pattern/i =&gt; 显示名称    # 支持 flags 写法（flags 被忽略）
+/pattern/=&gt;显示名称       # =&gt; 两边空格可选
+
+<span class="pl-c"># 普通词 + 显示名称</span>
+deepseek =&gt; DeepSeek 动态</pre></div>
+<p><strong>匹配示例：</strong></p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate"><span class="pl-c"># 配置</span>
+/(?&lt;![a-zA-Z])ai(?![a-zA-Z])/ =&gt; AI 相关
+人工智能</pre></div>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>原始配置</th>
+<th>推送/HTML 显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">/(?&lt;![a-z])ai(?![a-z])/</code> + <code class="notranslate">人工智能</code></td>
+<td><code class="notranslate">(?&lt;![a-z])ai(?![a-z]) 人工智能</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">/(?&lt;![a-z])ai(?![a-z])/ =&gt; AI 相关</code> + <code class="notranslate">人工智能</code></td>
+<td><strong><code class="notranslate">AI 相关</code></strong></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>显示名称只需写在词组的第一个词上</li>
+<li>如果词组中多个词都有显示名称，使用第一个</li>
+<li>不设置显示名称时，自动使用词组内所有词拼接</li>
+</ul>
+<hr>
+<h4>🔗 词组功能 - 空行分隔的重要作用</h4>
+<p><strong>核心规则：</strong> 用<strong>空行</strong>分隔不同的词组，每个词组独立统计</p>
+<h5>示例配置：</h5>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">iPhone
+华为
+OPPO
++发布
+
+A股
+上证
+深证
++涨跌
+<span class="pl-c">!预测</span>
+
+世界杯
+欧洲杯
+亚洲杯
++比赛</pre></div>
+<h5>词组解释及匹配效果：</h5>
+<p><strong>第1组 - 手机新品类：</strong></p>
+<ul>
+<li>关键词：iPhone、华为、OPPO</li>
+<li>必须词：发布</li>
+<li>效果：必须包含手机品牌名，同时包含"发布"</li>
+</ul>
+<p><strong>匹配示例：</strong></p>
+<ul>
+<li>✅ "iPhone 15正式发布售价公布" ← 有"iPhone"+"发布"</li>
+<li>✅ "华为Mate60系列发布会直播" ← 有"华为"+"发布"</li>
+<li>✅ "OPPO Find X7发布时间确定" ← 有"OPPO"+"发布"</li>
+<li>❌ "iPhone销量创新高" ← 有"iPhone"但缺少"发布"</li>
+</ul>
+<p><strong>第2组 - 股市行情类：</strong></p>
+<ul>
+<li>关键词：A股、上证、深证</li>
+<li>必须词：涨跌</li>
+<li>过滤词：预测</li>
+<li>效果：关注股市涨跌实况，排除预测类内容</li>
+</ul>
+<p><strong>匹配示例：</strong></p>
+<ul>
+<li>✅ "A股今日大幅涨跌分析" ← 有"A股"+"涨跌"</li>
+<li>✅ "上证指数涨跌幅创新高" ← 有"上证"+"涨跌"</li>
+<li>❌ "专家预测A股涨跌趋势" ← 有"A股"+"涨跌"但包含"预测"</li>
+</ul>
+<p><strong>第3组 - 足球赛事类：</strong></p>
+<ul>
+<li>关键词：世界杯、欧洲杯、亚洲杯</li>
+<li>必须词：比赛</li>
+<li>效果：只关注比赛相关新闻</li>
+</ul>
+<hr>
+<h4>📝 配置技巧</h4>
+<h5>1. <strong>从宽到严</strong></h5>
+<div class="highlight highlight-text-adblock"><pre class="notranslate"><span class="pl-c"># 第一步：先用宽泛关键词测试</span>
+人工智能
+AI
+ChatGPT
+
+<span class="pl-c"># 第二步：发现误匹配后，加入必须词限定</span>
+人工智能
+AI
+ChatGPT
++技术
+
+<span class="pl-c"># 第三步：发现干扰内容后，加入过滤词</span>
+人工智能
+AI
+ChatGPT
++技术
+<span class="pl-c">!广告</span>
+<span class="pl-c">!培训</span></pre></div>
+<h5>2. <strong>避免过度复杂</strong></h5>
+<p>❌ <strong>不推荐：</strong> 一个词组包含太多词汇</p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">华为
+OPPO
+苹果
+三星
+vivo
+一加
+魅族
++手机
++发布
++销量
+<span class="pl-c">!假货</span>
+<span class="pl-c">!维修</span>
+<span class="pl-c">!二手</span></pre></div>
+<p>✅ <strong>推荐：</strong> 拆分成多个精确的词组</p>
+<div class="highlight highlight-text-adblock"><pre class="notranslate">华为
+OPPO
++新品
+
+苹果
+三星
++发布
+
+手机
+销量
++市场</pre></div>
+</details>
+<h4>2.2 高级配置（v3.2.0 新增）</h4>
+<p><a name="user-content-关键词高级配置"></a></p>
+<details>
+<summary>👉 点击展开：<strong>高级配置教程</strong></summary>
+<br>
+<h5>关键词排序优先级</h5>
+<p><strong>配置位置：</strong> <code class="notranslate">config/config.yaml</code></p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">report</span>:
+  <span class="pl-ent">sort_by_position_first</span>: <span class="pl-s">false  </span><span class="pl-c"><span class="pl-c">#</span> 排序优先级配置</span></pre></div>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>配置值</th>
+<th>排序规则</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">false</code>（默认）</td>
+<td>热点条数 ↓ → 配置位置 ↑</td>
+<td>关注热度趋势</td>
+</tr>
+<tr>
+<td><code class="notranslate">true</code></td>
+<td>配置位置 ↑ → 热点条数 ↓</td>
+<td>关注个人优先级</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>示例：</strong> 配置顺序 A、B、C，热点数 A(3条)、B(10条)、C(5条)</p>
+<ul>
+<li><code class="notranslate">false</code>：B(10条) → C(5条) → A(3条)</li>
+<li><code class="notranslate">true</code>：A(3条) → B(10条) → C(5条)</li>
+</ul>
+<h5>全局显示数量限制</h5>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">report</span>:
+  <span class="pl-ent">max_news_per_keyword</span>: <span class="pl-c1">10</span>  <span class="pl-c"><span class="pl-c">#</span> 每个关键词最多显示10条（0=不限制）</span></pre></div>
+<p><strong>Docker 环境变量：</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">SORT_BY_POSITION_FIRST=true
+MAX_NEWS_PER_KEYWORD=10</pre></div>
+<p><strong>综合示例：</strong></p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> config.yaml</span>
+<span class="pl-ent">report</span>:
+  <span class="pl-ent">sort_by_position_first</span>: <span class="pl-s">true   </span><span class="pl-c"><span class="pl-c">#</span> 按配置顺序优先</span>
+  <span class="pl-ent">max_news_per_keyword</span>: <span class="pl-c1">10</span>       <span class="pl-c"><span class="pl-c">#</span> 全局默认每个关键词最多10条</span></pre></div>
+<div class="highlight highlight-text-adblock"><pre class="notranslate"><span class="pl-c"># frequency_words.txt</span>
+特斯拉
+马斯克
+@20              # 重点关注，显示20条（覆盖全局配置）
+
+华为            # 使用全局配置，显示10条
+
+比亚迪
+@5               # 限制5条</pre></div>
+<p><strong>最终效果：</strong> 按配置顺序显示 特斯拉(20条) → 华为(10条) → 比亚迪(5条)</p>
+</details>
+<h3>3. 推送模式详解</h3>
+<details>
+<summary>👉 点击展开：<strong>三种推送模式详细对比</strong></summary>
+<br>
+<p><strong>配置位置：</strong> <code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">report.mode</code></p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">report</span>:
+  <span class="pl-ent">mode</span>: <span class="pl-s"><span class="pl-pds">"</span>daily<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> 可选: "daily" | "incremental" | "current"</span></pre></div>
+<p><strong>Docker 环境变量：</strong> <code class="notranslate">REPORT_MODE=incremental</code></p>
+<h4>详细对比表格</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>模式</th>
+<th>适用人群</th>
+<th>推送时机</th>
+<th>显示内容</th>
+<th>典型使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>当日汇总</strong><br><code class="notranslate">daily</code></td>
+<td>📋 企业管理者/普通用户</td>
+<td>按时推送(默认每小时推送一次)</td>
+<td>当日所有匹配新闻<br>+ 新增新闻区域</td>
+<td><strong>案例</strong>：每天下午6点查看今天所有重要新闻<br><strong>特点</strong>：看全天完整趋势，不漏掉任何热点<br><strong>提醒</strong>：会包含之前推送过的新闻</td>
+</tr>
+<tr>
+<td><strong>当前榜单</strong><br><code class="notranslate">current</code></td>
+<td>📰 自媒体人/内容创作者</td>
+<td>按时推送(默认每小时推送一次)</td>
+<td>当前榜单匹配新闻<br>+ 新增新闻区域</td>
+<td><strong>案例</strong>：每小时追踪"哪些话题现在最火"<br><strong>特点</strong>：实时了解当前热度排名变化<br><strong>提醒</strong>：持续在榜的新闻每次都会出现</td>
+</tr>
+<tr>
+<td><strong>增量监控</strong><br><code class="notranslate">incremental</code></td>
+<td>📈 投资者/交易员</td>
+<td>有新增才推送</td>
+<td>新出现的匹配频率词新闻</td>
+<td><strong>案例</strong>：监控"特斯拉"，只在有新消息时通知<br><strong>特点</strong>：零重复，只看首次出现的新闻<br><strong>适合</strong>：高频监控、避免信息打扰</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>实际推送效果举例</h4>
+<p>假设你监控"苹果"关键词，每小时执行一次：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>时间</th>
+<th>daily 模式推送</th>
+<th>current 模式推送</th>
+<th>incremental 模式推送</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10:00</td>
+<td>新闻A、新闻B</td>
+<td>新闻A、新闻B</td>
+<td>新闻A、新闻B</td>
+</tr>
+<tr>
+<td>11:00</td>
+<td>新闻A、新闻B、新闻C</td>
+<td>新闻B、新闻C、新闻D</td>
+<td><strong>仅</strong>新闻C</td>
+</tr>
+<tr>
+<td>12:00</td>
+<td>新闻A、新闻B、新闻C</td>
+<td>新闻C、新闻D、新闻E</td>
+<td><strong>仅</strong>新闻D、新闻E</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>说明</strong>：</p>
+<ul>
+<li><code class="notranslate">daily</code>：累积展示当天所有新闻（A、B、C 都保留）</li>
+<li><code class="notranslate">current</code>：展示当前榜单的新闻（排名变化，新闻D上榜，新闻A掉榜）</li>
+<li><code class="notranslate">incremental</code>：<strong>只推送新出现的新闻</strong>（避免重复干扰）</li>
+</ul>
+<h4>常见问题</h4>
+<blockquote>
+<p><strong>💡 遇到这个问题？</strong> 👉 "每个小时执行一次，第一次执行完输出的新闻，在下一个小时执行时还会出现"</p>
+<ul>
+<li><strong>原因</strong>：你可能选择了 <code class="notranslate">daily</code>（当日汇总）或 <code class="notranslate">current</code>（当前榜单）模式</li>
+<li><strong>解决</strong>：改用 <code class="notranslate">incremental</code>（增量监控）模式，只推送新增内容</li>
+</ul>
+</blockquote>
+<h4><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 增量模式重要提示</h4>
+<blockquote>
+<p><strong>选择了 <code class="notranslate">incremental</code>（增量监控）模式的用户请注意：</strong></p>
+<p>📌 <strong>增量模式只在有新增匹配新闻时才会推送</strong></p>
+<p><strong>如果长时间没有收到推送，可能是因为：</strong></p>
+<ol>
+<li>当前时段没有符合你关键词的新热点出现</li>
+<li>关键词配置过于严格或过于宽泛</li>
+<li>监控平台数量较少</li>
+</ol>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li>方案1：👉 <a href="#2-%E5%85%B3%E9%94%AE%E8%AF%8D%E9%85%8D%E7%BD%AE">优化关键词配置</a> - 调整关键词的精准度，增加或修改监控词汇</li>
+<li>方案2：切换推送模式 - 改用 <code class="notranslate">current</code> 或 <code class="notranslate">daily</code> 模式，可以定时接收推送</li>
+<li>方案3：👉 <a href="#1-%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AE">增加监控平台</a> - 添加更多新闻平台，扩大信息来源</li>
+</ul>
+</blockquote>
+</details>
+<h3>4. 热点权重调整</h3>
+<details>
+<summary>👉 点击展开：<strong>热点权重调整</strong></summary>
+<br>
+<p><strong>配置位置：</strong> <code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">advanced.weight</code> 部分</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">advanced</span>:
+  <span class="pl-ent">weight</span>:
+    <span class="pl-ent">rank</span>: <span class="pl-c1">0.6</span>           <span class="pl-c"><span class="pl-c">#</span> 排名权重</span>
+    <span class="pl-ent">frequency</span>: <span class="pl-c1">0.3</span>      <span class="pl-c"><span class="pl-c">#</span> 频次权重</span>
+    <span class="pl-ent">hotness</span>: <span class="pl-c1">0.1</span>        <span class="pl-c"><span class="pl-c">#</span> 热度权重</span></pre></div>
+<p>当前默认的配置是平衡性配置</p>
+<h4>两个核心场景</h4>
+<p><strong>追实时热点型</strong>：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">advanced</span>:
+  <span class="pl-ent">weight</span>:
+    <span class="pl-ent">rank</span>: <span class="pl-c1">0.8</span>           <span class="pl-c"><span class="pl-c">#</span> 主要看排名</span>
+    <span class="pl-ent">frequency</span>: <span class="pl-c1">0.1</span>      <span class="pl-c"><span class="pl-c">#</span> 不太在乎持续性</span>
+    <span class="pl-ent">hotness</span>: <span class="pl-c1">0.1</span></pre></div>
+<p><strong>适用人群</strong>：自媒体博主、营销人员、想快速了解当下最火话题的用户</p>
+<p><strong>追深度话题型</strong>：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">advanced</span>:
+  <span class="pl-ent">weight</span>:
+    <span class="pl-ent">rank</span>: <span class="pl-c1">0.4</span>           <span class="pl-c"><span class="pl-c">#</span> 适度看排名</span>
+    <span class="pl-ent">frequency</span>: <span class="pl-c1">0.5</span>      <span class="pl-c"><span class="pl-c">#</span> 重视当天内的持续热度</span>
+    <span class="pl-ent">hotness</span>: <span class="pl-c1">0.1</span></pre></div>
+<p><strong>适用人群</strong>：投资者、研究人员、新闻工作者、需要深度分析趋势的用户</p>
+<h4>调整的方法</h4>
+<ol>
+<li><strong>三个数字加起来必须等于 1.0</strong></li>
+<li><strong>哪个重要就调大哪个</strong>：在乎排名就调大 <code class="notranslate">rank</code>，在乎持续性就调大 <code class="notranslate">frequency</code></li>
+<li><strong>建议每次只调 0.1-0.2</strong>，观察效果</li>
+</ol>
+<p>核心思路：追求速度和时效性的用户提高排名权重，追求深度和稳定性的用户提高频次权重。</p>
+</details>
+<h3>5. 推送格式参考</h3>
+<details>
+<summary>👉 点击展开：<strong>推送格式说明</strong></summary>
+<br>
+<h4>推送示例</h4>
+<p>📊 热点词汇统计</p>
+<p>🔥 [1/3] AI ChatGPT : 2 条</p>
+<ol>
+<li>
+<p>[百度热搜] 🆕 ChatGPT-5正式发布 [<strong>1</strong>] - 09时15分 (1次)</p>
+</li>
+<li>
+<p>[今日头条] AI芯片概念股暴涨 [<strong>3</strong>] - [08时30分 ~ 10时45分] (3次)</p>
+</li>
+</ol>
+<p>━━━━━━━━━━━━━━━━━━━</p>
+<p>📈 [2/3] 比亚迪 特斯拉 : 2 条</p>
+<ol>
+<li>
+<p>[微博] 🆕 比亚迪月销量破纪录 [<strong>2</strong>] - 10时20分 (1次)</p>
+</li>
+<li>
+<p>[抖音] 特斯拉降价促销 [<strong>4</strong>] - [07时45分 ~ 09时15分] (2次)</p>
+</li>
+</ol>
+<p>━━━━━━━━━━━━━━━━━━━</p>
+<p>📌 [3/3] A股 股市 : 1 条</p>
+<ol>
+<li>[华尔街见闻] A股午盘点评分析 [<strong>5</strong>] - [11时30分 ~ 12时00分] (2次)</li>
+</ol>
+<p>🆕 本次新增热点新闻 (共 2 条)</p>
+<p><strong>百度热搜</strong> (1 条):</p>
+<ol>
+<li>ChatGPT-5正式发布 [<strong>1</strong>]</li>
+</ol>
+<p><strong>微博</strong> (1 条):</p>
+<ol>
+<li>比亚迪月销量破纪录 [<strong>2</strong>]</li>
+</ol>
+<p>更新时间：2025-01-15 12:30:15</p>
+<h4>消息格式说明</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>格式元素</th>
+<th>示例</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔥📈📌</td>
+<td>🔥 [1/3] AI ChatGPT</td>
+<td>热度等级</td>
+<td>🔥高热度(≥10条) 📈中热度(5-9条) 📌普通热度(&lt;5条)</td>
+</tr>
+<tr>
+<td>[序号/总数]</td>
+<td>[1/3]</td>
+<td>排序位置</td>
+<td>当前词组在所有匹配词组中的排名</td>
+</tr>
+<tr>
+<td>频率词组</td>
+<td>AI ChatGPT</td>
+<td>关键词组</td>
+<td>配置文件中的词组，标题必须包含其中词汇</td>
+</tr>
+<tr>
+<td>: N 条</td>
+<td>: 2 条</td>
+<td>匹配数量</td>
+<td>该词组匹配的新闻总数</td>
+</tr>
+<tr>
+<td>[平台名]</td>
+<td>[百度热搜]</td>
+<td>来源平台</td>
+<td>新闻所属的平台名称</td>
+</tr>
+<tr>
+<td>🆕</td>
+<td>🆕 ChatGPT-5正式发布</td>
+<td>新增标记</td>
+<td>本轮抓取中首次出现的热点</td>
+</tr>
+<tr>
+<td>[<strong>数字</strong>]</td>
+<td>[<strong>1</strong>]</td>
+<td>高排名</td>
+<td>排名≤阈值的热搜，红色加粗显示</td>
+</tr>
+<tr>
+<td>[数字]</td>
+<td>[7]</td>
+<td>普通排名</td>
+<td>排名&gt;阈值的热搜，普通显示</td>
+</tr>
+<tr>
+<td>- 时间</td>
+<td>- 09时15分</td>
+<td>首次时间</td>
+<td>该新闻首次被发现的时间</td>
+</tr>
+<tr>
+<td>[时间~时间]</td>
+<td>[08时30分 ~ 10时45分]</td>
+<td>持续时间</td>
+<td>从首次出现到最后出现的时间范围</td>
+</tr>
+<tr>
+<td>(N次)</td>
+<td>(3次)</td>
+<td>出现频率</td>
+<td>在监控期间出现的总次数</td>
+</tr>
+<tr>
+<td><strong>新增区域</strong></td>
+<td>🆕 <strong>本次新增热点新闻</strong></td>
+<td>新话题汇总</td>
+<td>单独展示本轮新出现的热点话题</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+</details>
+<h3>6. Docker 部署</h3>
+<p><strong>镜像说明：</strong></p>
+<p>TrendRadar 提供两个独立的 Docker 镜像，可根据需求选择部署：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>镜像名称</th>
+<th>用途</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">wantcat/trendradar</code></td>
+<td>新闻推送服务</td>
+<td>定时抓取新闻、推送通知（必选）</td>
+</tr>
+<tr>
+<td><code class="notranslate">wantcat/trendradar-mcp</code></td>
+<td>AI 分析服务</td>
+<td>MCP 协议支持、AI 对话分析（可选）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<blockquote>
+<p>💡 <strong>建议</strong>：</p>
+<ul>
+<li>只需要推送功能：仅部署 <code class="notranslate">wantcat/trendradar</code> 镜像</li>
+<li>需要 AI 分析功能：同时部署两个镜像</li>
+</ul>
+</blockquote>
+<details>
+<summary>👉 点击展开：<strong>Docker 部署完整指南</strong></summary>
+<br>
+<h4>方式一：使用 docker compose（推荐）</h4>
+<ol>
+<li>
+<p><strong>创建项目目录和配置</strong>:</p>
+<p><strong>方式 1-A：使用 git clone（推荐，最简单）</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 克隆项目到本地</span>
+git clone https://github.com/sansan0/TrendRadar.git
+<span class="pl-c1">cd</span> TrendRadar</pre></div>
+<p><strong>方式 1-B：使用 wget 下载配置文件</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 创建目录结构</span>
+mkdir -p trendradar/{config,docker}
+<span class="pl-c1">cd</span> trendradar
+
+<span class="pl-c"><span class="pl-c">#</span> 下载配置文件模板</span>
+wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/config.yaml -P config/
+wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/frequency_words.txt -P config/
+wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/ai_analysis_prompt.txt -P config/
+
+<span class="pl-c"><span class="pl-c">#</span> 下载 docker compose 配置</span>
+wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/docker/.env  -P docker/
+wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/docker/docker-compose.yml  -P docker/</pre></div>
+<blockquote>
+<p>💡 <strong>说明</strong>：Docker 部署需要的关键目录结构如下：</p>
+</blockquote>
+</li>
+</ol>
+<pre class="notranslate"><code class="notranslate">当前目录/
+├── config/
+│   ├── config.yaml
+│   ├── frequency_words.txt
+│   └── ai_analysis_prompt.txt    # AI 分析提示词（v5.0.0 新增，可选）
+└── docker/
+    ├── .env
+    └── docker-compose.yml
+</code></pre>
+<ol start="2">
+<li>
+<p><strong>配置文件说明</strong>:</p>
+<p><strong>配置分工原则（v4.6.0 优化）</strong>：</p>
+<ul>
+<li><code class="notranslate">config/config.yaml</code> - <strong>功能配置</strong>（报告模式、推送设置、存储格式、推送窗口、AI 分析等）</li>
+<li><code class="notranslate">config/frequency_words.txt</code> - <strong>关键词配置</strong>（设置你关心的热点词汇）</li>
+<li><code class="notranslate">config/ai_analysis_prompt.txt</code> - <strong>AI 提示词配置</strong>（自定义 AI 分析角色和输出格式，v5.0.0 新增）</li>
+<li><code class="notranslate">docker/.env</code> - <strong>敏感信息 + Docker 特有配置</strong>（webhook URLs、API Key、S3 密钥、定时任务）</li>
+</ul>
+<blockquote>
+<p>💡 <strong>配置修改生效</strong>：修改 <code class="notranslate">config.yaml</code> 后，执行 <code class="notranslate">docker compose up -d</code> 重启容器即可生效</p>
+</blockquote>
+<p><strong>⚙️ 环境变量覆盖机制（v3.0.5+）</strong></p>
+<p><code class="notranslate">.env</code> 文件中的环境变量会覆盖 <code class="notranslate">config.yaml</code> 中的对应配置：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>环境变量</th>
+<th>对应配置</th>
+<th>示例值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">ENABLE_CRAWLER</code></td>
+<td><code class="notranslate">advanced.crawler.enabled</code></td>
+<td><code class="notranslate">true</code> / <code class="notranslate">false</code></td>
+<td>是否启用爬虫</td>
+</tr>
+<tr>
+<td><code class="notranslate">ENABLE_NOTIFICATION</code></td>
+<td><code class="notranslate">notification.enabled</code></td>
+<td><code class="notranslate">true</code> / <code class="notranslate">false</code></td>
+<td>是否启用通知</td>
+</tr>
+<tr>
+<td><code class="notranslate">REPORT_MODE</code></td>
+<td><code class="notranslate">report.mode</code></td>
+<td><code class="notranslate">daily</code> / <code class="notranslate">incremental</code> / <code class="notranslate">current</code></td>
+<td>报告模式</td>
+</tr>
+<tr>
+<td><code class="notranslate">DISPLAY_MODE</code></td>
+<td><code class="notranslate">report.display_mode</code></td>
+<td><code class="notranslate">keyword</code> / <code class="notranslate">platform</code></td>
+<td>显示模式</td>
+</tr>
+<tr>
+<td><code class="notranslate">ENABLE_WEBSERVER</code></td>
+<td>-</td>
+<td><code class="notranslate">true</code> / <code class="notranslate">false</code></td>
+<td>是否自动启动 Web 服务器</td>
+</tr>
+<tr>
+<td><code class="notranslate">WEBSERVER_PORT</code></td>
+<td>-</td>
+<td><code class="notranslate">8080</code></td>
+<td>Web 服务器端口</td>
+</tr>
+<tr>
+<td><code class="notranslate">FEISHU_WEBHOOK_URL</code></td>
+<td><code class="notranslate">notification.channels.feishu.webhook_url</code></td>
+<td><code class="notranslate">https://...</code></td>
+<td>飞书 Webhook（多账号用 <code class="notranslate">;</code> 分隔）</td>
+</tr>
+<tr>
+<td><code class="notranslate">AI_ANALYSIS_ENABLED</code></td>
+<td><code class="notranslate">ai_analysis.enabled</code></td>
+<td><code class="notranslate">true</code> / <code class="notranslate">false</code></td>
+<td>是否启用 AI 分析（v5.0.0 新增）</td>
+</tr>
+<tr>
+<td><code class="notranslate">AI_API_KEY</code></td>
+<td><code class="notranslate">ai_analysis.api_key</code></td>
+<td><code class="notranslate">sk-xxx...</code></td>
+<td>AI API Key（v5.0.0 新增）</td>
+</tr>
+<tr>
+<td><code class="notranslate">AI_PROVIDER</code></td>
+<td><code class="notranslate">ai_analysis.provider</code></td>
+<td><code class="notranslate">deepseek</code> / <code class="notranslate">openai</code> / <code class="notranslate">gemini</code></td>
+<td>AI 提供商（v5.0.0 新增）</td>
+</tr>
+<tr>
+<td><code class="notranslate">S3_*</code></td>
+<td><code class="notranslate">storage.remote.*</code></td>
+<td>-</td>
+<td>远程存储配置（5 个参数）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>配置优先级</strong>：环境变量 &gt; config.yaml</p>
+<p><strong>使用方法</strong>：</p>
+<ul>
+<li>修改 <code class="notranslate">.env</code> 文件，填写需要的配置</li>
+<li>或在 NAS/群晖 Docker 管理界面的"环境变量"中直接添加</li>
+<li>重启容器后生效：<code class="notranslate">docker compose up -d</code></li>
+</ul>
+</li>
+<li>
+<p><strong>启动服务</strong>:</p>
+<p><strong>选项 A：启动所有服务（推送 + AI 分析）</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 拉取最新镜像</span>
+docker compose pull
+
+<span class="pl-c"><span class="pl-c">#</span> 启动所有服务（trendradar + trendradar-mcp）</span>
+docker compose up -d</pre></div>
+<p><strong>选项 B：仅启动新闻推送服务</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 只启动 trendradar（定时抓取和推送）</span>
+docker compose pull trendradar
+docker compose up -d trendradar</pre></div>
+<p><strong>选项 C：仅启动 MCP AI 分析服务</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 只启动 trendradar-mcp（提供 AI 分析接口）</span>
+docker compose pull trendradar-mcp
+docker compose up -d trendradar-mcp</pre></div>
+<blockquote>
+<p>💡 <strong>提示</strong>：</p>
+<ul>
+<li>大多数用户只需启动 <code class="notranslate">trendradar</code> 即可实现新闻推送功能</li>
+<li>只有需要使用 ChatGPT/Gemini 进行 AI 对话分析时，才需启动 <code class="notranslate">trendradar-mcp</code></li>
+<li>两个服务相互独立，可根据需求灵活组合</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><strong>查看运行状态</strong>:</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 查看新闻推送服务日志</span>
+docker logs -f trendradar
+
+<span class="pl-c"><span class="pl-c">#</span> 查看 MCP AI 分析服务日志</span>
+docker logs -f trendradar-mcp
+
+<span class="pl-c"><span class="pl-c">#</span> 查看所有容器状态</span>
+docker ps <span class="pl-k">|</span> grep trendradar
+
+<span class="pl-c"><span class="pl-c">#</span> 停止特定服务</span>
+docker compose stop trendradar      <span class="pl-c"><span class="pl-c">#</span> 停止推送服务</span>
+docker compose stop trendradar-mcp  <span class="pl-c"><span class="pl-c">#</span> 停止 MCP 服务</span></pre></div>
+</li>
+</ol>
+<h4>方式二：本地构建（开发者选项）</h4>
+<p>如果需要自定义修改代码或构建自己的镜像：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 克隆项目</span>
+git clone https://github.com/sansan0/TrendRadar.git
+<span class="pl-c1">cd</span> TrendRadar
+
+<span class="pl-c"><span class="pl-c">#</span> 修改配置文件</span>
+vim config/config.yaml
+vim config/frequency_words.txt
+
+<span class="pl-c"><span class="pl-c">#</span> 使用构建版本的 docker compose</span>
+<span class="pl-c1">cd</span> docker
+cp docker-compose-build.yml docker-compose.yml</pre></div>
+<p><strong>构建并启动服务</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 选项 A：构建并启动所有服务</span>
+docker compose build
+docker compose up -d
+
+<span class="pl-c"><span class="pl-c">#</span> 选项 B：仅构建并启动新闻推送服务</span>
+docker compose build trendradar
+docker compose up -d trendradar
+
+<span class="pl-c"><span class="pl-c">#</span> 选项 C：仅构建并启动 MCP AI 分析服务</span>
+docker compose build trendradar-mcp
+docker compose up -d trendradar-mcp</pre></div>
+<blockquote>
+<p>💡 <strong>架构参数说明</strong>：</p>
+<ul>
+<li>默认构建 <code class="notranslate">amd64</code> 架构镜像（适用于大多数 x86_64 服务器）</li>
+<li>如需构建 <code class="notranslate">arm64</code> 架构（Apple Silicon、树莓派等），设置环境变量：
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-k">export</span> DOCKER_ARCH=arm64
+docker compose build</pre></div>
+</li>
+</ul>
+</blockquote>
+<h4>镜像更新</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 方式一：手动更新（爬虫 + MCP 镜像）</span>
+docker pull wantcat/trendradar:latest
+docker pull wantcat/trendradar-mcp:latest
+docker compose down
+docker compose up -d
+
+<span class="pl-c"><span class="pl-c">#</span> 方式二：使用 docker compose 更新</span>
+docker compose pull
+docker compose up -d</pre></div>
+<p><strong>可用镜像</strong>：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>镜像名称</th>
+<th>用途</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">wantcat/trendradar</code></td>
+<td>新闻推送服务</td>
+<td>定时抓取新闻、推送通知</td>
+</tr>
+<tr>
+<td><code class="notranslate">wantcat/trendradar-mcp</code></td>
+<td>MCP 服务</td>
+<td>AI 分析功能（可选）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>服务管理命令</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 查看运行状态</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py status
+
+<span class="pl-c"><span class="pl-c">#</span> 手动执行一次爬虫</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py run
+
+<span class="pl-c"><span class="pl-c">#</span> 查看实时日志</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py logs
+
+<span class="pl-c"><span class="pl-c">#</span> 显示当前配置</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py config
+
+<span class="pl-c"><span class="pl-c">#</span> 显示输出文件</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py files
+
+<span class="pl-c"><span class="pl-c">#</span> Web 服务器管理（用于浏览器访问生成的报告）</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py start_webserver   <span class="pl-c"><span class="pl-c">#</span> 启动 Web 服务器</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py stop_webserver    <span class="pl-c"><span class="pl-c">#</span> 停止 Web 服务器</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py webserver_status  <span class="pl-c"><span class="pl-c">#</span> 查看 Web 服务器状态</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 查看帮助信息</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py <span class="pl-c1">help</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 重启容器</span>
+docker restart trendradar
+
+<span class="pl-c"><span class="pl-c">#</span> 停止容器</span>
+docker stop trendradar
+
+<span class="pl-c"><span class="pl-c">#</span> 删除容器（保留数据）</span>
+docker rm trendradar</pre></div>
+<blockquote>
+<p>💡 <strong>Web 服务器说明</strong>：</p>
+<ul>
+<li>启动后可通过浏览器访问 <code class="notranslate">http://localhost:8080</code> 查看最新报告</li>
+<li>通过目录导航访问历史报告（如：<code class="notranslate">http://localhost:8080/2025-xx-xx/</code>）</li>
+<li>端口可在 <code class="notranslate">.env</code> 文件中配置 <code class="notranslate">WEBSERVER_PORT</code> 参数</li>
+<li>自动启动：在 <code class="notranslate">.env</code> 中设置 <code class="notranslate">ENABLE_WEBSERVER=true</code></li>
+<li>安全提示：仅提供静态文件访问，限制在 output 目录，只绑定本地访问</li>
+</ul>
+</blockquote>
+<h4>数据持久化</h4>
+<p>生成的报告和数据默认保存在 <code class="notranslate">./output</code> 目录下，即使容器重启或删除，数据也会保留。</p>
+<p><strong>📊 网页版报告访问路径</strong>：</p>
+<p>TrendRadar 生成的当日汇总 HTML 报告会同时保存到两个位置：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>文件位置</th>
+<th>访问方式</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">output/index.html</code></td>
+<td>宿主机直接访问</td>
+<td><strong>Docker 部署</strong>（通过 Volume 挂载，宿主机可见）</td>
+</tr>
+<tr>
+<td><code class="notranslate">index.html</code></td>
+<td>根目录访问</td>
+<td><strong>GitHub Pages</strong>（仓库根目录，Pages 自动识别）</td>
+</tr>
+<tr>
+<td><code class="notranslate">output/html/YYYY-MM-DD/当日汇总.html</code></td>
+<td>历史报告访问</td>
+<td>所有环境（按日期归档）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>本地访问示例</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 方式 1：通过 Web 服务器访问（推荐，Docker 环境）</span>
+<span class="pl-c"><span class="pl-c">#</span> 1. 启动 Web 服务器</span>
+docker <span class="pl-c1">exec</span> -it trendradar python manage.py start_webserver
+<span class="pl-c"><span class="pl-c">#</span> 2. 在浏览器访问</span>
+http://localhost:8080                           <span class="pl-c"><span class="pl-c">#</span> 访问最新报告（默认 index.html）</span>
+http://localhost:8080/html/2025-xx-xx/          <span class="pl-c"><span class="pl-c">#</span> 访问指定日期的报告</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 方式 2：直接打开文件（本地环境）</span>
+open ./output/index.html             <span class="pl-c"><span class="pl-c">#</span> macOS</span>
+start ./output/index.html            <span class="pl-c"><span class="pl-c">#</span> Windows</span>
+xdg-open ./output/index.html         <span class="pl-c"><span class="pl-c">#</span> Linux</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 方式 3：访问历史归档</span>
+open ./output/html/2025-xx-xx/当日汇总.html</pre></div>
+<p><strong>为什么有两个 index.html？</strong></p>
+<ul>
+<li><code class="notranslate">output/index.html</code>：Docker Volume 挂载到宿主机，本地可直接打开</li>
+<li><code class="notranslate">index.html</code>：GitHub Actions 推送到仓库，GitHub Pages 自动部署</li>
+</ul>
+<blockquote>
+<p>💡 <strong>提示</strong>：两个文件内容完全相同，选择任意一个访问即可。</p>
+</blockquote>
+<h4>故障排查</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 检查容器状态</span>
+docker inspect trendradar
+
+<span class="pl-c"><span class="pl-c">#</span> 查看容器日志</span>
+docker logs --tail 100 trendradar
+
+<span class="pl-c"><span class="pl-c">#</span> 进入容器调试</span>
+docker <span class="pl-c1">exec</span> -it trendradar /bin/bash
+
+<span class="pl-c"><span class="pl-c">#</span> 验证配置文件</span>
+docker <span class="pl-c1">exec</span> -it trendradar ls -la /app/config/</pre></div>
+<h4>MCP 服务部署（AI 分析功能）</h4>
+<p>如果需要使用 AI 分析功能，可以部署独立的 MCP 服务容器。</p>
+<p><strong>架构说明</strong>：</p>
+<div class="highlight highlight-source-mermaid"><pre class="notranslate"><span class="pl-k">flowchart</span> <span class="pl-c1">TB</span>
+    <span class="pl-k">subgraph</span> <span class="pl-en">trendradar</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span>"trendradar"<span class="pl-pds"><span class="pl-sg">]</span></span></span>
+        <span class="pl-ent">A1</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span>定时抓取新闻<span class="pl-pds"><span class="pl-sg">]</span></span></span>
+        <span class="pl-ent">A2</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span>推送通知<span class="pl-pds"><span class="pl-sg">]</span></span></span>
+    <span class="pl-k">end</span>
+    
+    <span class="pl-k">subgraph</span> <span class="pl-en">trendradar</span>-<span class="pl-ent">mcp</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span><span class="pl-s"><span class="pl-pds">"</span>trendradar-mcp<span class="pl-pds">"</span></span><span class="pl-pds"><span class="pl-sg">]</span></span></span>
+        <span class="pl-ent">B1</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span>127.0.0.1:3333<span class="pl-pds"><span class="pl-sg">]</span></span></span>
+        <span class="pl-ent">B2</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span>AI 分析接口<span class="pl-pds"><span class="pl-sg">]</span></span></span>
+    <span class="pl-k">end</span>
+    
+    <span class="pl-k">subgraph</span> <span class="pl-en">shared</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span>"共享卷"<span class="pl-pds"><span class="pl-sg">]</span></span></span>
+        <span class="pl-ent">C1</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span><span class="pl-s"><span class="pl-pds">"</span>config/ (ro)<span class="pl-pds">"</span></span><span class="pl-pds"><span class="pl-sg">]</span></span></span>
+        <span class="pl-ent">C2</span><span class="pl-s"><span class="pl-pds"><span class="pl-sg">[</span></span><span class="pl-s"><span class="pl-pds">"</span>output/ (ro)<span class="pl-pds">"</span></span><span class="pl-pds"><span class="pl-sg">]</span></span></span>
+    <span class="pl-k">end</span>
+    
+    <span class="pl-ent">trendradar</span> <span class="pl-k">--&gt;</span> <span class="pl-ent">shared</span>
+    <span class="pl-ent">trendradar</span>-<span class="pl-ent">mcp</span> <span class="pl-k">--&gt;</span> <span class="pl-ent">shared</span></pre></div>
+<p><strong>快速启动</strong>：</p>
+<p>如果已按照 <a href="#%E6%96%B9%E5%BC%8F%E4%B8%80%E4%BD%BF%E7%94%A8-docker-compose%E6%8E%A8%E8%8D%90">方式一：使用 docker compose</a> 完成部署，只需启动 MCP 服务：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c1">cd</span> TrendRadar/docker
+docker compose up -d trendradar-mcp
+
+<span class="pl-c"><span class="pl-c">#</span> 查看运行状态</span>
+docker ps <span class="pl-k">|</span> grep trendradar-mcp</pre></div>
+<p><strong>单独启动 MCP 服务</strong>（不使用 docker compose）：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> Linux/Mac</span>
+docker run -d --name trendradar-mcp \
+  -p 127.0.0.1:3333:3333 \
+  -v <span class="pl-s"><span class="pl-pds">$(</span>pwd<span class="pl-pds">)</span></span>/config:/app/config:ro \
+  -v <span class="pl-s"><span class="pl-pds">$(</span>pwd<span class="pl-pds">)</span></span>/output:/app/output:ro \
+  -e TZ=Asia/Shanghai \
+  wantcat/trendradar-mcp:latest
+
+<span class="pl-c"><span class="pl-c">#</span> Windows PowerShell</span>
+docker run -d --name trendradar-mcp <span class="pl-s"><span class="pl-pds">`</span></span>
+<span class="pl-s">  -p 127.0.0.1:3333:3333 <span class="pl-pds">`</span></span>
+  -v <span class="pl-smi">${PWD}</span>/config:/app/config:ro <span class="pl-s"><span class="pl-pds">`</span></span>
+<span class="pl-s">  -v <span class="pl-smi">${PWD}</span>/output:/app/output:ro <span class="pl-pds">`</span></span>
+  -e TZ=Asia/Shanghai <span class="pl-s"><span class="pl-pds">`</span></span>
+<span class="pl-s">  wantcat/trendradar-mcp:latest</span></pre></div>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>注意</strong>：单独运行时，确保当前目录下有 <code class="notranslate">config/</code> 和 <code class="notranslate">output/</code> 文件夹，且包含配置文件和新闻数据。</p>
+</blockquote>
+<p><strong>验证服务</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 检查 MCP 服务健康状态</span>
+curl http://127.0.0.1:3333/mcp
+
+<span class="pl-c"><span class="pl-c">#</span> 查看 MCP 服务日志</span>
+docker logs -f trendradar-mcp</pre></div>
+<p><strong>在 AI 客户端中配置</strong>：</p>
+<p>MCP 服务启动后，根据不同客户端进行配置：</p>
+<p><strong>Cherry Studio</strong>（推荐，GUI 配置）：</p>
+<ul>
+<li>设置 → MCP 服务器 → 添加</li>
+<li>类型：<code class="notranslate">streamableHttp</code></li>
+<li>URL：<code class="notranslate">http://127.0.0.1:3333/mcp</code></li>
+</ul>
+<p><strong>Claude Desktop / Cline</strong>（JSON 配置）：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"mcpServers"</span>: {
+    <span class="pl-ent">"trendradar"</span>: {
+      <span class="pl-ent">"url"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://127.0.0.1:3333/mcp<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>streamableHttp<span class="pl-pds">"</span></span>
+    }
+  }
+}</pre></div>
+<blockquote>
+<p>💡 <strong>提示</strong>：MCP 服务仅监听本地端口（127.0.0.1），确保安全性。如需远程访问，请自行配置反向代理和认证。</p>
+</blockquote>
+</details>
+<h3>7. 报告配置</h3>
+<details>
+<summary>👉 点击展开：<strong>报告相关参数配置</strong></summary>
+<br>
+<p><strong>配置位置：</strong> <code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">report</code> 部分</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">report</span>:
+  <span class="pl-ent">mode</span>: <span class="pl-s"><span class="pl-pds">"</span>daily<span class="pl-pds">"</span></span>                    <span class="pl-c"><span class="pl-c">#</span> 推送模式</span>
+  <span class="pl-ent">display_mode</span>: <span class="pl-s"><span class="pl-pds">"</span>keyword<span class="pl-pds">"</span></span>          <span class="pl-c"><span class="pl-c">#</span> 显示模式（v4.6.0 新增）</span>
+  <span class="pl-ent">rank_threshold</span>: <span class="pl-c1">5</span>                <span class="pl-c"><span class="pl-c">#</span> 排名高亮阈值</span>
+  <span class="pl-ent">sort_by_position_first</span>: <span class="pl-s">false    </span><span class="pl-c"><span class="pl-c">#</span> 排序优先级</span>
+  <span class="pl-ent">max_news_per_keyword</span>: <span class="pl-c1">0</span>          <span class="pl-c"><span class="pl-c">#</span> 每个关键词最大显示数量</span>
+  <span class="pl-ent">reverse_content_order</span>: <span class="pl-s">false     </span><span class="pl-c"><span class="pl-c">#</span> 内容顺序配置</span></pre></div>
+<h4>配置项详解</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">mode</code></td>
+<td>string</td>
+<td><code class="notranslate">daily</code></td>
+<td>推送模式，可选 <code class="notranslate">daily</code>/<code class="notranslate">incremental</code>/<code class="notranslate">current</code>，详见 <a href="#3-%E6%8E%A8%E9%80%81%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3">推送模式详解</a></td>
+</tr>
+<tr>
+<td><code class="notranslate">display_mode</code></td>
+<td>string</td>
+<td><code class="notranslate">keyword</code></td>
+<td>显示模式，可选 <code class="notranslate">keyword</code>/<code class="notranslate">platform</code>，详见下方说明</td>
+</tr>
+<tr>
+<td><code class="notranslate">rank_threshold</code></td>
+<td>int</td>
+<td><code class="notranslate">5</code></td>
+<td>排名高亮阈值，排名 ≤ 该值的新闻会加粗显示</td>
+</tr>
+<tr>
+<td><code class="notranslate">sort_by_position_first</code></td>
+<td>bool</td>
+<td><code class="notranslate">false</code></td>
+<td>排序优先级：<code class="notranslate">false</code>=按热点条数排序，<code class="notranslate">true</code>=按配置位置排序</td>
+</tr>
+<tr>
+<td><code class="notranslate">max_news_per_keyword</code></td>
+<td>int</td>
+<td><code class="notranslate">0</code></td>
+<td>每个关键词最大显示数量，<code class="notranslate">0</code>=不限制</td>
+</tr>
+<tr>
+<td><code class="notranslate">reverse_content_order</code></td>
+<td>bool</td>
+<td><code class="notranslate">false</code></td>
+<td>内容顺序：<code class="notranslate">false</code>=热点词汇统计在前，<code class="notranslate">true</code>=新增热点新闻在前</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>显示模式配置（v4.6.0 新增）</h4>
+<p>控制推送消息和 HTML 报告中新闻的分组方式：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>模式</th>
+<th>分组方式</th>
+<th>标题前缀</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">keyword</code>（默认）</td>
+<td>按关键词分组</td>
+<td><code class="notranslate">[平台名]</code></td>
+<td>关注特定话题的用户</td>
+</tr>
+<tr>
+<td><code class="notranslate">platform</code></td>
+<td>按平台分组</td>
+<td><code class="notranslate">[关键词]</code></td>
+<td>关注特定平台的用户</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>示例对比：</strong></p>
+<pre class="notranslate"><code class="notranslate"># keyword 模式（按关键词分组）
+📊 热点词汇统计
+🔥 [1/3] AI : 12 条
+  1. [微博] OpenAI发布GPT-5 #1-#3 - 08:30 (5次)
+  2. [知乎] 如何看待AI取代程序员 #2 - 09:15 (3次)
+
+# platform 模式（按平台分组）
+📊 热点新闻统计
+🔥 [1/4] 微博 : 12 条
+  1. [AI] OpenAI发布GPT-5 #1-#3 - 08:30 (5次)
+  2. [特朗普] 特朗普宣布重大政策 #2 - 09:15 (3次)
+</code></pre>
+<p><strong>Docker 环境变量：</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">DISPLAY_MODE=platform</pre></div>
+<h4>内容顺序配置（v3.5.0 新增）</h4>
+<p>控制推送消息和 HTML 报告中两部分内容的显示顺序：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>配置值</th>
+<th>显示顺序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">false</code>（默认）</td>
+<td>① 热点词汇统计 → ② 新增热点新闻</td>
+</tr>
+<tr>
+<td><code class="notranslate">true</code></td>
+<td>① 新增热点新闻 → ② 热点词汇统计</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>适用场景：</strong></p>
+<ul>
+<li><code class="notranslate">false</code>（默认）：适合关注关键词匹配结果的用户，先看分类统计</li>
+<li><code class="notranslate">true</code>：适合关注最新动态的用户，优先查看新增热点</li>
+</ul>
+<p><strong>Docker 环境变量：</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">REVERSE_CONTENT_ORDER=true</pre></div>
+<h4>排序优先级配置</h4>
+<p><strong>示例场景：</strong> 配置顺序 A、B、C，热点数 A(3条)、B(10条)、C(5条)</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>配置值</th>
+<th>显示顺序</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">false</code>（默认）</td>
+<td>B(10条) → C(5条) → A(3条)</td>
+<td>关注热度趋势</td>
+</tr>
+<tr>
+<td><code class="notranslate">true</code></td>
+<td>A(3条) → B(10条) → C(5条)</td>
+<td>关注个人优先级</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>Docker 环境变量：</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">SORT_BY_POSITION_FIRST=true
+MAX_NEWS_PER_KEYWORD=10</pre></div>
+<h4>独立展示区配置（v5.0.0 新增）</h4>
+<p>为指定平台提供完整热榜展示，不受 <code class="notranslate">frequency_words.txt</code> 关键词过滤影响。</p>
+<p><strong>配置位置：</strong> <code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">notification.standalone_display</code> 部分</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">notification</span>:
+  <span class="pl-ent">standalone_display</span>:
+    <span class="pl-ent">enabled</span>: <span class="pl-s">false                    </span><span class="pl-c"><span class="pl-c">#</span> 是否启用</span>
+    <span class="pl-ent">platforms</span>: <span class="pl-s">["zhihu", "weibo"]     </span><span class="pl-c"><span class="pl-c">#</span> 热榜平台 ID 列表</span>
+    <span class="pl-ent">rss_feeds</span>: <span class="pl-s">["hacker-news"]        </span><span class="pl-c"><span class="pl-c">#</span> RSS 源 ID 列表</span>
+    <span class="pl-ent">max_items</span>: <span class="pl-c1">20</span>                     <span class="pl-c"><span class="pl-c">#</span> 每个源最多展示条数（0=不限制）</span></pre></div>
+<p><strong>适用场景：</strong></p>
+<ul>
+<li>想完整查看某个平台（如知乎）的热榜排名，而不是只看匹配关键词的内容</li>
+<li>订阅了更新较少的 RSS 源（如个人博客），希望每次更新都完整推送</li>
+</ul>
+<p><strong>效果示例：</strong></p>
+<pre class="notranslate"><code class="notranslate">📋 独立展示区 (共 15 条)
+
+知乎热榜 (10 条):
+  1. [知乎] 如何看待 OpenAI 发布 Sora？
+  2. [知乎] 2024 年考研分数线公布...
+  ...
+
+Hacker News (5 条):
+  1. [Hacker News] Launch HN: TrendRadar...
+  ...
+</code></pre>
+</details>
+<h3>8. 推送时间窗口配置</h3>
+<details>
+<summary>👉 点击展开：<strong>推送时间窗口控制详解</strong></summary>
+<br>
+<p><strong>配置位置：</strong> <code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">notification.push_window</code> 部分</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">notification</span>:
+  <span class="pl-ent">push_window</span>:
+    <span class="pl-ent">enabled</span>: <span class="pl-s">false                    </span><span class="pl-c"><span class="pl-c">#</span> 是否启用</span>
+    <span class="pl-ent">start</span>: <span class="pl-s"><span class="pl-pds">"</span>20:00<span class="pl-pds">"</span></span>                    <span class="pl-c"><span class="pl-c">#</span> 开始时间（北京时间）</span>
+    <span class="pl-ent">end</span>: <span class="pl-s"><span class="pl-pds">"</span>22:00<span class="pl-pds">"</span></span>                      <span class="pl-c"><span class="pl-c">#</span> 结束时间（北京时间）</span>
+    <span class="pl-ent">once_per_day</span>: <span class="pl-s">true                </span><span class="pl-c"><span class="pl-c">#</span> 每天只推送一次</span></pre></div>
+<h4>配置项详解</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">enabled</code></td>
+<td>bool</td>
+<td><code class="notranslate">false</code></td>
+<td>是否启用推送时间窗口控制</td>
+</tr>
+<tr>
+<td><code class="notranslate">start</code></td>
+<td>string</td>
+<td><code class="notranslate">"20:00"</code></td>
+<td>推送时间窗口开始时间（北京时间，HH:MM 格式）</td>
+</tr>
+<tr>
+<td><code class="notranslate">end</code></td>
+<td>string</td>
+<td><code class="notranslate">"22:00"</code></td>
+<td>推送时间窗口结束时间（北京时间，HH:MM 格式）</td>
+</tr>
+<tr>
+<td><code class="notranslate">once_per_day</code></td>
+<td>bool</td>
+<td><code class="notranslate">true</code></td>
+<td><code class="notranslate">true</code>=每天在窗口内只推送一次，<code class="notranslate">false</code>=窗口内每次执行都推送</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>使用场景</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>场景</th>
+<th>配置示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>工作时间推送</strong></td>
+<td><code class="notranslate">start: "09:00"</code>, <code class="notranslate">end: "18:00"</code>, <code class="notranslate">once_per_day: false</code></td>
+</tr>
+<tr>
+<td><strong>晚间汇总推送</strong></td>
+<td><code class="notranslate">start: "20:00"</code>, <code class="notranslate">end: "22:00"</code>, <code class="notranslate">once_per_day: true</code></td>
+</tr>
+<tr>
+<td><strong>午休时间推送</strong></td>
+<td><code class="notranslate">start: "12:00"</code>, <code class="notranslate">end: "13:00"</code>, <code class="notranslate">once_per_day: true</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>重要提示</h4>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>GitHub Actions 用户注意：</strong></p>
+<ul>
+<li>GitHub Actions 执行时间不稳定，可能有 ±15 分钟的偏差</li>
+<li>时间范围建议至少留足 <strong>2 小时</strong></li>
+<li>如果想要精准的定时推送，建议使用 <strong>Docker 部署</strong>在个人服务器上</li>
+</ul>
+</blockquote>
+<h4>Docker 环境变量</h4>
+<div class="highlight highlight-source-shell"><pre class="notranslate">PUSH_WINDOW_ENABLED=true
+PUSH_WINDOW_START=09:00
+PUSH_WINDOW_END=18:00
+PUSH_WINDOW_ONCE_PER_DAY=false</pre></div>
+<h4>完整配置示例</h4>
+<p><strong>场景：每天晚上 8-10 点只推送一次汇总</strong></p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">notification</span>:
+  <span class="pl-ent">push_window</span>:
+    <span class="pl-ent">enabled</span>: <span class="pl-c1">true</span>
+    <span class="pl-ent">start</span>: <span class="pl-s"><span class="pl-pds">"</span>20:00<span class="pl-pds">"</span></span>
+    <span class="pl-ent">end</span>: <span class="pl-s"><span class="pl-pds">"</span>22:00<span class="pl-pds">"</span></span>
+    <span class="pl-ent">once_per_day</span>: <span class="pl-c1">true</span></pre></div>
+<p><strong>场景：工作时间内每小时推送</strong></p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">notification</span>:
+  <span class="pl-ent">push_window</span>:
+    <span class="pl-ent">enabled</span>: <span class="pl-c1">true</span>
+    <span class="pl-ent">start</span>: <span class="pl-s"><span class="pl-pds">"</span>09:00<span class="pl-pds">"</span></span>
+    <span class="pl-ent">end</span>: <span class="pl-s"><span class="pl-pds">"</span>18:00<span class="pl-pds">"</span></span>
+    <span class="pl-ent">once_per_day</span>: <span class="pl-c1">false</span></pre></div>
+</details>
+<h3>9. 执行频率配置</h3>
+<details>
+<summary>👉 点击展开：<strong>自动运行频率设置</strong></summary>
+<br>
+<p><strong>配置位置：</strong> <code class="notranslate">.github/workflows/crawler.yml</code> 的 <code class="notranslate">schedule</code> 部分</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">on</span>:
+  <span class="pl-ent">schedule</span>:
+    - <span class="pl-ent">cron</span>: <span class="pl-s"><span class="pl-pds">"</span>0 * * * *<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> 每小时运行一次</span></pre></div>
+<h4>什么是 Cron 表达式？</h4>
+<p>Cron 是一种定时任务格式，由 5 个部分组成：<code class="notranslate">分 时 日 月 周</code></p>
+<pre class="notranslate"><code class="notranslate">┌───────────── 分钟 (0-59)
+│ ┌───────────── 小时 (0-23)
+│ │ ┌───────────── 日期 (1-31)
+│ │ │ ┌───────────── 月份 (1-12)
+│ │ │ │ ┌───────────── 星期 (0-6，0=周日)
+│ │ │ │ │
+* * * * *
+</code></pre>
+<h4>常用配置示例</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>想要的效果</th>
+<th>Cron 表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每小时运行</td>
+<td><code class="notranslate">0 * * * *</code></td>
+<td>每小时的第 0 分钟运行（默认）</td>
+</tr>
+<tr>
+<td>每 30 分钟运行</td>
+<td><code class="notranslate">*/30 * * * *</code></td>
+<td>每隔 30 分钟运行一次</td>
+</tr>
+<tr>
+<td>每天早 8 点运行</td>
+<td><code class="notranslate">0 0 * * *</code></td>
+<td>UTC 0:00 = 北京时间 8:00</td>
+</tr>
+<tr>
+<td>工作时间运行</td>
+<td><code class="notranslate">*/30 0-14 * * *</code></td>
+<td>北京 8:00-22:00，每 30 分钟</td>
+</tr>
+<tr>
+<td>每天 3 次</td>
+<td><code class="notranslate">0 0,6,12 * * *</code></td>
+<td>北京 8:00、14:00、20:00</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>重要提示</h4>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>时区注意</strong>：GitHub Actions 使用 <strong>UTC 时间</strong>，北京时间需要 <strong>减 8 小时</strong></p>
+<ul>
+<li>想要北京时间 8:00 运行 → 设置 UTC 0:00</li>
+<li>想要北京时间 20:00 运行 → 设置 UTC 12:00</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>频率限制</strong>：GitHub 对每个账号的 Actions 运行次数有限额</p>
+<ul>
+<li><strong>建议</strong>：不要设置比 30 分钟更短的间隔</li>
+<li><strong>原因</strong>：过于频繁可能被判定为滥用，面临封号风险</li>
+<li><strong>实际情况</strong>：GitHub Actions 执行时间本身就有偏差，设置太精确意义不大</li>
+</ul>
+</blockquote>
+<h4>修改方法</h4>
+<ol>
+<li>打开你 fork 的仓库</li>
+<li>找到 <code class="notranslate">.github/workflows/crawler.yml</code> 文件</li>
+<li>点击编辑（铅笔图标）</li>
+<li>修改 <code class="notranslate">cron: "0 * * * *"</code> 中的表达式</li>
+<li>点击 "Commit changes" 保存</li>
+</ol>
+</details>
+<h3>10. 多账号推送配置</h3>
+<details>
+<summary>👉 点击展开：<strong>多账号推送配置详解</strong></summary>
+<blockquote>
+<h3><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>安全警告</strong></h3>
+<p><strong>GitHub Fork 用户请勿在 <code class="notranslate">config.yaml</code> 中配置推送信息！</strong></p>
+<ul>
+<li><strong>风险说明</strong>：<code class="notranslate">config.yaml</code> 会被提交到公开的 Git 仓库，配置推送信息（Webhook URL、Token 等）会泄露敏感数据</li>
+<li><strong>推荐方式</strong>：
+<ul>
+<li><strong>GitHub Actions 用户</strong> → 使用 GitHub Secrets 环境变量</li>
+<li><strong>Docker 用户</strong> → 使用 <a href="#6-docker-%E9%83%A8%E7%BD%B2"><code class="notranslate">.env</code> 文件配置</a>（<code class="notranslate">.env</code> 已在 <code class="notranslate">.gitignore</code> 中，不会被提交）</li>
+</ul>
+</li>
+<li><strong>本地开发用户</strong>：可以在 <code class="notranslate">config.yaml</code> 中配置（确保不会 push 到公开仓库）</li>
+</ul>
+</blockquote>
+<h4>多账号推送说明（v3.5.0 新增）</h4>
+<ul>
+<li><strong>支持多账号配置</strong>：所有推送渠道（飞书、钉钉、企业微信、Telegram、ntfy、Bark、Slack）均支持配置多个账号</li>
+<li><strong>配置方式</strong>：使用英文分号 <code class="notranslate">;</code> 分隔多个账号值</li>
+<li><strong>示例</strong>：<code class="notranslate">FEISHU_WEBHOOK_URL</code> 的 Secret 值填写 <code class="notranslate">https://webhook1;https://webhook2</code></li>
+<li><strong>配对配置</strong>：Telegram 和 ntfy 需要保证配对参数数量一致（如 token 和 chat_id 都是 2 个）</li>
+<li><strong>数量限制</strong>：默认每个渠道最多 3 个账号，超出部分被截断</li>
+</ul>
+<p><strong>多账号配置示例</strong>：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Name（名称）</th>
+<th>Secret（值）示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">FEISHU_WEBHOOK_URL</code></td>
+<td><code class="notranslate">https://webhook1;https://webhook2;https://webhook3</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">TELEGRAM_BOT_TOKEN</code></td>
+<td><code class="notranslate">token1;token2</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">TELEGRAM_CHAT_ID</code></td>
+<td><code class="notranslate">chatid1;chatid2</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">NTFY_TOPIC</code></td>
+<td><code class="notranslate">topic1;topic2</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">NTFY_TOKEN</code></td>
+<td><code class="notranslate">;token2</code>（第一个无 token 时留空占位）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>支持的渠道</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>渠道</th>
+<th>配置项</th>
+<th>是否需要配对</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>飞书</strong></td>
+<td><code class="notranslate">feishu_url</code></td>
+<td>否</td>
+<td>多个 webhook URL</td>
+</tr>
+<tr>
+<td><strong>钉钉</strong></td>
+<td><code class="notranslate">dingtalk_url</code></td>
+<td>否</td>
+<td>多个 webhook URL</td>
+</tr>
+<tr>
+<td><strong>企业微信</strong></td>
+<td><code class="notranslate">wework_url</code></td>
+<td>否</td>
+<td>多个 webhook URL</td>
+</tr>
+<tr>
+<td><strong>Telegram</strong></td>
+<td><code class="notranslate">telegram_bot_token</code> + <code class="notranslate">telegram_chat_id</code></td>
+<td>✅ 是</td>
+<td>token 和 chat_id 数量必须一致</td>
+</tr>
+<tr>
+<td><strong>ntfy</strong></td>
+<td><code class="notranslate">ntfy_topic</code> + <code class="notranslate">ntfy_token</code></td>
+<td>✅ 是</td>
+<td>topic 和 token 数量必须一致（token 可选）</td>
+</tr>
+<tr>
+<td><strong>Bark</strong></td>
+<td><code class="notranslate">bark_url</code></td>
+<td>否</td>
+<td>多个推送 URL</td>
+</tr>
+<tr>
+<td><strong>Slack</strong></td>
+<td><code class="notranslate">slack_webhook_url</code></td>
+<td>否</td>
+<td>多个 webhook URL</td>
+</tr>
+<tr>
+<td><strong>邮件</strong></td>
+<td><code class="notranslate">email_to</code></td>
+<td>-</td>
+<td>已支持多收件人（逗号分隔），无需修改</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>推荐配置方式 1：GitHub Actions 环境变量</h4>
+<p><strong>配置位置</strong>：GitHub Repo → Settings → Secrets and variables → Actions → Repository secrets</p>
+<p><strong>基础配置示例</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 多账号数量限制</span>
+MAX_ACCOUNTS_PER_CHANNEL=3
+
+<span class="pl-c"><span class="pl-c">#</span> 飞书多账号（3个群组）</span>
+FEISHU_WEBHOOK_URL=https://hook1.feishu.cn/xxx<span class="pl-k">;</span>https://hook2.feishu.cn/yyy<span class="pl-k">;</span>https://hook3.feishu.cn/zzz
+
+<span class="pl-c"><span class="pl-c">#</span> 钉钉多账号（2个群组）</span>
+DINGTALK_WEBHOOK_URL=https://oapi.dingtalk.com/xxx<span class="pl-k">;</span>https://oapi.dingtalk.com/yyy
+
+<span class="pl-c"><span class="pl-c">#</span> 企业微信多账号（2个群组）</span>
+WEWORK_WEBHOOK_URL=https://qyapi.weixin.qq.com/cgi-bin/webhook/send<span class="pl-k">?</span>key=xxx<span class="pl-k">;</span>https://qyapi.weixin.qq.com/cgi-bin/webhook/send<span class="pl-k">?</span>key=yyy
+
+<span class="pl-c"><span class="pl-c">#</span> Bark多账号（2个设备）</span>
+BARK_URL=https://api.day.app/key1<span class="pl-k">;</span>https://api.day.app/key2
+
+<span class="pl-c"><span class="pl-c">#</span> Slack多账号（2个频道）</span>
+SLACK_WEBHOOK_URL=https://hooks.slack.com/xxx<span class="pl-k">;</span>https://hooks.slack.com/yyy</pre></div>
+<p><strong>配对配置示例（Telegram 和 ntfy）</strong>：</p>
+<details>
+<summary><strong>Telegram 配对配置</strong></summary>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> ✅ 正确配置：2个token对应2个chat_id</span>
+TELEGRAM_BOT_TOKEN=123456:AAA-BBB<span class="pl-k">;</span>789012:CCC-DDD
+TELEGRAM_CHAT_ID=-100111<span class="pl-k">;</span>-100222
+
+<span class="pl-c"><span class="pl-c">#</span> ❌ 错误配置：数量不一致，将跳过推送</span>
+TELEGRAM_BOT_TOKEN=token1<span class="pl-k">;</span>token2<span class="pl-k">;</span>token3
+TELEGRAM_CHAT_ID=id1<span class="pl-k">;</span>id2</pre></div>
+<p><strong>说明</strong>：<code class="notranslate">token</code> 和 <code class="notranslate">chat_id</code> 的数量必须完全一致，否则该渠道推送会被跳过。</p>
+</details>
+<details>
+<summary><strong>ntfy 配对配置</strong></summary>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> ✅ 正确配置：3个topic，只有第2个需要token</span>
+NTFY_TOPIC=topic1<span class="pl-k">;</span>topic2<span class="pl-k">;</span>topic3
+NTFY_TOKEN=<span class="pl-k">;</span>token_for_topic2<span class="pl-k">;</span>
+
+<span class="pl-c"><span class="pl-c">#</span> ✅ 正确配置：2个topic都需要token</span>
+NTFY_TOPIC=topic1<span class="pl-k">;</span>topic2
+NTFY_TOKEN=token1<span class="pl-k">;</span>token2
+
+<span class="pl-c"><span class="pl-c">#</span> ❌ 错误配置：topic和token数量不匹配</span>
+NTFY_TOPIC=topic1<span class="pl-k">;</span>topic2
+NTFY_TOKEN=token1<span class="pl-k">;</span>token2<span class="pl-k">;</span>token3</pre></div>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>如果某个 topic 不需要 token，在对应位置留空（两个分号之间）</li>
+<li><code class="notranslate">topic</code> 和 <code class="notranslate">token</code> 的数量必须一致</li>
+</ul>
+</details>
+<hr>
+<h4>推荐配置方式 2：Docker 环境变量（.env）</h4>
+<p><strong>配置位置</strong>：项目根目录 <code class="notranslate">docker/.env</code> 文件</p>
+<p><strong>基础配置示例</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 多账号数量限制</span>
+MAX_ACCOUNTS_PER_CHANNEL=3
+
+<span class="pl-c"><span class="pl-c">#</span> 飞书多账号（3个群组）</span>
+FEISHU_WEBHOOK_URL=https://hook1.feishu.cn/xxx<span class="pl-k">;</span>https://hook2.feishu.cn/yyy<span class="pl-k">;</span>https://hook3.feishu.cn/zzz
+
+<span class="pl-c"><span class="pl-c">#</span> 钉钉多账号（2个群组）</span>
+DINGTALK_WEBHOOK_URL=https://oapi.dingtalk.com/xxx<span class="pl-k">;</span>https://oapi.dingtalk.com/yyy
+
+<span class="pl-c"><span class="pl-c">#</span> 企业微信多账号（2个群组）</span>
+WEWORK_WEBHOOK_URL=https://qyapi.weixin.qq.com/cgi-bin/webhook/send<span class="pl-k">?</span>key=xxx<span class="pl-k">;</span>https://qyapi.weixin.qq.com/cgi-bin/webhook/send<span class="pl-k">?</span>key=yyy
+
+<span class="pl-c"><span class="pl-c">#</span> Bark多账号（2个设备）</span>
+BARK_URL=https://api.day.app/key1<span class="pl-k">;</span>https://api.day.app/key2
+
+<span class="pl-c"><span class="pl-c">#</span> Slack多账号（2个频道）</span>
+SLACK_WEBHOOK_URL=https://hooks.slack.com/xxx<span class="pl-k">;</span>https://hooks.slack.com/yyy</pre></div>
+<p><strong>配对配置示例（Telegram 和 ntfy）</strong>：</p>
+<details>
+<summary><strong>Telegram 配对配置</strong></summary>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> ✅ 正确配置：2个token对应2个chat_id</span>
+TELEGRAM_BOT_TOKEN=123456:AAA-BBB<span class="pl-k">;</span>789012:CCC-DDD
+TELEGRAM_CHAT_ID=-100111<span class="pl-k">;</span>-100222
+
+<span class="pl-c"><span class="pl-c">#</span> ❌ 错误配置：数量不一致，将跳过推送</span>
+TELEGRAM_BOT_TOKEN=token1<span class="pl-k">;</span>token2<span class="pl-k">;</span>token3
+TELEGRAM_CHAT_ID=id1<span class="pl-k">;</span>id2</pre></div>
+<p><strong>说明</strong>：<code class="notranslate">token</code> 和 <code class="notranslate">chat_id</code> 的数量必须完全一致，否则该渠道推送会被跳过。</p>
+</details>
+<details>
+<summary><strong>ntfy 配对配置</strong></summary>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> ✅ 正确配置：3个topic，只有第2个需要token</span>
+NTFY_TOPIC=topic1<span class="pl-k">;</span>topic2<span class="pl-k">;</span>topic3
+NTFY_TOKEN=<span class="pl-k">;</span>token_for_topic2<span class="pl-k">;</span>
+
+<span class="pl-c"><span class="pl-c">#</span> ✅ 正确配置：2个topic都需要token</span>
+NTFY_TOPIC=topic1<span class="pl-k">;</span>topic2
+NTFY_TOKEN=token1<span class="pl-k">;</span>token2
+
+<span class="pl-c"><span class="pl-c">#</span> ❌ 错误配置：topic和token数量不匹配</span>
+NTFY_TOPIC=topic1<span class="pl-k">;</span>topic2
+NTFY_TOKEN=token1<span class="pl-k">;</span>token2<span class="pl-k">;</span>token3</pre></div>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>如果某个 topic 不需要 token，在对应位置留空（两个分号之间）</li>
+<li><code class="notranslate">topic</code> 和 <code class="notranslate">token</code> 的数量必须一致</li>
+</ul>
+</details>
+<hr>
+<h4>推送行为说明</h4>
+<ol>
+<li><strong>独立推送</strong>：每个账号独立发送，一个失败不影响其他账号</li>
+<li><strong>部分成功判定</strong>：只要有一个账号发送成功，整体视为成功</li>
+<li><strong>日志区分</strong>：多账号时日志会显示"账号1"、"账号2"等标签</li>
+<li><strong>批次间隔</strong>：多账号会增加总发送时间（每个账号独立计算批次间隔）</li>
+</ol>
+<hr>
+<h4>常见问题</h4>
+<details>
+<summary><strong>Q1: 超过 3 个账号会怎样？</strong></summary>
+<br>
+<p>系统会自动截断到配置的最大数量，并输出警告日志。可通过 <code class="notranslate">max_accounts_per_channel</code> 调整限制。</p>
+<p><strong><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> GitHub Actions 用户特别注意</strong>：</p>
+<ul>
+<li><strong>不建议配置过多账号</strong>（建议不超过 3 个），可能导致：
+<ul>
+<li><strong>触发 GitHub Actions 速率限制</strong>：频繁的网络请求可能被识别为异常行为</li>
+<li><strong>潜在账号风险</strong>：过度使用 GitHub Actions 资源可能影响账号状态</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary><strong>Q2: 多账号会影响推送速度吗？</strong></summary>
+<br>
+<p>会。每个账号独立发送，总时间 = 账号数 × 单账号发送时间。建议控制账号数量。</p>
+</details>
+<details>
+<summary><strong>Q3: 本地开发用户如何在 config.yaml 中配置？</strong></summary>
+<br>
+<p>如果你是本地开发且<strong>不会将代码推送到公开仓库</strong>，可以直接在 <code class="notranslate">config/config.yaml</code> 中配置：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">notification</span>:
+  <span class="pl-ent">enabled</span>: <span class="pl-c1">true</span>
+
+  <span class="pl-ent">channels</span>:
+    <span class="pl-ent">feishu</span>:
+      <span class="pl-ent">webhook_url</span>: <span class="pl-s"><span class="pl-pds">"</span>https://hook1.feishu.cn/xxx;https://hook2.feishu.cn/yyy<span class="pl-pds">"</span></span>
+    <span class="pl-ent">telegram</span>:
+      <span class="pl-ent">bot_token</span>: <span class="pl-s"><span class="pl-pds">"</span>token1;token2<span class="pl-pds">"</span></span>
+      <span class="pl-ent">chat_id</span>: <span class="pl-s"><span class="pl-pds">"</span>id1;id2<span class="pl-pds">"</span></span>
+
+<span class="pl-ent">advanced</span>:
+  <span class="pl-ent">max_accounts_per_channel</span>: <span class="pl-c1">3</span></pre></div>
+<p><strong><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 重要提醒</strong>：</p>
+<ul>
+<li>确保 <code class="notranslate">config/config.yaml</code> 在 <code class="notranslate">.gitignore</code> 中（如果会提交代码）</li>
+<li>或者只在本地开发环境使用，<strong>绝不提交到公开仓库</strong></li>
+</ul>
+</details>
+</details>
+<h3>11. 存储配置</h3>
+<details id="user-content-storage-config">
+<summary>👉 点击展开：<strong>存储架构配置详解</strong></summary>
+<br>
+<h4>存储后端选择</h4>
+<p><strong>配置位置</strong>：<code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">storage</code> 部分</p>
+<p>v4.0.0 版本重构了存储架构，支持多种存储后端：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">storage</span>:
+  <span class="pl-ent">backend</span>: <span class="pl-s">auto  </span><span class="pl-c"><span class="pl-c">#</span> 存储后端：auto（自动选择）/ local（本地SQLite）/ remote（远程云存储）</span>
+
+  <span class="pl-ent">formats</span>:
+    <span class="pl-ent">sqlite</span>: <span class="pl-s">true   </span><span class="pl-c"><span class="pl-c">#</span> 是否启用SQLite存储</span>
+    <span class="pl-ent">txt</span>: <span class="pl-s">true      </span><span class="pl-c"><span class="pl-c">#</span> 是否生成TXT快照</span>
+    <span class="pl-ent">html</span>: <span class="pl-s">true     </span><span class="pl-c"><span class="pl-c">#</span> 是否生成HTML报告</span>
+
+  <span class="pl-ent">local</span>:
+    <span class="pl-ent">data_dir</span>: <span class="pl-s"><span class="pl-pds">"</span>output<span class="pl-pds">"</span></span>    <span class="pl-c"><span class="pl-c">#</span> 本地存储目录</span>
+    <span class="pl-ent">retention_days</span>: <span class="pl-c1">0</span>     <span class="pl-c"><span class="pl-c">#</span> 本地数据保留天数，0表示永久保留</span>
+
+  <span class="pl-ent">remote</span>:
+    <span class="pl-ent">endpoint_url</span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>      <span class="pl-c"><span class="pl-c">#</span> S3 API 端点</span>
+    <span class="pl-ent">bucket_name</span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>       <span class="pl-c"><span class="pl-c">#</span> 存储桶名称</span>
+    <span class="pl-ent">access_key_id</span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>     <span class="pl-c"><span class="pl-c">#</span> 访问密钥ID</span>
+    <span class="pl-ent">secret_access_key</span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> 访问密钥</span>
+    <span class="pl-ent">region</span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>            <span class="pl-c"><span class="pl-c">#</span> 区域（可选）</span>
+    <span class="pl-ent">retention_days</span>: <span class="pl-c1">0</span>     <span class="pl-c"><span class="pl-c">#</span> 远程数据保留天数，0表示永久保留</span>
+
+  <span class="pl-ent">pull</span>:
+    <span class="pl-ent">enabled</span>: <span class="pl-s">false        </span><span class="pl-c"><span class="pl-c">#</span> 是否启用启动时从远程拉取数据</span>
+    <span class="pl-ent">days</span>: <span class="pl-c1">7</span>               <span class="pl-c"><span class="pl-c">#</span> 拉取最近N天的数据</span></pre></div>
+<h4>后端选择策略</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>backend 值</th>
+<th>说明</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">auto</code></td>
+<td><strong>自动选择</strong>（推荐）</td>
+<td>根据运行环境智能选择：<br>• GitHub Actions → Remote<br>• Docker/本地 → Local</td>
+</tr>
+<tr>
+<td><code class="notranslate">local</code></td>
+<td>本地 SQLite 数据库</td>
+<td>Docker 部署、本地开发</td>
+</tr>
+<tr>
+<td><code class="notranslate">remote</code></td>
+<td>远程云存储（S3 兼容，如 Cloudflare R2）</td>
+<td>GitHub Actions、多机器同步</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>远程云存储配置</h4>
+<p><strong>环境变量</strong>（推荐方式）：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> GitHub Actions / Docker 环境变量</span>
+STORAGE_BACKEND=remote  <span class="pl-c"><span class="pl-c">#</span> 或 auto</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 本地/远程数据保留天数（0 表示永久保留）</span>
+LOCAL_RETENTION_DAYS=0
+REMOTE_RETENTION_DAYS=0
+
+<span class="pl-c"><span class="pl-c">#</span> S3 兼容存储配置（以 Cloudflare R2 为例）</span>
+S3_BUCKET_NAME=your-bucket-name
+S3_ACCESS_KEY_ID=your-access-key-id
+S3_SECRET_ACCESS_KEY=your-secret-access-key
+S3_ENDPOINT_URL=https://<span class="pl-k">&lt;</span>account-id<span class="pl-k">&gt;</span>.r2.cloudflarestorage.com
+S3_REGION=auto
+
+<span class="pl-c"><span class="pl-c">#</span> 数据拉取配置（可选，从远程同步到本地）</span>
+PULL_ENABLED=false
+PULL_DAYS=7</pre></div>
+<p><strong>获取凭据</strong>：参见 <a href="#-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始 - 远程存储配置</a></p>
+<h4>数据清理策略</h4>
+<p><strong>自动清理</strong>：每次运行结束时检查并删除超过保留天数的数据。</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">storage</span>:
+  <span class="pl-ent">local</span>:
+    <span class="pl-ent">retention_days</span>: <span class="pl-c1">30</span>  <span class="pl-c"><span class="pl-c">#</span> 本地保留最近30天数据</span>
+  <span class="pl-ent">remote</span>:
+    <span class="pl-ent">retention_days</span>: <span class="pl-c1">30</span>  <span class="pl-c"><span class="pl-c">#</span> 远程保留最近30天数据</span></pre></div>
+<p><strong>清理逻辑</strong>：</p>
+<ul>
+<li>本地存储：删除过期日期的数据库文件（如 <code class="notranslate">output/news/2025-11-10.db</code>、<code class="notranslate">output/rss/2025-11-10.db</code>）</li>
+<li>远程存储：批量删除过期的云端对象（如 <code class="notranslate">news/2025-11-10.db</code>、<code class="notranslate">rss/2025-11-10.db</code>）</li>
+</ul>
+<h4>时区配置（v4.0.0 新增）</h4>
+<p><strong>全球时区支持</strong>：解决非中国用户推送时间窗口问题。</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">app</span>:
+  <span class="pl-ent">timezone</span>: <span class="pl-s"><span class="pl-pds">"</span>Asia/Shanghai<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> 默认中国时区</span>
+  <span class="pl-c"><span class="pl-c">#</span> 其他示例：</span>
+  <span class="pl-c"><span class="pl-c">#</span> timezone: "America/Los_Angeles"  # 美西时间</span>
+  <span class="pl-c"><span class="pl-c">#</span> timezone: "Europe/London"        # 英国时间</span></pre></div>
+<p><strong>支持所有 IANA 时区名称</strong>：<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" rel="nofollow">时区列表</a></p>
+<h4>不兼容变更</h4>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>v4.0.0 不兼容 v3.x 数据</strong>：</p>
+<ol>
+<li>数据库结构完全重构，无法读取旧数据</li>
+<li>文件路径格式变更（ISO 格式）</li>
+</ol>
+<p><strong>迁移建议</strong>：</p>
+<ul>
+<li>从 v4.0.0 开始重新收集数据</li>
+<li>旧数据如需保留，请手动重命名目录格式（不推荐）</li>
+</ul>
+</details>
+<h3>12. AI 分析配置</h3>
+<details id="user-content-ai-analysis-config">
+<summary>👉 点击展开：<strong>AI 分析推送配置详解</strong></summary>
+<br>
+<h4>功能概述</h4>
+<p>v5.0.0 新增 AI 分析推送功能，使用 AI 大模型对推送内容进行深度分析，自动生成热点洞察报告。</p>
+<p><strong>分析内容包括</strong>：</p>
+<ul>
+<li>热点趋势概述</li>
+<li>关键词热度分析</li>
+<li>跨平台关联分析</li>
+<li>潜在影响评估</li>
+<li>值得关注的信号</li>
+<li>总结与建议</li>
+</ul>
+<h4>配置位置</h4>
+<p><strong>配置文件</strong>：<code class="notranslate">config/config.yaml</code> 的 <code class="notranslate">ai_analysis</code> 部分</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">ai_analysis</span>:
+  <span class="pl-ent">enabled</span>: <span class="pl-s">false                    </span><span class="pl-c"><span class="pl-c">#</span> 是否启用 AI 分析</span>
+  <span class="pl-ent">provider</span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek<span class="pl-pds">"</span></span>              <span class="pl-c"><span class="pl-c">#</span> AI 提供商</span>
+  <span class="pl-ent">api_key</span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>                       <span class="pl-c"><span class="pl-c">#</span> API Key（建议使用环境变量 AI_API_KEY）</span>
+  <span class="pl-ent">model</span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek-chat<span class="pl-pds">"</span></span>            <span class="pl-c"><span class="pl-c">#</span> 模型名称</span>
+  <span class="pl-ent">base_url</span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>                      <span class="pl-c"><span class="pl-c">#</span> 自定义 API 端点（可选）</span>
+  <span class="pl-ent">timeout</span>: <span class="pl-c1">90</span>                       <span class="pl-c"><span class="pl-c">#</span> 请求超时（秒）</span>
+  <span class="pl-ent">push_mode</span>: <span class="pl-s"><span class="pl-pds">"</span>both<span class="pl-pds">"</span></span>                 <span class="pl-c"><span class="pl-c">#</span> 推送模式</span>
+  <span class="pl-ent">max_news_for_analysis</span>: <span class="pl-c1">50</span>         <span class="pl-c"><span class="pl-c">#</span> 最多分析多少条新闻</span>
+  <span class="pl-ent">include_rss</span>: <span class="pl-s">true                 </span><span class="pl-c"><span class="pl-c">#</span> 是否包含 RSS 内容</span>
+  <span class="pl-ent">prompt_file</span>: <span class="pl-s"><span class="pl-pds">"</span>ai_analysis_prompt.txt<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> 提示词配置文件</span></pre></div>
+<h4>支持的 AI 提供商</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>提供商</th>
+<th>provider 值</th>
+<th>默认端点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DeepSeek</strong></td>
+<td><code class="notranslate">deepseek</code></td>
+<td><a href="https://api.deepseek.com/v1/chat/completions" rel="nofollow">https://api.deepseek.com/v1/chat/completions</a></td>
+</tr>
+<tr>
+<td><strong>OpenAI</strong></td>
+<td><code class="notranslate">openai</code></td>
+<td><a href="https://api.openai.com/v1/chat/completions" rel="nofollow">https://api.openai.com/v1/chat/completions</a></td>
+</tr>
+<tr>
+<td><strong>Google Gemini</strong></td>
+<td><code class="notranslate">gemini</code></td>
+<td><a href="https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" rel="nofollow">https://generativelanguage.googleapis.com/v1beta/openai/chat/completions</a></td>
+</tr>
+<tr>
+<td><strong>自定义</strong></td>
+<td><code class="notranslate">custom</code></td>
+<td>需填写 base_url</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<blockquote>
+<p>💡 <strong>提示</strong>：使用 <code class="notranslate">custom</code> 提供商时，<code class="notranslate">base_url</code> 需填写完整的 API 地址（如 <code class="notranslate">https://api.example.com/v1/chat/completions</code>）</p>
+</blockquote>
+<h4>推送模式说明</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>模式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">only_analysis</code></td>
+<td>仅推送 AI 分析结果，不推送原始内容</td>
+</tr>
+<tr>
+<td><code class="notranslate">both</code></td>
+<td>两者都推送（默认），AI 分析追加在原始内容后</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<blockquote>
+<p>💡 <strong>提示</strong>：如果不需要 AI 分析功能，请将 <code class="notranslate">enabled</code> 设为 <code class="notranslate">false</code>，无需使用 <code class="notranslate">push_mode</code> 控制</p>
+</blockquote>
+<h4>环境变量支持</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>环境变量</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">AI_ANALYSIS_ENABLED</code></td>
+<td>是否启用 AI 分析</td>
+<td><code class="notranslate">true</code> / <code class="notranslate">false</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">AI_API_KEY</code></td>
+<td>AI API Key</td>
+<td><code class="notranslate">sk-xxx...</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">AI_PROVIDER</code></td>
+<td>AI 提供商</td>
+<td><code class="notranslate">deepseek</code> / <code class="notranslate">openai</code> / <code class="notranslate">gemini</code> / <code class="notranslate">custom</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">AI_MODEL</code></td>
+<td>模型名称</td>
+<td><code class="notranslate">deepseek-chat</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">AI_BASE_URL</code></td>
+<td>完整 API 地址（custom 提供商必填）</td>
+<td><code class="notranslate">https://api.example.com/v1/chat/completions</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>自定义提示词</h4>
+<p>编辑 <code class="notranslate">config/ai_analysis_prompt.txt</code> 文件可自定义 AI 分析角色和输出格式。</p>
+<p><strong>文件结构</strong>：</p>
+<pre class="notranslate"><code class="notranslate">[system]
+系统提示词，定义 AI 角色和分析原则
+...
+
+[user]
+用户提示词模板，支持变量替换
+...
+</code></pre>
+<p><strong>可用变量</strong>：</p>
+<ul>
+<li><code class="notranslate">{report_mode}</code> - 当前报告模式</li>
+<li><code class="notranslate">{report_type}</code> - 报告类型描述</li>
+<li><code class="notranslate">{current_time}</code> - 当前时间</li>
+<li><code class="notranslate">{news_count}</code> - 热榜新闻条数</li>
+<li><code class="notranslate">{rss_count}</code> - RSS 新闻条数</li>
+<li><code class="notranslate">{keywords}</code> - 匹配的关键词列表</li>
+<li><code class="notranslate">{platforms}</code> - 数据来源平台列表</li>
+<li><code class="notranslate">{news_content}</code> - 新闻内容</li>
+</ul>
+<h4>快速启用示例</h4>
+<p><strong>方式一：配置文件</strong></p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">ai_analysis</span>:
+  <span class="pl-ent">enabled</span>: <span class="pl-c1">true</span>
+  <span class="pl-ent">provider</span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek<span class="pl-pds">"</span></span>
+  <span class="pl-ent">api_key</span>: <span class="pl-s"><span class="pl-pds">"</span>sk-your-api-key<span class="pl-pds">"</span></span>
+  <span class="pl-ent">model</span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek-chat<span class="pl-pds">"</span></span>
+  <span class="pl-ent">push_mode</span>: <span class="pl-s"><span class="pl-pds">"</span>both<span class="pl-pds">"</span></span></pre></div>
+<p><strong>方式二：环境变量（推荐）</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> GitHub Actions: 添加到 Secrets</span>
+<span class="pl-c"><span class="pl-c">#</span> Docker: 添加到 .env 文件</span>
+AI_ANALYSIS_ENABLED=true
+AI_API_KEY=sk-your-api-key
+AI_PROVIDER=deepseek
+AI_MODEL=deepseek-chat</pre></div>
+</details>
+<br>
+<h2>✨ AI 智能分析</h2>
+<p>TrendRadar v3.0.0 新增了基于 <strong>MCP (Model Context Protocol)</strong> 的 AI 分析功能，让你可以通过自然语言与新闻数据对话，进行深度分析。</p>
+<h3><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 使用前必读</h3>
+<p><strong>重要提示：AI 功能需要本地新闻数据支持</strong></p>
+<p>AI 分析功能<strong>不是</strong>直接查询网络实时数据，而是分析你<strong>本地已积累的新闻数据</strong>（存储在 <code class="notranslate">output</code> 文件夹中）</p>
+<h4>使用说明：</h4>
+<ol>
+<li>
+<p><strong>项目自带测试数据</strong>：<code class="notranslate">output</code> 目录默认包含 <strong>2025-12-21～2025-12-27</strong> 一周的热榜新闻数据，可用于快速体验 AI 功能</p>
+</li>
+<li>
+<p><strong>查询限制</strong>：</p>
+<ul>
+<li>✅ 只能查询已有日期范围内的数据（12月21-27日，共7天）</li>
+<li>❌ 无法查询实时新闻或未来日期</li>
+</ul>
+</li>
+<li>
+<p><strong>获取最新数据</strong>：</p>
+<ul>
+<li>测试数据仅供快速体验，<strong>建议自行部署项目</strong>获取实时数据</li>
+<li>按照 <a href="#-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</a> 部署运行项目</li>
+<li>等待至少 1 天积累新闻数据后，即可查询最新热点</li>
+</ul>
+</li>
+</ol>
+<h3>1. 快速部署</h3>
+<p>Cherry Studio 提供 GUI 配置界面，5 分钟快速部署，复杂的部分是一键安装的。</p>
+<p><strong>图文部署教程</strong>：现已更新到我的<a href="#%E9%97%AE%E9%A2%98%E7%AD%94%E7%96%91%E4%B8%8E%E4%BA%A4%E6%B5%81">公众号</a>，回复 "mcp" 即可</p>
+<p><strong>详细部署教程</strong>：<a href="README-Cherry-Studio.md">README-Cherry-Studio.md</a></p>
+<p><strong>部署模式说明</strong>：</p>
+<ul>
+<li><strong>STDIO 模式（推荐）</strong>：一次配置后续无需重复配置，<strong>图文部署教程</strong>中仅以此模式的配置为例。</li>
+<li><strong>HTTP 模式（备选）</strong>：如果 STDIO 模式配置遇到问题，可使用 HTTP 模式。此模式的配置方式与 STDIO 基本一致，但复制粘贴的内容就一行，不易出错。唯一需要注意的是每次使用前都需要手动启动一下服务。详细请参考 <a href="README-Cherry-Studio.md">README-Cherry-Studio.md</a> 底部的 HTTP 模式说明。</li>
+</ul>
+<h3>2. 学习与 AI 对话的姿势</h3>
+<p><strong>详细对话教程</strong>：<a href="README-MCP-FAQ.md">README-MCP-FAQ.md</a></p>
+<blockquote>
+<p>💡 <strong>提示</strong>：实际不建议一次性问多个问题。如果你选择的 AI 模型连下图的按顺序调用都无法做到，建议换一个。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener noreferrer" href="/_image/ai2.png"><img src="/_image/ai2.png" alt="mcp 使用效果图" width="600" style="max-width: 100%;"></a></p>
+<br>
+<h2>🔌 MCP 客户端</h2>
+<p>TrendRadar MCP 服务支持标准的 Model Context Protocol (MCP) 协议，可以接入各种支持 MCP 的 AI 客户端进行智能分析。</p>
+<h3>支持的客户端</h3>
+<p><strong>注意事项</strong>：</p>
+<ul>
+<li>将 <code class="notranslate">/path/to/TrendRadar</code> 替换为你的项目实际路径</li>
+<li>Windows 路径使用双反斜杠：<code class="notranslate">C:\\Users\\YourName\\TrendRadar</code></li>
+<li>保存后记得重启</li>
+</ul>
+<details>
+<summary>👉 点击展开：<b>Cursor</b></summary>
+<h4>方式一：HTTP 模式</h4>
+<ol>
+<li>
+<p><strong>启动 HTTP 服务</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> Windows</span>
+start-http.bat
+
+<span class="pl-c"><span class="pl-c">#</span> Mac/Linux</span>
+./start-http.sh</pre></div>
+</li>
+<li>
+<p><strong>配置 Cursor</strong>：</p>
+<p><strong>项目级配置</strong>（推荐）：<br>
+在项目根目录创建 <code class="notranslate">.cursor/mcp.json</code>：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"mcpServers"</span>: {
+    <span class="pl-ent">"trendradar"</span>: {
+      <span class="pl-ent">"url"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://localhost:3333/mcp<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>TrendRadar 新闻热点聚合分析<span class="pl-pds">"</span></span>
+    }
+  }
+}</pre></div>
+<p><strong>全局配置</strong>：<br>
+在用户目录创建 <code class="notranslate">~/.cursor/mcp.json</code>（同样内容）</p>
+</li>
+<li>
+<p><strong>使用步骤</strong>：</p>
+<ul>
+<li>保存配置文件后重启 Cursor</li>
+<li>在聊天界面的 "Available Tools" 中查看已连接的工具</li>
+<li>开始使用：<code class="notranslate">搜索今天的"AI"相关新闻</code></li>
+</ul>
+</li>
+</ol>
+<h4>方式二：STDIO 模式（推荐）</h4>
+<p>创建 <code class="notranslate">.cursor/mcp.json</code>：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"mcpServers"</span>: {
+    <span class="pl-ent">"trendradar"</span>: {
+      <span class="pl-ent">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>uv<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"args"</span>: [
+        <span class="pl-s"><span class="pl-pds">"</span>--directory<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>/path/to/TrendRadar<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>run<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>python<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>-m<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>mcp_server.server<span class="pl-pds">"</span></span>
+      ]
+    }
+  }
+}</pre></div>
+</details>
+<details>
+<summary>👉 点击展开：<b>VSCode (Cline/Continue)</b></summary>
+<h4>Cline 配置</h4>
+<p>在 Cline 的 MCP 设置中添加：</p>
+<p><strong>HTTP 模式</strong>：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"trendradar"</span>: {
+    <span class="pl-ent">"url"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://localhost:3333/mcp<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>streamableHttp<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"autoApprove"</span>: [],
+    <span class="pl-ent">"disabled"</span>: <span class="pl-c1">false</span>
+  }
+}</pre></div>
+<p><strong>STDIO 模式</strong>（推荐）：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"trendradar"</span>: {
+    <span class="pl-ent">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>uv<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"args"</span>: [
+      <span class="pl-s"><span class="pl-pds">"</span>--directory<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>/path/to/TrendRadar<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>run<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>python<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>-m<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>mcp_server.server<span class="pl-pds">"</span></span>
+    ],
+    <span class="pl-ent">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>stdio<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"disabled"</span>: <span class="pl-c1">false</span>
+  }
+}</pre></div>
+<h4>Continue 配置</h4>
+<p>编辑 <code class="notranslate">~/.continue/config.json</code>：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"experimental"</span>: {
+    <span class="pl-ent">"modelContextProtocolServers"</span>: [
+      {
+        <span class="pl-ent">"transport"</span>: {
+          <span class="pl-ent">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>stdio<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>uv<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"args"</span>: [
+            <span class="pl-s"><span class="pl-pds">"</span>--directory<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>/path/to/TrendRadar<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>run<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>python<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>-m<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>mcp_server.server<span class="pl-pds">"</span></span>
+          ]
+        }
+      }
+    ]
+  }
+}</pre></div>
+<p><strong>使用示例</strong>：</p>
+<pre class="notranslate"><code class="notranslate">分析最近7天"特斯拉"的热度变化趋势
+生成今天的热点摘要报告
+搜索"比特币"相关新闻并分析情感倾向
+</code></pre>
+</details>
+<details>
+<summary>👉 点击展开：<b>MCP Inspector</b>（调试工具）</summary>
+<br>
+<p>MCP Inspector 是官方调试工具，用于测试 MCP 连接：</p>
+<h4>使用步骤</h4>
+<ol>
+<li>
+<p><strong>启动 TrendRadar HTTP 服务</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> Windows</span>
+start-http.bat
+
+<span class="pl-c"><span class="pl-c">#</span> Mac/Linux</span>
+./start-http.sh</pre></div>
+</li>
+<li>
+<p><strong>启动 MCP Inspector</strong>：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">npx @modelcontextprotocol/inspector</pre></div>
+</li>
+<li>
+<p><strong>在浏览器中连接</strong>：</p>
+<ul>
+<li>访问：<code class="notranslate">http://localhost:3333/mcp</code></li>
+<li>测试 "Ping Server" 功能验证连接</li>
+<li>检查 "List Tools" 是否返回 17 个工具：
+<ul>
+<li>基础查询：get_latest_news, get_news_by_date, get_trending_topics</li>
+<li>智能检索：search_news, find_related_news</li>
+<li>高级分析：analyze_topic_trend, analyze_data_insights, analyze_sentiment, aggregate_news, compare_periods, generate_summary_report</li>
+<li>RSS 查询：get_latest_rss, search_rss, get_rss_feeds_status</li>
+<li>系统管理：get_current_config, get_system_status, resolve_date_range</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</details>
+<details>
+<summary>👉 点击展开：<b>其他支持 MCP 的客户端</b></summary>
+<br>
+<p>任何支持 Model Context Protocol 的客户端都可以连接 TrendRadar：</p>
+<h4>HTTP 模式</h4>
+<p><strong>服务地址</strong>：<code class="notranslate">http://localhost:3333/mcp</code></p>
+<p><strong>基本配置模板</strong>：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>trendradar<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"url"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://localhost:3333/mcp<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>http<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>新闻热点聚合分析<span class="pl-pds">"</span></span>
+}</pre></div>
+<h4>STDIO 模式（推荐）</h4>
+<p><strong>基本配置模板</strong>：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>trendradar<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>uv<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"args"</span>: [
+    <span class="pl-s"><span class="pl-pds">"</span>--directory<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>/path/to/TrendRadar<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>run<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>python<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>-m<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>mcp_server.server<span class="pl-pds">"</span></span>
+  ],
+  <span class="pl-ent">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>stdio<span class="pl-pds">"</span></span>
+}</pre></div>
+<p><strong>注意事项</strong>：</p>
+<ul>
+<li>替换 <code class="notranslate">/path/to/TrendRadar</code> 为实际项目路径</li>
+<li>Windows 路径使用反斜杠转义：<code class="notranslate">C:\\Users\\...</code></li>
+<li>确保已完成项目依赖安装（运行过 setup 脚本）</li>
+</ul>
+</details>
+<h3>常见问题</h3>
+<details>
+<summary>👉 点击展开：<b>Q1: HTTP 服务无法启动？</b></summary>
+<br>
+<p><strong>检查步骤</strong>：</p>
+<ol>
+<li>
+<p>确认端口 3333 未被占用：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> Windows</span>
+netstat -ano <span class="pl-k">|</span> findstr :3333
+
+<span class="pl-c"><span class="pl-c">#</span> Mac/Linux</span>
+lsof -i :3333</pre></div>
+</li>
+<li>
+<p>检查项目依赖是否安装：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 重新运行安装脚本</span>
+<span class="pl-c"><span class="pl-c">#</span> Windows: setup-windows.bat 或者 setup-windows-en.bat</span>
+<span class="pl-c"><span class="pl-c">#</span> Mac/Linux: ./setup-mac.sh</span></pre></div>
+</li>
+<li>
+<p>查看详细错误日志：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">uv run python -m mcp_server.server --transport http --port 3333</pre></div>
+</li>
+<li>
+<p>尝试自定义端口:</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">uv run python -m mcp_server.server --transport http --port 33333</pre></div>
+</li>
+</ol>
+</details>
+<details>
+<summary>👉 点击展开：<b>Q2: 客户端无法连接到 MCP 服务？</b></summary>
+<br>
+<p><strong>解决方案</strong>：</p>
+<ol>
+<li>
+<p><strong>STDIO 模式</strong>：</p>
+<ul>
+<li>确认 UV 路径正确（运行 <code class="notranslate">which uv</code> 或 <code class="notranslate">where uv</code>）</li>
+<li>确认项目路径正确且无中文字符</li>
+<li>查看客户端错误日志</li>
+</ul>
+</li>
+<li>
+<p><strong>HTTP 模式</strong>：</p>
+<ul>
+<li>确认服务已启动（访问 <code class="notranslate">http://localhost:3333/mcp</code>）</li>
+<li>检查防火墙设置</li>
+<li>尝试使用 127.0.0.1 替代 localhost</li>
+</ul>
+</li>
+<li>
+<p><strong>通用检查</strong>：</p>
+<ul>
+<li>重启客户端应用</li>
+<li>查看 MCP 服务日志</li>
+<li>使用 MCP Inspector 测试连接</li>
+</ul>
+</li>
+</ol>
+</details>
+<details>
+<summary>👉 点击展开：<b>Q3: 工具调用失败或返回错误？</b></summary>
+<br>
+<p><strong>可能原因</strong>：</p>
+<ol>
+<li>
+<p><strong>数据不存在</strong>：</p>
+<ul>
+<li>确认已运行过爬虫（有 output 目录数据）</li>
+<li>检查查询日期范围是否有数据</li>
+<li>查看 output 目录的可用日期</li>
+</ul>
+</li>
+<li>
+<p><strong>参数错误</strong>：</p>
+<ul>
+<li>检查日期格式：<code class="notranslate">YYYY-MM-DD</code></li>
+<li>确认平台 ID 正确：<code class="notranslate">zhihu</code>, <code class="notranslate">weibo</code> 等</li>
+<li>查看工具文档中的参数说明</li>
+</ul>
+</li>
+<li>
+<p><strong>配置问题</strong>：</p>
+<ul>
+<li>确认 <code class="notranslate">config/config.yaml</code> 存在</li>
+<li>确认 <code class="notranslate">config/frequency_words.txt</code> 存在</li>
+<li>检查配置文件格式是否正确</li>
+</ul>
+</li>
+</ol></details></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
