@@ -99,16 +99,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h2>在哪搞个短链<a href="https://2x.nz/posts/static-redirect-group/#%E5%9C%A8%E5%93%AA%E6%90%9E%E4%B8%AA%E7%9F%AD%E9%93%BE" rel="nofollow">#</a></h2>
 <p>我的 2x.nz 是在 <a href="https://porkbun.com/" rel="nofollow">https://porkbun.com</a> 买的，一年一百左右。其他后缀也不错，如 <code class="notranslate">.im</code> <code class="notranslate">.mk</code></p>
 <h2>正式搭建你的短链服务<a href="https://2x.nz/posts/static-redirect-group/#%E6%AD%A3%E5%BC%8F%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E7%9F%AD%E9%93%BE%E6%9C%8D%E5%8A%A1" rel="nofollow">#</a></h2>
-<p>首先，Fork仓库</p>
-<p>[</p>
-<p>afoim</p>
-<p>/</p>
-<p>Static_Redirect_Group</p>
-<p>静态重定向组</p>
-<p>18</p>
-<p>17</p>
-<p>GPL-3.0</p>
-<p>](<a href="https://github.com/afoim/Static_Redirect_Group">https://github.com/afoim/Static_Redirect_Group</a>)</p>
+<p>首先，Fork仓库<a href="https://github.com/afoim/Static_Redirect_Group">afoimStatic_Redirect_Group 静态重定向组</a></p>
 <p>接下来，先更改一些硬编码的东西，由于Cloudflare Worker对于静态资产不能使用环境变量，所以有些东西是硬编码的，请在所有HTML文件中尝试搜索 <code class="notranslate">afoim</code> 进行更改，改成你的（你也可以多加一层，写一个配置，然后通过构建来注入内容，随你）</p>
 <p>然后，请编辑js文件夹里面的短链，改为你想要的</p>
 <p>再接着，创建一个Github Token，只需要有 <code class="notranslate">repo</code> 权限即可</p>

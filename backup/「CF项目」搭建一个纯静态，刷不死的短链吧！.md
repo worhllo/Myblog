@@ -12,27 +12,7 @@
 
 ## 正式搭建你的短链服务[#](https://2x.nz/posts/static-redirect-group/#%E6%AD%A3%E5%BC%8F%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E7%9F%AD%E9%93%BE%E6%9C%8D%E5%8A%A1)
 
-首先，Fork仓库
-
-[
-
-afoim
-
-/
-
-Static\_Redirect\_Group
-
-静态重定向组
-
-18
-
-17
-
-GPL-3.0
-
-
-
-](https://github.com/afoim/Static_Redirect_Group)
+首先，Fork仓库[afoimStatic_Redirect_Group 静态重定向组](https://github.com/afoim/Static_Redirect_Group)
 
 接下来，先更改一些硬编码的东西，由于Cloudflare Worker对于静态资产不能使用环境变量，所以有些东西是硬编码的，请在所有HTML文件中尝试搜索 `afoim` 进行更改，改成你的（你也可以多加一层，写一个配置，然后通过构建来注入内容，随你）
 
