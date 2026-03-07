@@ -1,5 +1,29 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:18:04 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」基于 Cloudflare Workers 的聚合搜索 API 服务</title><link>https://note.142588.xyz/post/62.html</link><description>&gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:21:56 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」轻量级代理协议订阅转换与管理工具</title><link>https://note.142588.xyz/post/63.html</link><description>
+
+  &lt;h1&gt;&lt;b&gt;Sublink Worker&lt;/b&gt;&lt;/h1&gt;
+  &lt;h5&gt;&lt;i&gt;一个工具，管理所有订阅&lt;/i&gt;&lt;/h5&gt;
+
+  &lt;p&gt;&lt;b&gt;轻量级代理协议订阅转换与管理工具，可部署于 Cloudflare Workers、Vercel、Node.js 或 Docker 环境&lt;/b&gt;&lt;/p&gt;
+
+  &lt;a href='https://trendshift.io/repositories/12291' target='_blank'&gt;
+    &lt;img src='https://trendshift.io/api/badge/repositories/12291' alt='7Sageer%2Fsublink-worker | Trendshift' width='250' height='55'/&gt;
+  &lt;/a&gt;
+
+  &lt;br&gt;
+
+&lt;p style='display: flex; align-items: center; gap: 10px;'&gt;
+  &lt;a href='https://deploy.workers.cloudflare.com/?url=https://github.com/7Sageer/sublink-worker'&gt;
+    &lt;img src='https://deploy.workers.cloudflare.com/button' alt='部署到 Cloudflare Workers' style='height: 32px;'/&gt;
+  &lt;/a&gt;
+  &lt;a href='https://vercel.com/new/clone?repository-url=https://github.com/7Sageer/sublink-worker&amp;env=KV_REST_API_URL,KV_REST_API_TOKEN&amp;envDescription=Vercel%20KV%20数据存储所需凭证&amp;envLink=https://vercel.com/docs/storage/vercel-kv'&gt;
+    &lt;img src='https://vercel.com/button' alt='部署到 Vercel' style='height: 32px;'/&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+
+## 原仓库来源
+本项目托管于 [7Sageer/sublink-worker](https://github.com/7Sageer/sublink-worker)，感谢所有贡献者的努力与支持。</description><guid isPermaLink="true">https://note.142588.xyz/post/63.html</guid><pubDate>Sat, 07 Mar 2026 07:21:31 +0000</pubDate></item><item><title>「CF项目」基于 Cloudflare Workers 的聚合搜索 API 服务</title><link>https://note.142588.xyz/post/62.html</link><description>&gt; [!NOTE]
 &gt;Cloudflare Search
 基于 Cloudflare Workers 的聚合搜索 API 服务
 源仓库：[Yrobotcloudflare-search A Powerful Search Server based on Cloudflare Worker, Enhance Your AI Tool with MCP](https://github.com/Yrobot/cloudflare-search)
