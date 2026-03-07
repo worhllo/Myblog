@@ -1,5 +1,45 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 06:03:54 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」基于 Cloudflare AI &amp; Workers 的免费在线文生图服务</title><link>https://note.142588.xyz/post/48.html</link><description>&gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 06:06:03 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」基于cloudflare workers搭建的在线留言板</title><link>https://note.142588.xyz/post/49.html</link><description>&gt; [!NOTE]
+&gt; web-message
+基于cloudflare workers搭建的在线留言板
+源仓库：[worhlloWebmessage 基于cloudflare workers搭建的在线留言板](https://github.com/worhllo/Webmessage)
+---
+
+## 功能特性
+
+- 用户可以提交留言（包括内容和邮箱）
+- 实时显示历史留言列表
+- 显示留言时间（智能格式化）
+- 响应式设计，支持移动端
+- 基于 Cloudflare D1 数据库存储
+- 防 XSS 攻击
+- 表单验证（邮箱格式、内容长度限制）
+
+## 技术栈
+
+- **前端**: HTML + CSS + JavaScript
+- **后端**: Cloudflare Workers
+- **数据库**: Cloudflare D1 (SQLite)
+- **部署**: Cloudflare Workers
+
+## 项目结构
+
+```
+web_message/
+├── src/
+│   └── index.js        # Cloudflare Workers 主文件
+├── index.html          # 前端页面
+├── schema.sql          # 数据库表结构
+├── wrangler.toml       # Cloudflare Workers 配置
+├── package.json        # 项目依赖配置
+└── README.md           # 说明文档
+```
+
+## 部署步骤
+
+### 1. 安装依赖和源码
+
+首先确保你已经安装了 Node.js (推荐 18.x 或更高版本)。</description><guid isPermaLink="true">https://note.142588.xyz/post/49.html</guid><pubDate>Sat, 07 Mar 2026 06:05:36 +0000</pubDate></item><item><title>「CF项目」基于 Cloudflare AI &amp; Workers 的免费在线文生图服务</title><link>https://note.142588.xyz/post/48.html</link><description>&gt; [!NOTE]
 &gt; Text2img-Cloudflare-Workers 是基于 Cloudflare Workers AI 服务搭建的在线文本生成图像可视化网页，完全构建在 Cloudflare Workers 上。</description><guid isPermaLink="true">https://note.142588.xyz/post/48.html</guid><pubDate>Sat, 07 Mar 2026 06:02:49 +0000</pubDate></item><item><title>「CF项目」高性能 Edge TTS Cloudflare Worker 代理</title><link>https://note.142588.xyz/post/47.html</link><description>&gt; [!NOTE]
 &gt; 高性能 Edge TTS Cloudflare Worker 代理
 这是一个部署在 Cloudflare Workers 上的高性能文本转语音（TTS）代理服务。</description><guid isPermaLink="true">https://note.142588.xyz/post/47.html</guid><pubDate>Sat, 07 Mar 2026 05:59:31 +0000</pubDate></item><item><title>「Action项目」 Epic Games Store 免费游戏领取机器人</title><link>https://note.142588.xyz/post/46.html</link><description>&lt;div align='center'&gt;
