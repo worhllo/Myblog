@@ -1,5 +1,36 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 05:23:34 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「Vercel项目」现代化的图片上传管理工具</title><link>https://note.142588.xyz/post/39.html</link><description>&gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 05:27:29 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「Vercel项目」优雅的在线封面生成工具</title><link>https://note.142588.xyz/post/40.html</link><description>&lt;p align='center'&gt;
+  &lt;img src='public/favicon.svg' width='100' height='100' alt='Mini-Cover Logo'&gt;
+&lt;/p&gt;
+
+&lt;h1 align='center'&gt;Mini-Cover&lt;/h1&gt;
+
+&lt;p align='center'&gt;优雅的在线封面生成工具&lt;/p&gt;
+
+&lt;p align='center'&gt;
+  &lt;img src='https://img.shields.io/badge/Vue.js-3.5-4FC08D?logo=vue.js' alt='Vue'&gt;
+  &lt;img src='https://img.shields.io/badge/license-MIT-blue.svg' alt='License'&gt;
+&lt;/p&gt;
+&lt;p align='center'&gt;
+  &lt;a href='https://vercel.com/new/clone?repository-url=https://github.com/JLinMr/Mini-Cover'&gt;
+    &lt;img src='https://vercel.com/button' alt='Deploy with Vercel' /&gt;
+  &lt;/a&gt;
+  &lt;a href='https://edgeone.ai/pages/new?repository-url=https%3A%2F%2Fgithub.com%2FJLinMr%2FMini-Cover&amp;output-directory=dist&amp;install-command=npm%20install&amp;build-command=npm%20run%20build' target='_blank' rel='noopener noreferrer'&gt;
+    &lt;img src='https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg' alt='Deploy with EdgeOne Pages'&gt;
+  &lt;/a&gt;
+  &lt;a href='https://app.netlify.com/start/deploy?repository=https://github.com/JLinMr/Mini-Cover'&gt;
+    &lt;img src='https://www.netlify.com/img/deploy/button.svg' alt='Deploy to Netlify' /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+&lt;p align='center'&gt;🎮 在线演示：
+  &lt;a href='https://cover.bsgun.cn' target='_blank'&gt;
+  https://cover.bsgun.cn
+  &lt;/a&gt;
+&lt;/p&gt;
+
+## 📖 简介
+
+Mini-Cover 是一个现代化的封面生成工具，专为博客、短视频、社交媒体设计。</description><guid isPermaLink="true">https://note.142588.xyz/post/40.html</guid><pubDate>Sat, 07 Mar 2026 05:27:01 +0000</pubDate></item><item><title>「Vercel项目」现代化的图片上传管理工具</title><link>https://note.142588.xyz/post/39.html</link><description>&gt; [!NOTE]
 &gt; 一个现代化的图片上传管理工具，支持多种云存储服务，提供图片压缩、格式转换等功能，帮助你更好地管理和分享图片。</description><guid isPermaLink="true">https://note.142588.xyz/post/39.html</guid><pubDate>Sat, 07 Mar 2026 05:23:11 +0000</pubDate></item><item><title>「CF项目」稳定版脚本与优选IP工具</title><link>https://note.142588.xyz/post/38.html</link><description>&gt; [!NOTE]
 &gt; 用 Cloudflare Worker 搭建的节点项目，没有花里胡哨的功能，只保留了最核心的上网功能，为你提供一个稳定、简洁的 Worker 脚本，并搭配一个强大的优选 IP 工具，该版本经过了大量精简和代码混淆，只保留了最核心的 VLESS 代理功能，并内置了一个非常智能的故障转移机制。</description><guid isPermaLink="true">https://note.142588.xyz/post/38.html</guid><pubDate>Sat, 07 Mar 2026 05:15:48 +0000</pubDate></item><item><title>「CF项目」基于 Cloudflare Worker 的静态重定向全功能短链服务</title><link>https://note.142588.xyz/post/37.html</link><description>&gt; [!NOTE]
 &gt; 这是一个基于 Cloudflare Worker 的静态重定向全功能短链服务。</description><guid isPermaLink="true">https://note.142588.xyz/post/37.html</guid><pubDate>Sat, 07 Mar 2026 05:11:09 +0000</pubDate></item><item><title>「CF项目」搭建一个纯静态，刷不死的短链吧！</title><link>https://note.142588.xyz/post/36.html</link><description>&gt; [!NOTE]
