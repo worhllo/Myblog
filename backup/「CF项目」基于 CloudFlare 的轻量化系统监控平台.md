@@ -1,5 +1,6 @@
 > [!NOTE]
 > XUGOU 是一个基于 CloudFlare 的轻量化系统监控平台，提供系统监控和状态页面功能。系统现在采用单一 Worker 部署方式，前后端集成在一个 Worker 中，并推荐使用 GitHub Actions 实现自动化部署，流程更简单、更安全。
+源仓库：[zaunistxugou XUGOU-基于CloudFlare的轻量化监控平台](https://github.com/zaunist/xugou)
 
 ### 部署优势
 
