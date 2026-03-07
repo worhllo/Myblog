@@ -178,4 +178,4 @@ npx tsx .\icon-system\0icon.ts
 
 只需要向搜索引擎提交 `https://xxx.com/sitemap-index.xml` 这一个文件
 
-
+参考链接：[[zywe03/astro-xwnav](https://github.com/zywe03/astro-xwnav)](https://github.com/zywe03/astro-xwnav)
