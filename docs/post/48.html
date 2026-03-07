@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="<p align='center'>
+  <a href='https://text-to-image-template.templates.workers.dev/' target='_blank' rel='noopener'>
+    <img alt='text-to-image' src='public/cat0.png' width='120' height='120' />
+  </a>
+</p>
+
+<div align='center'></br></div>
+
+<div align='center'>
+  <h1>
+    ✨ 基于 Cloudflare AI & Workers 的免费在线文生图服务 </br>
+  </h1>
+</div>
+
+<div align='center'>
+
+[项目简介](#📚-项目简介) |
+[主要特性](#✨-主要特性) |
+[快速开始](#🚀-快速开始) |
+[使用指南](#📝-使用指南) |
+[配置选项](#⚙️-配置选项) |
+[模型限制](#📊-模型限制) |
+[项目示例](https://text2img.huarzone.com/)
+
+</div>
+
+<div align='center'></br></div>
+
+<picture>
+  <source media='(prefers-color-scheme: dark)' srcset='public/top-dark.png'>
+  <img alt='应用截图' src='public/top.png'>
+</picture>
+
+<div align='center'></br></div>
+
+## 
+
+Text2img-Cloudflare-Workers 是基于 Cloudflare Workers AI 服务搭建的在线文本生成图像可视化网页，完全构建在 Cloudflare Workers 上。">
+<meta property="og:title" content="「CF项目」基于 Cloudflare AI & Workers 的免费在线文生图服务">
+<meta property="og:description" content="<p align='center'>
+  <a href='https://text-to-image-template.templates.workers.dev/' target='_blank' rel='noopener'>
+    <img alt='text-to-image' src='public/cat0.png' width='120' height='120' />
+  </a>
+</p>
+
+<div align='center'></br></div>
+
+<div align='center'>
+  <h1>
+    ✨ 基于 Cloudflare AI & Workers 的免费在线文生图服务 </br>
+  </h1>
+</div>
+
+<div align='center'>
+
+[项目简介](#📚-项目简介) |
+[主要特性](#✨-主要特性) |
+[快速开始](#🚀-快速开始) |
+[使用指南](#📝-使用指南) |
+[配置选项](#⚙️-配置选项) |
+[模型限制](#📊-模型限制) |
+[项目示例](https://text2img.huarzone.com/)
+
+</div>
+
+<div align='center'></br></div>
+
+<picture>
+  <source media='(prefers-color-scheme: dark)' srcset='public/top-dark.png'>
+  <img alt='应用截图' src='public/top.png'>
+</picture>
+
+<div align='center'></br></div>
+
+## 
+
+Text2img-Cloudflare-Workers 是基于 Cloudflare Workers AI 服务搭建的在线文本生成图像可视化网页，完全构建在 Cloudflare Workers 上。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/48.html">
+<meta property="og:image" content="../avatar.png">
+<title>「CF项目」基于 Cloudflare AI & Workers 的免费在线文生图服务</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「CF项目」基于 Cloudflare AI & Workers 的免费在线文生图服务</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/48" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p align="center">
+  <a href="https://text-to-image-template.templates.workers.dev/" rel="nofollow">
+    <img alt="text-to-image" src="public/cat0.png" width="120" height="120" style="max-width: 100%; height: auto; max-height: 120px;">
+  </a>
+</p>
+<div align="center"><br></div>
+<div align="center">
+  <h1>
+    ✨ 基于 Cloudflare AI &amp; Workers 的免费在线文生图服务 <br>
+  </h1>
+</div>
+<div align="center">
+<p><a href="#%F0%9F%93%9A-%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B">项目简介</a> |<br>
+<a href="#%E2%9C%A8-%E4%B8%BB%E8%A6%81%E7%89%B9%E6%80%A7">主要特性</a> |<br>
+<a href="#%F0%9F%9A%80-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</a> |<br>
+<a href="#%F0%9F%93%9D-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97">使用指南</a> |<br>
+<a href="#%E2%9A%99%EF%B8%8F-%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9">配置选项</a> |<br>
+<a href="#%F0%9F%93%8A-%E6%A8%A1%E5%9E%8B%E9%99%90%E5%88%B6">模型限制</a> |<br>
+<a href="https://text2img.huarzone.com/" rel="nofollow">项目示例</a></p>
+</div>
+<div align="center"><br></div>
+<themed-picture data-catalyst-inline="true"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/top-dark.png">
+  <img alt="应用截图" src="public/top.png">
+</picture></themed-picture>
+<div align="center"><br></div>
+<h2></h2>
+<p>Text2img-Cloudflare-Workers 是基于 Cloudflare Workers AI 服务搭建的在线文本生成图像可视化网页，完全构建在 Cloudflare Workers 上。该项目为通过简单调用 Cloudflare 官方提供的 <a href="https://developers.cloudflare.com/workers-ai/models/" rel="nofollow">文生图 - Text-to-Image</a> 模型，可以快速实现随时随地无需登录的图像生成需求。</p>
+<h2>✨ 主要特性</h2>
+<ul>
+<li>🚀 完全基于 Cloudflare Workers，无需服务器部署</li>
+<li>🎨 利用 Cloudflare AI 提供免费高质量文生图模型</li>
+<li>🐳 支持 FLUX/SDXL 等多个文生图模型</li>
+<li>⚙️ 支持图像生成的高级选项设置</li>
+<li>🤗 支持设置访问密码，私有化部署友好</li>
+<li>⚡ 响应速度快，全球边缘网络加速</li>
+<li>🌐 简洁的用户界面，易于使用</li>
+<li>🌓 支持深色和浅色模式之间切换</li>
+<li>📱 移动端友好，支持各种设备访问</li>
+</ul>
+<h2>🚀 快速开始</h2>
+<h3>部署你自己的文生图实例</h3>
+<ol>
+<li><strong>创建新的 Worker</strong>：在 Cloudflare 控制面板中找到 "Workers 和 Pages" 菜单，点击 "创建应用程序"，选择 "创建 Worker"，输入标识名称后点击 "部署"。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="public/create.png"><img src="public/create.png" alt="创建项目" style="max-width: 100%;"></a></p>
+<ol start="2">
+<li><strong>编辑并部署代码</strong>：点击 "编辑代码" 按钮，将 <code class="notranslate">src/worker.js</code> 内容复制到左侧代码框，再创建 <code class="notranslate">index.html</code> 文件并复制 <code class="notranslate">src/index.html</code> 内容，然后点击 "保存并部署"。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="public/edit.png"><img src="public/edit.png" alt="编辑代码" style="max-width: 100%;"></a></p>
+<ol start="3">
+<li><strong>添加 Workers AI 绑定</strong>：返回 Worker 项目面板页，进入 "设置" -&gt; "绑定"，点击 "添加绑定"，选择 <code class="notranslate">Workers AI</code> 类型，变量名称填写 <code class="notranslate">AI</code>，保存并部署。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="public/ai.png"><img src="public/ai.png" alt="添加绑定" style="max-width: 100%;"></a></p>
+<ol start="4">
+<li><strong>配置自定义域名（可选）</strong>：在 Worker 的 "设置"-&gt; "域和路由" 中选择 "添加自定义域"，输入你的域名并完成 DNS 配置。</li>
+</ol>
+<p>🎉 部署完成后，即可通过 Cloudflare 分配的域名或自定义域名访问你的文生图服务！</p>
+<h2>📝 使用指南</h2>
+<ol>
+<li>
+<p>访问应用网址，默认分配的域名为 <code class="notranslate">https://&lt;your-worker-name&gt;.&lt;your-subdomain&gt;.workers.dev/</code>。</p>
+</li>
+<li>
+<p><strong>输入访问密码</strong>：如果设置密码，则需要在页面顶部"访问密码"区域输入访问密码。</p>
+</li>
+<li>
+<p><strong>填写提示词</strong>：在 "正向提示词" 文本框中描述你想要生成的图像内容，可使用 "随机提示词" 按钮获取灵感；在 "反向提示词" 中添加你想避免的元素。</p>
+</li>
+<li>
+<p><strong>选择模型</strong>：从下拉菜单中选择想要使用的文生图模型，根据需求选择合适的模型。</p>
+</li>
+<li>
+<p><strong>调整参数</strong>（可选）：点击"高级选项"中的"显示/隐藏"按钮，可以调整图像尺寸、迭代步数、引导系数和随机种子等参数。</p>
+</li>
+<li>
+<p><strong>生成图像</strong>：点击底部的"生成图像"按钮，等待几秒至几十秒不等，系统会在右侧展示生成结果。</p>
+</li>
+<li>
+<p><strong>管理结果</strong>：图像生成后，可以使用"复制参数"保存当前设置，或点击"下载图像"保存生成的图片。</p>
+</li>
+<li>
+<p><strong>切换主题</strong>：通过页面右上角的月亮/太阳图标按钮在深色和浅色模式之间切换。</p>
+</li>
+</ol>
+<h2>⚙️ 配置选项</h2>
+<ol>
+<li>
+<p><strong>模型设置</strong>：在 <code class="notranslate">src/worker.js</code> 的 <code class="notranslate">AVAILABLE_MODELS</code> 中可添加、删除或修改模型及其介绍。</p>
+</li>
+<li>
+<p><strong>随机提示词</strong>：编辑 <code class="notranslate">src/worker.js</code> 中的 <code class="notranslate">RANDOM_PROMPTS</code> 数组可自定义随机出现的创意提示词库。</p>
+</li>
+<li>
+<p><strong>访问权限控制</strong>：通过在 <code class="notranslate">src/worker.js</code> 的 <code class="notranslate">PASSWORDS</code> 数组中添加密码来启用访问保护，支持多密码并行，留空则允许无密码访问。</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：所有配置修改都需要重新部署应用后才能生效。</p>
+</blockquote>
+<h2>📊 模型限制</h2>
+<ul>
+<li>Cloudflare Workers 免费版每天有请求数量限制，建议私有化部署使用。</li>
+<li>图像生成通常需要 3-20 秒左右，与模型选择、迭代步数和图像分辨率有关。</li>
+<li>不同文生图模型参数的限制存在差异，请查阅官方提供的 <a href="https://developers.cloudflare.com/workers-ai/models/" rel="nofollow">文生图 - Text-to-Image</a> 模型详情页。</li>
+</ul>
+<h2>🙏 致谢</h2>
+<ul>
+<li><a href="https://workers.cloudflare.com/" rel="nofollow">Cloudflare Workers</a></li>
+<li><a href="https://developers.cloudflare.com/workers-ai/" rel="nofollow">Cloudflare AI</a></li>
+</ul></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>

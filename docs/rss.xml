@@ -1,5 +1,42 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 05:59:55 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」高性能 Edge TTS Cloudflare Worker 代理</title><link>https://note.142588.xyz/post/47.html</link><description>&gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 06:03:15 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」基于 Cloudflare AI &amp; Workers 的免费在线文生图服务</title><link>https://note.142588.xyz/post/48.html</link><description>&lt;p align='center'&gt;
+  &lt;a href='https://text-to-image-template.templates.workers.dev/' target='_blank' rel='noopener'&gt;
+    &lt;img alt='text-to-image' src='public/cat0.png' width='120' height='120' /&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;div align='center'&gt;&lt;/br&gt;&lt;/div&gt;
+
+&lt;div align='center'&gt;
+  &lt;h1&gt;
+    ✨ 基于 Cloudflare AI &amp; Workers 的免费在线文生图服务 &lt;/br&gt;
+  &lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div align='center'&gt;
+
+[项目简介](#📚-项目简介) |
+[主要特性](#✨-主要特性) |
+[快速开始](#🚀-快速开始) |
+[使用指南](#📝-使用指南) |
+[配置选项](#⚙️-配置选项) |
+[模型限制](#📊-模型限制) |
+[项目示例](https://text2img.huarzone.com/)
+
+&lt;/div&gt;
+
+&lt;div align='center'&gt;&lt;/br&gt;&lt;/div&gt;
+
+&lt;picture&gt;
+  &lt;source media='(prefers-color-scheme: dark)' srcset='public/top-dark.png'&gt;
+  &lt;img alt='应用截图' src='public/top.png'&gt;
+&lt;/picture&gt;
+
+&lt;div align='center'&gt;&lt;/br&gt;&lt;/div&gt;
+
+## 
+
+Text2img-Cloudflare-Workers 是基于 Cloudflare Workers AI 服务搭建的在线文本生成图像可视化网页，完全构建在 Cloudflare Workers 上。</description><guid isPermaLink="true">https://note.142588.xyz/post/48.html</guid><pubDate>Sat, 07 Mar 2026 06:02:49 +0000</pubDate></item><item><title>「CF项目」高性能 Edge TTS Cloudflare Worker 代理</title><link>https://note.142588.xyz/post/47.html</link><description>&gt; [!NOTE]
 &gt; 高性能 Edge TTS Cloudflare Worker 代理
 这是一个部署在 Cloudflare Workers 上的高性能文本转语音（TTS）代理服务。</description><guid isPermaLink="true">https://note.142588.xyz/post/47.html</guid><pubDate>Sat, 07 Mar 2026 05:59:31 +0000</pubDate></item><item><title>「Action项目」 Epic Games Store 免费游戏领取机器人</title><link>https://note.142588.xyz/post/46.html</link><description>&lt;div align='center'&gt;
 
