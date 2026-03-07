@@ -1,5 +1,61 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 06:55:32 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」基于 CloudFlare 的轻量化系统监控平台</title><link>https://note.142588.xyz/post/56.html</link><description>&gt; [!NOTE]
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:07:42 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」一键联合社区和聚合云台</title><link>https://note.142588.xyz/post/58.html</link><description>&gt; [!NOTE]
+&gt; 最适合自建的一键联合社区和聚合云台(可cf部署)🚀🎉
+一键轻量可联合社交化平台 ..  
+项目地址：[https://github.com/minlearn/discuss](https://github.com/minlearn/discuss)
+-----
+
+## 下载安装及用法📄
+
+
+### 第一步. Fork本仓库到你的GitHub帐号
+
+登你的github，然后点击 [https://github.com/minlearn/discuss/fork](https://github.com/minlearn/discuss/fork) 把仓库fork到你的github帐号
+
+### 第二步. 在你fork到的仓库里面加几个部署相关的密码变量
+
+进入你fork到的仓库的 [Settings -&gt; Secrets -&gt; Actions](../../settings/secrets/actions), 创建几个部署相关的密码变量，共3个（最后2个r2相关的不需要），如何获取这些变量及如何复制为变量(请展开查看细节)：  
+
+![](https://user-images.githubusercontent.com/1719237/205524410-268abf92-af61-467a-8883-78b8d4de3c56.png)
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;如何获得CLOUDFLARE_ACCOUNT_ID变量&lt;/b&gt;&lt;/summary&gt;
+登录cf面板会自动跳到:https://dash.cloudflare.com/[你的帐号id]  ，比如这样：https://dash.cloudflare.com/fff88980eeeeedcc3ffffd4f555f4999，  后面的 * fff88980eeeeedcc3ffffd4f555f4999 * 就是帐号id  
+将其复制到仓库的[Settings -&gt; Secrets -&gt; Actions](../../settings/secrets/actions) 处即可，注意复制到不要有多余字符，会显示为星号，
+&lt;IMG src='https://user-images.githubusercontent.com/1719237/208216752-56f00f51-29cb-43ea-b720-75244719898d.png'/&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;如何获得CLOUDFLARE_API_TOKEN变量&lt;/b&gt;&lt;/summary&gt;
+登录cf，定位到: https://dash.cloudflare.com/profile/api-tokens  创建一个custom token:  
+&lt;IMG src='https://user-images.githubusercontent.com/1719237/205525627-14da54ae-1733-4db5-b65d-94f5ec48f360.png'/&gt;
+修改token的权限，放行Cloudflare Pages 和 D1:
+&lt;IMG src='https://user-images.githubusercontent.com/1719237/205525675-4c8a6bce-21a8-45e3-bf0c-28981f123da3.png'/&gt;
+像复制帐号id一样复制为仓库的对应名字变量
+&lt;/details&gt;
+
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;给要部署到cf的整套应用取一个名字前缀CLOUDFLARE_PROJECT_NAME&lt;/b&gt;&lt;/summary&gt;
+随便都可以，就是不要带._等特殊符号，比如你取名为discuss，或discussmyxxxdomain都可以
+像复制帐号id一样复制为仓库的对应名字变量
+&lt;/details&gt;
+
+
+### 第三步. 在你fork到的仓库里面运行名为updatebuilddiscuss的部署
+
+前往 [Actions -&gt; Deploy to Cloudflare Pages](../../actions/workflows/deploy.yml) 运行deploy  
+![](https://user-images.githubusercontent.com/1719237/205526856-05ea0ff4-703a-4d08-bc7f-4ae2dfc07cfe.png)
+
+
+### 最后，检查结果
+
+等部署完毕, 绿点表示成功. 你可以在 [Cloudflare dashboard](https://dash.cloudflare.com/sign-up/pages) 处看到已生成形式为 CLOUDFLARE_PROJECT_NAME变量.pages.dev 的pages应用，点击即可访问
+
+
+### 更新/修改设置：
+
+常规操作在论坛界面上即可操作。</description><guid isPermaLink="true">https://note.142588.xyz/post/58.html</guid><pubDate>Sat, 07 Mar 2026 07:07:17 +0000</pubDate></item><item><title>「CF项目」基于 CloudFlare 的轻量化系统监控平台</title><link>https://note.142588.xyz/post/56.html</link><description>&gt; [!NOTE]
 &gt; XUGOU 是一个基于 CloudFlare 的轻量化系统监控平台，提供系统监控和状态页面功能。</description><guid isPermaLink="true">https://note.142588.xyz/post/56.html</guid><pubDate>Sat, 07 Mar 2026 06:55:07 +0000</pubDate></item><item><title>「CF项目」基于 Next.js 15 构建的现代化导航管理平台</title><link>https://note.142588.xyz/post/55.html</link><description>
 &lt;p align='center'&gt;
   &lt;strong&gt;现代化导航管理平台 | Modern Navigation Management Platform&lt;/strong&gt;
