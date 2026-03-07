@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="> [!NOTE]
+> WXPush - 微信消息推送服务 (Cloudflare Workers)
+这是一个基于 [Cloudflare Workers](https://workers.cloudflare.com/) 搭建的、轻量级的微信公众号模板消息推送服务。">
+<meta property="og:title" content="「CF项目」基于 Cloudflare搭建的轻量级微信公众号模板消息推送服务">
+<meta property="og:description" content="> [!NOTE]
+> WXPush - 微信消息推送服务 (Cloudflare Workers)
+这是一个基于 [Cloudflare Workers](https://workers.cloudflare.com/) 搭建的、轻量级的微信公众号模板消息推送服务。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/69.html">
+<meta property="og:image" content="../avatar.png">
+<title>「CF项目」基于 Cloudflare搭建的轻量级微信公众号模板消息推送服务</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「CF项目」基于 Cloudflare搭建的轻量级微信公众号模板消息推送服务</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/69" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>WXPush - 微信消息推送服务 (Cloudflare Workers)<br>
+这是一个基于 <a href="https://workers.cloudflare.com/" rel="nofollow">Cloudflare Workers</a> 搭建的、轻量级的微信公众号模板消息推送服务。它提供了一个简单的 API 接口，让您可以轻松地通过 HTTP 请求将消息推送到指定的微信用户。<br>
+源仓库：</p>
+</div>
+<h2>✨ 特性</h2>
+<p>✅ 完全免费<br>
+✅ 每天 10 万次额度，个人用不完<br>
+✅ 真正的微信原生弹窗 + 声音提醒<br>
+✅ 支持多用户<br>
+✅ 跳转稳定<br>
+✅ 可无限换皮肤 (使用项目<a href="https://github.com/frankiejun/wxpushSkin">wxpushSkin</a>)<br>
+✅ 支持docker部署</p>
+<h2>🎬 视频教学</h2>
+<p>我们制作了一个详细的视频教程，手把手教您如何完成所有部署步骤。如果您偏爱视频指导，请点击下方链接观看：</p>
+<p><a href="https://youtu.be/sE1Kcol_XRs?si=G-UbUGlMhyysv-US" rel="nofollow"><img src="https://camo.githubusercontent.com/038fd2a80261d3359f0fbad56a4ff754ad966e3c0fe6db0a0fe18b923b934744/68747470733a2f2f6c6f6f6b2e706963732e636c6f75646e732e63682f696d672fe69e81e7ae80e5beaee4bfa1e6b688e681afe68ea8e98081e69c8de58aa12de5b081e99da22e6a7067" alt="点击观看视频教程" width="480" data-canonical-src="https://look.pics.cloudns.ch/img/极简微信消息推送服务-封面.jpg" style="max-width: 100%;"></a></p>
+<p><em>点击上方图片或链接，即可跳转到 YouTube 观看视频教程。</em></p>
+<h2>🚀 部署指南</h2>
+<p>我们提供多种简单的部署方式，您可以根据自己的需求选择其中一种。</p>
+<h3>方法一：直接粘贴代码到 Cloudflare (最简单)</h3>
+<p>这种方法无需任何本地开发环境，只需复制粘贴即可完成部署。</p>
+<ol>
+<li>
+<p><strong>登录 Cloudflare 仪表板</strong></p>
+<ul>
+<li>打开浏览器，访问 <a href="https://dash.cloudflare.com/" rel="nofollow">https://dash.cloudflare.com/</a> 并登录。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建 Worker 服务</strong></p>
+<ul>
+<li>在左侧菜单中，选择 <strong>Workers 和 Pages</strong>。</li>
+<li>点击 <strong>创建应用程序</strong>，然后选择 <strong>创建 Worker</strong>。</li>
+<li>为您的 Worker 指定一个全局唯一的名称 (例如 <code class="notranslate">my-wxpush-service</code>)，然后点击 <strong>部署</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>粘贴代码</strong></p>
+<ul>
+<li>部署完成后，点击 <strong>编辑代码</strong> 进入在线代码编辑器。</li>
+<li>删除编辑器中所有的默认代码。</li>
+<li>将项目 <code class="notranslate">src/index.js</code> 文件中的全部内容复制并粘贴到编辑器中。</li>
+</ul>
+</li>
+<li>
+<p><strong>保存并部署</strong></p>
+<ul>
+<li>点击编辑器右上角的 <strong>保存并部署</strong> 按钮。</li>
+</ul>
+</li>
+<li>
+<p><strong>配置环境变量 (重要)</strong></p>
+<ul>
+<li>返回 Worker 的主管理页面，进入 <strong>设置</strong> &gt; <strong>变量</strong>。</li>
+<li>在 <strong>环境变量</strong> 部分，点击 <strong>添加变量</strong>，依次添加以下配置。这些是服务运行所必需的敏感信息。
+<ul>
+<li><code class="notranslate">API_TOKEN</code>: 用于接口调用的访问令牌，请设置一个足够复杂的随机字符串。</li>
+<li><code class="notranslate">WX_APPID</code>: 您的微信公众号 AppID。</li>
+<li><code class="notranslate">WX_SECRET</code>: 您的微信公众号 AppSecret。</li>
+<li><code class="notranslate">WX_USERID</code>: 默认接收消息用户的 OpenID，多个用户请用 <code class="notranslate">|</code> 符号分隔 (例如 <code class="notranslate">openid1|openid2</code>)。</li>
+<li><code class="notranslate">WX_TEMPLATE_ID</code>: 您要使用的微信模板消息 ID。</li>
+<li><code class="notranslate">WX_BASE_URL</code>: (可选) 点击模板消息后跳转的基础 URL。</li>
+</ul>
+</li>
+<li><strong>注意</strong>：添加变量时，请确保勾选 <strong>加密</strong> 选项，以保护您的凭证安全。</li>
+</ul>
+</li>
+</ol>
+<h3>方法二：Docker 直接部署（需要有docker环境）</h3>
+<p><strong>拉取镜像</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker pull ghcr.io/frankiejun/wxpush:latest</pre></div>
+<p><strong>运行容器</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker run -d --name wxpush \
+  -p 3939:3939 \
+  -e API_TOKEN=<span class="pl-s"><span class="pl-pds">"</span>your_token<span class="pl-pds">"</span></span> \
+  -e WX_APPID=<span class="pl-s"><span class="pl-pds">"</span>your_appid<span class="pl-pds">"</span></span> \
+  -e WX_SECRET=<span class="pl-s"><span class="pl-pds">"</span>your_secret<span class="pl-pds">"</span></span> \
+  -e WX_USERID=<span class="pl-s"><span class="pl-pds">"</span>openid1|openid2<span class="pl-pds">"</span></span> \
+  -e WX_TEMPLATE_ID=<span class="pl-s"><span class="pl-pds">"</span>your_template_id<span class="pl-pds">"</span></span> \
+  -e WX_BASE_URL=<span class="pl-s"><span class="pl-pds">"</span>https://example.com<span class="pl-pds">"</span></span> \
+  -e PORT=<span class="pl-s"><span class="pl-pds">"</span>3939<span class="pl-pds">"</span></span> \
+  ghcr.io/frankiejun/wxpush:latest</pre></div>
+<p><strong>docker-compose</strong></p>
+<p>创建 <code class="notranslate">docker-compose.yml</code>，直接使用镜像运行：</p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">services</span>:
+  <span class="pl-ent">wxpush</span>:
+    <span class="pl-ent">image</span>: <span class="pl-s">ghcr.io/frankiejun/wxpush:latest</span>
+    <span class="pl-ent">ports</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>3939:3939<span class="pl-pds">"</span></span>
+    <span class="pl-ent">environment</span>:
+      <span class="pl-ent">API_TOKEN</span>: <span class="pl-s"><span class="pl-pds">"</span>your_token<span class="pl-pds">"</span></span>
+      <span class="pl-ent">WX_APPID</span>: <span class="pl-s"><span class="pl-pds">"</span>your_appid<span class="pl-pds">"</span></span>
+      <span class="pl-ent">WX_SECRET</span>: <span class="pl-s"><span class="pl-pds">"</span>your_secret<span class="pl-pds">"</span></span>
+      <span class="pl-ent">WX_USERID</span>: <span class="pl-s"><span class="pl-pds">"</span>openid1|openid2<span class="pl-pds">"</span></span>
+      <span class="pl-ent">WX_TEMPLATE_ID</span>: <span class="pl-s"><span class="pl-pds">"</span>your_template_id<span class="pl-pds">"</span></span>
+      <span class="pl-ent">WX_BASE_URL</span>: <span class="pl-s"><span class="pl-pds">"</span>https://example.com<span class="pl-pds">"</span></span>
+      <span class="pl-ent">PORT</span>: <span class="pl-s"><span class="pl-pds">"</span>3939<span class="pl-pds">"</span></span>
+    <span class="pl-ent">restart</span>: <span class="pl-s">unless-stopped</span></pre></div>
+<h3>方法三：通过关联 GitHub 仓库自动部署</h3>
+<p>如果您希望通过 Git 进行版本控制和持续集成，推荐使用此方法。</p>
+<ol>
+<li>
+<p><strong>Fork 或克隆项目</strong></p>
+<ul>
+<li>首先，将本项目 Fork 到您自己的 GitHub 账户，或者克隆后推送到您自己的新仓库。</li>
+</ul>
+</li>
+<li>
+<p><strong>连接到 GitHub</strong></p>
+<ul>
+<li>登录 Cloudflare 仪表板，进入 <strong>Workers 和 Pages</strong>。</li>
+<li>点击 <strong>创建应用程序</strong>，切换到 <strong>Pages</strong> 选项卡，然后点击 <strong>连接到 Git</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>选择仓库</strong></p>
+<ul>
+<li>选择您刚刚创建的 GitHub 仓库。</li>
+</ul>
+</li>
+<li>
+<p><strong>配置构建和部署</strong></p>
+<ul>
+<li><strong>项目名称</strong>：为您项目指定一个名称。</li>
+<li><strong>生产分支</strong>：选择您希望部署的分支 (通常是 <code class="notranslate">main</code> 或 <code class="notranslate">master</code>)。</li>
+<li><strong>框架预设</strong>：选择 <code class="notranslate">None</code>。</li>
+<li><strong>构建设置</strong>：将所有构建相关的字段 (如构建命令、输出目录) 留空。</li>
+<li><strong>根目录</strong>：保持默认的 <code class="notranslate">/</code> 即可。</li>
+</ul>
+</li>
+<li>
+<p><strong>添加环境变量</strong></p>
+<ul>
+<li>在配置页面的 <strong>环境变量</strong> 部分，添加与 <strong>方法一</strong> 中相同的 <code class="notranslate">API_TOKEN</code>, <code class="notranslate">WX_APPID</code>, <code class="notranslate">WX_SECRET</code> 等变量。</li>
+<li>同样，请务必为每个变量勾选 <strong>加密</strong> 选项。</li>
+</ul>
+</li>
+<li>
+<p><strong>保存并部署</strong></p>
+<ul>
+<li>点击 <strong>保存并部署</strong>。Cloudflare 会自动从您的仓库拉取代码并完成部署。</li>
+<li>此后，每当您向指定的生产分支推送新的代码提交时，Cloudflare 都会自动为您重新部署。</li>
+</ul>
+</li>
+</ol>
+<p>部署成功后，您的服务访问地址会显示在 Worker 或 Pages 的主页面上。</p>
+<h2>⚙️ API 使用方法</h2>
+<p>服务部署成功后，您可以通过构造 URL 发起 <code class="notranslate">GET</code> 请求来推送消息。</p>
+<h3>请求地址</h3>
+<pre class="notranslate"><code class="notranslate">https://&lt;您的Worker地址&gt;/wxsend
+</code></pre>
+<h3>请求参数</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">token</code></td>
+<td>String</td>
+<td>是</td>
+<td>您在 <code class="notranslate">API_TOKEN</code> 中设置的访问令牌。</td>
+</tr>
+<tr>
+<td><code class="notranslate">title</code></td>
+<td>String</td>
+<td>是</td>
+<td>消息的标题。</td>
+</tr>
+<tr>
+<td><code class="notranslate">content</code></td>
+<td>String</td>
+<td>是</td>
+<td>消息的具体内容。</td>
+</tr>
+<tr>
+<td><code class="notranslate">appid</code></td>
+<td>String</td>
+<td>否</td>
+<td>临时覆盖默认的微信 AppID。</td>
+</tr>
+<tr>
+<td><code class="notranslate">secret</code></td>
+<td>String</td>
+<td>否</td>
+<td>临时覆盖默认的微信 AppSecret。</td>
+</tr>
+<tr>
+<td><code class="notranslate">userid</code></td>
+<td>String</td>
+<td>否</td>
+<td>临时覆盖默认的接收用户 OpenID。</td>
+</tr>
+<tr>
+<td><code class="notranslate">template_id</code></td>
+<td>String</td>
+<td>否</td>
+<td>临时覆盖默认的模板消息 ID。</td>
+</tr>
+<tr>
+<td><code class="notranslate">base_url</code></td>
+<td>String</td>
+<td>否</td>
+<td>临时覆盖默认的跳转 URL。</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>使用示例</h3>
+<p><strong>基础推送</strong></p>
+<p>向默认配置的所有用户推送一条消息：</p>
+<pre class="notranslate"><code class="notranslate">https://&lt;您的Worker地址&gt;/wxsend?title=服务器通知&amp;content=服务已于北京时间%2022:00%20重启&amp;token=your_secret_token
+</code></pre>
+<p><strong>临时覆盖用户</strong></p>
+<p>向一个临时指定的用户推送消息：</p>
+<pre class="notranslate"><code class="notranslate">https://&lt;您的Worker地址&gt;/wxsend?title=私人提醒&amp;content=记得带钥匙&amp;token=your_secret_token&amp;userid=temporary_openid_here
+</code></pre>
+<h3>Webhook / POST 请求</h3>
+<p>除了 <code class="notranslate">GET</code> 请求，服务也支持 <code class="notranslate">POST</code> 方法，更适合用于自动化的 Webhook 集成。</p>
+<p><strong>请求地址</strong></p>
+<pre class="notranslate"><code class="notranslate">https://&lt;您的Worker地址&gt;/wxsend
+</code></pre>
+<p><strong>请求方法</strong></p>
+<pre class="notranslate"><code class="notranslate">POST
+</code></pre>
+<p><strong>请求头 (Headers)</strong></p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"Authorization"</span>: <span class="pl-s"><span class="pl-pds">"</span>你的token<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"Content-Type"</span>: <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>
+}</pre></div>
+<p><strong>请求体 (Body)</strong></p>
+<p>请求体需要是一个 JSON 对象，包含与 <code class="notranslate">GET</code> 请求相同的参数。</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>Webhook 通知<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"content"</span>: <span class="pl-s"><span class="pl-pds">"</span>这是一个通过 POST 请求发送的 Webhook 消息。<span class="pl-pds">"</span></span>
+}</pre></div>
+<p><strong>使用示例 (cURL)</strong></p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">curl -X POST \
+  https://<span class="pl-k">&lt;</span>您的Worker地址<span class="pl-k">&gt;</span>/wxsend \
+  -H <span class="pl-s"><span class="pl-pds">'</span>Authorization<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>你的token<span class="pl-pds">'</span></span> \
+  -H <span class="pl-s"><span class="pl-pds">'</span>Content-Type<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> \
+  -d <span class="pl-s"><span class="pl-pds">'</span>{</span>
+<span class="pl-s">    "title": "来自 cURL 的消息",</span>
+<span class="pl-s">    "content": "自动化任务已完成。"</span>
+<span class="pl-s">  }<span class="pl-pds">'</span></span></pre></div>
+<h3>成功响应</h3>
+<p>如果消息成功发送给至少一个用户，服务会返回 <code class="notranslate">HTTP 200</code> 状态码和 JSON：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"msg"</span>: <span class="pl-s"><span class="pl-pds">"</span>Successfully sent messages to 1 user(s). First response: ok<span class="pl-pds">"</span></span>
+}</pre></div>
+<h3>失败响应</h3>
+<p>如果发生错误（如 token 错误、缺少参数、微信接口调用失败等），服务会返回相应的 <code class="notranslate">HTTP 4xx</code> 或 <code class="notranslate">5xx</code> 状态码和 JSON：</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"msg"</span>: <span class="pl-s"><span class="pl-pds">"</span>Invalid token<span class="pl-pds">"</span></span>
+}</pre></div></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
