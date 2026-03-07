@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark-blue" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css' rel='stylesheet' />
+    <script src='../assets/RonanTheme.js'></script><script src='../assets/GmeekVercount.js'></script><script async src='https://cdn.seline.com/seline.js' data-token='980dcab9ed188b4'></script><script　src='https://app.rybbit.io/api/script.js'　data-site-id='07c1f2ea718b'　defer></script><script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9661896697976587' crossorigin='anonymous'></script>
+    <link rel="icon" href="../favicon.svg">
+<meta name="description" content="
+> [!TIP]
+>  RSS-Feed-Push-Bot
+源仓库：[worhlloRSS-Feed-Push-Bot 一个轻量的 RSS 订阅推送脚本：定时拉取 RSS 源，将最新内容推送到 Telegram 或 Webhook，并通过本地历史记录避免重复发送。">
+<meta property="og:title" content="「CF项目」轻量 RSS 订阅推送脚本">
+<meta property="og:description" content="
+> [!TIP]
+>  RSS-Feed-Push-Bot
+源仓库：[worhlloRSS-Feed-Push-Bot 一个轻量的 RSS 订阅推送脚本：定时拉取 RSS 源，将最新内容推送到 Telegram 或 Webhook，并通过本地历史记录避免重复发送。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://note.142588.xyz/post/34.html">
+<meta property="og:image" content="../avatar.png">
+<title>「CF项目」轻量 RSS 订阅推送脚本</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-tip {border-left-color:var(--borderColor-success-emphasis, var(--color-success-emphasis));background-color:var(--color-success-subtle);}.markdown-alert.markdown-alert-tip .markdown-alert-title {color: var(--fgColor-success,var(--color-success-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">「CF项目」轻量 RSS 订阅推送脚本</h1>
+<div class="title-right">
+    <a href="https://note.142588.xyz" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/worhllo/Myblog/issues/34" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>RSS-Feed-Push-Bot<br>
+源仓库：<a href="https://github.com/worhllo/RSS-Feed-Push-Bot">worhlloRSS-Feed-Push-Bot 一个轻量的 RSS 订阅推送脚本：定时拉取 RSS 源，将最新内容推送到 Telegram 或 Webhook，并通过本地历史记录避免重复发送。</a></p>
+</div>
+<hr>
+<h3>🛠️ 前置准备</h3>
+<p>在开始前，请确保你已完成：</p>
+<ol>
+<li>安装 <strong>Python 环境</strong>（推荐 3.8+ 版本），并确保 <code class="notranslate">pip</code> 工具可用。</li>
+<li>拥有一个 <strong>Telegram 账号</strong>，用于创建机器人和接收消息。</li>
+<li>（可选但推荐）为项目创建一个虚拟环境，避免依赖冲突。</li>
+</ol>
+<hr>
+<h3>1. 安装依赖：<code class="notranslate">pip install -r requirements.txt</code></h3>
+<p>这个命令会自动安装项目所需的所有 Python 第三方库。</p>
+<ul>
+<li><strong>操作步骤</strong>：
+<ol>
+<li>打开终端（macOS/Linux 用「终端」，Windows 用「命令提示符」或「PowerShell」）。</li>
+<li>用 <code class="notranslate">cd</code> 命令进入项目文件夹（例如：<code class="notranslate">cd /Users/xxx/Documents/rss-bot</code>）。</li>
+<li>执行安装命令：
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 如果你的系统默认是 Python3，可能需要用 pip3</span>
+pip install -r requirements.txt
+<span class="pl-c"><span class="pl-c">#</span> 或</span>
+pip3 install -r requirements.txt</pre></div>
+</li>
+</ol>
+</li>
+<li><strong>常见问题</strong>：
+<ul>
+<li>如果提示 <code class="notranslate">pip</code> 找不到，先确认 Python 是否正确添加到系统环境变量。</li>
+<li>如果安装失败，尝试升级 <code class="notranslate">pip</code>：<code class="notranslate">pip install --upgrade pip</code>。</li>
+<li>如果提示<code class="notranslate">缺少依赖 feedparser，请先执行：pip install -r requirements.txt</code>，尝试执行<code class="notranslate">pip install feedparser</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>2. GitHub 仓库密钥配置（最关键，否则脚本无权限运行）</h3>
+<ul>
+<li>打开你的 GitHub 仓库 → 点击顶部「Settings」（设置）</li>
+<li>左侧菜单栏找到「Secrets and variables」→ 选择「Actions」</li>
+<li>点击右上角「New repository secret」（新建仓库密钥）</li>
+<li>分别添加 2 个密钥（可以2个都填，也可以任填一个）：<br>
+名称：TELEGRAM_BOT_TOKEN → 值：你的 Telegram 机器人 Token（从 <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Botfather/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Botfather">@Botfather</a> 获取）<br>
+名称：WEBHOOK → 值：你的机器人 Webhook 地址（需 HTTPS，本地调试用 ngrok，服务器用域名）<br>
+✅ 注意：密钥名称必须和配置文件中的一致（大小写敏感），否则脚本会提示「环境变量缺失」。</li>
+</ul>
+<hr>
+<h3>3. 配置 RSS 地址：编辑 <code class="notranslate">rss.config</code> 文件</h3>
+<p>这个文件用来存放你想要订阅的 RSS 源地址，脚本会定期抓取这些源的更新。</p>
+<ul>
+<li><strong>操作步骤</strong>：
+<ol>
+<li>用任意文本编辑器（如 VS Code、记事本、TextEdit）打开项目里的 <code class="notranslate">rss.config</code> 文件。</li>
+<li>按照「每行一个 RSS 地址」的格式填写，示例：
+<pre class="notranslate"><code class="notranslate"># 可以用 # 写注释，不会被脚本读取
+https://news.google.com/rss
+https://www.zhihu.com/rss
+https://blog.csdn.net/xxx/rss/list
+https://feeds.appinn.com/appinns/
+https://feed.iplaysoft.com
+https://www.landiannews.com/feed
+</code></pre>
+</li>
+<li>保存并关闭文件。</li>
+</ol>
+</li>
+<li><strong>注意事项</strong>：
+<ul>
+<li>确保每个 RSS 地址是有效的，否则脚本可能无法正常抓取内容。</li>
+<li>不要在地址前后加多余的空格或符号。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>4. 配置消息通道：设置 Telegram Bot Token 和 Webhook</h3>
+<p>这一步是让脚本和你的 Telegram 机器人绑定，实现消息推送和交互。</p>
+<h4>🔹 先获取 Telegram Bot Token</h4>
+<ol>
+<li>打开 Telegram，搜索 <code class="notranslate">@BotFather</code> 并发送 <code class="notranslate">/newbot</code>。</li>
+<li>按照提示给机器人起名、设置用户名，完成后 BotFather 会给你一个类似 <code class="notranslate">123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11</code> 的 <strong>Token</strong>，保存好这个值。</li>
+</ol>
+<h4>🔹 再准备 Webhook 地址</h4>
+<p>Webhook 是 Telegram 用来给你的脚本推送用户指令（如 <code class="notranslate">/start</code>）的回调地址，需要满足：</p>
+<ul>
+<li>必须是 <strong>HTTPS 地址</strong>（Telegram 不支持 HTTP）。</li>
+<li>如果是本地调试，可以用 <code class="notranslate">ngrok</code> 工具把本地端口暴露成公网 HTTPS 地址（例如：<code class="notranslate">ngrok http 8080</code> 会生成一个类似 <code class="notranslate">https://xxxx-xx-xx-xx-xx.ngrok.io</code> 的地址）。</li>
+<li>如果是服务器部署，直接用你的服务器域名 + 端口（如 <code class="notranslate">https://your-domain.com:8443/webhook</code>）。</li>
+</ul>
+<h4>🔹 设置环境变量</h4>
+<p>环境变量用来安全地存储敏感信息（Token 和 Webhook 地址），避免硬编码在脚本里。</p>
+<ul>
+<li>
+<p><strong>macOS/Linux</strong>（终端执行）：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-k">export</span> TELEGRAM_BOT_TOKEN=<span class="pl-s"><span class="pl-pds">"</span>你的机器人Token<span class="pl-pds">"</span></span>
+<span class="pl-k">export</span> WEBHOOK=<span class="pl-s"><span class="pl-pds">"</span>你的Webhook地址<span class="pl-pds">"</span></span></pre></div>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 这种设置是「临时生效」的，关闭终端后会失效。如果要永久生效，需要把这两行加到你的 Shell 配置文件（如 <code class="notranslate">~/.bashrc</code> 或 <code class="notranslate">~/.zshrc</code>）里。</p>
+</li>
+<li>
+<p><strong>Windows</strong>（命令提示符/PowerShell 执行）：</p>
+<div class="highlight highlight-source-batchfile"><pre class="notranslate"># 命令提示符
+<span class="pl-k">set</span> <span class="pl-smi">TELEGRAM_BOT_TOKEN</span><span class="pl-k">=</span>你的机器人Token
+<span class="pl-k">set</span> <span class="pl-smi">WEBHOOK</span><span class="pl-k">=</span>你的Webhook地址
+
+# <span class="pl-k">PowerShell</span>
+$env:TELEGRAM_BOT_TOKEN=<span class="pl-s"><span class="pl-pds">"</span>你的机器人Token<span class="pl-pds">"</span></span>
+$env:WEBHOOK=<span class="pl-s"><span class="pl-pds">"</span>你的Webhook地址<span class="pl-pds">"</span></span></pre></div>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> Windows 里这种设置也是「临时生效」的，关闭窗口后会失效。如果要永久生效，需要在「系统属性 → 高级 → 环境变量」里添加。</p>
+</li>
+</ul>
+<hr>
+<h3>5. 运行脚本：<code class="notranslate">python rss_bot.py</code></h3>
+<p>一切配置完成后，启动脚本开始工作。</p>
+<ul>
+<li><strong>操作步骤</strong>：
+<ol>
+<li>确保终端还在项目文件夹里（如果之前关闭了，重新用 <code class="notranslate">cd</code> 进入）。</li>
+<li>执行启动命令：
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 同样，Python3 可能需要用 python3</span>
+python rss_bot.py
+<span class="pl-c"><span class="pl-c">#</span> 或</span>
+python3 rss_bot.py</pre></div>
+</li>
+</ol>
+</li>
+<li><strong>运行后效果</strong>：
+<ul>
+<li>脚本会开始定期检查 <code class="notranslate">rss.config</code> 里的 RSS 源，发现新内容就通过 Telegram Bot 推送给你。</li>
+<li>如果配置了 Webhook，用户给机器人发指令（如 <code class="notranslate">/help</code>）时，Telegram 会把请求转发到你的 Webhook 地址，脚本可以响应这些指令。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>🚨 常见问题排查</h3>
+<ul>
+<li><strong>脚本启动报错「找不到模块」</strong>：回到第一步，确认 <code class="notranslate">requirements.txt</code> 里的依赖都安装成功了。</li>
+<li><strong>Telegram 收不到推送</strong>：检查 Bot Token 是否正确，网络是否能访问 Telegram 服务器，RSS 源是否有新内容。</li>
+<li><strong>Webhook 配置失败</strong>：确保 Webhook 地址是 HTTPS，并且可以被公网访问（用浏览器访问你的 Webhook 地址，看是否能正常响应）。</li>
+</ul>
+<hr></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://note.142588.xyz">留心笔记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("03/01/2025"!=""){
+    var startSite=new Date("03/01/2025");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","worhllo/Myblog");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","dark-blue");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+<script src='../assets/ArticleTOC.js'></script><script src='../assets/lightbox.js'></script><script src='../assets/oneko.js/oneko.js' data-cat='../assets/oneko.js/oneko.gif'></script><script>document.querySelectorAll('a').forEach(anchor => {const img = anchor.querySelector('img');if (img && img.hasAttribute('data-canonical-src')) {const canonicalSrc = img.getAttribute('data-canonical-src');anchor.setAttribute('href', canonicalSrc);img.setAttribute('src', canonicalSrc);img.removeAttribute('data-canonical-src');} else {anchor.setAttribute('target', '_blank');}});</script><script>const postTitle=document.querySelector('.postTitle').textContent;fetch('../blogBase.json').then(res=>res.json()).then(data=>{const posts=data.postListJson;const keys=Object.keys(posts).reverse();let index=-1;for(let i=0;i<keys.length;i++){if(posts[keys[i]].postTitle===postTitle){index=i;break;}}if(index!==-1){const nav=document.createElement('nav');nav.style.display='flex';nav.style.justifyContent='space-between';nav.style.marginTop='20px';const prev=posts[keys[index-1]];const next=posts[keys[index+1]];if(prev){const a=document.createElement('a');a.href='../'+prev.postUrl;a.innerHTML='<button class="btn" type="button">← '+prev.postTitle+'</button>';nav.appendChild(a);}else{nav.appendChild(document.createElement('div'));}if(next){const a=document.createElement('a');a.href='../'+next.postUrl;a.innerHTML='<button class="btn" type="button">'+next.postTitle+' →</button>';nav.appendChild(a);}document.getElementById('postBody').after(nav);}});</script><script>const btn=document.createElement('a');btn.href='https://github.com/worhllo/Myblog/issues/new';btn.target='_blank';btn.innerHTML='<svg class="octicon" width="24" height="24" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM7 4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5z"></path></svg>';btn.style.cssText='position:fixed;bottom:30px;left:30px;background:#2ea44f;color:#fff;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;transition:transform 0.2s;';btn.onmouseover=()=>btn.style.transform='scale(1.1)';btn.onmouseout=()=>btn.style.transform='scale(1)';document.body.appendChild(btn);</script>
+
+</html>
