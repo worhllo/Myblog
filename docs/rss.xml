@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:24:21 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」 Serverless 文件管理与 Markdown 分享工具</title><link>https://note.142588.xyz/post/64.html</link><description>&lt;div align='center'&gt;
-
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>留心笔记</title><link>https://note.142588.xyz</link><description>雁过留声，风过留痕</description><copyright>留心笔记</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>../avatar.png</url><title>avatar</title><link>https://note.142588.xyz</link></image><lastBuildDate>Sat, 07 Mar 2026 07:25:06 +0000</lastBuildDate><managingEditor>留心笔记</managingEditor><ttl>60</ttl><webMaster>留心笔记</webMaster><item><title>「CF项目」 Serverless 文件管理与 Markdown 分享工具</title><link>https://note.142588.xyz/post/64.html</link><description>&lt;div align='center'&gt;
+    &lt;p&gt;
+    &lt;a href='README_CN.md'&gt;中文&lt;/a&gt; | &lt;a href='README.md'&gt;English&lt;/a&gt; |
+    &lt;a href='https://www.readme-i18n.com/ling-drag0n/CloudPaste?lang=es'&gt;Español&lt;/a&gt; |
+    &lt;a href='https://www.readme-i18n.com/ling-drag0n/CloudPaste?lang=fr'&gt;français&lt;/a&gt; |
+    &lt;a href='https://www.readme-i18n.com/ling-drag0n/CloudPaste?lang=ja'&gt;日本語&lt;/a&gt;
+    &lt;/p&gt;
     &lt;img width='100' height='100' src='https://img.icons8.com/dusk/100/paste.png' alt='paste'/&gt;
     &lt;h3&gt;🌩️ Serverless 文件管理与 Markdown 分享工具，支持多种存储聚合、30+文件格式在线预览 与 WebDAV挂载&lt;/h3&gt;
 &lt;/div&gt;

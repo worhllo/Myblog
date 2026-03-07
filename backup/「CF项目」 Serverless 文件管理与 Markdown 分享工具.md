@@ -1,5 +1,10 @@
 <div align="center">
-
+    <p>
+    <a href="README_CN.md">中文</a> | <a href="README.md">English</a> |
+    <a href="https://www.readme-i18n.com/ling-drag0n/CloudPaste?lang=es">Español</a> |
+    <a href="https://www.readme-i18n.com/ling-drag0n/CloudPaste?lang=fr">français</a> |
+    <a href="https://www.readme-i18n.com/ling-drag0n/CloudPaste?lang=ja">日本語</a>
+    </p>
     <img width="100" height="100" src="https://img.icons8.com/dusk/100/paste.png" alt="paste"/>
     <h3>🌩️ Serverless 文件管理与 Markdown 分享工具，支持多种存储聚合、30+文件格式在线预览 与 WebDAV挂载</h3>
 </div>
