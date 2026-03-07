@@ -6,11 +6,11 @@
 
 就是创建短链的逻辑，就是Worker代理访问Github，改一下js，添加一条新的短链规则，然后推送，这会自动触发Cloudflare Worker的重新构建，稍等片刻后，访问新的 pathname 就可以得到正确的重定向了。同时支持了有效期，原理也非常简单，前端创建短链的时候给后端传一个什么时候过期的字段，后端再写入文件，最后借助 Github Action 的定时巡查清除过期短链
 
-## 在哪搞个短链[#](https://2x.nz/posts/static-redirect-group/#%E5%9C%A8%E5%93%AA%E6%90%9E%E4%B8%AA%E7%9F%AD%E9%93%BE)
+## 在哪搞个短链
 
 我的 2x.nz 是在 [https://porkbun.com](https://porkbun.com/) 买的，一年一百左右。其他后缀也不错，如 `.im` `.mk`
 
-## 正式搭建你的短链服务[#](https://2x.nz/posts/static-redirect-group/#%E6%AD%A3%E5%BC%8F%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E7%9F%AD%E9%93%BE%E6%9C%8D%E5%8A%A1)
+## 正式搭建你的短链服务
 
 首先，Fork仓库[afoimStatic_Redirect_Group 静态重定向组](https://github.com/afoim/Static_Redirect_Group)
 
@@ -31,7 +31,7 @@
 
 此时，访问 `/_url` 即可创建你的短链
 
-## 防护[#](https://2x.nz/posts/static-redirect-group/#%E9%98%B2%E6%8A%A4)
+## 防护
 
 建议保护创建短链的短链，防刷（或Cloudflare Turnstile、速率限制… 随你）
 
