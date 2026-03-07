@@ -3,11 +3,7 @@
 仓库fork于：[Tools-Web](https://github.com/naroat/tools-web)，感谢naroat做出的贡献！
 源仓库：[2424004764tools-web 一站式在线工具箱：覆盖开发运维、文本处理、图片处理、数据图表、趣味互动、选择随机、教育学术与 AI 工具；提供 JSONCSVTSV 互转、随机密码UUID、时间戳与进制转换、单位换算、URL 编解码参数解析、正则测试、Markdown、文本对比去重、哈希校验、文件大小转换、HTTP 状态码、JWT 解析、Cron 表达式、HTML 实体、二维码生成与识别、在线图片编辑分割转 Base64、文本转图片、色板取色器、柱状折线饼散点图、摩斯电码，以及贪吃蛇2048俄罗斯方块扫雷打地鼠数字华容道数独等小游戏，另含 IP 查询、网站信息获取、AI 起名变量名文生图翻译与在线请求调试等实用功能。](https://github.com/2424004764/tools-web)
 
-> ## Excerpt
-> 安装最新版的tool-web并部署到Cloudflare上
-
 ---
-## 安装最新版的tool-web并部署到Cloudflare上
 
 ### 1、先fork我的仓库
 
